@@ -6,6 +6,7 @@ int main()
 {
 	int x;
 	int y;
+
 	int XandY[5][5]={};//pahum enq x ev y koordinatner@ 
 		for(int i=0;i<5; ++i){
 			cout<<"Enter x\t";

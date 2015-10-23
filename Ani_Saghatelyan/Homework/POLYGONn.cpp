@@ -1,6 +1,6 @@
 // tsragir, vor@ vorooshum e, te mutqagrvats keterov karucvats bazmankyun@ kanonavor e, te che
 # include <iostream>
-using namespace std;
+using namespace std; 
 
 int main()
 {
@@ -17,7 +17,7 @@ int main()
 			XandY[i][1]=y;
 			}
 
-int Vector[5][5]={};// pahum enq 2 hajordakan keterov ancnox vektory
+int Vector[5][5]={};// pahum enq 2 hajordakan keterov ancnox vektor@
 		for(int j=0; j<4; ++j){
 			Vector[j][0]=(XandY[j+1][0] - XandY[j][0]);
 			Vector[j][1]=(XandY[j+1][1] - XandY[j][1]);

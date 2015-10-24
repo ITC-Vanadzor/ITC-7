@@ -18,6 +18,7 @@ double mutq(string name)
 int main()
 {
 int n;
+std::cout << "n=";
 std::cin >> n;
 int N[n][2];
 int vectors[n];

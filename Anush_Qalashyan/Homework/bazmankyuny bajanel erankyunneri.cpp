@@ -1,11 +1,12 @@
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
 
 double vector(double X1,double Y1,double X2,double Y2)
 	{
-		return (X1*Y2)-(X2*Y1);
+		return   sqrt((X2-X1)*(X2-X1)+(Y2-Y1)*(Y2-Y1)); 
 	}
 
 double mutq(string name)
@@ -18,7 +19,7 @@ double mutq(string name)
 int main()
 {
 int n;
-Std::cout << "n=";
+std::cout << "n=";
 std::cin >> n;
 int N[n][2];
 int vectors[n];
@@ -56,7 +57,9 @@ for (int i=0 ; i<n-1 ; ++i)
 	std::cout << "urucik bazmankyun e" << std::endl;
 
 
-
-
+for (int i=0 ; i<n-3 ; ++i)
+{     
+std::cout << "A keti het -> " << "(" << N[i+2][0] << "," <<N[i+2][1]<< ")" << " kety "<< std::endl;
+}
   return 0;
 }

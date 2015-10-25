@@ -16,15 +16,34 @@ int main()
 {
 	int x[n];
 	int y[n];
+	int k = 0;
+	int erku=2;
+	
 	for (int i = 0; i < n; ++i)
 	{
 		cin >> x[i];
 		cin >> y[i];
 	}
-	for (int i = 0; i < n - 3; i++)
+	
+
+	for (int i = 0; i < n - 1; i++)
 	{
-		for (int j = 3; j < n - 1; j++)
-			if (vect_mult(x[i], y[i], x[i + 1], y[i + 1], x[i + j], y[i + j]) == 0)cout << i << " -> " << j << endl;
+		if (i == n - 2) 
+		{
+			erku = -i;
+		}
+		
+		if (x[i] != 666)
+		{	
+		
+			if (vect_mult(x[i+erku], y[i+erku], x[i + 1], y[i +1], x[i], y[i]) == 1)
+			{
+				cout << i << " -> " << i + 2 << endl;
+				x[i + 1] = x[i + 2]; ++i;
+			}
+		}
+		if (i >= n -2 && k ==0) { i = 0; k++; }
 	}
+	
 	system("Pause");
 }

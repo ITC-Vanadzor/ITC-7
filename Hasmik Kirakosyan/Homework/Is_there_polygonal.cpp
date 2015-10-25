@@ -30,11 +30,11 @@ int main (){
       }    
   }
   
-  if (i!=(n-1)) {
-              std::cout<<"\nThere is a convex polygonal with such coordinates ";
+  if (i<(n-1)) {
+              std::cout<<"\nThere isn't convex polygonal with such coordinates ";
   }
    else      {
-              std::cout<<"\nThere isn't a convex polygonal with such coordinates ";
+              std::cout<<"\nThere is a convex polygonal with such coordinates ";
              }
 
 

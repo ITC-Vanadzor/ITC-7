@@ -1,5 +1,5 @@
 #include <iostream>
-using namespace std;
+#include <cstdlib>
 int vektorakan (int x1, int y1, int x2, int y2, int x3, int y3)
 	{
 		return (x2-x1)*(y3-y2)-(x3-x2)*(y2-y1);
@@ -7,44 +7,42 @@ int vektorakan (int x1, int y1, int x2, int y2, int x3, int y3)
 int main()
 {
 	int n;
-	cout << "n= ";
-	cin >>n;
+	std::cout << "n= ";
+	std::cin >> n;
 	int ket[2][n];
-	cout << "Mutqagrenq keteri koordinatner@"<<endl;
+	std::cout << "Mutqagrenq keteri koordinatner@" << std::endl;
 	for (int j=1; j<=n; ++j)
 	{
-		cout <<"x" << j << "= ";
-		cin >> ket[1][j];
-		cout <<"y" << j << "= ";
-		cin >> ket[2][j];
+		std::cout <<"x" << j << "= ";
+		std::cin >> ket[1][j];
+		std::cout << "y" << j << "= ";
+		std::cin >> ket[2][j];
 	}
-	
-	int aj;
-	aj=0;
-	int dzax;
-	dzax=0;
-	int j=1;
-	do
+	bool stugum;
+	if (vektorakan(ket[1][1], ket[2][1], ket[1][2], ket[2][2], ket[1][3], ket[2][3])>0)
 	{
-		if (vektorakan(ket[1][j], ket[2][j], ket[1][j+1], ket[2][j+1], ket[1][j+2], ket[2][j+2])>0)
-		{
-			++dzax;
-		}
-		else
-		{
-			++aj;
-		}
-		++j;
-	}
-	while (j<=(n-2));
-	if ((aj==0) || (dzax==0))
-	{
-		cout << "trvac bazmankyunn urucik e"<<endl;
+		stugum = true;
 	}
 	else
 	{
-		cout << "trvac bazmankyunn urucik che"<<endl;
+		stugum = false;
 	}
+	
+	int j=2;
+	do
+	{
+		if ((vektorakan(ket[1][j], ket[2][j], ket[1][j+1], ket[2][j+1], ket[1][j+2], ket[2][j+2])>0) == stugum)
+		{
+		++j;
+		}
+		else
+		{
+			std::cout << "trvac bazmankyunn urucik che";
+			exit(1);
+		}
+	}
+	while (j<=(n-2));
+	std::cout << "trvac bazmankyunn urucik e" << std::endl;
 	return 0;
 }
 

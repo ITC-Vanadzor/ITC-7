@@ -5,7 +5,7 @@ using namespace std;
 
 double vector(double X1,double Y1,double X2,double Y2)
 	{
-		return (X1*Y2)-(X2*Y1);
+		return sqrt((X2-X1)*(X2-X1)+(Y2-Y1)*(Y2-Y1));
 	}
 
 double mutq(string name)

@@ -14,7 +14,6 @@ int tvanshan(int n) // tvanshanneri gumari hashvum
 		ncopy/=10;
 	}
 	while (ncopy>0);
-	gumar+=ncopy;
 	return gumar;
 }
 

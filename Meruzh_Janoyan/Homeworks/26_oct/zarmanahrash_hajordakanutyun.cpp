@@ -1,4 +1,4 @@
-//zarmanahrash e ete hajordakanutyan gumary havasar e K, ev cankacac tiv ir naxordic
+ //zarmanahrash e ete hajordakanutyan gumary havasar e K, ev cankacac tiv ir naxordic
 //mec e 1-ov
 #include <iostream>
 

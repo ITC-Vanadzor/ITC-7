@@ -17,21 +17,21 @@ int main()
 {
 	int x[n];
 	int y[n];
-	bool t_f[n];
-	cout << "nermuceq 8 ankyan kordinatner@ jamslaxi uxutyamb/n";
+	bool t_f[n+1];
+	cout << "nermuceq 8 ankyan kordinatner@ jamslaxi uxutyamb\n";
 	for (int i = 0; i < n; ++i)
 	{
-		cout << "x[i]=";
+		cout << "x["<<i<<"]=";
 		cin >> x[i];
-		cout << "x[i]=" ;
+		cout << "y["<<i<<"]=";
 		cin >> y[i];
 		t_f[n] = true;
 	}
-	
+
 
 	for (int i = 0; i < n - 1; ++i)
 	{
-		if (t_f[i])
+		if (t_f[i]==true && t_f[i + 1] == false || i==0)
 
 		{
 			for (int a = i + 2; a < n - 1; ++a)
@@ -48,6 +48,6 @@ int main()
 			}
 		}
 	}
-	
-	system("Pause");
+
+	return 0;
 }

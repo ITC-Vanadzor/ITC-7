@@ -15,10 +15,10 @@ int sum_number(int a)
 //function, that checks which number is "bad" and which number is "good"
 int good_bad(int a,int b)
 {
-  int bad_number;
+  int good_number;
   if ( sum_number(a) > sum_number(b) )
  {
-    bad_number = b;
+    good_number = a;
  }
   else
  {
@@ -26,19 +26,19 @@ int good_bad(int a,int b)
       {
       if ( a < b )
 	{
-	bad_number = b;
+	good_number = a;
 	}
       else 
 	 {
-	bad_number = a;
+	good_number = b;
          }
       }
    	 else
     	 {
-      	 bad_number = a;
+      	 good_number = b;
      	 }
  }
-  return k;
+  return good_number;
 }
 
 
@@ -47,12 +47,12 @@ int good_bad(int a,int b)
 int main()
 {
   int number;
-  std::cout << "Insert Number " << endl;
+  std::cout << "Insert Number " << std::endl;
   std::cin >> number;
-  for(int i = 2; i <= number/2; ++i)
+  for(int i = 2; i <= number; ++i)
     {
       if(number%i == 0)
-      std::cout << "Bed will be " << good_bad(number, i) << endl; 
+      std::cout << "Good will be " << good_bad(number, i) << std::endl; 
       break; 
 	
     }

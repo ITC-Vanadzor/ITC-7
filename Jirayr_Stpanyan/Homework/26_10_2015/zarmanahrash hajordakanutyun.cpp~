@@ -22,11 +22,6 @@ int main()
 				zarm[qanak - 1] +=zarm[j];
 			}
 			zarm[qanak - 1] = tiv - zarm[qanak - 1];
-			if(zarm[qanak - 1] <= zarm[qanak - 2])
-			{
-				cout << "hnaravor che " << endl;
-				exit(1);
-			}
 			cout << tiv <<"-i mej zarmanahrash hjordakanutyan tvern en ";
 			for(int i = 0; i < (qanak); ++i)
 			{

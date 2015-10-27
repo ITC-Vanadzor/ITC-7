@@ -1,4 +1,5 @@
 // voroshum e N tvi faktorialum  verjin 0-neri qanak@
+// hashvark@ katarvum e @st N-@ 5-i ev nra krknapatiki, qarapatiki vra bajanman qanaki
 
 # include <iostream>
 # include <cmath>

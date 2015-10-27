@@ -49,7 +49,7 @@ int main()
   int number;
   std::cout << "Insert Number " << std::endl;
   std::cin >> number;
-  for(int i = 2; i <= number; ++i)
+  for(int i = 2; i >=number; ++i)
     {
       if(number%i == 0)
       std::cout << "Good will be " << good_bad(number, i) << std::endl; 

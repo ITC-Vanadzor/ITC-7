@@ -12,21 +12,14 @@ int main()
 }
 void CounterOfNull(int num)
 {
-	int count = 0;
-	if(num%10 == 0)
+	int count = 0, numberOfFive = 5;
+	while(num/numberOfFive > 0)
 	{
-	count = 2 * num/10;
-	std::cout << "For quantity of null in number we will have " << count << std::endl;
+		count += num/numberOfFive;
+		numberOfFive *= 5;
+		
 	}
-	else
-	if(num%10 >= 5)
-	{
-	count = 2 * (num/10) + 1;
+
 	std::cout << "For quantity of null in number we will have " << count << std::endl;
-	}
-	else
-	{
-	count = 2 * num/10;
-	std::cout << "For quantity of null in number we will have " << count << std::endl;
-	}
+	
 }

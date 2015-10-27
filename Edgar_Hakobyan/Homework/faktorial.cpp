@@ -2,26 +2,12 @@
 #include <iostream>
 int main()
 {
-	int n,dupl_n,mnacord,amboxj_mas,qanak=0;
-	int x[100];
+	int n=0,qanak=0;
 	std::cout<<"n= "; std::cin>>n;
-	mnacord=n%5;
-	amboxj_mas=n/5;
-	dupl_n=n;
-	for(int i=0;i<amboxj_mas;i++)
-	{	
-		x[i]=dupl_n;
-		dupl_n-=5;
-		++qanak;
-	}
-	int k=x[amboxj_mas-1]*x[amboxj_mas-1]; 
-	if(k<=n)
+	qanak=n/5;
+	if(n/25>0)
 	{
-		while(k<=x[0])
-		{
-			k+=25;
-			++qanak;
-		}
+		qanak+=n/25;
 	}
 	std::cout<<n<<"-i faktorial@ avartvum e "<<qanak<<" zroyov "<<std::endl;
 	return 0;

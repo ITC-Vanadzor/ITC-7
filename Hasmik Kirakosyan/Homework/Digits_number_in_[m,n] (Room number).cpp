@@ -11,6 +11,8 @@ int main () {
     n/=10;
     
     while (n>0) {
+          if (n%10==0) sum=(sum+1)*10;
+          else
           sum=sum+(int) n%10*i*int (pow(10,k));
           i++;
           k++;

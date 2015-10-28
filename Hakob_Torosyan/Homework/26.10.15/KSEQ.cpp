@@ -14,9 +14,9 @@ int main()
 
 void printSeq(int k, int n)
 {
-	int sum = k - n, temp;
+	int dif = k - n, temp = 1;
 	//for (n-1) members sum we will have k-n
-	temp = (sum - n + 1) / (n-2); 
+	temp = (dif - n + 1) / (n-2); 
 	std::cout << "For our alternation we will have " << std::endl;
 	for(int j = 1; j <= (n - 1); ++j)
 	{

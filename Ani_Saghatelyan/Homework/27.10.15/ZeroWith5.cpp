@@ -1,6 +1,7 @@
 // voroshum e N tvi faktorialum  verjin 0-neri qanak@
 
 # include <iostream>
+# include <cmath>
 using namespace std;
 
 int Factorial(int n){
@@ -22,20 +23,12 @@ void  ZeroCount(int Factorial){
 
 void ZeroCountWithFlags( int N){
 	int zero=0;
-
-		for(int i=0; i<=N; ++i){
-			int flag2=0;
-				if(i%2==0){
-						flag2++;
-						}
-		int flag5=0;
-				if(i%5==0){
-						flag5++;
-						}
-		if((flag2==flag5)&&(flag2!=0)){//flag2!=0, vorpeszi 0=0 depq@ bacasenq
-				zero++;
+        int astichan=1;
+            while(pow(5,astichan)<=N){
+		zero+=N/pow(5,astichan);
+                astichan++;
 			}
-	}
+	
 	cout<<"The count of Zero's will be  "<<zero<<endl;
 
 
@@ -53,7 +46,7 @@ int main()
 	}
     int factorial=Factorial( N);
 	cout<<factorial<<endl;
-	ZeroCount(factorial);
+	//ZeroCount(factorial);
 	ZeroCountWithFlags(N);
 	
 	return 0;

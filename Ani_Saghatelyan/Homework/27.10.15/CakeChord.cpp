@@ -3,22 +3,38 @@ using std::cin;
 using std::cout;
 using std::endl;
 # include <cmath>
+#include <limits>
+
 using namespace std;
+//# include <cfloat>
+static double pi=3.14159265358979323846;
+static   double  R=30;
 
-
-double CircleArea( int r, double p){
-	double area=p*r*r;
+double CircleArea(){
+	double area=pi*R*R;
     return area;
 };
 
-float GetCorner(int guests){
-	float corner=360/(float)guests;
-    return corner;
-};
-double SegmentArea( float corner,double circleArea, int r){
-	double segment=circleArea*corner/360-r*r/2*sin(corner);
+double SegmentArea( double corner){
+	double segment=(pi*R*R*corner/360)-(R*R*sin(corner)/2);
     return segment;	
 };
+
+double GetCorner( double currentSegmentArea, double corner){
+    
+	
+       double difference= currentSegmentArea;
+       double currentArea=0;
+    while(difference - currentArea > std::numeric_limits<double>::epsilon() ){
+         currentArea+=SegmentArea(corner);
+         corner+= 0.001;   //std::numeric_limits<double>::epsilon();
+         }
+    return corner;
+};
+
+
+
+
 
 int main()
 {
@@ -31,26 +47,28 @@ int main()
 			cin>>QuantityOfGuests;
 			}
 		
-	     double pi=3.1419;
-	     int R=30;
-		 double areOfCircle=CircleArea(R,pi);
-		 cout<<"The whole cakes's area is\t"<<areOfCircle<<endl;
-		 float corner=GetCorner(QuantityOfGuests);
+	     
+		 double areaOfCircle=CircleArea();// torti makeresi voroshum;
+                 cout<<"AreaOfCake is\t"<<areaOfCircle<<endl;
+                 double OnePeaceArea=areaOfCircle/QuantityOfGuests;//voroshum enq mi ktori makekresi qanak@
+		 
 		 double SumofSegments = 0;
 		 double  areaOfPreviousSegments=0;
-		 for( int i = 1 ; i < QuantityOfGuests ; ++i){
-			  double areaOfBigSegment = SegmentArea( corner , areOfCircle , R);
-			//  cout<<"areaOfBig<<Segment-SumofSegments\t"<<areaOfBigSegment<<" - "<<SumofSegments<<endl;
-			  corner += corner ;
-			  cout<<"AreaofBigsegment\t"<<areaOfBigSegment<<endl;
+                 double corner=0;
+                 double areaOfBigSegment = OnePeaceArea;     
+		 for( int i = 1 ; i <= QuantityOfGuests ; ++i){
+                          corner=GetCorner(areaOfBigSegment, corner);
+                          cout<<"The corner \t"<<corner<<endl;
+			  areaOfBigSegment = SegmentArea( corner);
 			  double areaOfSegment = areaOfBigSegment - areaOfPreviousSegments ;
 			  cout << " The \t " << i << "-th  area of segment will be \t " << areaOfSegment << endl ;
-			  areaOfPreviousSegments=areaOfBigSegment;
-		      SumofSegments+= areaOfSegment ;
-			  //	cout<<"The sum of  area segments will be\t"<<SumofSegments<<endl;
-		       //cout<<endl;
+     
+         		 double areaOfPreviousSegments=areaOfSegment;
+		         SumofSegments+= areaOfSegment ;
+                       }
+			cout<<"Sum of segments is \t"<<SumofSegments<<endl;
 			
-		 }
+		 
 	
 
 return 0;

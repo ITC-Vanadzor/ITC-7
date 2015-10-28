@@ -38,25 +38,24 @@ int good_bad(int a,int b)
       	 bad_number = a;
      	 }
  }
-  return k;
+  return bad_number;
 }
 
-
-
-
-int main()
+ int main()
 {
   int number;
   std::cout << "Insert Number " << std::endl;
   std::cin >> number;
-  for(int i = 2; i <= number; ++i)
+  int temp = number;
+  for(int i = number; i >=2; --i)
     {
       if(number%i == 0)
-      std::cout << "Bad will be " << good_bad(number, i) << std::endl; 
-      break; 
-	
+      temp = good_bad(temp, i);
     }
- 
+ std::cout << "For bad number we will have " << temp << std::endl;
   return 0;
 
 }
+
+
+

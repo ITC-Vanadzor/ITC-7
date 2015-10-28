@@ -74,8 +74,6 @@ int main()
   pix[11][2]=pix[11][0]*a(pix[1][0],pix[1][2],pix[2][0],pix[2][2])+b(pix[1][0],pix[1][2],pix[2][0],pix[2][2]);
   
 
-
-
   int gd = 9;
   int gm = 2;
   initgraph(&gd,&gm,NULL);
@@ -96,8 +94,6 @@ int main()
   line(pix[8][0], 240-pix[8][2], pix[11][0], 240-pix[11][2]);
 
   //xy proection
-
- 
   setcolor(1);
   line(pix[0][0], 240+pix[0][1], pix[1][0], 240+pix[1][1]);
   line(pix[1][0], 240+pix[1][1], pix[2][0], 240+pix[2][1]);

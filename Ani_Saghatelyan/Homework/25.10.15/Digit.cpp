@@ -5,6 +5,7 @@ using namespace std;
 int main()
 {
 	int  m , n ;// mijakayqn e (m,,,n)
+
 	cout << " Enter m\t " ;
 	cin >> m ;
 	cout << " Enter n\t " ;

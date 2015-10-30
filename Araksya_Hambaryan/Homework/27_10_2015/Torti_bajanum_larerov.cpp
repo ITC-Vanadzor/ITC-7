@@ -1,17 +1,17 @@
 #include <iostream>
 #include <cmath>
 // Tort@ bajanel  n hyureri mej havasar ktornerov, bajanel hnaravor e larerov kam tramagcov
-// chisht chi ashxatum ((
+
 double SegemntiAnkyun (double KtoriMakeres, int KtoriHamar, double AnkyunSkzbi) {
 	double AnkyunVerji = AnkyunSkzbi;
 	while (AnkyunVerji<360) {
-		if ((AnkyunVerji *M_PI/180 - sin (AnkyunVerji*M_PI/180) - 2* KtoriMakeres* KtoriHamar) <=0.1) {
+		if (fabs((AnkyunVerji *M_PI/180 - (double)sin ((double)(AnkyunVerji*M_PI/180)) - 2* KtoriMakeres* KtoriHamar)) <0.1) {
 			return AnkyunVerji;
 			std::cout << "Ankyun` " << AnkyunVerji;
 			break;
 		}
 		else {
-			AnkyunVerji+=0.00001;
+			AnkyunVerji+=0.01;
 		}
 	}
 }

@@ -1,6 +1,5 @@
 #include <iostream>
 #include <stdint.h>
-#include <math.h>
 
 uint64_t pow_of_2 (int n) {
         uint64_t pow_1=1;

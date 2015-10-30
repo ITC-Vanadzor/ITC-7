@@ -2,17 +2,21 @@
 #include <cmath>
 #include <iostream>
 #include <graphics.h>
-
+//using namespace std;
 
 float square(float , float , float , float , float , float );
 float side(float, float, float, float );
 float ax(float, float, float, float );
 float bx(float, float, float, float );
-
+void swap_row(float **arr,int size);
 int main()
 {
 
-  float a[4][2];
+  float **a;
+  a = new float *[2];
+  for (int i =0; i<4; i ++)
+        a[i] = new float [4];
+  //  float a[4][2];
   float b[3];
   float s;
   for (int i = 0; i < 3; ++i){
@@ -33,8 +37,9 @@ int main()
   a[3][0]=-(bx(a[0][0],a[0][1],a[1][0],a[1][1])-bx(a[0][0],a[0][1],a[2][0],a[2][1]))/(ax(a[0][0],a[0][1],a[1][0],a[1][1])-ax(a[0][0],a[0][1],a[2][0],a[2][1]));
   a[3][1]=-(bx(a[0][0],a[0][1],a[1][0],a[1][1])+ax(a[0][0],a[0][1],a[1][0],a[1][1])*a[3][0]);
 
-  cout << a[3][0] << endl;
-  cout << a[3][1] << endl;
+  std::cout << a[3][0] << std::endl;
+  std::cout << a[3][1] << std::endl;
+
 
   int gd = 0;
   int gm ;
@@ -55,7 +60,6 @@ int main()
 
   delay(15000);
   closegraph();
-
 
 
  return 0;
@@ -93,4 +97,19 @@ float bx(float x1, float y1, float x2, float y2)
   result=-result;
   return result;
 
+}
+
+void swap_row(float **arr,int size)
+{
+  float x,y;
+  x=arr[0][0];
+  y=arr[0][1];
+  for(int i = 1; i < size; i++)
+    {
+      arr[i-1][0] = arr[i][0];
+      arr[i-1][1] = arr[i][1];
+    }
+  arr[size-1][0] = x;
+  arr[size-1][1] = y;
+  
 }

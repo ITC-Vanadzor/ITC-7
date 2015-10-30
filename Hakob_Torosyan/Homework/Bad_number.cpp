@@ -38,7 +38,7 @@ int good_bad(int a,int b)
       	 bad_number = a;
      	 }
  }
-  return k;
+  return bad_number;
 }
 
  int main()

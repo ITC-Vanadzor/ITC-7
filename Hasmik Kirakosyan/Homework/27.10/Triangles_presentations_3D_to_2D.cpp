@@ -25,12 +25,11 @@ void triangleCoordinatesTransform (int dist, point3D first3D, point3D second3D, 
 void drawTriangle (point2D first2D,point2D second2D, point2D third2D, int colornum){
    setcolor(colornum);
    int shape[] = {
-     (int) first2D.x,(int) first2D.y,
-     (int)second2D.x,(int) second2D.y,
-     (int)third2D.x,(int) third2D.y,
-     (int)first2D.x,(int) first2D.y
+     (int) first2D.x, (int) first2D.y,
+     (int) second2D.x,(int) second2D.y,
+     (int) third2D.x, (int) third2D.y,
+     (int) first2D.x, (int) first2D.y
    };
-   
     setfillstyle(INTERLEAVE_FILL, MAGENTA);
     fillpoly(4, shape);
 };
@@ -46,36 +45,36 @@ int main (){
    int distFromDisp = 0;
   
    
-   std::cout<<"\nWatcher distance from display ";
+   std::cout<<"\nWatcher distance from display :";
    std::cin>>distFromDisp;
 
    point3D firstPoint3D_1, secondPoint3D_1, thirdPoint3D_1;
    
-   std::cout<<"\nStart point 3D coordinates x,y,z:";
+   std::cout<<"\nTriangle N1 | Edge point N1 : x,y,z = ";
    std::cin>>firstPoint3D_1.x>>firstPoint3D_1.y>>firstPoint3D_1.z;
    
-   std::cout<<"\nEnd point 3D coordinates x,y,z:";
+   std::cout<<"\nTriangle N1 | Edge point N2 : x,y,z = ";
    std::cin>>secondPoint3D_1.x>>secondPoint3D_1.y>>secondPoint3D_1.z;
    
-   std::cout<<"\nThird point 3D coordinates x,y,z:";
+   std::cout<<"\nTriangle N1 | Edge point N3 : x,y,z = ";
    std::cin>>thirdPoint3D_1.x>>thirdPoint3D_1.y>>thirdPoint3D_1.z;
    
    point3D firstPoint3D_2, secondPoint3D_2, thirdPoint3D_2;
    
-   std::cout<<"\nStart point 3D coordinates x,y,z:";
+   std::cout<<"\nTriangle N2 | Edge point N1 : x,y,z = ";
    std::cin>>firstPoint3D_2.x>>firstPoint3D_2.y>>firstPoint3D_2.z;
    
-   std::cout<<"\nEnd point 3D coordinates x,y,z:";
+   std::cout<<"\nTriangle N2 | Edge point N2 : x,y,z = ";
    std::cin>>secondPoint3D_2.x>>secondPoint3D_2.y>>secondPoint3D_2.z;
    
-   std::cout<<"\nThird point 3D coordinates x,y,z:";
+   std::cout<<"\nTriangle N2 | Edge point N3 : x,y,z = ";
    std::cin>>thirdPoint3D_2.x>>thirdPoint3D_2.y>>thirdPoint3D_2.z;
    
    point2D firstPoint2D_1, secondPoint2D_1, thirdPoint2D_1;
    
    triangleCoordinatesTransform(distFromDisp, firstPoint3D_1, secondPoint3D_1, thirdPoint3D_1, &firstPoint2D_1, &secondPoint2D_1, &thirdPoint2D_1);
 
-   drawTriangle (firstPoint2D_1, secondPoint2D_1, thirdPoint2D_1, 7 );
+   drawTriangle (firstPoint2D_1, secondPoint2D_1, thirdPoint2D_1, 2 );
    
    
    point2D firstPoint2D_2, secondPoint2D_2, thirdPoint2D_2;
@@ -87,6 +86,6 @@ int main (){
  
    
    getch();
-   restorecrtmode();   
+   closegraph();   
    return 0;
 }

@@ -5,7 +5,7 @@
 unsigned int possibility_for_k_rooks (int N, int K) {
 
 	unsigned int C_multiply=1;
-	for (int i = N;i>1; --i) {
+	for (int i = N, j=1;i>1, j<=K; --i,++j) {
 		C_multiply*=i*i;  
 	}
 

@@ -1,3 +1,4 @@
+//krknaki zro (perebor)
 #include<iostream>
 #include<cmath>
 
@@ -63,6 +64,6 @@ int main()
 	}
 
 	std::cout << count;
-	system("Pause");
+	
 	return 0;
 }

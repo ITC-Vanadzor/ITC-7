@@ -1,0 +1,54 @@
+// The programm determines the quantity of sorting   K rooks  in  N*N chess
+# include <iostream>
+
+
+int factorial(int n){
+   if(n==0){ 
+    return 1;
+    }
+  else
+   {
+   return n*factorial(n-1);
+   }
+}
+
+int Zugordutyun(int N, int  K){
+   
+    int zugordutyun= factorial(N)/factorial(K)*factorial(N-K);
+     return  zugordutyun;
+} 
+
+
+int CountOfSorting(int N, int K){
+
+  int count=Zugordutyun(N*N,K);
+  int currentCountOfCubes=N;
+ 	while(currentCountOfCubes>1){
+  		count/=Zugordutyun((currentCountOfCubes*currentCountOfCubes-(2*currentCountOfCubes-1)), K--)*K;
+                currentCountOfCubes--;
+		}
+            
+  return count;
+ } 
+   
+
+int main()
+{
+
+int N;
+int K;
+	do{  std::cout<<"Enter N=\t";
+		std::cin>>N;
+		std::cout<<"Enter  K=\t";
+		std::cin>>K;
+	}while(K<=0 || N<=0);
+    
+     int Count=CountOfSorting(N, K);
+    std::cout<<"The count of sortings will br\t"<<Count<<std::endl;
+
+return 0;
+}
+  
+  
+     
+ 

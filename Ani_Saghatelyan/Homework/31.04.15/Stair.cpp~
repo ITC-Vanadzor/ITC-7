@@ -1,0 +1,30 @@
+// The programm is about determinig the count of versions for rising stair with 1 or two steps
+# include <iostream>
+
+int CountOfVersions(int n){
+   int countofVersions=0;
+   	for(int one=0; one<=n; one++){
+     		int two=n-one;
+                n-=two;
+     		two==one ? countofVersions+=1:countofVersions+=2;
+               }
+  
+    return  countofVersions;
+}
+
+int main()
+{
+  int n;
+do{
+  std::cout<<"Enter n beetween [1,30]\t";
+  std::cin>>n;
+    }while(n<=0);
+
+int count=CountOfVersions( n);
+std::cout<<"the count of versions will  be\t"<<count<<std::endl;
+return 0;
+}
+
+
+
+     

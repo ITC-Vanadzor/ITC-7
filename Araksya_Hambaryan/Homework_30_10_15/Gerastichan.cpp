@@ -2,7 +2,7 @@
 // voroshel erkusi n-rd kargi gerastichann @st m moduli
 
 int Gerastichan(int N, const int& m) {
-    return (N == 0) ? (2%m) : (Gerastichan(N-1,m)%m)* (Gerastichan(N-1,m)%m);
+    return (N == 0) ? (2%m) : (Gerastichan(N-1,m)* Gerastichan(N-1,m))%m;
 }
 int main() {
     int n = -1;

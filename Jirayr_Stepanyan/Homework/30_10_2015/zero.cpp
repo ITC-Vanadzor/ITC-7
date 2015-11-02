@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-
 int main()
 {
 	int k_akan = 0, n_anish = 0;
@@ -17,38 +16,34 @@ int main()
 	{
 		tiv[x] = 0;
 	}
-	int amenamets_tasakan=pow(k_akan,n_anish)-1; // maximum kunenanq aydqan tiv
+	int amenamets_tasakan=(k_akan - 1) * pow(k_akan,(n_anish - 1)); // maximum kunenanq aydqan tiv
 	int erku_zroneri_qanak = 0;
-	for (int i=0; i<=amenamets_tasakan;++i)
+	for (int i=1; i<=amenamets_tasakan;++i)
 	{
-		for(int x = 0; x < n_anish; ++x)
-		{
-			tiv[x] = 0;
-		}
 		int k=i;
-	        int j=0;
+	        int j=n_anish - 1;
 	        cout << "i=" << i << endl;
 	        while (k>0) // hertakanutyamb massivi andamner@ berum enq k-akan hamakargi
 	        {
        			tiv[j]=k%k_akan;
-			j=j+1;
+			j=j-1;
 			k=k/k_akan;
        	        }
-	        for (int l=n_anish-1;l>=0;--l) // ays cikl@ grel em nra hamar vor tesneq vor dzer uxarkac xndri nkarum sxal a tvac
+	        for (int l=0;l<=n_anish - 1;++l) // ays cikl@ grel em nra hamar vor tesneq vor dzer uxarkac xndri nkarum sxal a tvac
 	        {
 			cout << "tiv["<< l << "]=" << tiv[l] << "   ";
 	        }
 	        cout << endl;
-	    	for(int y = 0; y<(n_anish-1); ++y) // ays cikl@ stugum em massivi harevan andamnerin vor erkusn el linen zro
+	    	for(int y = n_anish - 1; y>=0; --y) // ays cikl@ stugum em massivi harevan andamnerin vor erkusn el linen zro
 		{
-			if(tiv[y] == 0 && tiv[y + 1] == 0)
+			if(tiv[y] == 0 && tiv[y - 1] == 0 && tiv[0] != 0)
 			{
 				++erku_zroneri_qanak;
 				break;
 			}
 		}
 	}
-	int qanak = (amenamets_tasakan +1) - erku_zroneri_qanak;
+	int qanak = amenamets_tasakan - erku_zroneri_qanak;
 	cout << " chkrknvox zroneri qanak@ = " << qanak << endl;
   return 0;
 }

@@ -1,9 +1,11 @@
 #include <iostream>
 #include <math.h>
 
+
+
 int tvanshanneri_qanak(int N,int K)
 {
-   return (K-1)*pow(K,N-1)-(K-1);
+   return (K-1)*pow(K,N-1)-N-2*(K-1);
 }
 
 int main()

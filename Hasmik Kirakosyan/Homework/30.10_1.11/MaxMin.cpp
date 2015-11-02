@@ -1,42 +1,36 @@
 #include <iostream>
 #include <conio.h>
 
-int max_val_in_2k (int n, int numbers[]) {
-    int max = numbers[1];
-    for (int i = 1; i < n; i += 2) {
-        max=(numbers[i]>max)? numbers[i]: max;
-    }  
-    return max;
-}
-
-int min_val_in_2k_1 (int n, int numbers[]) {
-    int min = numbers[0];
-    for (int i = 0; i < n; i+=2) {
-        min=(numbers[i]<min)? numbers[i]: min;
-    }  
-    return min;
+int get_sum_max_min (const int& n, int nums[],int& max_out, int& min_out) {  
+    max_out = nums[0];
+    min_out = nums[0];
+    for (int i = 0; i < n; ++i) {
+        if (i%2==0) {
+             min_out = (nums[i]<min_out)? nums[i]: min_out;
+             }
+        else {
+             max_out=(nums[i]>max_out)? nums[i]: max_out;
+             }
+    } 
+   return max_out+min_out; 
 } 
 
-
 int main () {
- int nums [10000];
  int n=0;
  std::cout<<"\n Count of numbers in file is ";
  std::cin>>n;
+ int nums[n];
  
  for (int i=0; i<n; i++) {
      std::cout<<"\n Num N"<<i+1<<" is :";
      std::cin>>nums[i];
  }
+ int max_out, min_out;
  
- int max = max_val_in_2k (n, nums);
- int min = min_val_in_2k_1 (n, nums); 
- 
- std::cout<<"\nMax value in pair positions is "<<max;
- std::cout<<"\nMin value in odd positions is "<<min;
- 
- std::cout<<"\n\n Sum of maximum value of (2k) and minimum value of (2k+1) is "<<max+min;
+ std::cout<<"\n\n Sum of maximum value of (2k) and minimum value of (2k+1) is "<<get_sum_max_min(n, nums, max_out, min_out);
  
  getch();
  return 0;  
 }
+
+

@@ -11,8 +11,11 @@ int Kubikneri_qanak(int n,int a[])
 int main()
 {  
   int n;
-  std::cout << "n= ";
-  std::cin >> n;
+  do
+  {
+    std::cout << "n= ";
+    std::cin >> n;
+  } while(n<1 || n>50);
   int a[50];
   for(int i=0;i<n;i++)
      {

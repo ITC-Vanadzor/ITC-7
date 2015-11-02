@@ -1,7 +1,7 @@
 // The programm determines the count of sorting rooks in chest providing, that these rooks won't meet each other
 #include<iostream>
 
-int factorial(int n)
+int factorial(const int &n)
 {
 	if (n == 1){
 		return 1;
@@ -12,7 +12,7 @@ int factorial(int n)
 	}
 }
 
-int CountOfSorting( int Chestsize, int  RooksCount){
+int CountOfSorting(const int &Chestsize,const  int  &RooksCount){
 	int countOfSorting=Chestsize*Chestsize;
 	  if(RooksCount>1){		  
 		 return  countOfSorting*CountOfSorting( Chestsize-1,  RooksCount-1);

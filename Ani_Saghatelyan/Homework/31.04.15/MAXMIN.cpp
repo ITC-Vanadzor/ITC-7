@@ -1,35 +1,26 @@
 // determines the Sum of max and min
 # include <iostream>
 
-int Min(int* number, int quantityNumbers){
+void  MinOrMax(int* number,  const int &quantityNumbers, int &min, int &max){
 
-	int min=*(number);
+	min=number[0];
+        max=number[1];
+        
 	int currentNumber=0;
-		while(currentNumber<quantityNumbers){
- 		  if(min > *(number+currentNumber)) 
-                      {
-                       min =*(number+currentNumber);
-                      } 
-                  currentNumber+=2;
+       
+	for (int i = 0; i < quantityNumbers; ++i) {
+       	     if (i%2==0) {
+             	     min =(number[i]<min ? number[i]: min);
+           	       }
+		else {
+             		max = (number[i]>max ? number[i]: max) ;
+             		} 
 		}
- 	return min;
-  }
+ 	
+             }
 
-int Max(int* number, int quantityNumbers){
 
-	int max=*(number+1);
-	int currentNumber=1;
-		while(currentNumber<quantityNumbers-1){
- 		  if(max < *(number+currentNumber)) 
-                      {
-                       max =*(number+currentNumber);
-                      } 
-                  currentNumber+=2;
-		}
- 	return max;
-  }
-
-  int Sum(int minimum, int maximum){
+  int Sum(const int& minimum,const int& maximum){
      int sum=minimum+maximum;
      return sum;
     } 
@@ -54,11 +45,12 @@ int quantityOfNumbers=-1;
       Numbers[i]=number;
     }
  
-   int min=Min(Numbers,quantityOfNumbers );
+    int min;
+    int max;
+    MinOrMax(Numbers, quantityOfNumbers, min, max);
     std::cout<<"min\t"<<min<<std::endl;
-   int max=Max((Numbers),quantityOfNumbers);
     std::cout<<"max\t"<<max<<std::endl;
-   int sum= Sum(min, max);
+    int sum= Sum(min, max);
    std::cout<<"The sum of min and max will be\t"<< sum<< std::endl;
 return 0;
 }

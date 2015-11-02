@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-int Count(int, int);
+int Count(int &, int &);
 
 int main()
 {
@@ -13,16 +13,21 @@ int main()
 	std::cout << "For quantity of variants we will have " << Count(N, K) << std::endl;
 	return 0;
 }
-int Count(int n, int k)
+int Count(int &n, int &k)
 {
 	int quantity = 1;
-	for(int j = 0; j<k; ++j)
+	int temp = 1;
+	for(int j = 0; j < k; ++j)
+	{     
+		quantity = quantity * pow((n-j),2);	
+	}
+	
+	for(int i = 1; i <= k; ++i)	
 	{
-		quantity = quantity * pow((n-j),2);		
-	}	
-	return quantity;
+		temp = temp * i;
+	}
+	return quantity/temp;
 }
-
 
 
 

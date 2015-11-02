@@ -8,8 +8,8 @@ int  ArmenHomeNumber(const int& N,const int& M){
 
 int CountOfHouses(const int& ArmenHome, const int& n,const int& m){
    int count;
-   ArmenHome<n? count=n-ArmenHome : count=m-ArmenHome;
-   return count;
+     return  (ArmenHome<n? count=n-ArmenHome : m-ArmenHome);
+
     }
 
 

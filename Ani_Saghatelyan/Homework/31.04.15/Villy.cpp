@@ -1,12 +1,12 @@
 // The program determines count of homes beetween two person's house
 # include<iostream>
 
-int  ArmenHomeNumber(int N,int M){
+int  ArmenHomeNumber(const int& N,const int& M){
    int number=(N+M)/2+1;
    return number;
   }
 
-int CountOfHouses(int ArmenHome, int n,int m){
+int CountOfHouses(const int& ArmenHome, const int& n,const int& m){
    int count;
    ArmenHome<n? count=n-ArmenHome : count=m-ArmenHome;
    return count;

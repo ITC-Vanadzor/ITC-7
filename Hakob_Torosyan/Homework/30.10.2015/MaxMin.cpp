@@ -15,6 +15,7 @@ int main()
 		std::cin >> files[i];
 	}
 	MaxMin(files, number);
+	delete[] files;
 	return 0;
 }
 

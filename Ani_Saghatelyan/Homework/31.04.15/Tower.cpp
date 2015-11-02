@@ -1,7 +1,7 @@
 //The programm determines  the quantity of cubes , which will be moved 
 # include <iostream>
 
- int SumOfCubes( int* tower,  int towersQuantity ){
+ int SumOfCubes( int* tower,  const int& towersQuantity ){
      int sum=0;
       for(int i=0; i<towersQuantity; ++i){
  
@@ -10,14 +10,14 @@
 	return sum;
     }
 
-int QuantityOfCubes(  int*  tower, int eachTowerCube,int towersQuantity){
+int QuantityOfCubes(  int*  tower,const  int& eachTowerCube,const int& towersQuantity){
    int cubes=0;
 
    for(int i=0; i<towersQuantity; ++i){
 
-        if(*(tower+i)>eachTowerCube){
+        if(tower[i]>eachTowerCube){
 
-         	 cubes+=*(tower+i)-eachTowerCube;
+         	 cubes+=tower[i]-eachTowerCube;
 		}
 	}
 	return cubes;
@@ -26,7 +26,7 @@ int QuantityOfCubes(  int*  tower, int eachTowerCube,int towersQuantity){
 
 
 int main(){
-int QuantityOfTowers=-1;
+    int QuantityOfTowers=-1;
 	 do{ 
  		std::cout <<"Enter the  (positive number) quantity of towers\t";
                 std::cin >> QuantityOfTowers;
@@ -40,6 +40,9 @@ int QuantityOfTowers=-1;
                  Towers[i]=cubes;
               }
     int eachTowerCube=SumOfCubes(Towers, QuantityOfTowers )/QuantityOfTowers;
+        if(SumOfCubes(Towers, QuantityOfTowers )%QuantityOfTowers!=0){
+              std::cout<<"The quantity of all cubes inputed by you can't make equivalent  towers\n";
+             }
    
     int quantityOfCubes=QuantityOfCubes(Towers, eachTowerCube,QuantityOfTowers);
     std::cout<<"The quantity of cubes, which will be moved is\t"<<quantityOfCubes<<std::endl;

@@ -1,10 +1,10 @@
 #include <iostream>
 
-int find_min (int a, int b) {
+int find_min (const int& a,const int& b) {
 	 return (a<b)?a:b; 
 };
 
-int count_of_between_villas (int min, int N, int M){
+int count_of_between_villas (int min,const int& N, const int& M){
 	return (N+M)/2-(min+1);	
 
 };
@@ -13,16 +13,20 @@ int count_of_between_villas (int min, int N, int M){
 int main () {
 	int N=0, M=0;
 	
-	std::cout<<"\n N= ";
+	do {
+    
+	std::cout<<"\nM, N are in [1, 100)\n N= ";
 	std::cin>>N;
 	
 	std::cout<<"\n M= ";
 	std::cin>>M;
+	
+    } while (N>=100 || M>=100);
 
-	int min = find_min (N, M);
-	int count_villas = count_of_between_villas (min, N, M);
+	int count_villas = count_of_between_villas (find_min (N, M), N, M);
 	
 	std::cout<<"\nVillas between Ashot's and Arman's villas is "<<count_villas<<std::endl;
+
 
 return 0;
 }

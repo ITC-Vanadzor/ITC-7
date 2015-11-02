@@ -16,6 +16,7 @@ int main()
 		std::cin >> tower[i];
 	}
 	Tower(tower, column);
+	delete[] tower;
 	return 0;
 }
 
@@ -27,11 +28,18 @@ void Tower(int* array, int size)
 	{
 		sum += array[j];
 	}
-	std::cout << "For number of cubs in every right column we will have " << sum / size << std::endl;
-	for(int k = 0; k < size; ++k)
+	if(sum%size != 0)
 	{
-		if(array[k] > (sum / size))
-		count += array[k] - sum/size;
+		std::cout<<"We can not build right columns with you imported numbers, please try again " << std::endl;
 	}
-	std::cout << "For number of minimum steps we will have " << count << std::endl;
+	else
+	{
+		std::cout << "For number of cubs in every right column we will have " << sum / size << std::endl;
+		for(int k = 0; k < size; ++k)
+		{
+			if(array[k] > (sum / size))
+			count += array[k] - sum/size;
+		}
+		std::cout << "For number of minimum steps we will have " << count << std::endl;
+	}
 }

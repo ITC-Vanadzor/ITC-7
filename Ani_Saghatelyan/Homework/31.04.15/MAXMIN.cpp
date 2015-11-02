@@ -6,16 +6,15 @@ void  MinOrMax(int* number,  const int &quantityNumbers, int &min, int &max){
 	min=number[0];
         max=number[1];
         
-	int currentNumberofMin=0;
-        int currentNumberofMax=1;
-		while(currentNumberofMin<quantityNumbers){
- 		  if(min > number[currentNumberofMin]) 
-                      {
-                       min =number[currentNumberofMax];
-                      } 
-   
-                  currentNumberofMax+=2;
-                  currentNumberofMin+=2;
+	int currentNumber=0;
+       
+	for (int i = 0; i < quantityNumbers; ++i) {
+       	     if (i%2==0) {
+             	     min =(number[i]<min ? number[i]: min);
+           	       }
+		else {
+             		max = (number[i]>max ? number[i]: max) ;
+             		} 
 		}
  	
              }

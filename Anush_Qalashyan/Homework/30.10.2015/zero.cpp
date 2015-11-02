@@ -3,7 +3,11 @@
 
 int tvanshanneri_qanak(int N,int K)
 {
+<<<<<<< HEAD
    return (K-1)*pow(K,N-1)-N-2*(K-1);
+=======
+      return (K-1)*pow(K,N-1)-N-2*(K-1);
+>>>>>>> f679108a02b8fafc890c5db925e631ee7d79ea23
 }
 
 int main()

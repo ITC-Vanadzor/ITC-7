@@ -1,4 +1,5 @@
 //The program determines who will win playing the game about nuts
+// The players are the computer and user
 # include<iostream>
 
 static int A;

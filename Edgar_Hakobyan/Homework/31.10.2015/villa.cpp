@@ -21,4 +21,5 @@ int main()
 	}
 	while(fabs(n-m)<4);
 	std::cout<<"Armeni ev Ashoti tneri mijev ka "<<tneri_qanak(m,n)<<" tun"<<std::endl;
+	return 0;
 }

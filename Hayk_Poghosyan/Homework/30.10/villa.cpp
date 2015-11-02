@@ -13,9 +13,11 @@ int main()
 		std::cin >> n;
 		std::cout << std::endl << "M=";
 			std::cin >> m;
-	} while (n <= 0 || n > 100 || m <= 0 || m > 100);
+	} while (n <= 0 || n > 100 || m <= 0 || m > 100 || (m+n) % 2 != 0);
 	
+		
 	std::cout << std::endl << "ka " << abs(n - m) / 2 - 1 << " tun";
-
+	
+		
 	return 0;
 }

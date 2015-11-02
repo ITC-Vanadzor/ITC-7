@@ -1,23 +1,11 @@
 #include <iostream>
 
-
-
-unsigned int possibility_for_k_rooks (int N, int K) {
-
-	unsigned int C_multiply=1;
-	for (int i = N, j=1;i>1, j<=K; --i,++j) {
-		C_multiply*=i*i;  
-	}
-
- 	return C_multiply;
+int fact (int k) {
+  	if (k>=2) return k*fact(k-1);
 }
 
-int K_fact (int k) {
-  	if (k>=2) return k*K_fact (k-1);
-}
-
-int ways_count (int N, int K) {
-   	return possibility_for_k_rooks(N,K)/K_fact(K);
+int count_ways (const int N,const int K) {
+   	return (fact(N)*fact(N))/((fact(N-K)*fact(N-K))*fact(K));
 }
 
 
@@ -25,17 +13,18 @@ int main () {
 
 unsigned int N, K;
 
-std::cout<<"\n N (Chess size NXN) is : ";
+
+std::cout<<"\n N (Chess size NXN) is, N -> [1,8]: ";
 std::cin>>N;
 
-std::cout<<"\n Number of rooks is :";
+std::cout<<"\n Number of rooks is, K-> [1,8]:";
 std::cin>>K;
 
 
-
-std::cout<<"\n Number of ways that rooks won't meet  is "<<ways_count(N, K)<<std::endl;
-
+std::cout<<"\n Number of ways that rooks won't meet  is "<<count_ways (N, K)<<std::endl;
 
 
+char ch;
+std::cin>>ch;
 return 0;
-}
+} 

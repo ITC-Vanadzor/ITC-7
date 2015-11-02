@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-int krknaki_faktorial(int a)
+int krknaki_faktorial(const int &a)
 {
 	if(a < 3)
 	{

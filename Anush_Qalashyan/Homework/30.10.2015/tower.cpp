@@ -13,31 +13,37 @@ int f(int xoranard, int mijin_arjeq)
 }
 
 
-int main () {
+int main ()
+{
 
     int N; 
     std::cout << " N = ";
     std::cin >> N;
-
-    int h[N];
-    int h_sum = 0;
-    for (int  i = 0; i < N; ++i) 
+    if (N > 1 && N < 50) 
     {
-        std::cout << "Qani xoranard ka ashtarakum "<< "  ";
-        std::cin >> h[i];
-        h_sum = h_sum + h[i];
-    }
+        int h[N];
+        int h_sum = 0;
 
-    int min_xoranard_qanak = h_sum / N;
-    int texapoxutyun = 0;
-    for (int i = 0; i < N; ++i) 
+        for (int  i = 0; i < N; ++i) 
+        {
+            std::cout << "Qani xoranard ka ashtarakum " << " ";
+            std::cin >> h[i];
+            h_sum = h_sum + h[i];
+        }
+
+        int min_xoranard_qanak = h_sum / N;
+        int texapoxutyun = 0;
+        for (int i = 0; i < N; ++i) 
+        {
+            texapoxutyun = texapoxutyun + f(h[i],min_xoranard_qanak);	
+        }
+
+        std::cout<< "Texapoxvox xoranardneri qanaky = " << texapoxutyun << std::endl;
+    }
+    else 
     {
-        texapoxutyun = texapoxutyun + f(h[i],min_xoranard_qanak);	
+        std::cout << "----Error---- " << std::endl;
     }
-
-    std::cout<< "Texapoxvox xoranardneri qanaky = " << texapoxutyun << std::endl;
-
-
     return 0;
 }
 

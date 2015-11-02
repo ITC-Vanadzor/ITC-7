@@ -1,7 +1,7 @@
 // The programm is about determinig the double Factorial of N
 # include <iostream>
 
-int Factorial(int n){
+int Factorial(const int& n){
   	if(n==2||n==1){
 		 return n;
                }

@@ -1,6 +1,6 @@
 #include <iostream>
 
-int CountOfWays (int n) {
+int CountOfWays (const int& n) {
 	if(n<=1){
 		return 1;
 	   }

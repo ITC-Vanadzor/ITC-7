@@ -1,47 +1,46 @@
 #include <iostream>
 
-int kent_min(int A[], int N)
+int getMinMax(int* A, int size, int Min_out, int Max_out)
 {
-    int  min = A[0]; 
-
-    for (int i = 1; i < N; i = i + 2)
+    for (int i = 0; i < size; ++i)
     {
-
-
-        if (min > A[i]) 
+        if(i % 2 == 0) 
         {
-            min = A[i];
+            Max_out = A[i];
+
+            if (Max_out < A[i]) 
+            {
+                Max_out = A[i];
+            }
         }
-    }
-    return min;
+        else 
+        {
+            Min_out  = A[i];
+
+            if (Min_out > A[i]) 
+            {
+                Min_out = A[i];
+            }
+        }
+    } 
+    return Min_out + Max_out ;
 }
 
-int zuyg_max(int A[], int N)
-{
-    int max = A[1]; 
-    for (int i = 0; i < N; i = i + 2)
-    {
-
-        if (max < A[i]) 
-        {
-            max = A[i];
-        }
-    }
-    return max;
-}
 
 int main ()
 {
-    int N;
-    std::cout << "N= " ;
-    std::cin >> N;
-    int A[N];
+    int size;
+    std::cout << "size= " ;
+    std::cin >> size;
+    int A[size];
 
-    for(int i = 0; i < N; ++i)
+    for(int i = 0; i < size; ++i)
     {
         std::cin >> A[i];
     }
 
-    std::cout << kent_min(A,N) + zuyg_max(A,N) << std::endl;
+    int Min_out;
+    int Max_out;
+    std::cout << getMinMax(A, size, Min_out, Max_out) << std::endl;
     return 0;
 }

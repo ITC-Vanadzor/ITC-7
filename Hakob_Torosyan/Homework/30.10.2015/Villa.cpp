@@ -12,7 +12,14 @@ int main()
 	std::cin >> N;
 	std::cout << "Please insert value for number M (where M < 100) ";
 	std::cin >> M;
-	Villa(N, M);
+	if((N + M)%2 == 0)
+        {	
+        	Villa(N, M);
+        }
+        else
+	{	
+        	std::cout << "Please repeat inputing numbers " << std::endl;
+	}
 	return 0;
 }
 

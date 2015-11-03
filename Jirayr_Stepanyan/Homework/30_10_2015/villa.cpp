@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <cstdlib>
 using namespace std;
 int tneri_mijakayq(int a, int b)
 {
@@ -14,6 +15,11 @@ int main()
 		cin >> n;
 		cout << "tpel Ashoti tnic depi aj tneri qanak@ (drakan amboxj tiv) ";
 		cin >> m;
+	}
+	if((n + m) % 2 != 0)
+	{
+		cout << "hnaravor chi " << endl;
+		exit(1);
 	}
 	int mijakayq = tneri_mijakayq(n, m);
 	cout << "Ashoti ev Armeni tneri mijev ka " << mijakayq << " tun " << endl;

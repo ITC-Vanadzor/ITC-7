@@ -38,7 +38,9 @@ void Tower(int* array, int size)
 		for(int k = 0; k < size; ++k)
 		{
 			if(array[k] > (sum / size))
-			count += array[k] - sum/size;
+			{
+				count += array[k] - sum/size;
+			}
 		}
 		std::cout << "For number of minimum steps we will have " << count << std::endl;
 	}

@@ -36,10 +36,14 @@ double b=distance (x2, y2, x3, y3);
 double c=distance (x1, y1, x3, y3);
 
 double s=square (x1, y1, x2, y2, x3, y3);
+if (s==0) {
+          std::cout<<"\n There isn't a triangle with such coordinates, sorry...";
+          }
+else {
 double R=radius (a, b, c, s);
-
 std::cout<<"\nR= "<<R;
 std::cout<<"\nLength of circle is "<<2*M_PI*R;
+}
 
 return 0; 
 }

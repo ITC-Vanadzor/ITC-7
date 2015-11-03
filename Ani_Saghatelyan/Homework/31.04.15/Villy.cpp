@@ -22,7 +22,7 @@ int main()
 		std::cin>>N;
    	        std::cout<<"Enter M=\t";
 		std::cin>>M;
-	}while(N<=0 ||M<=0);
+	}while(N<=0 ||M<=0 || (N+M)%2!=0);
 
  int HomeArmen=ArmenHomeNumber(N,M);
  int countOfHomes=CountOfHouses(HomeArmen, N,M);

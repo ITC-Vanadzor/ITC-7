@@ -1,7 +1,7 @@
 # include <iostream>
 
 
- void  PrintMembers(int *ptr){  // prints  the numbers' array
+ void  PrintMembers(int& *ptr){  // prints  the numbers' array
      for(int i=0; i<10; ++i){
            std::cout<<" "<<ptr[i]<<std::endl;
             }
@@ -9,7 +9,7 @@
        }
 
 
- void  PrintMembers(int **ptr){// prints the Ip's array
+ void  PrintMembers(int& **ptr){// prints the Ip's array
      for(int i=0; i<10; ++i){
            std::cout<<" "<<ptr[i]<<std::endl;
             }
@@ -17,7 +17,7 @@
        }
 
    
-    void Bubble(int *members){// sorts the numbers' array
+    void Bubble(int& *members){// sorts the numbers' array
          for(int i=9; i>=0; --i){
   	for(int j=0; j<i; ++j){
   	      if(members[j]>members[j+1]){
@@ -29,7 +29,7 @@
       PrintMembers(members);
 }
 
-  void Bubble(int **members){//sorts the IPs' array
+  void Bubble(int& **members){//sorts the IPs' array
          for(int i=9; i>=0; --i){
   	for(int j=0; j<i; ++j){
   	      if(members[j]>members[j+1]){

@@ -30,7 +30,7 @@ void Tower(int* array, int size)
 	}
 	if(sum%size != 0)
 	{
-		std::cout<<"We can not build right columns with you imported numbers, please try again " << std::endl;
+		std::cout<<"We can not build right columns with your imported numbers, please try again " << std::endl;
 	}
 	else
 	{
@@ -38,7 +38,9 @@ void Tower(int* array, int size)
 		for(int k = 0; k < size; ++k)
 		{
 			if(array[k] > (sum / size))
-			count += array[k] - sum/size;
+			{
+				count += array[k] - sum/size;
+			}
 		}
 		std::cout << "For number of minimum steps we will have " << count << std::endl;
 	}

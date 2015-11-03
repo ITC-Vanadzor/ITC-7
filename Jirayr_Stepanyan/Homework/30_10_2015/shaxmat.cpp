@@ -2,7 +2,7 @@
 #include <cmath>
 #include <cstdlib>
 using namespace std;
-void hashvark(int a, int b)
+void hashvark(const int &a, const int &b)
 {
 	if(a == 1 && b > 1)
 	{

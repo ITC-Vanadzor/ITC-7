@@ -1,42 +1,36 @@
 #include <iostream>
 #include <cstdio>
 // Voroshel Kent texerum gtnvox tveric poqraguyni ev zuyg texerum gtnvox tveric Metcaguyni gumar@, ete mutqagrvum en 10000-@ chgerazancox amboxj tver
-// sxal e ashxatum !!!:(((
 
-int KentTexerumPoqraguyn (int Qanak, int Tiv[]) {
+
+void MaxMinSum (int Qanak, int Tiv[]) {
     int Poqraguyn = Tiv[0];
-    for (int i = 2; i < Qanak; i += 2) {
-	if (Poqraguyn > Tiv[i]) {
-	    Poqraguyn = Tiv[i];
-	}
-    }
-    return Poqraguyn;
-}
-int ZuygTexerumMetcaguyn (int Qanak, int Tiv[]) {
     int Metcaguyn = Tiv[1];
-    for (int i = 3; i < Qanak; i += 2) {
-	if (Metcaguyn < Tiv[i]) {
-	    Metcaguyn = Tiv[i];
+    for (int i = 2; i < Qanak; ++i) {
+	if (i%2 == 0) {
+	    if (Metcaguyn < Tiv[i]) {
+		Metcaguyn = Tiv[i];
+	    }
+	} else {
+	    if (Poqraguyn > Tiv[i]) {
+		Poqraguyn = Tiv[i];
+	    }
 	}
     }
-    return Metcaguyn;
+    std::cout << "Metcaguyni ev poqraguyni gumarn e ` " << Metcaguyn + Poqraguyn << std::endl;
 }
+
  int main () {
-     int Tiv[10000];
-     
-     std::cout << "Mutqagreq hat tver, isk verjacneluc havaxel x` " << std::endl;
-     int Qanak = 0;
-     do {
-	 std::cin >> Tiv[Qanak];
-	 ++Qanak;
-	 if (Tiv[Qanak] == EOF) {
-	     break;
-	 }
-     } while (Tiv[Qanak] < 10000);
-     std::cout << "qanak " << Qanak << std::endl;
-     for (int i = Qanak; i < 10000; ++i) {
-	 Tiv[i] = 0;
-     }
-     std::cout << "Metcaguyni ev poqraguyni gumarn e `  " << (KentTexerumPoqraguyn (Qanak, Tiv) + ZuygTexerumMetcaguyn (Qanak, Tiv)) << std::endl;
+     int Qanak = -1;
+     while ((Qanak <2) || (Qanak > 10000)) {
+	std::cout << "Mutqagreq tveri qanak@ n= ";
+	std::cin >> Qanak;
+    }
+    std::cout << "Mutqagreq tver@" << std::endl;
+    int Tiv[Qanak];
+    for (int i = 0; i < Qanak; ++i) {
+	 std::cin >> Tiv[i];
+    }
+    MaxMinSum(Qanak, Tiv);
      return 0;
  }

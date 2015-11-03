@@ -1,5 +1,5 @@
 #include <iostream>
-#include <conio.h>
+#include <math.h>
 
 
 int main () {
@@ -16,7 +16,7 @@ while ((N + K)<4 || (N+K)>18)  {
      std::cin>>N;
     } while (N<2);
 }
-    int count_non_zeros = (K-1)*(int) pow(K, N-3)*(K*K-1);
+    int count_non_zeros = (K-1)*(int) pow(K, N-1)-(k-1)*pow(K,n-3);
     
     std::cout<<"\n Count of numbers with none 00's is "<<count_non_zeros;
     

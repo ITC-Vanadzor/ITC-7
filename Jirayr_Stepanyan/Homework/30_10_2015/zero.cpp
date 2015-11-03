@@ -23,7 +23,7 @@ int main()
 		int k=i;
 	        int j=n_anish - 1;
 	        cout << "i=" << i << endl;
-	        while (k>0) // hertakanutyamb massivi andamner@ berum enq k-akan hamakargi
+	        while (k>0) // hertakanutyamb massivi andamnerin veragrum  enq k-akan hamakargi andamner@
 	        {
        			tiv[j]=k%k_akan;
 			j=j-1;

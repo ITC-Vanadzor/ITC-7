@@ -13,8 +13,8 @@ int main()
 void stair(int n)
 {
 	int *fibonachi = new int[n]; 
-	 fibonachi[0] = 1;
-	 fibonachi[1] = 2;
+	fibonachi[0] = 1;
+	fibonachi[1] = 2;
 	for(int i = 0; i < n-2; ++i)
 	{
 		fibonachi[i+2] = fibonachi[i] + fibonachi[i+1];	

@@ -56,6 +56,7 @@ int main()
 	++pointer;
 	*pointer = 10;
 	std::cout << "\n\n" << pointer;
+	delete *pointer;
 
 	std::cout << "\n";
 	system("Pause");

@@ -30,7 +30,7 @@ void Tower(int* array, int size)
 	}
 	if(sum%size != 0)
 	{
-		std::cout<<"We can not build right columns with you imported numbers, please try again " << std::endl;
+		std::cout<<"We can not build right columns with your imported numbers, please try again " << std::endl;
 	}
 	else
 	{

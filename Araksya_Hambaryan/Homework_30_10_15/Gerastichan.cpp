@@ -1,7 +1,9 @@
 #include <iostream>
 // voroshel erkusi n-rd kargi gerastichann @st m moduli
-// sxal shat metc tveri patcharov
 
+int Gerastichan(int N, const int& m) {
+    return (N == 0) ? (2%m) : (Gerastichan(N-1,m)* Gerastichan(N-1,m))%m;
+}
 int main() {
     int n = -1;
     int m = -1;
@@ -13,6 +15,6 @@ int main() {
 	std::cout << "m= ";
 	std::cin >> m;
     }
-    std::cout << ((1<<(1<<n))%m) << std::endl;
+    std::cout << Gerastichan (n,m) << std::endl;
     return 0;
 }

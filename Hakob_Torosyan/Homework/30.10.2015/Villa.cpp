@@ -17,7 +17,7 @@ int main()
         	Villa(N, M);
         }
         else
-	}	
+	{	
         	std::cout << "Please repeat inputing numbers " << std::endl;
 	}
 	return 0;

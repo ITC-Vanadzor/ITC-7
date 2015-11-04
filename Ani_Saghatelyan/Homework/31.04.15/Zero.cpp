@@ -6,18 +6,34 @@ static int K;
    
 
 
-   int TheQuantityOfNumbers( int n,  int k) {
-     
-          double quantity= ((k-1)*(pow(k,n-1) -pow(k,n-3)));
-          return  quantity;
-         }
+   int TheQuantityOfNumbers(int n, int k) {
+      if(n==0){
+           return 1;
+              }
+  
+     else if(n == 1){
+             return k-1;// ete mianish e tiv@, apa voroneli qanakutyun@ klini k-1 hat` dimaci 0-n bacarelov
+             }
+    
+      else {
+            return  (k-1)*TheQuantityOfNumbers (n-2, k)+(k-1)*TheQuantityOfNumbers(n-1, k);
+
+           }
+}
 
 
 
 int main()
 {
-  int K;
-  int N;
+
+
+
+
+
+
+
+//int K;
+int N;
 
    do{     
         

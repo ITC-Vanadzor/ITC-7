@@ -33,7 +33,10 @@ void Count(int k, int n)
 			}
 			temp = temp/k;
 			if(flag >= 2)
-			num=1;
+			{
+				num=1;
+			}
+				
 		}
 		if(num != 1)
 		{

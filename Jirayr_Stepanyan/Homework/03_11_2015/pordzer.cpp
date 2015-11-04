@@ -1,5 +1,5 @@
 #include <iostream>
-void pordz(int &*a)
+void pordz(int *a)
 {
 	std::cout << a << std::endl;
 }

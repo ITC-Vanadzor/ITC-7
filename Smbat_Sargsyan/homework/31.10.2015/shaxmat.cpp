@@ -1,7 +1,7 @@
 //ete k>n,apa hnaravor che dasavorel aynpes vor mimyanc chharvacen,hakarak depqum arajin navaki hamar qayleri hnaravor qanaky klini n*n,erkrordi hamar (n-1)*(n-1),isk k-rd navaki hamar klini (n-(k-1))*(n-(k-1);bayc ays dempqum linum en qayler vor krknvum en isk krknvox qayleri qanaky klini  arajini hamar klini 1*(1+1)=2,erkrordi hamar 2*(2+1)=6 ev ayln..... 
 
 #include <iostream>
-int Qayleri_qanak(int n,int k)
+void Qayleri_qanak(int n,int k)
 {
   int yndhanur_qayler=1;
   int krknvox_qayler=1;
@@ -12,7 +12,6 @@ int Qayleri_qanak(int n,int k)
   }
   int qanak=yndhanur_qayler/krknvox_qayler;
   std::cout << qanak << std::endl;
-  return 0;
 }
 int main()
 {

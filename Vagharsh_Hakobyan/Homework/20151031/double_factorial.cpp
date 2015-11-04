@@ -1,58 +1,45 @@
 //number of 2 zero's combination
 #include <iostream>
 #include <cmath>
-using namespace std;
 
-
-int InputNumber(int limit, char name)
+int factorial (int n)
 {
-  int n1 = limit;
-  while (n1 <= limit){
-    cout << "Ներմուծել " << limit << "֊ից մեծ " << name << " բնական թիվ՝ " << endl;
-    cin >> n1; 
-  }
-  return n1;
-}
-
-void Zero(int *a, int b)
-{
-  for(int i = 0; i < b; ++i)
+  if (n==0)
     {
-      a[i] = 0;
-    }  
+      return 1;
+    }
+  else
+    {
+      int fact = 1;
+      for (int i=1;i<=n;++i)
+	fact = fact * i;
+      return fact;
+    }
 }
+
+int double_factorial (int n)
+{
+  if (n%2==0)
+    {
+      return pow(2,n/2)*factorial(n/2);
+    }
+  else
+    {
+      return factorial(n)/(pow(2,((n-1)/2))*factorial((n-1)/2));
+    }
+}
+
 
 int main()
 {
-  int k = InputNumber(1,'k'), n = InputNumber(1,'n');
-  int *number;
-  number = new int [n];
-  int max_demical=pow(k,n);
-  int counter=0;
-  for (int i=0; i<max_demical;++i)
+  int n=-1;
+  do
     {
-        Zero(number,n);
-	int c=i;
-	int j=0;
-	while (c>0)
-	  {
-	    number[j]=c%k;
-	    j=j+1;
-	    c=c/k;
-	  }
-	j=0;
-	while (j<(n-1))
-	  {
-	    if (number[j]==0 && number[j+1]==0)
-	      {
-		counter=counter+1;
-		j=n;
-	      }
-	    j=j+1;
-	  }
+      std::cout << "Ներմուծել n բնական թիվը՝ " << std::endl;
+      std::cin >> n ;
     }
-  cout << k <<"-ական համակարգի " << n << "-անիշ թվերի քանակն է՝ " << max_demical << endl;
-  cout << "Երկու և ավելի անընդմեջ զրոներով թվերի քանակն է՝ " << counter << endl;
-  cout << "Առանց երկու անընդմեջ զրոների թվերի քանակն է՝ " << max_demical-counter << endl;
+  while (n<=0);
+  
+  std::cout << "Կրկնակի ֆակտորիալն է` " << double_factorial (n) << std::endl;
   return 0;
 }

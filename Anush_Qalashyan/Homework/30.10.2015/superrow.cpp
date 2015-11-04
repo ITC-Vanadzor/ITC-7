@@ -1,15 +1,16 @@
-#include<iostream>
+#include <iostream>
 
 int m_mod(int n,int m)
 {
-    int tmp = 1;
-    int k = 1 << n;
+    long int tmp = 1;
+    long int k = 1 << n;
     for (int i = 0; i < k; ++i)
     {
         tmp = ( tmp << 1 ) % m;
     }
     std::cout << tmp << std::endl;
 }
+
 int main()
 {	
     int n = 0;
@@ -18,7 +19,13 @@ int main()
     std::cin >> n;
     std::cout << "M = ";
     std::cin >> m;
-    m_mod(n,m);	
-
-
+    if ( n > 0 && n <= 100000 && m <= 10000 && m > 2) 
+    { 
+        m_mod(n,m);	
+    }
+    else 
+    {
+        std::cout << "----Error----" << std::endl;
+    }
+    return 0;
 }

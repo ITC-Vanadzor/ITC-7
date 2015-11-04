@@ -6,9 +6,12 @@ int fib(int n)
 int main()
 {
  int n;
- std::cout<< "nermuceq astichanneri qanaky ";
- std::cin >> n;
- std::cout << "tarberakneri qanaky klinen " << fib(n) << std::endl;
+ do
+ {
+   std::cout<< "nermuceq astichanneri qanaky ";
+   std::cin >> n;
+ } while(n<1 || n>30);
+std::cout << "tarberakneri qanaky klinen " << fib(n) << std::endl;
  return 0;
 }
  

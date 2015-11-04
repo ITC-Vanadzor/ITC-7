@@ -1,7 +1,7 @@
 #include <iostream>
 
 
-int count_of_overplus_cubes (int cubes_in_tower, int avarage_value) {
+int count_of_overplus_cubes (int cubes_in_tower,int avarage_value) {
    	return (cubes_in_tower>avarage_value)? cubes_in_tower-avarage_value: 0;
 }
 
@@ -9,14 +9,18 @@ int count_of_overplus_cubes (int cubes_in_tower, int avarage_value) {
 int main () {
 
 	int n; 
-	std::cout<<"\nPlease input towers number :";
+	do {
+	std::cout<<"\nPlease input towers number n (n ->[1,50]):";
 	std::cin>>n;
+    } while (n<1 || n>50);
 	
 	int cubes[n];
 	int cubes_sum=0;
 	 for (int  i=0; i<n; ++i) {
-		std::cout<<"\n How many cubes are in tower N"<<i+1<<" :";
+        do {
+		std::cout<<"\n How many cubes are in tower N. Input number in [1,100]"<<i+1<<" :";
 		std::cin>>cubes[i];
+        } while (cubes[i]<1 || cubes[i]>100);
 		cubes_sum+=cubes[i];
    	}
  	

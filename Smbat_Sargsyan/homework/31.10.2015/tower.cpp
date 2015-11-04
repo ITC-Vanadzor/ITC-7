@@ -6,13 +6,19 @@ int Kubikneri_qanak(int n,int a[])
         sum=sum+a[i];
       }
     if(sum%n==0) return sum/n;
-    else std::cout << "tvyal xoranardneri hamar hnaravor che karucel havasar kubiknerov ashtarakner " << std::endl;
+    else { 
+           std::cout << "tvyal xoranardneri hamar hnaravor che karucel havasar kubiknerov ashtarakner " << std::endl;
+           return 0;
+         }
  }
 int main()
 {  
   int n;
-  std::cout << "n= ";
-  std::cin >> n;
+  do
+  {
+    std::cout << "n= ";
+    std::cin >> n;
+  } while(n<1 || n>50);
   int a[50];
   for(int i=0;i<n;i++)
      {

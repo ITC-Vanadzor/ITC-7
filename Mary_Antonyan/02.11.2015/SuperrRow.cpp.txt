@@ -1,0 +1,18 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int astichan(int n)
+{
+	return pow(2,n);
+		}
+
+
+int main()
+{
+	int n;
+	cin>>n;
+	int m=astichan(n);
+	cout<<astichan(m)%m;
+return 0;
+}

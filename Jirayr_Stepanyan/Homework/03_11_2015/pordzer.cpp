@@ -1,9 +1,13 @@
 #include <iostream>
+void pordz(int *a)
+{
+	std::cout << a << std::endl;
+}
 int main()
 {
 	int a = 5, b;
 	int *p = &a;
-	std::cout << p;
+	pordz(p);
 
    return 0;
 }

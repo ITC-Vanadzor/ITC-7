@@ -1,7 +1,7 @@
 # include <iostream>
 
-int Rev(int number,int newNumber){
-      while(number>0){
+int Rev(const int& number, int& newNumber){
+      while(number != 0){
                   newNumber=newNumber*10+number%10;
                   return Rev(number/10,newNumber);
                  
@@ -12,8 +12,9 @@ int Rev(int number,int newNumber){
                   
 }
 
-int reverse(int number){
-     return Rev(number, 0);
+inline int reverse(int number){
+int n=0;
+     return Rev (number, n);
      }
 
                    
@@ -22,7 +23,7 @@ int main()
     {    
     int Number;
     std::cout<<" Enter number\t";
-    std::cin>>Number;
+    std::cin>>Number;t
     
     std::cout<<"Reverse of number will be\t"<<reverse(Number)<<std::endl;
     std::cout<<"Reverse of 1025 will be\t"<<reverse(1025)<<std::endl;

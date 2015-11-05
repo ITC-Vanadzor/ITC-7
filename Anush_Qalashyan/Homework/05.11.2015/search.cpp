@@ -32,7 +32,8 @@ int search (void* begin, void* end, size_t elementsize, void* element, bool (*co
 }
 
 
-int main () {
+int main () 
+{
 
     char charArray[] = "polivinilacetat";
     char symbol = 'n';

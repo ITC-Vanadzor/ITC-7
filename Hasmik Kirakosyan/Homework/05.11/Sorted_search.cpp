@@ -27,10 +27,10 @@ int search (void* begin, void* end, size_t elementsize, void* element, int (*com
     
 	for ( int i = 0 ; begin != end; begin += elementsize,  ++i )  {
 	    
-		if (compare(begin, element)==1) { 
+		if (compare(middle, element)==1) { 
 				return i;			
 		}
-		else if (compare(begin, element)==2) {
+		else if (compare(middle, element)==2) {
              return search (begin, middle, elementsize,element, compare);
         }
         else {

@@ -10,6 +10,7 @@ int revers(int number, int& result_out)
     return result_out;
 }
 
+
 int REVERS(int number)
 {
     int n=0;

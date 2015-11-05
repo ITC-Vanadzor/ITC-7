@@ -28,7 +28,7 @@ void search(void (*)(int*,int*),int*);
  }
  	return 0;
  }
- void equals(int a[], int* x){
+ void equals(int a[], int x){
  	for (int i=0; i<5; ++i) {
  		if (a[i]==*x) {
  			std::cout << i << std::endl;
@@ -36,7 +36,7 @@ void search(void (*)(int*,int*),int*);
  		}
  	}
  }
- void metc(int a[], int* x){
+ void metc(int a[], int x){
  	for (int i=0; i<5; ++i) {
  		if (a[i]>*x) {
  			std::cout << i << std::endl;

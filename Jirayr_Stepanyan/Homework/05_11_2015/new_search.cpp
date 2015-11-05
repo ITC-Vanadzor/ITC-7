@@ -1,6 +1,7 @@
 #include <iostream>
-int search(int* skizb, int* mijin, int* verj, size_t elementi_chap, void* element, int(*stugum)(void*, void*))
+int search(int* skizb, int* verj, size_t elementi_chap, void* element, int(*stugum)(void*, void*))
 {
+	int* mijin = skizb + verj / 2;
 	if(stugum(mijin, element) == 0)
 	{
 		return mijin;
@@ -36,8 +37,7 @@ int main()
 {
 	int massiv[8] = {1,3,5,9,13,20,25,56};
 	int element = 20;
-	int mijin = (massiv + 8) / 2;
-	int result = search(massiv, mijin, massiv + 8, sizeof(int), &element, stugum);
+	int result = search(massiv, massiv + 8, sizeof(int), &element, stugum);
 	std::cout << result << std::endl;
 
    return 0;

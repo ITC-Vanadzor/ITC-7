@@ -23,19 +23,21 @@ int int_compare (void* element_1, void* element_2) {
 
 
 
-int search(int* begin, int end, size_t elementsize, void* element, int (*compare)(void* ,void* ))
+int search(void* begin, void* end, size_t elementsize, void* element, int (*compare)(void* ,void* ))
 {
 	
-	int* mid = begin + elementsize*end / 2;
-		
-	if (compare(mid,element) == 1){
-		return mid;
-	}
-	if (compare(mid,element) == 2){
-		return search(mid + elementsize,  end,  elementsize, element, compare(mid+elementsize, element));
-	}	
-	if (compare(mid,element) == 3){
-		return search(begin, (mid - elementsize), elementsize,  element,  compare(mid-elementsize, element ));
+	//(mijin andam@)mid-@  talu hamar chisht dzev@ chem gtel
+
+	for ( int i = 0; begin != end; begin += elementsize,  ++i )  {
+		if (compare(begin, element) == 1) { 
+				return i;			
+		}
+		if (compare(mid,element) == 2){
+		return search(mid, end,  elementsize, element, compare(mid+elementsize, element));
+		}	
+		if (compare(mid,element) == 3){
+		return search(begin, mid, elementsize,  element,  compare(mid-elementsize, element ));
+		}
 	}	
 	return -1;
 }

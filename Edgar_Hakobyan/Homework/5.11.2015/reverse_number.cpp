@@ -1,23 +1,22 @@
 #include <iostream>
-int reverse_number;
 int reverse(int number)
 {
-	if(number>0)
+	int himq=1;
+	while(number / (himq *10))
 	{
-		reverse_number = ( (reverse_number * 10) + (number%10) );
-		reverse(number/10);
+		himq *= 10;
 	}
-	return reverse_number;
+	while(number != 0)
+	{
+		int reverse_number = (number % 10) * himq;
+		return reverse(number/10) + reverse_number;
+	}
 }
 int main()
 {
 	int n;
-	do
-	{
-		std::cout<<"greq tiv: ";
-		std::cin>>n;
-	}
-	while(n<0);
+	std::cout<<"greq tiv: ";
+	std::cin>>n;
 	int reverse_n=reverse(n);
 	std::cout<<"tiv@ shrjac klini: "<<reverse_n<<std::endl;
 	return 0;

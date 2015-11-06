@@ -33,10 +33,10 @@ int search(void* begin, void* end, size_t elementsize, void* element, int (*comp
 				return i;			
 		}
 		if (compare(mid,element) == 2){
-		return search(mid, end,  elementsize, element, compare(mid+elementsize, element));
+		return search(mid+1, end,  elementsize, element, compare(mid+elementsize, element));
 		}	
 		if (compare(mid,element) == 3){
-		return search(begin, mid, elementsize,  element,  compare(mid-elementsize, element ));
+		return search(begin, mid-1, elementsize,  element,  compare(mid-elementsize, element ));
 		}
 	}	
 	return -1;

@@ -27,7 +27,11 @@ int search(void* begin, void* end, size_t elementsize, void* element, int (*comp
 {
 	
 	int length=((char*)end-(char*)begin);
-	int half=(length%2)?(length/2)+1:length/2;
+	if(length%2 == 0)
+	{int half = (length/2) + 1;}
+	else
+	{int half = length/2;}
+
 	void *mid=(char*)begin+half;
 
 	for ( int i = 0; begin != end; begin += elementsize,  ++i )  {

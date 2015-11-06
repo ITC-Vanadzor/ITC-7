@@ -1,7 +1,7 @@
 // The programm is about deciding the GCD of 2 numbers, which contains just ones
 # include <iostream>
 
-int GCD(unsigned int a,unsigned int b){
+int GCD( const unsigned int& a,const unsigned int& b){
    if(b==0){
         return a;
       }
@@ -11,18 +11,14 @@ int GCD(unsigned int a,unsigned int b){
     }
     
 
- unsigned int CurrentFunction (unsigned int number,unsigned int n){
-  while(number!=0){
-         n=n*10+1;
-      return  CurrentFunction (number-1, n);
-  }
-   return n;
-}
+ void  Number(const int &gcd){// Function prints answer
 
- inline unsigned int Number(int number){// Function  calls the current function for 
-  unsigned int n=0;
-     return CurrentFunction (number, n);
-     }
+     std::cout<<"The GCD for numbers will be\t";
+     for(int i=1; i<=gcd; ++i){
+        std::cout<<1;
+            }
+       std::cout<<std::endl;
+    }
 
 
     int main()
@@ -35,12 +31,10 @@ int GCD(unsigned int a,unsigned int b){
       std::cout<<"Enter m\t";
       std::cin>>m;
        }while(n<0|| m<0||n>2000 || m>2000);
- unsigned  int N=Number(n);
-  
- unsigned  int M=Number(m);
-  std::cout<<"N  "<<N<<" M "<<M<<std::endl;
-       
-  std::cout<<GCD(N,M)<<std::endl;
+     int gcd=GCD(n,m);// the gcd for numbers, which will contain just ones, in real is equivalent to  number , which contains  gcd( n,m)  ones 
+     std::cout<<gcd<<std::endl;
+     Number(gcd);
+     
   return 0;
    }
 

@@ -26,7 +26,9 @@ int int_compare (void* element_1, void* element_2) {
 int search(void* begin, void* end, size_t elementsize, void* element, int (*compare)(void* ,void* ))
 {
 	
-	//(mijin andam@)mid-@  talu hamar chisht dzev@ chem gtel
+	int length=((char*)end-(char*)begin);
+	int half=(length%2)?(length/2)+1:length/2;
+	void *mid=(char*)begin+half;
 
 	for ( int i = 0; begin != end; begin += elementsize,  ++i )  {
 		if (compare(begin, element) == 1) { 

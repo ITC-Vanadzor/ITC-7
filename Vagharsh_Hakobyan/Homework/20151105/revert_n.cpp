@@ -22,7 +22,7 @@ int main()
   int n = 1;
   do
   {
-    std::cout << "Ներմուծել 0֊ից մեծ բնական թիվ n = " << std::endl;
+    std::cout << "Ներմուծել 0֊ից մեծ բնական թիվ n = ";
     std::cin >> n;
   }
   while (n<=0);

@@ -19,9 +19,13 @@ int revers(int a)
 
 int main()
 {  
-  int n = 0;
-  std::cout << "Please import n " << std::endl;
-  std::cin >> n;
+  int n = 1;
+  do
+  {
+    std::cout << "Ներմուծել 0֊ից մեծ բնական թիվ n = " << std::endl;
+    std::cin >> n;
+  }
+  while (n<=0);
   std::cout << revers(n) << std::endl;
   return 0;
 }

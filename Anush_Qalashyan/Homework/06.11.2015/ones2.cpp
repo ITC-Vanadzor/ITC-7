@@ -1,29 +1,21 @@
 #include <iostream>
 
-int f(int N,int M)
+int bajanarar(int a, int b)
 {
-    if (M > N) 
+    if(a == b)
     {
-        if (M % N == 0)
-        {
-            return N;
-        }
-        else 
-        {
-            return 1;
-        }
+        return a;
+    }
+    if(a > b)
+    {
+        a = a - b;
+        return bajanarar(a,b);
     }
     else
     {
-        if(N % M == 0)
-        {
-            return M;
-        }
-        else
-        { 
-            return 1;
-        }
-    } 
+        b = b - a;
+        return bajanarar(a,b);
+    }
 }
 
 int main()
@@ -38,7 +30,11 @@ int main()
 
     if (N >= 1 && N < 2000 && M >= 1 && M < 2000)
     {
-        std::cout << f(N,M) << std::endl;
+      int A = bajanarar(N,M);
+      for (int i = 1; i <= A; ++i) 
+    {
+        std::cout<< 1 << std::endl;        
+    } 
     }
     else 
     {
@@ -46,5 +42,4 @@ int main()
     }
     return 0;
 }
-
 

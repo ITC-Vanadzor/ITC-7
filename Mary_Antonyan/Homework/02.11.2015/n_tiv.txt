@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int astichan(int n)
+{
+double p=1;
+while (p<n)
+{
+p=p*2; 
+}
+return p;
+}
+int main ()
+{
+	int n;
+	cin>>n;	
+cout<<astichan(n)<<endl;
+return 0;
+}
+

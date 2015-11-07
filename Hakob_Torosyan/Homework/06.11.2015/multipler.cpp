@@ -19,7 +19,7 @@ std::cout << "Please import a " << std::endl;
 std::cin >> a;
 std::cout << "Please import b " << std::endl;
 std::cin >> b;
-std::cout << "For divider we will have " << multipler(a,b,a) << std::endl;
+std::cout << "For multipler we will have " << multipler(a,b,a) << std::endl;
 return 0;
 }
 

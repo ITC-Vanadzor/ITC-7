@@ -5,7 +5,7 @@ int bajanarar(int min, int a, int b)
 	{
 		return min;
 	}
-	bajanarar(min - 1, a, b);
+	bajanarar(min / 2, a, b);
 }
 int bazmapatik(int max, int a, int b)
 {
@@ -13,7 +13,7 @@ int bazmapatik(int max, int a, int b)
 	{
 		return max;
 	}
-	bazmapatik(max + 1, a, b);
+	bazmapatik(max * 2, a, b);
 }
 int main()
 {

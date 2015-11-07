@@ -1,34 +1,42 @@
 #include <iostream>
 
+int input(char a)
+{
+ int k = -1;
+ do
+ {
+  std::cout << "Please input " << a << "= ";
+  std::cin >> k;
+ }
+ while (k < 1 || k > 2000);
+ return k;
+}
 
 int main()
 {
- int n=-1;
- do
+ int n = input('n');
+ int m = input('m');
+ if (n % m == 0 || m % n == 0)
  {
-  std::cout << "Please n = ";
-  std::cin >> n;
- }
- while (n < 1 || n > 2000);
- int m=-1;
- do
- {
-  std::cout << "Please m = ";
-  std::cin >> m;
- }
- while (m < 1 || m > 2000);
- if (n != m)
- {
-  std::cout << "Միավոր ամենամեծ ընդհանուր բաժանարարը հավասար է՝ 1" << std::endl;
+   int k = 0;
+   if (n > m)
+   {
+    k = m;
+   }
+   if (n <= m)
+   {
+    k = n;
+   }
+   std::cout << "Միավոր ամենամեծ ընդհանուր բաժանարարը հավասար է՝ ";
+   for (int i=0;i<k;++i)
+   {
+    std::cout << "1";
+    }
+   std::cout << std::endl;
  }
  else
  {
-  std::cout << "Միավոր ամենամեծ ընդհանուր բաժանարարը հավասար է՝ ";
-  for (int i=0;i<n;++i)
-  {
-   std::cout << "1";
-  }
-  std::cout << std::endl;
+  std::cout << "Միավոր ամենամեծ ընդհանուր բաժանարարը հավասար է՝ 1" << std::endl;
  }
  return 0;
 }

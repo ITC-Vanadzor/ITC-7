@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+int& assign(int& a,int& b)
+{
+int max;
+if(a>b) a=7;
+ else b=7;
+}
+int main()
+{
+int a,b;
+cin>>a>>b;
+assign(a,b);
+cout<<a<<" "<<b<<endl;
+return 0;
+}

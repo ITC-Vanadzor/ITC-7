@@ -23,18 +23,18 @@ int comparation_int (void* element_1, void* element_2) {
 
 int search (void* begin, void* end, size_t elementsize, void* element, int (*compare)(void* , void* )) 
 {
-    int n = (*((int*)begin)-*((int*)end))/((int) elementsize);
+    void* middle =(void*) ((*((char*)begin)+*((char*)end))/2);
     
 	for ( int i = 0 ; begin != end; begin += elementsize,  ++i )  {
 	    
-		if (compare(begin, element)==1) { 
+		if (compare(middle, element)==1) { 
 				return i;			
 		}
-		else if (compare(begin, element)==2) {
-             return search (begin,end-(int)(n*elementsize/2), elementsize,element, compare);
+		else if (compare(middle, element)==2) {
+             return search (begin, middle, elementsize,element, compare);
         }
         else {
-             return  search (begin+(int)(n*elementsize/2), end , elementsize, element, compare);
+             return  search (middle, end , elementsize, element, compare);
              }        
 	}
 	return -1;	

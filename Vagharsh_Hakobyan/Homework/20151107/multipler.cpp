@@ -2,6 +2,10 @@
 
 int divider(int a, int b)
 {
+  if(a==b)
+    {
+      return a;
+    }
   if(a>b)
     {
       a=a-b;
@@ -12,13 +16,7 @@ int divider(int a, int b)
       b=b-a;
       return divider(a,b);
     }
-  if(a==b)
-    {
-      return a;
-    }
 }
-
-
 int main()
 {
   int a = 2, b =3;

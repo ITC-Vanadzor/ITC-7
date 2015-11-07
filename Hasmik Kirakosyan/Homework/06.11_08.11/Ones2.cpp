@@ -22,13 +22,11 @@ int main () {
     
     
     int count_of_1 = GCD (first_num, second_num);
-    int num = 0;
     
+    std::cout<<"\n The greatest common divisor for first number and second number is : ";
     for (int i = 1; i <= count_of_1; ++i) {
-      num = num*10 + 1;        
+        std::cout<<1;        
     } 
-    
-    std::cout<<"\n The greatest common divisor for first number and second number is : "<<num;     
     
     
  char ch;

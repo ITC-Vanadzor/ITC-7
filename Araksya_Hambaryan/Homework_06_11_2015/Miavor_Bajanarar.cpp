@@ -8,7 +8,7 @@ int Input (std::string digit) {
     int a = -1;
     do {
 	std::cin >> a;
-    } while (a < 1);
+    } while ((a < 1) || (a > 2000));
     return a;
 }
 

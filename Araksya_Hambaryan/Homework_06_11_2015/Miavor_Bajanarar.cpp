@@ -4,7 +4,7 @@
 // Gtnel erku bnakan tveri amenametc @ndhanur bajanarar@, voeoncic mek@ kazmvac e N hat 1-eric, myus@` M
 
 int Input (std::string digit) {
-    std::cout << digit << " digit = ";
+    std::cout << digit << " = ";
     int a = -1;
     do {
 	std::cin >> a;

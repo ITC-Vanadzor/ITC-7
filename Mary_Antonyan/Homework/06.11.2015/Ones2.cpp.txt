@@ -1,0 +1,75 @@
+#include <iostream>
+
+int Rebuild(int quantity)
+{
+	int P=1;
+	int S=1;
+	for (int i=0; i<=quantity-2; i++)
+		{
+			P=P*10;
+			S=S+P;
+		}
+	return S;
+}
+
+int GreatestCommonDivisor(int NumberOfDigits)
+{
+	if (NumberOfDigits%2==0)
+		{
+			return Rebuild(NumberOfDigits/2);
+		} else {	
+	if (NumberOfDigits%9==0)
+		{
+			return 9;
+		} else {
+	if (NumberOfDigits%3==0)
+		{
+			return 3;
+		} else { 
+			return 1;
+		}
+}
+}
+}
+
+
+int Minimum (int element1, int element2)
+{
+	if (element1<element2)
+		{
+			return element1;
+		} else {
+			return element2;
+		}
+}
+
+		
+int main ()
+{
+	int N;
+	int M;
+	do
+	{
+	std::cout<<"Please, enter value of N"<<std::endl;
+	std::cin>>N;
+	}
+ 	while((N<1)||(N>2000));
+ 	do
+ 	{
+	std::cout<<"Please, enter value of M"<<std::endl;
+	std::cin>>M;
+	}
+	while ((M<1)||(M>2000));
+	
+	int element1=GreatestCommonDivisor(N);
+	int element2=GreatestCommonDivisor(M);
+	int answer=Minimum(element1, element2);
+	if ((N%answer==0)&&(M%answer==0))
+		{
+			std::cout<<"Greatest common divisor is:\t"<<answer<<std::endl;	
+		} else {
+			std::cout<<"Greatest common divisor is:\t"<<1<<std::endl;
+		}
+	
+	return 0;
+}

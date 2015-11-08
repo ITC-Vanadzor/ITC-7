@@ -1,4 +1,4 @@
-// amenamets @ndhanur bajanarar
+// This program finds the greatest common divisor of two numbers
 
 # include <iostream>
 

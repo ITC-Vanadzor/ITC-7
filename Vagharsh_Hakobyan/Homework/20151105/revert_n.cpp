@@ -26,6 +26,6 @@ int main()
     std::cin >> n;
   }
   while (n<=0);
-  std::cout << revers(n) << std::endl;
+  std::cout << "Շրջված n թիվն է՝ m = " << revers(n) << std::endl;
   return 0;
 }

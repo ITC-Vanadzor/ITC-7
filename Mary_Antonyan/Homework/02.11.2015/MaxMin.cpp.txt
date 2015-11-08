@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int a[10000];
+	cout<<"Mutqagrman gorc@ntacn avartel 10001 nermucelov"<<endl;
+	int q=0;
+	int i=0;
+do 
+{
+cin>>a[i];
+ q++;
+}
+while (a[i]!=10001);
+
+int MIN=a[1];
+int MAX=a[0];
+int S;
+
+for (i=0; i<=q-2; i++)
+	{
+		if ((i%2==0)&&(a[i]>MAX))
+		{
+			MAX=a[i];
+		}
+	 	if ((i%2!=0)&&(a[i]<MIN))
+		{
+			MIN=a[i];
+		}
+		S=MAX+MIN;	
+	}
+cout<<S;
+return 0;
+}

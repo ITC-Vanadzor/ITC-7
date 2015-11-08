@@ -23,6 +23,7 @@ int comparation_int (void* element_1, void* element_2) {
 
 int search (void* begin, void* end, size_t elementsize, void* element, int (*compare)(void* , void* )) 
 {
+    if(*((int*)begin)+*((int*)end)==1) return -1;
     void* middle =(void*) ((*((char*)begin)+*((char*)end))/2);
     
 	for ( int i = 0 ; begin != end; begin += elementsize,  ++i )  {
@@ -37,7 +38,6 @@ int search (void* begin, void* end, size_t elementsize, void* element, int (*com
              return  search (middle, end , elementsize, element, compare);
              }        
 	}
-	return -1;	
 
 }
 

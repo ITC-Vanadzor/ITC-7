@@ -75,26 +75,28 @@ int EquivalFloat(void* a, void* b){// function works for type 'float'
 
  int Search(void* array,  void * arrayEnds,size_t sizeOfElements,  void* element, int (*Compare)(void*, void*)){
 //warnings about this line,,  
- void* pivot=(void*) ((array+arrayEnds)/2);// the IP of middle element
+ void* pivot;
+ int k=((char*)arrayEnds-(char*)array)/2;// the IP of middle element
+ pivot=(char*)array+k;
    
  int answer=Compare(pivot, element);
   if (answer==0) {
 
-       for ( int i = 0 ; array != pivot; array+= sizeOfElements, ++i ) {
+       for ( int i = 0 ; array != pivot; array= (char*)array+sizeOfElements, ++i ) {
          
 				return i;			
 		}
           }
+  if(k<1){
+             return -1;
+             }
    else if(answer==-1) { 
-       return  Search(array, (pivot-sizeOfElements), sizeOfElements, element, Compare) ;			
+       return  Search(array, pivot, sizeOfElements, &element, Compare) ;			
 	     }
-  else if(answer==1){
-     return  Search((pivot+sizeOfElements), arrayEnds, sizeOfElements, element,Compare) ;			
+   else if(answer==1){
+     return  Search(pivot, arrayEnds, sizeOfElements, &element,Compare) ;			
 		}
-                 
-   else
-	return -1;	   
-  
+
 }		
    
 

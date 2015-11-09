@@ -5,11 +5,11 @@ int baj(int  a, int  b)
  {
 	if (a > b)
 	{
-		return baj(--a, b);
+		return baj(a-b, b);
 	}
 	if (a < b)
 	{
-		return baj(a, --b);
+		return baj(a, b-a);
 	}
 	else
 	{

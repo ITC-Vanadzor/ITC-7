@@ -1,19 +1,12 @@
 #include <iostream>
 #include <cmath>
-int bajanarar(int a, int b)
+int bajanarar(int min, int a, int b)
 {
-	if(a == b || (b > a && (b % a) == 0))
+	if((a % min) == 0 && (b % min) == 0)
 	{
-		return a;
+		return min;
 	}
-	if(a > b && (a % b) == 0)
-	{
-		return b;
-	}
-	else
-	{
-		return 1;
-	}	
+	bajanarar(min / 2, a, b);
 }
 int main()
 {
@@ -25,17 +18,18 @@ int main()
 		std::cout << "tpel erkrord tvi mekeri qanak@ (bnakan amboxj) ";
 		std::cin >> m;
 	}
-	int tiv_n = 0;
-	for(int i = n - 1; i >= 0; --i)
+	int min = m;
+	if(n <= m)
 	{
-		tiv_n += pow(10, i);
+		min = n;
 	}
-	int tiv_m = 0;
-	for(int i = m - 1; i >= 0; --i)
+	int baj = bajanarar(min, n, m);
+	std::cout << "dzer tpac tveri amenamec @ndhanur miavor bajanarar@ = ";
+	for(int i = 0; i < baj; ++i)
 	{
-		tiv_m += pow(10, i);
+		std::cout << "1";
 	}
-	std::cout << "dzer tpac tveri amenamec @ndhanur miavor bajanarar@ = " << bajanarar(tiv_n, tiv_m) << std::endl;
+	
 
    return 0;
 }

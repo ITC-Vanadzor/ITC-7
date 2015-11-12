@@ -7,41 +7,34 @@
  static  int Area=0;
  static  const int N=4;
  static int Array[N][N];
+ 
 
 void Determine( int i, int j){
-        if(Array[i][j]){
-          Array[i][j]==2;
+       
+          Array[i][j]=2;
           Area++;
-          std::cout<<"  Area "<<Area<<std::endl;
           
-             if(jmax<N-1){
-                   jmax=j-1;
-                  //std::cout<<" jmax "<<jmax<<std::endl;
-                 
+          
+             if(j<N && Array[i][j+1]==1){
+                   jmax++;
       		 Determine(i, j+1);
                }     
-               if(jmin>0){
-                  jmin=j-1;
-                  //std::cout<<" jmin "<<jmin<<std::endl;
+               if(j>0 && Array[i][j-1]==1){
+                  jmin--;
                   Determine(i, j-1); 
                 } 
              
-                if(imax<N-1){
-                  imax=i-1;
-                  // std::cout<<"imax "<<imax<<std::endl;
-                  Determine(i-1, j);
+                if(i<N && Array[i+1][j]==1){
+                  imax++;
+                  Determine(i+1, j);
                    }
            
-                 if(imin>0){
-                        imin=i-1;
-                      //   std::cout<<"   imin "<<imin<<std::endl;
+                if(i>0 && Array[i-1][j]==1){
+                        imin--;
                         Determine(i-1,j);
                          }
-               
-                }
-             return;
-      
-
+				
+                   
         }
 
 
@@ -49,31 +42,45 @@ int main()
 {
 
  
-   for(int i=0; i<N; ++i){
-      for(int j=0; j<N; ++j){
-   	 Array[i][j]=0;
+   for(int k=0; k<N; ++k){
+      for(int p=0; p<N; ++p){
+   	 Array[k][p]=1;
         }
       
     }
- Array[1][1]=1;
- //Array[1][2]=1;
- Array[3][2]=1;
- Array[3][3]=1; 
+ //  Array[0][0]=1;
+ //  Array[1][1]=1;
+  // Array[1][0]=1;
+  // Array[2][3]=1;
+ //  Array[3][0]=1;
+  // Array[3][1]=1;
 
 int quantity=0;     
+
+
    for(int i=0; i<N; ++i){
-         for(int j=0; j<N; ++j){
-                    if(Array[i][j]==1){
-                       int imax=i;
-                       int imin=i;
-                       int jmax=j;
-                       int jmin=j;
-                       Determine(i,j);
-                        int AreaIJ=(jmax-jmin+1)*(imax-imin+1);
+         for( int j=0; j<N; ++j){
+                    if(Array[i][j]){
+                        imax=i;
+		        imin=j;
+                        Area=0;
+                        jmax=j;
+			jmin=j;
+                        
+                        Determine(i,j);
+                        int AreaIJ=(imax-imin+1)*(jmax-jmin+1);
+                         std::cout<<" i "<< i<<" j "<<j<<std::endl;
                          std::cout<<" AreaIJ  "<<AreaIJ<<std::endl;
-                        if( Area==AreaIJ){
+		         std::cout<<"  Area "<<Area<<std::endl;
+                         for(int k=0; k<N; ++k){
+      for(int p=0; p<N; ++p){
+   	 std::cout<<Array[k][p];
+        }
+    std::cout<<std::endl;
+      
+    }
+                        if( Area==AreaIJ  ){
                             quantity++;
-                           
                              }
                        }
                   

@@ -1,0 +1,26 @@
+//  gorciqneri shtemaran  //
+mov - move
+jmp - jump
+neqo - not equal one
+plo - plus one
+ploa - plus one adress
+mk - make
+//                       //
+mov Rchap, chap
+mov Rmeker, meker
+mov Rj_max, j_max
+mov Rj_min, j_min
+mov Ri_max, i_max
+mov Rqartez, qartez
+mov Rnaver, naver
+.noteone.
+neqo R1, Rqartez	// stugum e massivi arajin andam@ (hasceov)
+ploa Rqartez, Rqartez	// ancnum e massivi hajord andamin
+jmp noteone		// catkum em depi stugum (neqo)
+mov Rj_max, j		// tvyal registri mej grum en henc ayd pahi j-in (vorpes maximum)
+mov Rj_min, j		// tvyal registri mej grum en henc ayd pahi j-in (vorpes minimum)
+mov Ri_max, i		// tvyal registri mej grum en henc ayd pahi i-in 
+plo Rmeker, 1		// tvyal registrin gumarum enq 1
+mk Rqartez, 2		// tvyal registrin veragrum enq 2
+jmp noteone		// catkum enq depi stugum (neqo)
+

@@ -30,11 +30,16 @@ int main()
           {
              if (i==0 || a[i-1][j]==0)
              {
-                  while (a[i][j]==0 || j==(field-1))
+                for (int k=j; k< field; ++k)
+                {
+                  if (a[i][k]==0 )
                       {
-                        ++j;
+                        j=k;
                       }
+                }
+                std::cout << i << ", " << j << std::endl;
                 count=count+1;
+                std::cout << "Count = " << count << std::endl;
              }
           }
       }

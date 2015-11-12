@@ -1,0 +1,183 @@
+/*
+Registers:
+R0 --- R9
+
+
+Commands:
+mov A,B:
+	A - anything (reigister or memory)
+	B - anything (reigister or memory)
+
+cmp A,B: (A < B)
+	A - R2
+	B - R3
+	result -> R4
+
+cme A, B: (A = B)
+	A - R2
+	B - R3
+	result -> R4
+	
+jne L:
+	L - label to jump, jumps when R4 == 0
+
+je L:
+	L - label to jump, jumps when R4 == 1
+	
+add A,B:  (A + B)
+	A - R0
+	B - R1
+	result -> R0
+
+mul A, B: (A * B)
+	A-R0
+	B-R1
+	result -> R0
+
+jmp L
+	L - label to jump
+
+DW     (define word(4 byte))
+
+i think that a massive is a on the stack,the adress of the first number of the massive is the 4
+
+*/
+
+---begin ----
+ 
+
+	mov R5,count   // count=0
+	mov [4],R2     // a[0][0] ------> R2
+	mov R3,1       
+	cme R2,R3      // if(a[0][0]
+	je  .if_a00_1
+	jne .if_a00_not1
+.if_a00_1
+	mov R5,R0      // count -------> R0
+	mov 1,R1       // 1-------> R1
+	add R0,R1      // count++
+	mov R0,R5      // count -------> R5
+	jmp .if_a00_not1
+.if_a00_not1  
+	mov i,0        // i=0
+	mov i,R6       // i------->R6
+	mov j,1        // j=1
+	mov j,R7       // j------->R7
+	mov i,R2
+	mov n,R3
+	cmp R2,R3 
+	je .while_i_less_n
+	jne .End
+.while_i_less_n
+	mov j,R2
+	cmp R2,R3 
+	je .while_j_less_n
+	jne .End
+
+.while_j_less_n
+	mov i,R0
+        mov n,R1
+        mul R0,R1
+        mov j,R1
+        add R0,R1
+        mov 4,R1
+        add R0,R1      // a[i][j]
+        mov 1,R3
+        mov [R0],R2
+        cme R2,R3
+        je .if_a_equal_1
+	jne .Iadd
+.if_a_equal_1
+	mov 1,R8       //LeftOk ----.> R8
+	mov 1,R9       // UpOk  -----> R9
+	jmp .if_j_not_0
+.if_j_not_0
+	mov 0,R3
+	mov j,R2
+	cme R2,R3
+	je .if_a_j-1_equal_1_not
+	jne .if_a_j-1_equal_1
+.if_a_j-1_equal_1
+	mov i,R0
+        mov n,R1
+        mul R0,R1
+        mov j,R1
+        add R0,R1
+	mov -1,R1	//j-1
+	add R0,R1
+        mov 4,R1
+        add R0,R1      // a[i][j-1]
+	mov [R0],R2
+	mov 1,R3
+	cme R2,R3
+	je .LeftOk_false
+	jne .Y5
+.LeftOk_false
+	mov 0,R8
+	jmp .if_a_j-1_equal_1_not
+.if_a_j-1_equal_1_not
+	mov 0,R3
+	mov i,R2
+	cme R2,R3
+	je .if_Leftok_true
+	jne .if_a_i-1_equal_1
+.if_a_i-1_equal_1
+	mov i,R0
+	mov -1,R1
+	add R0,R1
+        mov n,R1
+        mul R0,R1
+        mov j,R1
+        add R0,R1
+	mov 4,R1
+        add R0,R1      // a[i-1][j]
+	mov [R0],R2
+	mov 1,R3
+	cme R2,R3
+	je .UpOk_false
+	jne .if_Lefok_true
+.UpOk_false
+	mov 0,R9
+	jmp .if_Leftok_true
+.if_Leftok_true
+	mov 1,R3
+	mov R8,R2
+	cme R2,R3
+	je .if_Upok_true
+        jne .Jadd
+.if_Upok_true
+	mov R9,R2
+	cme R2,R3
+	je .Count
+        jne .Jadd
+.Count  
+        mov R5,R0      // count -------> R0
+	mov 1,R1       // 1-------> R1
+	add R0,R1      // count++
+	mov R0,R5     
+.Jadd
+        mov R7,R0
+        mov 1,R1
+        add R0,R1      // j++
+        mov R0,R7
+        jmp .while_j_less_n
+.Iadd
+	mov R6,R0
+        mov 1,R1
+        add R0,R1      // i++
+        mov R0,R6
+        mov R7,0	// j=0
+	jmp .End
+
+
+i      dw     0
+ j      dw     1
+ count  dw     0
+ n      dw     10
+
+------End ------
+
+
+
+
+

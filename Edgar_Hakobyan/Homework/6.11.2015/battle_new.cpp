@@ -9,24 +9,6 @@ int array[n][n];
 void naveri_stugum(int i, int j)
 {
 	array[i][j] = 2;
-	if( (j > 0) && (array[i][j-1] == 1) )
-	{
-		++navak;
-		if(array[i-1][j] != 2)
-		{
-				++length;
-		}
-		naveri_stugum(i, j-1);
-	}
-	if( (i > 0) && (array[i-1][j] == 1) )
-	{
-		++navak;
-		if(array[i][j+1] !=2)
-		{
-			++height;
-		}
-		naveri_stugum(i-1, j);
-	}
 	if( (j < n) && (array[i][j+1] == 1) )
 	{
 		++navak;
@@ -38,6 +20,24 @@ void naveri_stugum(int i, int j)
 		++navak;
 		++height;
 		naveri_stugum(i+1, j);
+	}
+	if( (j > 0) && (array[i][j-1] == 1) )
+	{
+		++navak;
+		if(array[i-1][j-1] != 2)
+		{
+				++length;
+		}
+		naveri_stugum(i, j-1);
+	}
+	if( (i > 0) && (array[i-1][j] == 1) )
+	{
+		++navak;
+		if(array[i-1][j+1] !=2)
+		{
+			++height;
+		}
+		naveri_stugum(i-1, j);
 	}
 }
 int main()

@@ -15,21 +15,21 @@ void Determine( int i, int j){
           Area++;
           
           
-             if(j>=jmax && Array[i][j+1]==1){
+             if(j<N && Array[i][j+1]==1){
                    jmax++;
       		 Determine(i, j+1);
                }     
-               if(j<=jmin && Array[i][j-1]==1){
+               if(j>0 && Array[i][j-1]==1){
                   jmin--;
                   Determine(i, j-1); 
                 } 
              
-                if(i>=imax && Array[i+1][j]==1){
+                if(i<N && Array[i+1][j]==1){
                   imax++;
                   Determine(i+1, j);
                    }
            
-                 if(i<=imin && Array[i-1][j]==1){
+                if(i>0 && Array[i-1][j]==1){
                         imin--;
                         Determine(i-1,j);
                          }
@@ -44,13 +44,13 @@ int main()
  
    for(int k=0; k<N; ++k){
       for(int p=0; p<N; ++p){
-   	 Array[k][p]=false;
+   	 Array[k][p]=1;
         }
       
     }
-   Array[0][0]=1;
-   Array[1][1]=1;
-   Array[1][0]=1;
+ //  Array[0][0]=1;
+ //  Array[1][1]=1;
+  // Array[1][0]=1;
   // Array[2][3]=1;
  //  Array[3][0]=1;
   // Array[3][1]=1;

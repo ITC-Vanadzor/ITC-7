@@ -1,0 +1,93 @@
+
+l1:
+mov regi, i                   // regi-ում պահւմ ենք i֊ի հասցեն
+mov regj, j                   // regj-ում պահւմ ենք j֊ի հասցեն
+mov regc, 5                   // regc֊ում պահւմ ենք 5 թիվը՝ զանգվածի չափը
+inc regj                      // j֊ի արժեքը մեծացնում ենք 1֊ով
+mul regi, 20                  // i֊ի արժեքը բազմապատկում ենք 20֊ով
+mul regj, 4                   // j֊ի արժեքը բազմապատկում ենք 4֊ով
+add regi, regj                // գումարում ենք i֊ի և j֊ի արժեքները, որպեսզի հիշողության մեջ գտնենք զանգվածի անդամը
+jump regj, regc, l2           // համեմատւմ ենք j֊ին 5֊ի հետ,եթե j֊ին մեծ է,տեղափոխվում ենք l2
+mov regd, regi                // regi֊ն գրում ենք regd֊ի մեջ
+cmpl &regd, 1                 // համեմատւմ ենք regd֊ն 1֊ի հետ
+ inc reg_nav                  // նավակների քանակը ավելացնում ենք 1֊ով
+ inc reg_erk                  // երկարությունը ավելացնում ենք 1֊ով
+
+ l2:
+mov regi, i 
+mov regj, j
+mov regc, 5
+inc regj
+mul regi, 20
+mul regj, 4
+add regi, regj
+jump regi regc, l3
+mov regd, regi
+cmpl &regd, 1
+inc reg_nav
+inc reg_layn;
+
+l3:
+mov regi, i 
+mov regj, j
+mov regc, 5
+sub regj, 1
+mul regi, 20
+mul regj, 4
+add regi, regj
+jump 0, regj, l4
+mov regd, regi
+cmpl &regd, 1
+inc reg_nav
+inc reg_erk
+
+l4:
+mov regi, i 
+mov regj, j
+mov regc, 5
+sub regj, 1
+mul regi, 20
+mul regj, 4
+add regi, regj
+jump 0, regi, l6
+mov regd, regi
+cmpl &regd, 1
+inc reg_nav
+inc reg_layn
+
+l5:                //main
+mov regi, i           
+mov regj, j
+mov regc, 5
+jump regc, regi, ..
+jump regc, regj, ..
+mul regi, 20
+mul regj, 4
+add regi, regj
+cmpl regi, 1
+mov reg_erk, 1
+mov reg_layn, 1
+mov reg_nav, 1
+jump l1
+
+l6:
+mul reg_layn, reg_erk
+cmpl reg_layn,reg_nav
+inc reg_qanak
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

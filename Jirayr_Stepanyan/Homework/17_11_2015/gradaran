@@ -1,17 +1,17 @@
 					      //    GRADARAN    //
 
-1-i pul
+FUNCTION SPEC
 
-Ibook_system	  // ays system-i ognutyamb mer cragir@ petq e kapvac lini mi qani haytni kayqeri het vorpeszi inet-i arkayutyan 			     depqum download ani ayn nyuter@ voronq avelacvel en tvyal kayqerum
+I_book_system	  // ays system-i ognutyamb mer cragir@ petq e kapvac lini mi qani haytni kayqeri het vorpeszi inet-i arkayutyan 			     depqum download ani ayn nyuter@ voronq avelacvel en tvyal kayqerum
 Book_Section      // Book_Section-@ mez hnaravorutyun kta dasavorel grqer@ @st mer cankutyan ev kognen user-in aravel hesht exanakov 			     gtnel ayn inch@ inq@ pntrum e searching_systemi ognutyan
 searching system  // ays system-@ hnaravoutyun kta user-in hnaravorins hesht gtnel iren hetaqrqrox voreve nyut
 sign_in system    // ays system@ hnaravorutyun e talis grancvel ev darnal ogtater mer online gradaranum inch@ hnaravorutyun e talis 			     upload anel aynpisi girq vor@ chka mer gradaranum, inchpes nayev patvirel motaka xanutneric
 video_lesson      // video_lesson-@ canotacnum e user-in cragri ev nranic ogtvelu kargi het (miayn arajin angam)
 
 
-2rd pul
+development spec
 
-Ibook_system
+I_book_system
 
 1. ete mer hamakargich@ kpac che inet-in uremn mer cragri mej menq kunenanq miayn cragri stexcman pahin download exac grqeri cank@
 2. isk inet-i arkayutyan depqum inq@ kstugi ete kan norutyunner mer het kap hastatac kayqerum anmijapes download kani dranq
@@ -50,3 +50,19 @@ sign_in system
 video_lesson
 
   // ete uzer-@ chi cankanum ditel viseo-lesson-@ uremn nran hnaravorutyun e trvum pakel ayd ej@ (inch@ xorhurd chi trvum)
+
+implement product 
+
+video_lesson 	   			// 1-i cragravorox
+sign_in system 4 (zexchain hamakarg).   // 2rd cragravorox
+sign_in system 3 (super_search).  	// 3rd cragravorox
+sign_in system 2 (patver).  		// 4rd cragravorox
+sign_in system 1 (user's gradaran).     // 5rd cragravorox
+sign_in system	   			// 6rd cragravorox
+searching system			// 7rd cragravorox
+book_section 1-5			// 8rd cragravorox
+book_section 6-10			// 9rd cragravorox
+I_book_system				// 10rd cragravorox
+
+
+

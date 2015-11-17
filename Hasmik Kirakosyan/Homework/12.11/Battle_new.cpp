@@ -6,58 +6,80 @@ int result = 0;
 
 void check (int (&a)[5][5], int i, int j) {
           static int count;
-          static int imin = i, imax = i, jmin = j, jmax = j;
-          if (a[i][j] == 0 || a[i][j] == 2) return;
+          static int area;
+          static int height, width;
+          static int imax = i; 
+          static int jmax = j;
+          int top, buttom, left, right, buf_for_area, buf_for_count;
+          static int imin; 
+          static int jmin;
+
+          
           if (a[i][j] == 1) {
-              count++;
               a[i][j] = 2;
- 		      imin = (i < imin)? i:imin;
- 		      jmin = (j < jmin)? j:jmin;
-   		      imax = (i > imax)? i:imax;
-   		      jmax = (j > jmax)? j:jmax;
-   		      
-   		      int top     = (i > 0)? a[i+1][j]: 0;
-   		      int buttom  = (i < 4)? a[i-1][j]: 0;
-   		      int left    = (j > 0)? a[i][j-1]: 0;
-   		      int right   = (j < 4)? a[i][j+1]: 0;
-   		      
-              if ((top   != 1) && // I think, problem is from here
-                 (buttom != 1) && 
-                 (left   != 1) &&
-                 (right  != 1)) { // to here
-                             static int area;
-                             if (imax == imin) {
-                                if (jmax == imin) area = 1;
-                                   else area = jmax-jmin+1;
-                                }
-                             else if (jmax == jmin) area = imax-imin+1;
-                                   else area = (imax-imin+1)*(jmax-jmin+1);
-                             
-                             std::cout<<"area = "<<area<<" count= "<<count<<std::endl; 
-                             if (area == count) {
-                                      result++;
-                                      count = 0;
-                                      area = 0;
-                                      return;
-                             }
-                 } 
-              else {                       
-                      if (j > 0) check(a, i, j-1);
-                      if (i > 0) check(a, i-1, j);
-                      if (i < 4) check(a, i+1, j);
-                      if (j < 4) check(a, i, j+1);
-                }                                       
+    
+   		      // check buttom, top, left, right  
+   		      top     = (i <= 0)? 0:a[i-1][j];
+   		      buttom  = (i >= 4)? 0:a[i+1][j];
+   		      left    = (j <= 0)? 0:a[i][j-1];
+   		      right   = (j >= 4)? 0:a[i][j+1];
+  		       
+              imax = (i >= imax)? i:imax;
+              jmax = (j >= jmax)? j:jmax;
+              
+              count++;
+              
+              // change minimum coordinates if there is need
+              if (count  == 1) { 
+                               imin = i; 
+                               jmin = j;  
+                            }
+              // count area
+   		       width = (jmax - jmin)+1;
+               height= (imax - imin)+1; 
+               area  = width * height;
+                                        
+                
+               if ((top  != 1)  && 
+                  (buttom != 1) && 
+                  (left   != 1) &&
+                  (right  != 1)) {                               
+
+                                    buf_for_area = area;
+                                    buf_for_count = count; 
+                                    count = 0;
+                                    area  = 0;
+                                    int buf_imax = imax;
+                                    int buf_jmax = jmax;   
+                                    imax  = 0;
+                                    jmax  = 0;    
+                                                            
+                                    if (buf_for_count == buf_for_area) {
+                                                      result++;                                                                                                         
+                                                      return;
+                                    }
+                                    else std::cout<<"\nThere is flase ship in this area ["<<imin<<", "<<jmin<<"] - ["<<buf_imax<<", "<<buf_jmax<<"]"<<std::endl;
+
+              } 
+              else {                      
+                      if ((j>=0) && (left == 1))     check(a, i, j-1);
+
+                      if ((i>=0) && (top == 1))      check(a, i-1, j);
+
+                      if ((i<=4) && (buttom == 1))   check(a, i+1, j); 
+
+                      if ((j<=4) && (right == 1))    check(a, i, j+1); 
+ 
+              }                                       
           }
 }
 
 int main () {
- //std::cout<<"\n Input n : ";
- // std::cin>>n;
  
  int i, j;
  for (i = 0; i < n; ++i)  {
      for (j = 0; j < n; ++j) {
-         a[i][j]=1;
+         
         std::cout<<" a["<<i<<"],["<<j<<"] = ";
         std::cin>>a[i][j];
      }
@@ -66,7 +88,7 @@ int main () {
      
  for (i = 0; i < n; ++i) 
      for (j = 0; j < n; ++j) {
-         if (a[i][j] != 2) {
+         if (a[i][j] == 1) {
                      check (a, i, j);   
          }
      }    

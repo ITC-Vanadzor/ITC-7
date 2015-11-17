@@ -1,54 +1,120 @@
 //Sea battle assembler
 
+rga-Hishoxutyan skzbnakan hascen
+rgb
+rgc
+rgd
+rge
+rgf
+rgg-zangvaci arajin elementi hascen
+
+mov
+add -> rgd=rgb+rgc
+sub -> rgd=rgb-rgc
+mul -> rgd=rgb*rgc
+
+jmp
+jz -> rgd==0
+jnz -> rgd!=0
+jeq -> rgd==0
+jms -> rgd<0 
 
 _______________________________________________________________________
 +++++++++++++++++++++++++++assembler++++++++++++++++++++++++++++
 -----------------------------------------------------------------------
 
-	mov $0,-4(%rga)
-	mov $0,-5(%rga)
-	mov $9,-13(%rga)
-	mov $9,-20(%rga)
+	mov $0,-4(%rga) //flag=0
+	mov $0,-5(%rga) //counter=0
+	
+	mov $9,-9(%rga) // n=9
 
-	mov $0,-9(%rga)
+	mov $0,rge // i=0
 	jmp c1end
 cikl1:
-	mov $0,-17(%rga)
+	mov $0,rgf //j=0
 	jmp c2end
 cikl2:
-	lea rgb,(-9(%rga),%rgc,-17(%rga))
-	cmp $0, (%rgb)
-	je ELSE1
-	
-	cmp $0, -4(%rga)
-	jne L1
+	mov rgb, rge
+	mov rgc,$9
+	mul
 
-	cmp $0, -9(%rga)
-	jne L1
+	mov rgb,rgd
+	mov rgc,rgf
+	add
 
-	mov rgx,-9(%rga)
-	add $-1,rgx
-	lea rgb,(rgx,%rgc,-17(%rga))
-	cmp $0, (%rgb)
-	je L1
+	mov rgb,[rgg]
+	mov rgc, rgd
+	add
+
+	mov rgb,rgd
+	mov rgc,0
+	sub
 	
-	add $1, -5(%rga)
-	mov $1, -4(%rga)
+	jz ELSE1
+	
+	mov rgb, -4(%rga)//!flag
+	mov rgc, $0
+	sub
+	jnz L1
+
+	mov rgb, rge//!i
+	mov rgc, $0
+	sub
+	jnz L1
+
+	mov rgb,rge //rgd=i-1
+	mov rgc,$1
+	sub
+
+	mov rgb, rgd//!matrix[i-1][j]
+	mov rgc,$9
+	mul
+
+	mov rgb,rgd
+	mov rgc,rgf
+	add
+
+	mov rgb,[rgg]
+	mov rgc, rgd
+	add
+
+	mov rgb,rgd
+	mov rgc,0
+	sub
+	
+	jnz L1
+	
+	mov rgb, -5(%rga) //counter++
+	mov rgc, $1
+	add
+	mov -5(%rga),rgd
+
+	mov $1, -4(%rga) // flag=1
 	jmp L1
 
    ELSE1:
-	mov $0, -4(%rga)
+	mov $0, -4(%rga) //flag=0
 	
    L1:
-	add $1,-17(%rga)
+	mov rgb, rgf//j++
+	mov rgc, $1
+	add
+	mov rgf,rgd
 c2end:
-	cmp -17(%rga),-20(%rga)
-	jl cikl2
+	mov rgb, rgf//j<9
+	mov rgc, $9
+	sub
+	jms cikl2
 
-	add $1,-9(%rga)
+	mov rgb, rge//i++
+	mov rgc, $1
+	add
+	mov rge,rgd
 c1end:
-	cmp -9(%rga),-13(%rga)
-	jl cikl1
+	mov rgb, rge//i<9
+	mov rgc, $9
+	sub
+	jms cikl1
 
 
 _______________________________________________________________________
@@ -86,6 +152,7 @@ int hashvir_naverin(int **matrix,int n, int m){
 	 return counter;
 
 }
+
 
 
 

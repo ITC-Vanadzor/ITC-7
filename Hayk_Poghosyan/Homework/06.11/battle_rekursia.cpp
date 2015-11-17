@@ -10,10 +10,10 @@ void check(int i, int j)
 {
 	++count;
 	map[i][j] = 2;
-	if (map[i][j + 1]==1) {if(j>=right) right=j+1; check(i, j+1); }
-	if (map[i][j - 1]==1) { if (j<=left) left=j+1; check(i, j-1); }
+	if (j<n && map[i][j + 1]==1) {if(j>=right) right=j+1; check(i, j+1); }
+	if (j>0 && map[i][j - 1]==1) { if (j<=left) left=j+1; check(i, j-1); }
 	if (map[i - 1][j]==1) check(i-1 , j);
-	if (map[i + 1][j]==1) { if (i>=down) down = i+1; check(i+1, j );  }
+	if (i<n && map[i + 1][j]==1) { if (i>=down) down = i+1; check(i+1, j );  }
 }
 
 int main()

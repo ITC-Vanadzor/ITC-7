@@ -1,26 +1,61 @@
-//  gorciqneri shtemaran  //
+// blog logiki  //
 mov - move
 jmp - jump
 neqo - not equal one
 plo - plus one
 ploa - plus one adress
+sub - subtract
+subo - subtract one
 mk - make
+eqo - equal one
+smtc - small then chap
+bgtoe - big then or equal
+mutf - multifly
 //                       //
-mov Rchap, chap
-mov Rmeker, meker
-mov Rj_max, j_max
-mov Rj_min, j_min
-mov Ri_max, i_max
-mov Rqartez, qartez
-mov Rnaver, naver
-.noteone.
-neqo R1, Rqartez	// stugum e massivi arajin andam@ (hasceov)
-ploa Rqartez, Rqartez	// ancnum e massivi hajord andamin
-jmp noteone		// catkum em depi stugum (neqo)
-mov Rj_max, j		// tvyal registri mej grum en henc ayd pahi j-in (vorpes maximum)
-mov Rj_min, j		// tvyal registri mej grum en henc ayd pahi j-in (vorpes minimum)
-mov Ri_max, i		// tvyal registri mej grum en henc ayd pahi i-in 
-plo Rmeker, 1		// tvyal registrin gumarum enq 1
-mk Rqartez, 2		// tvyal registrin veragrum enq 2
-jmp noteone		// catkum enq depi stugum (neqo)
-
+	mov Rzr, 0
+	mov Rchap, chap
+	mov Rmeker, meker
+	mov Rj_max, j_max
+	mov Rj_min, j_min
+	mov Ri_max, i_max
+	mov Rqartez, qartez
+	mov Rnaver, naver
+	mov Ri, i
+	mov Rj, j
+.noteone
+	neqo R1, Rqartez	// stugum e massivi arajin andam@ (hasceov)
+	ploa Rqartez, Rqartez	// ancnum e massivi hajord andamin
+	jmp noteone		// catkum em depi stugum (neqo)
+	mov Rj_max, j		// tvyal registri mej grum en henc ayd pahi j-in (vorpes maximum)
+	mov Rj_min, j		// tvyal registri mej grum en henc ayd pahi j-in (vorpes minimum)
+	mov Ri_max, i		// tvyal registri mej grum en henc ayd pahi i-in 
+	call function		// kanchum enq funkcian tvyal arjeqov
+	sub Rj_max, Rj_min	// j_max - j_min ev ardyunq@ pahum enq j_max-um
+	plo Rj_max		// j_max + 1
+	plo Ri_max		// i_max + 1
+	mutf Rj_max, Ri_max	// j_max * i_max ev ardyunq@ pahum enq j_max-um
+	eqo Rmeker, Rj_max	// ete meker == j_max
+	plo Rnaver		// naver + 1
+	
+.function
+	plo Rmeker, 1		// tvyal registrin gumarum enq 1
+	mk Rqartez, 2		// tvyal registrin veragrum enq 2
+	eqo Rqartez[i][j + 1]   // ete havasar e 1-i
+	plo Rj	                // j-in gumarum enq 1
+	smtc Rj, Rchap		// j + 1 < chap
+	bgtoe Rj_max, Rj   	// ete j > j_max uremn j-i arjeq@ pahum enq j_max-um
+	call funktion		// kanchum enq nuyn funkcian hajord arjeqov
+	eqo Rqartez[i + 1][j]   // ete havasar e 1-i
+	plo Ri			// i + 1
+	smtc Ri, Rchap		// i + 1 < chap
+	bgtoe Ri_max, Ri   	// ete i > i_max uremn i-n pahum enq i_max-um
+	call funktion		// kanchum enq nuyn funkcian hajord arjeqov
+	eqo Rqartez[i][j - 1]   // ete havasar e 1-i
+	subo Rj			// i - 1
+	bgtoe Rj, Rzr		// ete j + 1 >= 0
+	bgtoe Rj_min, Rj   	// ete j > j_min uremn j-n pahum enq j_min-um
+	call funktion		// kanchum enq nuyn funkcian hajord arjeqov
+	eqo Rqartez[i - 1][j]   // ete havasar e 1-i
+	subo Ri 		// i - 1
+	bgtoe Rj, Rzr		// ete i - 1 >= 0
+	call funktion		// kanchum enq nuyn funkcian hajord arjeqov

@@ -6,50 +6,52 @@ I_book_system	  // ays system-i ognutyamb mer cragir@ petq e kapvac lini mi qani
 Book_Section      // Book_Section-@ mez hnaravorutyun kta dasavorel grqer@ @st mer cankutyan ev kognen user-in aravel hesht exanakov 			     gtnel ayn inch@ inq@ pntrum e searching_systemi ognutyan
 searching system  // ays system-@ hnaravoutyun kta user-in hnaravorins hesht gtnel iren hetaqrqrox voreve nyut
 sign_in system    // ays system@ hnaravorutyun e talis grancvel ev darnal ogtater mer online gradaranum inch@ hnaravorutyun e talis 			     upload anel aynpisi girq vor@ chka mer gradaranum, inchpes nayev patvirel motaka xanutneric
-video_lesson      // video_lesson-@ canotacnum e user-in cragri ev nranic ogtvelu kargi het (miayn arajin angam)
 
 
 development spec
 
 I_book_system
 
-1. ete mer hamakargich@ kpac che inet-in uremn mer cragri mej menq kunenanq miayn cragri stexcman pahin download exac grqeri cank@
-2. isk inet-i arkayutyan depqum inq@ kstugi ete kan norutyunner mer het kap hastatac kayqerum anmijapes download kani dranq
+   // ete mer hamakargich@ kpac che inet-in uremn mer cragri mej menq kunenanq miayn cragri stexcman pahin download exac grqeri cank@
+
+1. video_lesson      // video_lesson-@ canotacnum e user-in cragri tvay entabajnin ev nranic ogtvelu kargi (miayn arajin angam)
+2. inet_system	     // ays system@ hnaravorutyun e talis ineti arkayutyan depqum tarmacnel mer cragir@
 
 Book_Section
 
   // mer cragir@ kunena 10 entabajin tarber lezunerov,  voronc mej el grqer@ dasavorvac klinen @st hexinakneri (aybenakan kargov)
-1. Haykakan grqeri entabajin
-2. Russian books section
-3. English books section
-4. Spanish
-5. German
-6. Italia
-7. France
-8. Chine
-9. George
-10.Holand
+
+1.video_lesson      // video_lesson-@ canotacnum e user-in cragri tvay entabajnin ev nranic ogtvelu kargi (miayn arajin angam)
+2. Haykakan grqeri entabajin
+3. Russian books section
+4. English books section
+5. Spanish
+6. German
+7. Italia
+8. France
+9. Chine
+10. George
+11.Holand
 
 searching system
 
   // mer cragrum hnaravor klini search anel @st hexinaki anvan, @st grqi vernagri, @st grqi entagluxneri vernagreri kam aravel       	  haytni u taracvac barakapakcutyunnerov (ays sur@ vor@ spanec davajan hor@ kspani nayev uracox mor@)
-1. searching @st hexinaki
-2. searching @st grqi vernagri
-3. searching @st grqi gluxneri vernagri
-4. searching @st barakapakcutyunneri
+1. video_lesson      // video_lesson-@ canotacnum e user-in cragri tvay entabajnin ev nranic ogtvelu kargi (miayn arajin angam)
+2. searching @st hexinaki
+3. searching @st grqi vernagri
+4. searching @st grqi gluxneri vernagri
+5. searching @st barakapakcutyunneri
 
 sign_in system
   
   // grancveluc heto ogtater@ stanum a aravelutyunner chgrancvac useri hamemat
   // grancveluc heto ogtatiroj@ trvum e ir arandzin gradaran@ voroshaki hishoxutyan cavalov
-1. na karox e ir gradaran upload anel ayn inch kuzi
-2. na karox e ogtvel voroshaki aravelutyunneric, baci girq pntrel@, download ev upload anel@ na karox e nayev girq patvirel,         	patvirelu depqum vjarum@ katarvum e bankain classic qarteri mijocov
-3. na karox e ogtvel searching system-i aravelutyunneric, grancvac ogtatereri hamar searching katarvum e voch miayn cragri nersum    	ayl nayev online (karox en tesnel te irenc pntrac grqic moataka xanutneric vor mekum ka ev inch arji)
-4. aktivutyan tokosner@ mer nshac sandxakin hascnelu depqum ogtater@ karox e ogtvel zexchain hamakargic petveri depqum
+1. video_lesson      // video_lesson-@ canotacnum e user-in cragri tvay entabajnin ev nranic ogtvelu kargi (miayn arajin angam)
+2. user's gradaran   // na karox e ir gradaran upload anel ayn inch kuzi
+3. patver            // na karox e ogtvel voroshaki aravelutyunneric, baci girq pntrel@, download ev upload anel@ na karox e nayev  			        girq patvirel, patvirelu depqum vjarum@ katarvum e bankain classic qarteri mijocov
+4. super_search      // na karox e ogtvel searching system-i aravelutyunneric, grancvac ogtatereri hamar searching katarvum e voch 			        miayn cragri nersum    	ayl nayev online (karox en tesnel te irenc pntrac grqic moataka xanutneric vor mekum 			        ka ev inch arji)
+5. zexchain hamakarg // aktivutyan tokosner@ mer nshac sandxakin hascnelu depqum ogtater@ karox e ogtvel zexchain hamakargic petveri 			        depqum
 
-video_lesson
-
-  // ete uzer-@ chi cankanum ditel viseo-lesson-@ uremn nran hnaravorutyun e trvum pakel ayd ej@ (inch@ xorhurd chi trvum)
 
 implement product 
 

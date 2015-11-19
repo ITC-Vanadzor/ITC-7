@@ -8,7 +8,7 @@ int main()
 		std::cin >> n;
 	}while(n <= 0);
 	
-	int arr[n][n];
+	int arr[50][50];
 	for(int i = 0; i < n; ++i)
 	{
 		for(int j = 0; j < n; ++j)

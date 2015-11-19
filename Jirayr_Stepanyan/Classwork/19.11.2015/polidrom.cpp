@@ -34,7 +34,7 @@ int main()
 	int i = 0;
 	while(i < (n - 1) / 2)
 	{
-		if(arr[0 + i] != arr[(n - 1) - i])
+		if(arr[i] != arr[(n - 1) - i])
 		{
 			std::cout << "polidrom che" << std::endl;
 			break;

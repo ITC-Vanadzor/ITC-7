@@ -3,21 +3,27 @@
 int main()
 {
 	char c[]= ">--->>--><<<<--<<>>>>>__>>><>>>>><<<<";
-	char *ch=c;
+	char *tox=c;
 	
-	std::cout<<ch<<std::endl;
+	std::cout<<tox<<std::endl;
 	int count=0;
-while(*(ch+4) != '\0')
-{
-	if(*ch == '>' && *(ch+1) == '>' && *(ch+2) == '-' && *(ch+3) == '-' && *(ch+4) == '>'){
+	while(*(tox+4) != '\0')
+	{
+		if(*tox == '>' && *(tox+1) == '>' && *(tox+2) == '-' && *(tox+3) == '-' && *(tox+4) == '>')
+		{
 			++count;
-	}else if(*ch == '<' && *(ch+1) == '-' && *(ch+2) == '-' && *(ch+3) == '<' && *(ch+4) == '<'){
+			tox+=5;
+		}
+		else if(*tox == '<' && *(tox+1) == '-' && *(tox+2) == '-' && *(tox+3) == '<' && *(tox+4) == '<')
+		{
 			++count;
+			tox+=5;
+		}
+		else
+		{
+			++tox;
+		}
 	}
-	++ch;
-}
-std::cout<<"count = " << count <<std::endl;
-	
-	
-return 0;
+	std::cout<<"count = " << count <<std::endl;
+	return 0;
 }

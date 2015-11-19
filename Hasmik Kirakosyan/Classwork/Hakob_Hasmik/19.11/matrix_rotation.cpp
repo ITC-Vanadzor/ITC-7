@@ -1,7 +1,7 @@
 #include <iostream>
 
 int main() {
-  int n,m;
+  int n = 50,m = 50;
   std::cout<<" n = ";
   std::cin>>n;
 

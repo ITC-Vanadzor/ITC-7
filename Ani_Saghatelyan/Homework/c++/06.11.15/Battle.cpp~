@@ -1,0 +1,88 @@
+
+// error ...cannot convert ‘int (*)[(((sizetype)(((ssizetype)N) + -1)) + 1)]’ to ‘int**’ for argument ‘4’ to ‘void Determine(int, int, int, int**, int&)’  Determine(i,j,N, Array, quantity);
+
+# include <iostream>
+ static int imax=0;
+ static  int imin=0;
+ static int jmax=0;
+ static  int jmin=0;
+
+
+void Determine( int i, int j, int n, int *array[], int &quantity){
+   
+    static int s2=0;
+    if(array[i][j]==1){
+      array[i][j]==2;
+      s2+=2;
+   	 if(j<n){
+                 jmax=++j;
+      		 Determine(i, j,n, array,quantity);     
+         }
+           if(j>0){
+                  jmin=--j;
+                  Determine(i, j,n, array,quantity);  
+           } 
+               if(i<n){;
+                  imax=++i;
+                  Determine(i, j, n,array,quantity);
+               }
+                  if(i>0){
+                        imin=--i;
+                        Determine(i,j,n, array,quantity);
+                         }
+                  }
+              int Sij=(jmax-jmin)*(imax-imin)*2;
+                if(Sij==s2){
+                   quantity++;
+                }
+                else {
+                    std::cout<<"your inupting numbers can't make a battle\n";
+                 }
+               
+              
+         }
+              
+ 		
+             
+    
+        
+  
+   
+
+
+
+int main()
+{
+
+int N=4;
+
+int Array[N][N];
+   for(int i=0; i<N; ++i){
+      for(int j=0; j<N; ++j){
+   	 Array[i][j]=0;
+        }
+      
+    }
+ Array[1][1]==1;
+ Array[3][2]==1;
+ Array[3][3]==1; 
+
+int quantity=0;     
+   for(int i=0; i<N; ++i){
+         for(int j=0; j<N; ++j){
+                if(Array[i][j]==1){
+                       int imax=i;
+                       int imin=i;
+                       int jmax=j;
+                       int jmin=j;
+                       Determine(i,j,N, Array, quantity);
+                      } 
+                   }         
+         } 
+
+            
+    
+std::cout<<"The quantity of boats  in the  board is\t"<<quantity<<std::endl;
+
+return 0;
+}

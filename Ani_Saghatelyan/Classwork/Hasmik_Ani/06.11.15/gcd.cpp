@@ -1,4 +1,4 @@
-// amenapoqr yndhanur  bazmapatik
+// amenamets @ndhanur bajanarar
 
 # include <iostream>
 
@@ -21,7 +21,7 @@ int GCD(int a, int b){
       std::cout<<"Enter y\t";
       std::cin>>y;
        }while(x==0|| y==0);
-       int answer=  (x*y)/GCD(x,y) ;    
-  std::cout<<answer<<std::endl;
+       
+  std::cout<<GCD(x,y)<<std::endl;
   return 0;
    }

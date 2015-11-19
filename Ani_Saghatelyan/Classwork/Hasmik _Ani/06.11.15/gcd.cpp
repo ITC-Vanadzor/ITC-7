@@ -23,7 +23,5 @@ int GCD(int a, int b){
        }while(x==0|| y==0);
        
   std::cout<<GCD(x,y)<<std::endl;
-  std::cin>>x;
-  
   return 0;
    }

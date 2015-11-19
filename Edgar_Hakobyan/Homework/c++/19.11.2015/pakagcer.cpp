@@ -1,58 +1,96 @@
 #include <iostream>
 #include <cstring>
 int main()
-{
-    char tox[]= "[juttit]uui{kkmk";
+{ 
+	int x,y;
+	int bac_pak1 = 0;
+	int pak_pak1 = 0;
+	int bac_pak2 = 0;
+	int pak_pak2 = 0;
+	int bac_pak3 = 0;
+	int pak_pak3 = 0;
+	char tox[]= "[ju]tt{itu(uik)kmk";
     std::cout<<tox<<std::endl;
-    
-    bool flag[4];
-    int n = strlen(tox);
-	
-	for(int i = 0; i < 4; ++i)
+	int n = strlen(tox);
+	for(int i = 0; i < n; ++i)
 	{
-		flag[i] = true;
+		if(tox[i] == '[')
+		{
+			x = i;
+			++bac_pak1;
+			for(int i = x+1; i < n; ++i)
+			{
+				if(tox[i] == ']')
+				{
+					y = i;
+					++pak_pak1;
+					break;
+				}
+			}
+			for(int i = x+1; i < y; ++i)
+			{
+				if(tox[i] == '{' || tox[i] == '}' || tox[i] == '(' || tox[i] == ')' )
+				{
+					std::cout << "sxal pakagcer" << std::endl;
+					return 0;
+				}
+			}
+		}
+		else if(tox[i] == '{')
+		{
+			x = i;
+			++bac_pak2;
+			for(int i = x+1; i < n; ++i)
+			{
+				if(tox[i] == '}')
+				{
+					y = i;
+					++pak_pak2;
+					break;
+				}
+			}
+			for(int i = x+1; i < y; ++i)
+			{
+				if(tox[i] == '[' || tox[i] == ']' || tox[i] == '(' || tox[i] == ')' )
+				{
+					std::cout << "sxal pakagcer" << std::endl;
+					return 0;
+				}
+			}
+		}
+		else if(tox[i] == '(')
+		{
+			x = i;
+			++bac_pak3;
+			for(int i = x+1; i < n; ++i)
+			{
+				if(tox[i] == ')')
+				{
+					y = i;
+					++pak_pak3;
+					break;
+				}
+			}
+			for(int i = x+1; i < y; ++i)
+			{
+				if(tox[i] == '{' || tox[i] == '}' || tox[i] == '[' || tox[i] == ']')
+				{
+					std::cout << "sxal pakagcer" << std::endl;
+					return 0;
+				}
+			}
+		}
 	}
-    for(int i = 0; i < n; ++i)
-    {
-        if(tox[i] == '[' && flag[0]==true )
-	{
-        flag[0]=false;
-    }
-        else if(tox[i] == ']' && flag[0]==false )
-	{
-        flag[0]=true;
-    }
-	    else if(tox[i] == '{' && flag[1]==true )
-	{
-        flag[1]=false;
-    }
-        else if(tox[i] == '}' && flag[1]==false )
-	{
-        flag[1]=true;
-    }    
-        else if(tox[i] == '\"' && flag[2]==true )
-	{
-        flag[2]=false;
-    }
-        else if(tox[i] == '\"' && flag[2]==false)
-	{
-        flag[2]=true;
-    }
-		else if(tox[i] == '\'' && flag[3]==true)
-	{
-		flag[3]=false;
-    }
-	    else if(tox[i] == '\'' && flag[3]==false )
-	{
-        flag[3]=true;
-    }
-    }
-    if( flag[0] && flag[1] && flag[2] && flag[3] )
-	{
-		std::cout<<"pakagcer@ chisht en"<<std::endl;
-	}
-	else{
-		std::cout<<"pakagcer@ chisht chen"<<std::endl;
-	}
-return 0;
+
+		if(bac_pak1 == pak_pak1 && bac_pak2 == pak_pak2 && bac_pak3 == pak_pak3)
+		{
+			std::cout << "chist pakagcer " <<std::endl;
+		}
+		else
+		{
+			std::cout << "sxal pakagcer" << std::endl;
+		}
+
+
+	return 0;
 }

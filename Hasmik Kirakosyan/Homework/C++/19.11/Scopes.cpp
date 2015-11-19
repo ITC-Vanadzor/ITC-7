@@ -1,7 +1,7 @@
 #include <iostream>
 int i, count;
 
-bool check (char* a,int start) {
+bool check (char* a,int& start) {
         char ch1, ch2;
 
 	// set pair scope for each begin scope
@@ -15,21 +15,24 @@ bool check (char* a,int start) {
 	}
 	
 	// check if in this scope another begin scope
-	for (int i = start+1; a[start]!=ch2; ++start) {
+	for (int i = start; a[i]!=ch2; ++i) {
 	   if ((a[i]=='{') || (a[i]=='"') || (a[i]=='['))
 	     if (!check(a, i)) {	
 		return false;
 		}
+
 	// count of scopes in already good scope
 	if ((a[i]=='{') || (a[i]=='}') || (a[i]=='"') || (a[i]=='[') || (a[i]==']')) count++;
 	
 	// if there is an alone scope function returns false, else true 
-	if (count%2!=0) { count = 0;
-			  return false;
+	if (count==0) {
+			 start =i;
+			 return true;
 			}
 	  else  {	
 			count = 0;
-			return true;
+			start = i;
+			return check(a, i);
 			}
 	}
 }
@@ -41,11 +44,16 @@ char ch2;
 
 std::cout<<"a =";
 std::cin>>a;
+int i = 0;
+bool t;
+while ( a[i]!= '\0') {//--> I think there is a mistake here
+	if (check(a,i)) t = true;
+	else     {
+			std::cout<<"\nScopes are wrong"<<std::endl; 
+			break;
+		 }
+}
 
-// for (int i =0; a[i]!= '\0'; ++i) --> I think there is a mistake here
-	if (((a[i]=='{') || (a[i]=='"') || (a[i]=='[')) && check(a,i)) 
-		 std::cout<<"\nScopes are right"<<std::endl;
-	else     std::cout<<"\nScopes are wrong"<<std::endl; 
-
+if (t) std::cout<<"\nScopes are correct"<<std::endl;
 return 0;
 }

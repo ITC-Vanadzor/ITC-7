@@ -19,11 +19,13 @@ int main()
 	int qanak = 0;
 	for(int j = 0; j < n; ++j)
 	{
-		if(arr[j] == '<' && arr[j + 1] == '-' && arr[j + 2] == '-' && arr[j + 3] == '<' && arr[j + 4] == '<') || if(arr[j] == '>' && arr[j + 1] == '>' && arr[j + 2] == '-' && arr[j + 3] == '-' && arr[j + 4] == '>')
+		if(arr[j] == '<' && arr[j + 1] == '-' && arr[j + 2] == '-' && arr[j + 3] == '<' && arr[j + 4] == '<')
 		{
 			++qanak;
-			
-		
+		}		
+		if(arr[j] == '>' && arr[j + 1] == '>' && arr[j + 2] == '-' && arr[j + 3] == '-' && arr[j + 4] == '>')
+		{
+			++qanak;
 		}
 	}
 	std::cout << qanak << std::endl;

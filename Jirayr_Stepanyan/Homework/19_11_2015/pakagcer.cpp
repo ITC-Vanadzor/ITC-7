@@ -2,39 +2,55 @@
 #include <cstdlib>
 int main()
 {
-	int n = 0;
-	do
-	{
-		std::cout << "n = ";
-		std::cin >> n;
-	}
-	while(n <= 0);
-	char arr[250];
-	for(int i = 0; i < n; ++i)
-	{
-		std::cout << "arr[" << i + 1 << "] = ";
-		std::cin >> arr[i];
-	} 
-	std::cout << std::endl;
+	int n = 10;
+	char arr[n];
+	std::cout << "tpel massivi simvolner@ ";
+	std::cin >> arr;
 	char massiv[n];
 	int k = 0;
-	int bac_pakagic = 0;
-	int pak_pakagic = 0;
-	int pakagic = 0;
 	for(int j = 0; j < n; ++j)
 	{
+		if(arr[j] == '\'')
+		{
+			if(k > 0)
+			{
+				if(massiv[k - 1] == '\'')
+				{
+					--k;
+				}
+				else
+				{
+					int i = 0;
+					for(i = k - 2; i >= 0; --i)
+					{
+						if(massiv[i] == '\'')
+						{
+							std::cout << "sxal pakagcer" << std::endl;
+							exit(1);
+						}
+					}
+					if(i < 0)
+						{
+							massiv[k] = arr[j];
+							++k;
+						}
+				}
+			}
+			else
+			{
+				massiv[k] = arr[j];
+				++k;
+			}
+		}
 		if(arr[j] == '(' || arr[j] == '{' || arr[j] == '[')
 		{
 			massiv[k] = arr[j];
 			++k;
-			++bac_pakagic;
 		}
 		if(arr[j] == ')')
 		{
-			++pak_pakagic;
 			if(massiv[k - 1] == '(')
 			{
-				++pakagic;
 				--k;
 			}
 			else
@@ -45,10 +61,8 @@ int main()
 		}
 		if(arr[j] == '}')
 		{
-			++pak_pakagic;
 			if(massiv[k - 1] == '{')
 			{
-				++pakagic;
 				--k;
 			}
 			else
@@ -59,10 +73,8 @@ int main()
 		}
 		if(arr[j] == ']')
 		{
-			++pak_pakagic;
 			if(massiv[k - 1] == '[')
 			{
-				++pakagic;
 				--k;
 			}
 			else
@@ -72,13 +84,9 @@ int main()
 			}
 		}
 	}
-	if(bac_pakagic == pak_pakagic)	
+	if(k == 0)	
 	{
-		std::cout << "masivum ka " << pakagic << " hat pakagic" << std::endl;
-	}
-	else
-	{
-		std::cout << "ERROR: ka chpakvac pakagic(ner)" << std::endl;
+		std::cout << "jisht pakagcer" << std::endl;
 	}	
 
    return 0;

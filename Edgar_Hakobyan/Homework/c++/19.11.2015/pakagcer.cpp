@@ -9,21 +9,44 @@ int main()
 	int pak_pak2 = 0;
 	int bac_pak3 = 0;
 	int pak_pak3 = 0;
-	char tox[]= "[ju]tt{itu(uik)kmk";
+	char tox[]= "ju[titk[kuuikk]m]k";
     std::cout<<tox<<std::endl;
 	int n = strlen(tox);
 	for(int i = 0; i < n; ++i)
 	{
+		if(tox[i] == '[') 
+		{
+			++bac_pak1;
+		}
+		else if(tox[i] == ']')
+		{
+			++pak_pak1;
+		}
+		else if(tox[i] == '{')
+		{
+			++bac_pak2;
+		}
+		else if(tox[i] == '}') 
+		{
+			++pak_pak2;
+		}
+		else if(tox[i] == '(') 
+		{
+			++bac_pak3;
+		}
+		else if(tox[i] == ')')
+		{
+			++pak_pak3;
+		}
+		
 		if(tox[i] == '[')
 		{
 			x = i;
-			++bac_pak1;
 			for(int i = x+1; i < n; ++i)
 			{
 				if(tox[i] == ']')
 				{
 					y = i;
-					++pak_pak1;
 					break;
 				}
 			}
@@ -39,13 +62,11 @@ int main()
 		else if(tox[i] == '{')
 		{
 			x = i;
-			++bac_pak2;
 			for(int i = x+1; i < n; ++i)
 			{
 				if(tox[i] == '}')
 				{
 					y = i;
-					++pak_pak2;
 					break;
 				}
 			}
@@ -61,13 +82,11 @@ int main()
 		else if(tox[i] == '(')
 		{
 			x = i;
-			++bac_pak3;
 			for(int i = x+1; i < n; ++i)
 			{
 				if(tox[i] == ')')
 				{
 					y = i;
-					++pak_pak3;
 					break;
 				}
 			}

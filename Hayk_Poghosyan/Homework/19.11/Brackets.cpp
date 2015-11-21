@@ -37,13 +37,13 @@ int main()
 		}
 		if (x[i] == '}')
 		{
-			if (dz_dz == 0 )
+			if (dz_dz == 0 || dz_ux!=0)
 			{
 				std::cout << "false";
 				exit(1);
 			}
 			++aj_dz;
-			if (aj_dz == dz_dz)
+			if (aj_dz == dz_dz && dz_ux == 0)
 			{
 				dz_dz = 0;
 				aj_dz = 0;
@@ -56,13 +56,13 @@ int main()
 		}
 		if (x[i] == ']')
 		{
-			if (dz_ux == 0)
+			if (dz_ux == 0 || dz_dz != 0)
 			{
 				std::cout << "false";
 				exit(1);
 			}
 			++aj_ux;
-			if (aj_ux == dz_ux)
+			if (aj_ux == dz_ux && dz_dz==0)
 			{
 				dz_ux = 0;
 				aj_ux = 0;

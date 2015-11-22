@@ -150,6 +150,8 @@ int fixed=0;// is used for Array  in order to fix the index, when the first numb
 		      std::cout<<Array[i]<<" "<<Array[i+1]<<std::endl; 
 		   }
 	     }
+    free(Array);
+    free(Stack);
 return 0;
 }
 

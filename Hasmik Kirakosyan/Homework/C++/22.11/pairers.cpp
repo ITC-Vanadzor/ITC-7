@@ -51,24 +51,35 @@ for (int j = M; j>=0 && arr[j]!=0; j--)
 
 // potential subsets
 int count;
-for (int k = M, tmp = 0; k>1; k--, tmp+=2) {
-  count = 0;
-   for (int j = 0; j<k; j++)
-     for (int i = j+1; i<k && arr[i]!=0; i++) {
-	for (int index =0; index<N; index++) 
-	if ( (arr[j]== arrPairs[index].first) && 
-	     (arr[i] == arrPairs[index].second))  count++;
-	}
-// type pairs that form full group
-	if ((count == k) && (count<=N)) 
-	    for (int j = 0; j<k; j++)
-		for (int i = j+1; i<k && arr[i]!=0; i++) 
-		std::cout<<arr[j]<<"-"<<arr[i]<<" ";
+pair* stack;
+stack = (pair*)malloc(M*sizeof(pair));
 
-	std::cout<<"\n-------------------"<<count<<" "<<k<<std::endl;
+for (int t = 0; t<N; t++){
+  for (int k = M; k>0; k--) {
+     count = 0; 
+     for (int j = t; j < k; j++) 
+	for (int i = j+1; i<k && arr[i]!=0; i++)
+	    for (int index = 0; index<N; index++)
+	    if (arr[j]!=0 && arr[i]!=0 &&
+		arrPairs[index].first==arr[j] &&
+		arrPairs[index].second==arr[i]) {
+						 count++;
+						 stack[count]=arrPairs[index];
+	   }  
+    //  std::cout<<count<<" "<<k<<" ";
+      if (count==k) {
+		   std::cout<<" { ";
+		   while (count!=0) {
+		 	std::cout<<"("<<stack[count].first<<", "<<stack[count].second<<")";
+		   count--; 
+		  }  
+      		   std::cout<<" } ";
+      }
+  }
+std::cout<<"\n----"<<std::endl;
 }
-
 free(arrPairs);
 free(arr);
+free(stack);
 return 0;
 }

@@ -39,8 +39,9 @@ void print_groups(int n_f[],int n_s[],int m){
     for(int i=0;i<m;++i){
         if(n_f[i]==0 || n_s[i]==0) continue;
 
-        first_buf[buf_size]=n_f[i];
-        second_buf[buf_size]=n_s[i];
+        first_buf[0]=n_f[i];
+        second_buf[0]=n_s[i];
+        index_buf[0]=i;
 
         for(int j=0;j<m;++j){
 
@@ -53,7 +54,7 @@ void print_groups(int n_f[],int n_s[],int m){
         }
         int index=find_element(n_f,n_s,m,first_buf[0],second_buf[buf_size]);
 
-        if(index!=-1 && buf_size>1){
+        if(index!=-1 && buf_size>0){
             ++buf_size;
             first_buf[buf_size]=n_f[index];
             second_buf[buf_size]=n_s[index];

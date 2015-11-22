@@ -31,7 +31,7 @@ int main()
                                 
                         case '\'':
                                  if(stack[top-1] != '\''){
-                                  
+                                  stack[top] = array[i];
 				  top++;
 				}
                                 else{

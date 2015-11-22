@@ -1,0 +1,72 @@
+#include <iostream>
+
+int main()
+{
+	char array[10];
+	int i=0;
+	int top=0;
+	char stack[10];
+	for (i=0; i<10; i++ )
+		{	
+			std::cin>>array[i];
+			if (array[i]=='{')
+				{
+					top++;
+					stack[top]=array[i];
+				}
+			if (array[i]=='[')
+				{
+					top++;
+					stack[top]=array[i];
+				}
+			if (array[i]=='(')
+				{
+					top++;
+					stack[top]=array[i];
+				}
+			if (array[i]=='}') 
+				{
+					if (stack[top]=='{')
+					{
+					top--;
+					} else {
+						top++;
+					}
+				}
+			if (array[i]==']') 
+				{
+					if (stack[top]=='[')
+					{
+					top--;
+					} else {
+						top++;
+					}
+				}
+			if (array[i]==')') 
+				{
+					if (stack[top]=='(')
+					{
+					top--;
+					} else {
+						top++;
+					}
+				}
+			if (array[i]=='"') 
+				{
+					if (stack[top]=='"')
+					{
+					top--;
+					} else {
+						top++;
+					}
+				}
+		}
+	if (top==0)
+		{
+			std::cout<<"CORRECT"<<std::endl;
+		} else {
+			std::cout<<"UNCORRECT"<<std::endl;
+			}
+	
+	return 0;
+}

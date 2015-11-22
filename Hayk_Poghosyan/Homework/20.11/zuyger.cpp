@@ -36,6 +36,7 @@ int main()
 	int*a = new int[zuyger];
 	int*b = new int[zuyger];
 	std::string*t = new std::string[zuyger];
+	bool*trfl = new bool[zuyger];
 	/*for (int i = 0; i < zuyger; ++i)
 	{
 	do {
@@ -61,6 +62,7 @@ int main()
 	sort(t, zuyger);
 	for (int i = 0; i < zuyger; ++i)
 	{
+		trfl[i] = false;
 		a[i] = (t[i][0] - 48);
 		b[i] = (t[i][1] - 48);
 		//std::cout << "(" << a[i] << "," << b[i] << ')' << std::endl;
@@ -69,13 +71,14 @@ int main()
 	int c = 0;
 	while (c<zuyger)
 	{
+		
 		//zuyger -= pop;
 
 		std::string*stack = new std::string[zuyger];
 		int j = 0;
 		for (int i = c; i < zuyger; ++i)
 		{
-			if (t[c][0] == t[i][0])
+			if (t[c][0] == t[i][0] && trfl[i]==false)
 			{
 				stack[j] = t[i];
 				++j;
@@ -111,7 +114,7 @@ int main()
 		{
 			for (int n = 1; n < zuyger; ++n)
 			{
-				if (stack3[i] == t[n])
+				if (stack3[i] == t[n] )
 					flag = true;
 			}
 			if (!flag)
@@ -136,8 +139,9 @@ int main()
 				std::cout << std::endl << stack3[i];
 				for (int p = 0; p < zuyger; ++p)
 				{
-					if (t[p][0] == stack3[i][0] && t[p][1] == stack3[i][1]);
-					//	t[p].erase();
+					if (t[p][0] == stack3[i][0] && t[p][1] == stack3[i][1])
+					trfl[p] = true;
+
 
 				}
 			}
@@ -155,8 +159,8 @@ int main()
 				{
 					for (int p = 0; p < zuyger; ++p)
 					{
-						if (t[p][0] == stack[i][0] && t[p][1] == stack[i][1]);
-						//t[p].erase();
+						if (t[p][0] == stack[i][0] && t[p][1] == stack[i][1])
+						trfl[p] = true;
 
 					}
 				}

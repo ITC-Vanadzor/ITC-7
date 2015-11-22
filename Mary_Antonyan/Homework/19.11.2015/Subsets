@@ -1,0 +1,86 @@
+#include <iostream>
+
+int maximum(int number[100])
+{
+	int max=number[0];
+	int maximum_index;
+	for (int i=0; i<100; i++)
+		{
+			if (number[i]>max)
+				{
+					max=number[i];
+					maximum_index=i;
+				}
+		}
+	return maximum_index;
+}
+
+
+int main()
+{
+	int N;
+	do {
+	std::cout << "Insert maximum value of numbers: ";
+	std::cin >> N;	
+	} while (N<0 && N>=100);
+
+	int M;
+	do { 
+	std::cout << "Insert number of pairs: ";
+	std::cin >> M;
+	} while (M<0 && M>=50);
+
+	
+	int numberofdigits[100];
+	for (int i=0; i<100; i++)
+		{
+			numberofdigits[i]=0;
+		}	
+	int array[100];
+	std::cout<< "Insert "<< M << " pairs: " << std::endl;
+	for (int i=0; i < 2*M; i++)
+		{
+			std::cin>>array[i];
+			numberofdigits[array[i]]++;
+		}
+
+	for (int i=1; i<2*M; i++){
+	std::cout<<numberofdigits[i]<<" ";
+	}
+	
+	std::cout<<std::endl; 
+	
+	int number[100];
+	for (int i=0; i<2*M; i++)
+		{
+			number[i]=0;
+		}	
+		
+	for (int i=1; i<2*M; i++)
+		{
+			number[numberofdigits[i]]++;
+		}
+	
+	for (int i=1; i<2*M; i++){
+	std::cout<<number[i]<<" ";
+	}
+	std::cout<<std::endl;	
+
+	int multitude[100];
+	multitude[0]=0;
+	int j=1;
+	for (int i=1; i<2*M; i++)
+		{
+		
+			if (numberofdigits[i]=maximum(number))
+				{
+					multitude[j]=i;
+					j++;
+				}
+		}
+	for(int j=1; j<2*M; j++)
+		{
+			std::cout<<multitude[j];
+		}
+	return 0;
+}

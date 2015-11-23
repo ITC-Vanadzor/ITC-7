@@ -1,0 +1,34 @@
+#include <iostream>
+#include <cstdlib>
+
+void* Realloc(int* ptrmem, int oldsize, int newsize)            //ptrmem=pointermemory
+{
+	if (ptrmem == NULL)
+	{
+		return (int*) malloc (newsize * sizeof(int));
+	} else {
+		if (newsize == 0)
+		{
+			free(ptrmem);
+			return 0;
+		} else {
+				int* newmem = (int*) malloc (newsize *  sizeof(int));
+				int* j = newmem;
+				for (int* i = ptrmem; i <= newmem+oldsize; i++)
+					{
+						int* current=*newmem+j;
+						current = *ptrmem+i;
+						j++;
+					}
+				free(ptrmem);
+				return newmem;                                  //newmem=newmemory
+			}
+}
+}
+
+int main()
+{
+	int array[10];
+	std::cout << Realloc(array, 10, 20) << std:: endl;
+	return 0;
+}

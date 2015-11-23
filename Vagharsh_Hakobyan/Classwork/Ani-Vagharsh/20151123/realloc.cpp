@@ -1,3 +1,4 @@
+//realloc function
 #include <iostream>
 #include <cstdlib>
 int main()
@@ -16,8 +17,6 @@ int main()
       std::cout << ptr1[i] <<" ";
     }
   std::cout << std::endl;
-
-
   std::cout << "Input new count of int numbers m= ";
   int m;
   std::cin >> m;
@@ -26,23 +25,11 @@ int main()
   while(i < n && i < m)
     {
 	  ptr2[i] = ptr1[i];
+	  std::cout << ptr2[i] << " ";
 	  ++i;
     }
-  free(ptr1);
-  int l;
-  if (m <= n)
-    {
-      l = m;
-    }
-  else
-    {
-      l = n;
-    }
-  for (int i = 0; i < l; ++i)
-    {
-      std::cout << ptr2[i] << " ";
-    }
   std::cout << std::endl;
+  free(ptr1);
   free(ptr2);
   
   return 0;

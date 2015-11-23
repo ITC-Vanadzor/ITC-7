@@ -1,102 +1,86 @@
 #include <iostream>
+#include <cstdlib>
 bool f(int a, int array[], int n)
 {
 	for(int i = 0; i < n; ++i)
 	{
-		if(a == array[i])
+		if(a == (array[i]))
+		{
+			array[i] = 0;
 			return true;
+		}
 	}
 	return false;
 }
-
-void ff(int array[7], int& max, int& min)
-{
-	for(int i = 0; i < 7; ++i)
-	{
-		if(array[i] % 10 > max)
-			max = array[i] % 10;
-		if(array[i] / 10 < min)
-			min = array[i] / 10;
-	}
-}
 int main()
 {
-	int array[7];
-	int array2[3];
-	int array3[4];
+	int array[10];
+	int* new_array;
+	int max,k,m, qanak,mm;
 	array[0] = 12;
-	array[1] = 23;
+	array[1] = 13;
 	array[2] = 45;
-	array[3] = 13;
+	array[3] = 23;
 	array[4] = 46;
 	array[5] = 56;
-	array[6] = 68;
-	int max = 0;
-	int min = 10;
-	int* array1;
-	int k = -1;
-	int n = 0;
-	int m = -1;
-	int a = -1;
+	array[6] = 78;
+	array[7] = 79;
+	array[8] = 89;
+	array[9] = 82;
 	
-	for(int i = 0; i < 7; ++i)
-		std::cout << array[i] <<std::endl;
-
-	ff(array, max, min);
-	
-	array1 = new int[28];
-	
-	
-	for(int i = min; i < max; ++i)
+	for(int j = 1; j < 9; ++j)
 	{
-		for(int j = min; j <= max; ++j)
+		max = 0;
+		qanak = 0;
+		m = -1;
+		for(int i = 0; i < 10; ++i)
 		{
-			if (i < j)
-			array1[++k] = (i * 10)+j; 
-		}
-	}
-	
-	
-	std::cout << std::endl;
-	
-	for(int i = 0; i < 28; ++i)
-	{
-		if( f(array1[i],array,7) )
-		{
-			array2[++m] = array1[i];
-			std::cout << array1[i] << std::endl;
-		}
-		else
-		{
-			n = array1[i] % 10;
-			for(int x = i; x < 28; ++x)
+			if(array[i] / 10 == j)
 			{
-				if(array1[x] % 10 == n)
-				array1[x] = 0;
+				mm = j;
+				k = array[i] % 10;
+				if(k > max)
+				{
+					max = k;
+				}
 			}
 		}
+		new_array = (int*) malloc(sizeof(int)*3);
+		for(int i1 = mm; i1 < max; ++i1)
+		{
+			for(int j1 = mm; j1 <= max; ++j1)
+			{
+				if(i1 < j1)
+				{
+					new_array[++m] = (i1 * 10) + j1; 
+				}
+			}
+		}
+		for(int i2 = 0; i2 < 3; ++i2)
+		{
+			if( f(new_array[i2],array,10) )
+			{
+				++qanak;
+			}
+		}
+		if( qanak == 3)
+		{
+			for(int i2 = 0; i2 < 3; ++i2)
+			std::cout << new_array[i2] << std::endl;
+		}
+		std::cout << std::endl;
+		free(new_array);
 	}
 
-	std::cout << std::endl;
-/*	
-	for(int i = 0; i < 3; ++i)
-		std::cout << array2[i] << std::endl;
-		
-	for(int i =0; i < 7; ++i)
+	for(int i = 0; i < 10; ++i)
 	{
-		if ( f(array[i],array2,3) )
+		if(array[i] != 0)
 		{
-			array3[++a] == array[i];
+			std::cout << array[i] <<std::endl;
+			std::cout << std::endl;
 		}
 	}
-*/	
 	
+	return 0;
 	
-	
-
-
-	delete array1;
-	
-	
-		return 0;
 }

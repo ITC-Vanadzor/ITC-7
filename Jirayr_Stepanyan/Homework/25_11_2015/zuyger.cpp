@@ -67,13 +67,17 @@ int main()
 				}
 				++x;
 			}
-			for(int i = 0, j = 1; j < x; ++j)
+			for(int i = 0, j = 1; i < x - 1; ++j)
 			{
-				std::cout << j + 1 << " zuyg --> " << araji_massiv[i] << araji_massiv[j] << std::endl;
+				std::cout << j + 1 << " zuyg --> " << entabazmutyun[i] << entabazmutyun[j] << std::endl;
 				if(j == x - 1)
 				{
 					++i;
 				}
+			}
+			for(int i = 0; i < x; ++i)
+			{
+				entabazmutyun[i] = 0;
 			}
 		}
 	}

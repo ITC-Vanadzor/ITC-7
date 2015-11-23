@@ -1,13 +1,18 @@
 # include <iostream>
 # include <cstdlib>
 
-void* Realloc(void* ptr, size_t size){
-void* ptr2;
+
+
+void* Realloc(void* ptr, size_t size)
+{
+
+     void* ptr2;
 	if(ptr==NULL){
-	   ptr2=(char*)malloc(size);
+	   return malloc(size);
 	}
 	 if(size==0){
-	     ptr2=NULL;
+              free(ptr);
+	     return NULL;
 	 }
 	 else{
 	    ptr2=(char*)malloc(size);
@@ -22,7 +27,7 @@ void* ptr2;
    
  int main()
  {
-
+     //std::static_assert(sizeof(char));
      int n;
      std::cout<<"\nN: "; 
      std::cin>>n;
@@ -35,7 +40,7 @@ void* ptr2;
          }
       }
      
-    size_t newsize=0;  
+    size_t newsize=8;  
     int *ptr2=(int*)Realloc(ptr, newsize);
 	   
 	   for(int i=0; i<newsize; ++i){

@@ -1,33 +1,49 @@
+#include <iostream>
+#include <cstdlib>
 int main()
-{
-  int input;
-  int counter = 0;                                     // счетчик введенных чисел
-  int * values = NULL;
-  int * many_numbers;
- 
-  do {
-     std::cout << "Введите целое значение (0 - выход): ";
-     std::cin >> input;
-     counter++;
- 
-     many_numbers = (int*) realloc (values, counter * sizeof(int)); // при добавлении нового числа, увеличиваем массив на 1
- 
-     if (many_numbers != NULL)
-     {
-       values = many_numbers;
-       values[counter - 1] = input;                      // добавить к массиву только что введённое число
-     }
-     else
-     {
-       free (values);                                   // удалить массив
-       std::cout << "Ошибка перевыделения памяти!";
-       exit (1);                                          // завершить работу программы
-     }
-  } while (input != 0);                                   // пока не введён 0
- 
-  std::cout << "Введенные числа: ";
-  for (int ix = 0; ix < counter; ix++) std::cout << values[ix] << " ";
-  free (values);                                         // удалить массив
- 
+{	
+  std::cout << "Input count of int numbers n= ";
+  int n;
+  std::cin >> n;
+  int* ptr1 = (int*)malloc(sizeof(int) * n);
+  for (int i = 0; i < n; ++i)
+    {
+      std::cin >> ptr1[i];
+    }
+
+  for (int i = 0; i < n; ++i)
+    {
+      std::cout << ptr1[i] <<" ";
+    }
+  std::cout << std::endl;
+
+
+  std::cout << "Input new count of int numbers m= ";
+  int m;
+  std::cin >> m;
+  int* ptr2 = (int*)malloc(sizeof(int) * m);
+  int i =0;
+  while(i < n && i < m)
+    {
+	  ptr2[i] = ptr1[i];
+	  ++i;
+    }
+  free(ptr1);
+  int l;
+  if (m <= n)
+    {
+      l = m;
+    }
+  else
+    {
+      l = n;
+    }
+  for (int i = 0; i < l; ++i)
+    {
+      std::cout << ptr2[i] << " ";
+    }
+  std::cout << std::endl;
+  free(ptr2);
+  
   return 0;
 }

@@ -12,29 +12,9 @@ int main()
 	{
 		if(arr[j] == '\'')
 		{
-			if(k > 0)
+			if(massiv[k - 1] == '\'')
 			{
-				if(massiv[k - 1] == '\'')
-				{
-					--k;
-				}
-				else
-				{
-					int i = 0;
-					for(i = k - 2; i >= 0; --i)
-					{
-						if(massiv[i] == '\'')
-						{
-							std::cout << "sxal pakagcer" << std::endl;
-							exit(1);
-						}
-					}
-					if(i < 0)
-						{
-							massiv[k] = arr[j];
-							++k;
-						}
-				}
+				--k;
 			}
 			else
 			{

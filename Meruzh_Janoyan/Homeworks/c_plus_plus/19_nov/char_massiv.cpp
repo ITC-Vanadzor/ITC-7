@@ -1,41 +1,78 @@
-// [] {} "" ''  ete meknumeki zuygy chka ktpi vor textum sxal ka
+
+// [] {} () "" ''  
 
 #include <iostream>
-#include <cstring>
+#include <stack>
 
 int main()
 {
-    char ch[100];
+    char *ch=new char[100];
     std::cout<<"TEXT->";
     std::cin>>ch;
-    
-    int flag[6]={0};
-    int n = strlen(ch);
 
-    for(int i = 0; i < n; ++i)
-    {
-        if(ch[i] == '['  ){
-            ++flag[0];
-  	  } else if(ch[i] == ']' ){
-            ++flag[1];
-  	  } else if(ch[i] == '{' ){
-            ++flag[2];
-	  } else if(ch[i] == '}' ){
-            ++flag[3];
-  	  } else if(ch[i] == '"' ){
-            ++flag[4];
-	  } else if(ch[i] == '\'' ){
-            ++flag[5];
+    std::stack <char> my_stack;
+    bool flag1=true;//for symbol "
+    bool flag2=true;//for symbol '
+
+    while(*ch!='\0'){
+
+        switch (*ch){
+
+        case '{':
+            my_stack.push(*ch);
+            break;
+        case '}':
+            if(my_stack.top()=='{'){
+                my_stack.pop();}
+            break;
+        case '[':
+            my_stack.push(*ch);
+            break;
+        case ']':
+            if(my_stack.top()=='['){
+                my_stack.pop();}
+            break;
+        case '(':
+            my_stack.push(*ch);
+            break;
+        case ')':
+            if(my_stack.top()=='('){
+                my_stack.pop();}
+            break;
+        case '"':
+            if(flag1){
+                    my_stack.push(*ch);
+                    flag1=false;
+                    }
+            else if(my_stack.top()=='"'){
+                    my_stack.pop();
+                    flag1=true;
+                    }
+            break;
+        case '\'':
+            if(flag2){
+                    my_stack.push(*ch);
+                    flag2=false;
+                    }
+            else if(my_stack.top()=='\''){
+                    my_stack.pop();
+                    flag2=true;
+                    }
+            break;
+
+        }
+        ++ch;
     }
-}
-    if(flag[0]==flag[1] && flag[2]==flag[3] && !(flag[4]%2) && !(flag[5]%2)){
-		std::cout<<"There arn't any mistakes in the text!"<<std::endl;
-	}
-	else{
-		std::cout<<"There are mistakes in the text!"<<std::endl;
-	}
-    
+
+    if(my_stack.size()==0){
+        std::cout<<"There arn't any mistakes in the text!"<<std::endl;
+        }
+    else{
+        std::cout<<"There are mistakes in the text!"<<std::endl;
+        }
+
+
+
 return 0;
 }
-
 

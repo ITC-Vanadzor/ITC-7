@@ -1,64 +1,78 @@
 #include <iostream>
-#include <cstdlib>
+
 
 
 int main()
-{
-	int n = 0;
-	do
+{	
+	char array[100], stack[100];
+	int top = -1, i = 0;
+	std::cout << "Array: ";
+	std::cin >> array;
+	while(array[i] != '\0')
 	{
-		std::cout << "n = ";
-		std::cin >> n;
+		switch(array[i])
+		{
+			case '{':
+			case '(':
+			case '[':
+				stack[++top] = array[i];
+				break;
+
+			case 39:
+				if(stack[top] == 39)
+				{
+					top--;	
+				}else
+				{
+					stack[++top] = array[i];			
+				}
+				break;
+
+			case 34:
+				if(stack[top] == 34)
+				{
+					top--;	
+				}else
+				{
+					stack[++top] = array[i];			
+				}
+				break;
+
+			case '}':
+			case ']':
+			case ')':
+				if(top < 0)
+				{
+					std::cout << "Error" << std::endl;
+					return 0;
+				}		
+
+				if(array[i] == '}' && stack[top--] != '{')
+				{
+					std::cout << "Error" << std::endl;
+					return 0;
+				}
+
+				if(array[i] == ')' && stack[top--] != '(')
+				{
+					std::cout << "Error" << std::endl;
+					return 0;
+				}
+
+				if(array[i] == ']' && stack[top--] != '[')
+				{
+					std::cout << "Error" << std::endl;
+					return 0;
+				}
+		}
+		++i;
 	}
-	while(n < 0);
-
-	char arr[250];
-	for(int i = 0; i < n; ++i)
+	if(top >= 0)
 	{
-		std::cout << "arr[" << i + 1 << "]";
-		std::cin >> arr[i];
-	} 
-	std::cout << std::endl;
-
-	int a=false;
-	int b=false;
-	int c=false;
-
-	for(int i=0; i < n; ++i)
+		std::cout << "Error" << std::endl;
+	}else
 	{
-		if(arr[i]=='{')
-		{
-			++a;
-		}
-		else if(arr[i]=='}')
-		{
-			++a;
-		}
-              else if(arr[i]== '(')
-		{
-			++b;			
-		}
-		else if(arr[i]== ')')
-		{
-			++b;			
-		}
-		else if(arr[i]=='[')
-		{
-			++c;
-		}
-		else if(arr[i]==']')
-		{
-			++c;
-		}
-		
+		std::cout << "Right string " << std::endl;
 	}
-
-	if( a%2==0 && b%2==0 && c%2==0 )
-	{
-		std::cout << "Ճիշտ է" << std::endl;
-		exit(1);
-	}
-
-	std::cout<< "Սխալ է" << std::endl;
 	return 0;
 }

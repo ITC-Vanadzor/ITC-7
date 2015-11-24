@@ -19,7 +19,7 @@ struct Sptr{
     //not default constructor
     Sptr(my_type *p){
         ptr=p;
-        counter=new int(1);
+        counter=new int(0);
     }
     //copy constructor
     Sptr(const Sptr &p){
@@ -34,7 +34,6 @@ struct Sptr{
           if(this->counter!=NULL){
             --(*this->counter);
             if(*this->counter==0){
-                    *this->counter=1;
                     this->~Sptr();
             }
           }
@@ -43,7 +42,7 @@ struct Sptr{
     //destructor
     ~Sptr(){
         if(counter==NULL) return;
-        if(*counter==1){
+        if(*counter==0){
             delete counter;
             delete ptr;
         }

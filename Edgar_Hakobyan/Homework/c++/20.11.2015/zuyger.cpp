@@ -16,7 +16,7 @@ int main()
 {
 	int array[10];
 	int* new_array;
-	int max,k,m, qanak,mm;
+	int max,k,m, qanak,min,size_arr;
 	array[0] = 12;
 	array[1] = 13;
 	array[2] = 45;
@@ -33,11 +33,12 @@ int main()
 		max = 0;
 		qanak = 0;
 		m = -1;
+		size_arr = 0;
 		for(int i = 0; i < 10; ++i)
 		{
 			if(array[i] / 10 == j)
 			{
-				mm = j;
+				min = j;
 				k = array[i] % 10;
 				if(k > max)
 				{
@@ -45,10 +46,14 @@ int main()
 				}
 			}
 		}
-		new_array = (int*) malloc(sizeof(int)*3);
-		for(int i1 = mm; i1 < max; ++i1)
+		for(int s = min; s < max; ++s)
 		{
-			for(int j1 = mm; j1 <= max; ++j1)
+			size_arr += (max - s); 
+		}
+		new_array = (int*) malloc(sizeof(int)*size_arr);
+		for(int i1 = min; i1 < max; ++i1)
+		{
+			for(int j1 = min; j1 <= max; ++j1)
 			{
 				if(i1 < j1)
 				{
@@ -56,19 +61,19 @@ int main()
 				}
 			}
 		}
-		for(int i2 = 0; i2 < 3; ++i2)
+		for(int i2 = 0; i2 < size_arr; ++i2)
 		{
 			if( f(new_array[i2],array,10) )
 			{
 				++qanak;
 			}
 		}
-		if( qanak == 3)
+		if( qanak == size_arr)
 		{
-			for(int i2 = 0; i2 < 3; ++i2)
+			for(int i2 = 0; i2 < size_arr; ++i2)
 			std::cout << new_array[i2] << std::endl;
+			std::cout << std::endl;
 		}
-		std::cout << std::endl;
 		free(new_array);
 	}
 

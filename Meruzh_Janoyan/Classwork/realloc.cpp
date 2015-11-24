@@ -1,19 +1,14 @@
 #include<iostream>
 #include <stdlib.h>
-#include <string.h>
-#include <malloc.h>
 
 void *my_realloc(void *prev,int size){
-	
-	int n=mallinfo();
-	std::cout<<n<<std::endl;
 	
 	if(size>0){
 		void *cp=malloc(size);
 		void *ptr=cp;
 		void *cpprev=prev;
 
-	for(int i=0;i<n;++i){
+	for(int i=0;i<size;++i){
 			ptr+=1;
 			prev+=1;
 			*((char*) ptr)=*((char*) prev);

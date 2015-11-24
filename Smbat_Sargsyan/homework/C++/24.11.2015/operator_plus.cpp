@@ -21,6 +21,7 @@ cout << "nermuceq erkrord tivy"; cin >> b ;
 void show()                                    // cuyc e talis stacvac arjeqy
 { cout << a << " + " << b; }
 Gumar operator+(Gumar) const;
+~Gumar();                                      // destruktor
 };
 
 Gumar Gumar::operator+(Gumar A) const          // gumarman operatori funkcian

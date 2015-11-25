@@ -1,13 +1,13 @@
 #include <iostream>
 
-
+// New type define by me
 struct myObject {
 
    myObject()  {
-		std::cout<<"\nObject was created"<<std::endl;
+		std::cout<<"\nGeneral object was created"<<std::endl;
 		}
    ~myObject() {
-		 std::cout<<"Object was deleted"<<std::endl;	
+		 std::cout<<"\nGeneral object was deleted"<<std::endl;	
 	       }
 
 };
@@ -18,43 +18,47 @@ struct Auto_ptr {
    
 // Default constructor
 	Auto_ptr () {
-		std::cout<<"Default Constructor "<<this<<std::endl;
+		std::cout<<"\nDefault Constructor | Address of this object : "<<this<<std::endl;
 	   } 
 // Constructor
-	Auto_ptr(myObject* x)  {
-		tmp = x; 
-		std::cout<<"Constructor "<<this<<std::endl;
+	Auto_ptr(myObject* object)  {
+		tmp = object; 
+		std::cout<<"\nConstructor | Address of this object : "<<this<<"\nTransfered pointer "<<tmp<<std::endl;
 	   };
 
 // Operator =
-	Auto_ptr& operator= (Auto_ptr& B) {
-	   if(this!=&B){
-		tmp=B.tmp;
-		std::cout<<"Operator = function | Null  previous pointer "<<B.tmp<<" "<<tmp<<std::endl;
-		B.tmp=NULL;
+	Auto_ptr& operator= (Auto_ptr& baseObj) {
+	   if (this != &baseObj) {
+		tmp = baseObj.tmp;
+
+		std::cout<<"\nOperator = function | Previous pointer to be NULL "<<this<<"\nTransfered pointer "<<baseObj.tmp<<" "<<std::endl;
+		baseObj.tmp = NULL;
 		}
-	
-		return *this;
+		return  *this;
 	   };
+
 // Copy function
-	Auto_ptr (Auto_ptr& B) {
-		tmp=B.tmp;
-		std::cout<<"Copy function | Null previous pointer "<< this <<" "<<B.tmp<<" "<<tmp<<std::endl;
-		B.tmp=NULL;
+	Auto_ptr (Auto_ptr& baseObj) {
+
+		tmp = baseObj.tmp;
+		std::cout<<"\nCopy function | Previous pointer to be NULL "<<this<<"\nTransfered pointer "<<baseObj.tmp<<std::endl;
+		baseObj.tmp = NULL;
+
 		};
 // Destructor
 	~Auto_ptr() {
-	      
-		    delete tmp;
-	  std::cout<<"Destructor | Deleting tmp "<<this<<std::endl;
-	  }
+	  	    std::cout<<"\nDestructor | Deleting Auto_ptr type objects "<<this<<std::endl;
+	 	    delete tmp;
+		}
 };
 
 int main() {
+
 	Auto_ptr A(new myObject);
+	A = A;
 	Auto_ptr B(A);
 	Auto_ptr C;
-	C=B;
+	C = B;
 	Auto_ptr D(C);
 
 	return 0;

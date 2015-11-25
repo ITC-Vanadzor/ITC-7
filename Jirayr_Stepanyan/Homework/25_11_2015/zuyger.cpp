@@ -1,83 +1,104 @@
 #include <iostream>
 int main()
 {
-	int glx_massiv[20] = {0,1,2,1,3,1,4,1,5,2,3,2,4,3,4,3,5,5,8,7};
-	int araji_massiv[10] = {0,0,0,0,0,0,0,0,0,0};
+	int glx_massiv[10][2] = {1,2,1,3,2,3,4,5,4,6,5,6,7,8,7,9,8,9,8,2};
+	int tmp = 0;
 	int entabazmutyun[10] = {0,0,0,0,0,0,0,0,0,0};
-	int x = 0;
-	int k = 0;
-	for(int i = 1; i < 20;)
+	for(int i = 0; i < 10; ++i)
 	{
-		if(entabazmutyun[x] == 0)
+		for(int j = 0; j < 2; ++j)
 		{
-			entabazmutyun[x] = glx_massiv[i];
-		}
-		if(glx_massiv[i] == entabazmutyun[x])
-		{
-			if(i % 2 == 0)
+			int x = 0;
+			if(glx_massiv[i][j] != 0)
 			{
-	 			araji_massiv[k] = glx_massiv[i - 1];
-				++k;
-			}
-			else
-			{
-				araji_massiv[k] = glx_massiv[i + 1];
-				++k;
-			}
-		}
-		++i;
-		++x;
-		if(i == 20)
-		{
-			while(araji_massiv[0] != 0)
-			{
-				entabazmutyun[x] = araji_massiv[0];
-				for(int j = 1; j < 20; ++j)
-				{
-					if(glx_massiv[j] == entabazmutyun[x] && j % 2 == 0)
-					{
-						int b = 1;
-						while(araji_massiv[b] != 0)
-						{
-							if(glx_massiv[j - 1] == araji_massiv[b])
-							{
-								glx_massiv[j] = 0;
-								glx_massiv[j - 1] = 0;	
-							}
-						}
-					 }
-       		    			 if(glx_massiv[j] == entabazmutyun[x] && j & 2 != 0)
-				         {
-						int b = 1;
-						while(araji_massiv[b] != 0)
-						{
-							if(glx_massiv[j - 1] == araji_massiv[b])
-							{
-								glx_massiv[j] = 0;
-								glx_massiv[j + 1] = 0;	
-							}
-						}
-				         }
-				}
-				int a = 0;
-				while(araji_massiv[a] != 0)
-				{
-					araji_massiv[a] = araji_massiv[a + 1];
-					++a;
-				}
+		  	  if(entabazmutyun[x] == 0)
+			    {
+			       	entabazmutyun[x] = glx_massiv[i][j];
 				++x;
-			}
-			for(int i = 0, j = 1; i < x - 1; ++j)
-			{
-				std::cout << j + 1 << " zuyg --> " << entabazmutyun[i] << entabazmutyun[j] << std::endl;
-				if(j == x - 1)
+			    }
+			  for(int z = 0; z < 10; ++z)
+			  {
+				for(int q = 0; q < 2; ++q)
 				{
-					++i;
+				  int zuyger = 0;
+				  if(glx_massiv[z][q] == entabazmutyun[0])
+				  {
+					if(q == 0)
+					{
+	 					tmp = glx_massiv[z][q + 1];
+					}
+					else
+					{
+						tmp = glx_massiv[z][q - 1];
+					}
+					for(int n = z; n < 10; ++n)
+					{
+						for(int m = q; m < 2; ++m)
+						{
+						  if(tmp == glx_massiv[n][m])
+						  {
+							if(m == 0)
+							{
+								for(int k = 0; k < x; ++k)
+								{
+									if(glx_massiv[n][m + 1] == entabazmutyun[k])
+									{
+										++zuyger;
+									}
+								}
+							}
+							else
+							{
+								for(int k = 0; k < x; ++k)
+								{
+									if(glx_massiv[n][m - 1] == entabazmutyun[k])
+									{
+										++zuyger;
+									}
+								}
+							}
+						  }
+						}
+					}
+					if(zuyger == x)
+					{
+					  entabazmutyun[x] = tmp;
+				       	  ++x;
+					  for(int y = 0; y < 10; ++y)
+					  {
+					    for(int t = 0; t < 2; ++t)
+					    {
+					     for(int r = 0; r < x - 1; ++r)
+					     {
+				  	      if(glx_massiv[y][t]==entabazmutyun[x-1] && t==0 &&glx_massiv[y][t+1]==entabazmutyun[r])
+					      {
+						    glx_massiv[y][t] = 0;
+						    glx_massiv[y][t + 1] = 0;
+					      } 
+				      	      if(glx_massiv[y][t]==entabazmutyun[x-1] && t!=0 &&glx_massiv[y][t-1]==entabazmutyun[r])
+				    	      {
+						    glx_massiv[y][t] = 0;
+						    glx_massiv[y][t - 1] = 0;
+					      }
+					     }
+					    } 
+					  }
+					}
+				  }
 				}
-			}
-			for(int i = 0; i < x; ++i)
+			  }
+		        } 
+			for(int b = 0; b < x - 1; ++b)
 			{
-				entabazmutyun[i] = 0;
+				for(int h = b + 1; h < x; ++h)
+				{
+					std::cout << entabazmutyun[b] << entabazmutyun[h] << " ";
+				}			
+			}
+			std::cout << "\n";
+			for(int f = 0; f < x; ++f)
+			{
+				entabazmutyun[f] = 0;
 			}
 		}
 	}

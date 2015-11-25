@@ -1,19 +1,17 @@
-//realloc
 #include<iostream>
 #include <stdlib.h>
 
-void *my_realloc(void *prev,int prev_size,int size){
-
+void *my_realloc(void *prev,int size){
+	
 	if(size>0){
-        int n=(size>prev_size)?prev_size:size;
 		void *cp=malloc(size);
 		void *ptr=cp;
 		void *cpprev=prev;
 
-	for(int i=0;i<n;++i){
-			*((char*) ptr)=*((char*) prev);
-            ptr+=1;
+	for(int i=0;i<size;++i){
+			ptr+=1;
 			prev+=1;
+			*((char*) ptr)=*((char*) prev);
 			}
 	free(cpprev);
 
@@ -22,20 +20,22 @@ void *my_realloc(void *prev,int prev_size,int size){
 	else{
 		free(prev);
 		return NULL;
-	} 
+	}
 }
 int main()
 {
  int *p=(int*)malloc(sizeof(int)*10);
-
+	
 	for(int i=0;i<10;++i) {
 			*(p+i)=i;
 			std::cout<<*(p+i);
 	}
 	std::cout<<std::endl;
-	p=(int*)my_realloc(p,sizeof(int)*10,sizeof(int)*5);
+	p=(int*)my_realloc(p,sizeof(int)*5);
+	//p=(int*)realloc(p,sizeof(int)*30);
  	if(p!=NULL) {
 	for(int i=0;i<5;++i) {
+			//*(p+i)=i+65;
 			std::cout<<*(p+i);
 	}
 	std::cout<<std::endl;

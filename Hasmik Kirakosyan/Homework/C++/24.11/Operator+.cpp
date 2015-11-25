@@ -9,9 +9,10 @@ struct operator_plus {
 	int a;
 	int b;
 	operator_plus operator+ (const objType& A) {
-		this->a += A.a;
-		this->b += A.b;
-		return *this;
+		operator_plus tmp;
+		tmp.a=this->a+ A.a;
+		tmp.b=this->b+ A.b;
+		return tmp;
 	}
 	
 };
@@ -24,8 +25,9 @@ A.b=2;
 objType B;
 B.a=7;
 B.b= 8;
-A+B;
-std::cout<<"D = A+B | D.a = "<<A.a<<" D.b = "<<A.b<<std::endl;
+operator_plus C;
+C=A+B;
+std::cout<<"C = A+B | C.a = "<<C.a<<" D.b = "<<C.b<<std::endl;
 
 
 return 0;

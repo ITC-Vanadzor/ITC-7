@@ -12,6 +12,11 @@ Gumar() : a(0), b(0.0)                         // default kanstruktor (a ev b-i 
 { }
 Gumar(int a1, float b1) : a(a1), b(b1)         // kanstruktor stanum e parametrner 
 { }
+Gumar& operator= (const Gumar &c) {
+        a=c.a;
+        b=c.b;
+        return *this;
+    }
 void get()                                     // uxxaki nermucman funkcia
 {
 cout << "\n:nermuceq arajin tivy "; cin >> a;
@@ -21,6 +26,7 @@ cout << "nermuceq erkrord tivy"; cin >> b ;
 void show()                                    // cuyc e talis stacvac arjeqy
 { cout << a << " + " << b; }
 Gumar operator+(Gumar) const;
+~Gumar();                                      // destruktor
 };
 
 Gumar Gumar::operator+(Gumar A) const          // gumarman operatori funkcian

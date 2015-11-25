@@ -92,6 +92,7 @@ int main(){
         std::cout<<"input second:";
         std::cin>>num_second[i];
         if(num_second[i]>n) return 0;
+        if(num_second[i]<num_first[i]) std::swap(num_first[i],num_second[i]);
     }
 
     print_groups(num_first,num_second,m);

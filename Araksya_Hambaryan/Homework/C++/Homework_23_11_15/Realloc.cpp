@@ -1,17 +1,19 @@
 #include <iostream>
 #include <cstdlib>
-void* realloc2(void* OldArr, int NewSize)
+int min(int a, int b) {
+    return a < b ? a : b;
+}
+void* realloc2(void* OldArr,int OldSize, int NewSize)
 {
     void* NewArr;
     if (NewSize ==0) {
 	return NULL;
     }
     if(OldArr==NULL){
-	free(OldArr);
 	return malloc(NewSize);
     } else{
 	NewArr = malloc (NewSize);
-	for(int i = 0; i < NewSize/sizeof(int); ++i)
+	for(int i = 0; i < min(OldSize, NewSize)/sizeof(int); ++i)
 	{
 	    *((int*)NewArr+i) = *((int*)OldArr+i);
 	}
@@ -30,8 +32,7 @@ int main()  {
     {
 	std::cout << "x["<< i << "]= "<< x[i] << std::endl;
     }
-    int* y = (int*)realloc2(x, 5 * sizeof(int));
-    y[4] = 9;
+    int* y = (int*)realloc2(x, 4*sizeof(int), 5 * sizeof(int));
     for(int i = 0; i < 5; ++i)
     {
 	std::cout << "y[" << i << "]= " <<  y[i] << std::endl;

@@ -22,7 +22,7 @@ void *my_realloc(void *prev,int prev_size,int size){
 	else{
 		free(prev);
 		return NULL;
-	}
+	} 
 }
 int main()
 {

@@ -1,89 +1,101 @@
-//groups
+//groups  used graph
 
 #include<iostream>
 #include<stdlib.h>
+int *num_first;
+int *num_second;
+int m=0;
+int print_counter=0;
 
 
-void remove_from_massive(int n_f[],int n_s[],int ind[],int buf_size){
+int add_great_group(int great_group[],int number,int size_of_great){
 
-    for(int i=0;i<=buf_size;++i){
-        n_f[ind[i]]=0;
-        n_s[ind[i]]=0;
+    for(int i=0;i<size_of_great;++i){
+        if(great_group[i]==number) return size_of_great;
+    }
+    great_group[size_of_great]=number;
+    return size_of_great+1;
+}
+int* create_great_group(int &size_of_great){
+
+    int *great_group=(int*)malloc(sizeof(int)*2*m);
+    for(int i=0;i<m;++i){
+        if(num_first[i]==0 || num_second[i]==0) continue;
+        size_of_great=add_great_group(great_group,num_first[i],size_of_great);
+        size_of_great=add_great_group(great_group,num_second[i],size_of_great);
+    }
+    return great_group;
+}
+
+void values_for_box(bool **super_box,int n){
+
+    for(int i=0;i<=n;++i){
+        for(int j=0;j<=n;++j){
+            super_box[i][j]=false;
+        }
+    }
+
+    for(int i=0;i<m;++i){
+            int a=num_first[i];
+            int b=num_second[i];
+
+            super_box[b][a]=super_box[a][b]=true;
+
     }
 }
-void print_buffer(int f_b[],int s_b[],int buf_size,int counter){
+bool it_is_group(bool **super_box,int n,int buffer[],int counter){
+    if(counter<2) return false;
+    for(int i=0;i<counter;++i){
+        for(int j=0;j<counter;++j){
+                if(i==j) continue;
+                if(super_box[buffer[i]][buffer[j]]==false) return false;
+        }
+    }
+    return true;
+}
+void print(bool **super_box,int n,int buffer[],int counter){
 
-    std::cout<<"GROUP N"<<counter++<<std::endl;
-    for(int i=0;i<=buf_size;++i){
-            std::cout<<f_b[i]<<"--"<<s_b[i]<<"    ";
+    static int group_number=1;
+    std::cout<<"Group N:"<<group_number<<std::endl;
+    for(int i=0;i<counter;++i){
+            for(int j=i+1;j<counter;++j){
+                        std::cout<<buffer[i]<<"-"<<buffer[j]<<"     ";
+            }
     }
     std::cout<<std::endl;
+     for(int i=0;i<counter;++i){
+            for(int j=0;j<n;++j){
+                super_box[buffer[i]][j]=false;
+              //  super_box[j][buffer[i]]=false;
+            }
+     }
+     print_counter-=counter;
 }
-int find_element(int n_f[],int n_s[],int m,int element1,int element2){
-
-    for(int i=0;i<m;++i){
-
-        if((n_f[i]==element1 && n_s[i]==element2) || (n_f[i]==element1 && n_s[i]==element2)) return i;
-        }
-
-        return -1;
-}
-void print_groups(int n_f[],int n_s[],int m){
-
-    int *first_buf=(int*)malloc(m*sizeof(int));
-    int *second_buf=(int*)malloc(m*sizeof(int));
-    int *index_buf=(int*)malloc(m*sizeof(int));
-    int buf_size=0;
-
-    int counter=1;
-    for(int i=0;i<m;++i){
-        if(n_f[i]==0 || n_s[i]==0) continue;
-
-        first_buf[0]=n_f[i];
-        second_buf[0]=n_s[i];
-        index_buf[0]=i;
-
-        for(int j=0;j<m;++j){
-
-            if(second_buf[buf_size ]==n_f[j]){
-                ++buf_size;
-                first_buf[buf_size]=n_f[j];
-                second_buf[buf_size]=n_s[j];
-                index_buf[buf_size]=j;
+void print_groups(bool **super_box,int n){
+        int counter=1;
+       for(int i=0;i<n;++i){
+            int *buffer=new int [n];
+            buffer[0]=i;
+        for(int j=0;j<=n;++j){
+            if(super_box[i][j]){
+                buffer[counter++]=j;
             }
         }
-        int index=find_element(n_f,n_s,m,first_buf[0],second_buf[buf_size]);
-
-        if(index!=-1 && buf_size>0){
-            ++buf_size;
-            first_buf[buf_size]=n_f[index];
-            second_buf[buf_size]=n_s[index];
-            index_buf[buf_size]=index;
-            print_buffer(first_buf,second_buf,buf_size,counter++);
-            remove_from_massive(n_f,n_s,index_buf,buf_size);
+        if(it_is_group(super_box,n,buffer,counter)){
+            print(super_box,n,buffer,counter);
         }
-        buf_size=0;
+        counter=1;
     }
-
-    for(int i=0;i<m;++i){
-        if(n_f[i]!=0 && n_s[i]!=0){
-         std::cout<<"GROUP N"<<counter++<<std::endl;
-         std::cout<<n_f[i]<<"--"<<n_s[i]<<std::endl;
-         }
-    }
-    free(first_buf);
-    free(second_buf);
 
 }
 int main(){
 
     int n=0;
     std::cout<<"N:"; std::cin>>n;
-    int m=0;
     std::cout<<"M:"; std::cin>>m;
 
-    int *num_first=(int*)malloc(m*sizeof(int));
-    int *num_second=(int*)malloc(m*sizeof(int));
+    num_first=new int[m];
+    num_second=new int[m];
 
     for(int i=0;i<m;++i){
         std::cout<<"input first:";
@@ -92,13 +104,28 @@ int main(){
         std::cout<<"input second:";
         std::cin>>num_second[i];
         if(num_second[i]>n) return 0;
-        if(num_second[i]<num_first[i]) std::swap(num_first[i],num_second[i]);
     }
 
-    print_groups(num_first,num_second,m);
+    int size_of_great=0;
+    int *greate_group=create_great_group(size_of_great);
 
-    free(num_first);
-    free(num_second);
+    bool **super_box=new bool*[n+1];
+    for(int i=0;i<=n;++i){
+        super_box[i]=new bool [n+1];
+    }
+
+    values_for_box(super_box,n);
+
+    print_counter=size_of_great;
+    while(print_counter>0){
+        print_groups(super_box,n);
+    }
+
+
+
+    delete super_box;
+    delete num_first;
+    delete num_second;
 
 return 0;
 }

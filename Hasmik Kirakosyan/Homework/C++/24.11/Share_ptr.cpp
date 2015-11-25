@@ -5,7 +5,7 @@ struct myObject {
    int* count;
    int a;
    myObject()  {
-		std::cout<<"Object was created"<<std::endl;
+		std::cout<<"Poitner was created"<<std::endl;
 		count=&a;
 		}
    ~myObject() {
@@ -40,6 +40,7 @@ struct shared_ptr {
 ~shared_ptr() {
         if (*count == 0) {
 		delete tmp;
+		//*count=0;
 		//std::cout<<"\nObject was deleted ";
 		}
 	else {

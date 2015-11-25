@@ -3,21 +3,26 @@
 
 
 
-void* Realloc(void* ptr, size_t size)
+void* Realloc(void* ptr, size_t oldSize, size_t size)
 {
 
-     void* ptr2;
+     void* currentPtr;
 	if(ptr==NULL){
 	   return malloc(size);
 	}
-	 if(size==0){
+        if(size==0){
               free(ptr);
 	     return NULL;
 	 }
 	 else{
-	    ptr2=(char*)malloc(size);
-		for (size_t i=0; i<=size*sizeof(size_t); ++i) {
-			*(char*)(ptr2+i)=*(char*)(ptr+i);
+	    urrentPtr=(char*)malloc(size);
+            size_t sizeForCopy=size*sizeof(size_t);
+            if(oldSize<size){
+                 sizeForCopy=oldSize*sizeof(size_t);
+            }
+                
+		for (size_t i=0; i<= sizeForCopy; ++i) {
+		    *(char*)(urrentPtr+i)=*(char*)(ptr+i);
 		}   
 	 }
      free(ptr);
@@ -27,23 +32,23 @@ void* Realloc(void* ptr, size_t size)
    
  int main()
  {
-     //std::static_assert(sizeof(char));
-     int n;
-     std::cout<<"\nN: "; 
-     std::cin>>n;
+     
+     int size;
+     std::cout<<"\nEnter Size:"; 
+     std::cin>>size;
   
-     int *ptr=(int*)malloc(n* sizeof(int));
+     int *ptr=(int*)malloc(size* sizeof(int));
      if (ptr!=NULL) {
-        for(int i=0; i<n; ++i){
+        for(int i=0; i<size; ++i){
        		 std::cin>>ptr[i];
        		 std::cout<<" ";
          }
       }
      
-    size_t newsize=8;  
-    int *ptr2=(int*)Realloc(ptr, newsize);
+    size_t newSize=12;  
+    int *ptr2=(int*)Realloc(ptr,size, newSize);
 	   
-	   for(int i=0; i<newsize; ++i){
+	   for(int i=0; i<newSize; ++i){
 	       		 std::cout<<ptr2[i]<<" ";
 		 }
    std::cout<<"\n";

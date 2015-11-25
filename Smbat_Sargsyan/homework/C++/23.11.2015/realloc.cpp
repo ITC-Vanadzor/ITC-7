@@ -49,7 +49,13 @@ int main()
     std::cin >> size;
     int* result=(int*) Real(array,n,size) ;
     int i = 0;
-    while(i < size)
+    int max;
+    if(size>n)
+    {
+    	max=size;
+    }
+    else max=n;
+    while(i < max)
      {
         std::cout << result[i] << std::endl;
         ++i;

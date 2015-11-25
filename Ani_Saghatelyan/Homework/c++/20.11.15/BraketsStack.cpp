@@ -1,17 +1,14 @@
 #include <iostream>
 #include <cstdlib>
-int main()
-{	
-	char array[100];
-	std::cout << "Enter the array\t ";
-	std::cin >> array;
-         char  stack[100];// current array for brackets
-         int top = 0;//the top for stack array, which shows the last elemen's index
+
+int& Checking(char* array,const int number){
+	char  stack[100];// current array for brackets
+         int top = 0;//the top for stack array, which shows the index of last elemen
          
 	for(int i=0; array[i] != '\0'; ++i)
 	{
-		switch(array[i])
-		{
+		switch(array[i]){
+		
 			case '{':
 			case '(':
 			case '[':
@@ -38,11 +35,8 @@ int main()
                                  top--;
                                  }
                                 break;
-                              
-                         
-                        
-
-			case '}':
+                                              
+      			case '}':
 			case ']':
 			case ')':
 				if(top == 0){
@@ -77,6 +71,13 @@ int main()
 		std::cout << "The array is correct " << std::endl;
 	}
 
-
+}
+int main()
+{	const int number=100;
+	char array[number];
+	std::cout << "Enter the array\t ";
+	std::cin >> array;
+        Checking(array,number);
+         
 return 0;
 }

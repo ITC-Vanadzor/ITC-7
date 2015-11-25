@@ -15,7 +15,7 @@ struct auto_ptr {
 my_type* ptr;
 
 	auto_ptr():ptr(NULL){}
-
+      
 	auto_ptr(my_type *ekac_p):ptr(ekac_p){}
 
 	auto_ptr(auto_ptr &ekac_o){
@@ -26,9 +26,11 @@ my_type* ptr;
 	}
 
 	auto_ptr &operator=(auto_ptr &x){
+		if(this!=&x){
 		if(ptr!=NULL) delete ptr;		
 		ptr=x.ptr;
 		x.ptr=NULL;
+		}
 		return *this;
 	}
 	
@@ -49,8 +51,9 @@ int main()
 	auto_ptr d(new my_type);
 	auto_ptr q(new my_type);
 
-	q=a;
-
+	q=q;
+	auto_ptr j(new my_type);
+	j=q;
 
 
 

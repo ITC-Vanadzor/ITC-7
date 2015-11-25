@@ -28,10 +28,11 @@ struct Auto_ptr {
 
 // Operator =
 	Auto_ptr& operator= (Auto_ptr& B) {
-		tmp=B.tmp;
-		std::cout<<"Operator = function | Null  previous pointer "<<B.tmp<<" "<<tmp<<std::endl;
-		B.tmp=NULL;
-	
+		if(this!=&B){
+			tmp=B.tmp;
+			std::cout<<"Operator = function | Null  previous pointer "<<B.tmp<<" "<<tmp<<std::endl;
+			B.tmp=NULL;
+		}
 		return *this;
 	   };
 // Copy function

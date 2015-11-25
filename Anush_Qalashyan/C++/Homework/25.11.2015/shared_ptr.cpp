@@ -35,7 +35,6 @@ struct A
 		a = h;
 	}
 
-	A::A(){}
 
 int main()
 {

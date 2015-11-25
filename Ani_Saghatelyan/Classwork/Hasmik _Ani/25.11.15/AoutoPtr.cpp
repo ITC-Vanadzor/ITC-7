@@ -21,25 +21,27 @@ struct Auto_ptr {
 		std::cout<<"Default Constructor "<<this<<std::endl;
 	   } 
 // Constructor
-	Auto_ptr(myObject* x)  {
-		tmp = x; 
+	Auto_ptr(myObject* rhs)  {
+		tmp = rhs; 
 		std::cout<<"Constructor "<<this<<std::endl;
 	   };
 
 // Operator =
-	Auto_ptr& operator= (Auto_ptr& B) {
-		if(this!=&B){
-			tmp=B.tmp;
-			std::cout<<"Operator = function | Null  previous pointer "<<B.tmp<<" "<<tmp<<std::endl;
-			B.tmp=NULL;
+	Auto_ptr& operator= (Auto_ptr& rhs) {
+		if(this!=&rhs){
+			tmp=rhs.tmp;
+			std::cout<<"Operator = function | Null  previous pointer "<<tmp;
+			rhs.tmp=NULL;
+                        std::cout<<" "<<rhs.tmp<<std::endl;
 		}
 		return *this;
 	   };
 // Copy function
-	Auto_ptr (Auto_ptr& B) {
-		tmp=B.tmp;
-		std::cout<<"Copy function | Null previous pointer "<< this <<" "<<B.tmp<<" "<<tmp<<std::endl;
-		B.tmp=NULL;
+	Auto_ptr (Auto_ptr& rhs) {
+		tmp=rhs.tmp;
+		std::cout<<"Copy function | Null previous pointer "<< this <<" "<<tmp;
+		rhs.tmp=NULL;
+                std::cout<<" "<<rhs.tmp<<std::endl;
 		};
 // Destructor
 	~Auto_ptr() {

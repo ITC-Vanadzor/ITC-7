@@ -4,7 +4,7 @@
 struct  T
 {
    int a;
-   T operator + (const T& rhs)
+    T operator + (const T& rhs)
    { 
 	   std::cout<<"Operator + for  this:\t"<<this<<" & rhs:\t"<<&rhs<<std::endl; 
 	   T tmp;
@@ -13,11 +13,8 @@ struct  T
    };
 
    T();
-   T(int b);
-   ~T()
-   {
-		std::cout<<this<<"  Called Destructor\n";
-	};
+   T(int rhs);
+   ~T();
 };
 
 
@@ -27,6 +24,9 @@ T::T():a(5){
 
 T::T(int b):a(b){
 	std::cout<<this<<"  Called  Constructor(int)\n";
+}
+T::~T(){
+	std::cout<<this<<"  Called  Destructer\n";
 }
 
  int main()
@@ -39,7 +39,7 @@ T::T(int b):a(b){
 	 Obj3.a=2;
 	 std::cout<<  " Obj3.a "<< Obj3.a<<std::endl;
 	 T Sum=Obj1+Obj2+Obj3;
-	 std::cout<<"Sum.a  "<<Sum.a<<std::endl;//goes from left to right, writting the result int first Objec----- operator+(&Obj1,Obj2).....operator+(&Obj1,Obj3)
+	 std::cout<<"Sum.a  "<<Sum.a<<std::endl;//goes from left to right
 	 //std::cout<< "Sum\t"<<k<<std::endl;
 	 return 0;
  }

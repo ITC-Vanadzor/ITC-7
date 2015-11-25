@@ -32,7 +32,7 @@ struct Sptr{
     }
     
   	 //***************** operator =*****************
-    Sptr& operator=(Sptr& rhs){ 	
+    const Sptr& operator=(const Sptr& rhs){ 	
          if(counter!=rhs.counter){// it has already been = to other object, which has been  pointed to that pointer of heap-memory  										
 		   ptr=rhs.ptr;
 		   counter=rhs.counter;

@@ -7,19 +7,23 @@ void* realloc(void* ptr, size_t size)
 {
 
      void* ptrmem;
-	if(ptr==NULL){
+	if(ptr == NULL) 
+	{
 	   return malloc(size);
 	}
-	 if(size==0){
-              free(ptr);
-	     return NULL;
-	 }
-	 else{
-	    ptrmem=(char*)malloc(size);
-		for (size_t i=0; i<=size*sizeof(size_t); ++i) {
+	 if(size==0)
+	{
+		free(ptr);
+		return NULL;
+	}
+	 else
+	{
+		ptrmem=(char*)malloc(size);
+		for (size_t i=0; i<=size*sizeof(size_t); ++i) 
+		{
 			*(char*)(ptrmem+i)=*(char*)(ptr+i);
 		}   
-	 }
+	}
      free(ptr);
      return ptrmem;   
 }
@@ -27,33 +31,34 @@ void* realloc(void* ptr, size_t size)
 
 int main()
 {	
-  std::cout << "Input count of int numbers n = ";
-  int n;
-  std::cin >> n;
-  int* ptr1 = (int*)malloc(sizeof(int) * n);
-if (ptr1 != NULL){
-  for (int i = 0; i < n; ++i)
-    {
-      std::cin >> ptr1[i];
-    }
-}
-  for (int i = 0; i < n; ++i)
-    {
-      std::cout << ptr1[i] <<" ";
-    }
-  std::cout << std::endl;
-  std::cout << "Input new size m = ";
- size_t m;
-  std::cin >> m;
-  int* ptr2 =(int *) realloc(ptr1,m);
-  int i = 0;
-  while(i < n && i < m)
-    {
-      std::cout << ptr2[i] << " ";
-      ++i;
-    }
-  std::cout << std::endl;
-  free(ptr1);
-  free(ptr2);
-  return 0;
+	std::cout << "Input count of int numbers n = ";
+	int n;
+	std::cin >> n;
+	int* ptr1 = (int*)malloc(sizeof(int) * n);
+	if (ptr1 != NULL)
+	{
+	  for (int i = 0; i < n; ++i)
+	    {
+	      std::cin >> ptr1[i];
+	    }
+	}
+	for (int i = 0; i < n; ++i)
+	    {
+	      std::cout << ptr1[i] <<" ";
+	    }
+	std::cout << std::endl;
+	std::cout << "Input new size m = ";
+	size_t m;
+	std::cin >> m;
+	int* ptr2 =(int *) realloc(ptr1,m);
+	int i = 0;
+	while(i < n && i < m)
+	{
+		std::cout << ptr2[i] << " ";
+		++i;
+	}
+	std::cout << std::endl;
+	free(ptr1);
+	free(ptr2);
+	return 0;
 }

@@ -12,10 +12,10 @@ Aptr::Aptr()
 	std::cout << "sarqeci" <<std::endl;
 }
 Aptr::Aptr(Aptr* h)
-	:a = h->a;
-	,h->a = 0;
-{
+{	
+	a = h->a;
 	std::cout << "veragreci " <<  std::endl;
+	h->a = 0;
 	std::cout << "jnjeci " << std::endl;	
 }
 Aptr& Aptr::operator = (Aptr& t)
@@ -26,11 +26,11 @@ Aptr& Aptr::operator = (Aptr& t)
 	t.a = 0;
 	
 }
-Aptr::Aptr(Aptr& n)
-	:a = n.a;
-	:n.a = 0;
+Aptr::Aptr(Aptr& n)	
 {
+	a = n.a;
 	std::cout << "(copy) veragreci " <<  std::endl;
+	n.a = 0;
 	std::cout << "(copy) jnjeci " << std::endl;	
 }
 int main()

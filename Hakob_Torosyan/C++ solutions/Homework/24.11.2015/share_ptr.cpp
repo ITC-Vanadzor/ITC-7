@@ -30,18 +30,25 @@ share_ptr& operator = (share_ptr & k)
 		counter = a.counter;
 		++(*counter);
   };
+
+void  dekrement(int* count, int* ptr)
+{
+  --(*count);
+  if(*count == 0)
+    {
+      delete ptr;
+      delete count;
+      std::cout << "Deleted pointer " << std::endl;
+    }
+  	std::cout << "Deleted last pointer " << std::endl;
+};
   ~share_ptr()
   {
-	--(*counter);
-	if(*counter==0)
-	{  
-  		delete Ptr;
-		delete counter;
-    		std::cout << "Deleted pointer " << std::endl;
-        }
-		std::cout << "Deleted last pointer " << std::endl;
+    dekrement (counter, Ptr);
   };
 };
+ 
+
 
 int main()
 {
@@ -57,4 +64,5 @@ int main()
 	c = c;
   	return 0;
 }
+
 

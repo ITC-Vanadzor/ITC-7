@@ -7,60 +7,67 @@ int& Checking(char* array,const int number){
          
 	for(int i=0; array[i] != '\0'; ++i)
 	{
-		switch(array[i]){
+	
 		
-			case '{':
-			case '(':
-			case '[':
-                        
+			if(array[i]=='{' || array[i]=='(' || array[i]=='[')
+			{
 				stack[top] = array[i];
                         	top++;
-				break;
-                        case '"':
-                                if(stack[top-1] != '"'){
-                                  stack[top] = array[i];
-				  top++;
-				}
-                                else{
-                                 top--;
-                                 }
-                                break;
-                                
-                        case '\'':
-                                 if(stack[top-1] != '\''){
-                                  stack[top] = array[i];
-				  top++;
-				}
-                                else{
-                                 top--;
-                                 }
-                                break;
-                                              
-      			case '}':
-			case ']':
-			case ')':
-				if(top == 0){
-					std::cout << "At first was  closing bracket" << std::endl;
-					std::exit(1);
-				}			
-		
-			   if(array[i] == '}' && stack[top-1] != '{'){
-				std::cout << "Incorrect array... {} isn't match " << std::endl;
-				std::exit(1);
-				}
+                        }
 				
-			  if(array[i] == ')' && stack[top-1] != '('){
-				std::cout << "Incorrect array... () isn't match " << std::endl;
-				std::exit(1);;
-				}
-			
-			 if(array[i] == ']' && stack[top-1] != '['){
-				std::cout << "Incorrect array... [] isn't match " << std::endl;
-				std::exit(1);
-			      }
-                        top--;
-                        break;
-		 }
+                        else if(array[i]=='"')
+                        {
+                              if(top<0)
+                              {
+                                std::exit(1);
+                              }
+		                        if(stack[top-1] != '"')
+		                        {
+		                          stack[top] = array[i];
+					  top++;
+					}
+		                        else
+		                        {
+				                if(top<0)
+				                {
+				                std::exit(1);
+				                }
+		                         top--;
+		                         }
+                         }        
+                                 
+                 
+                               
+                       else if(array[i]=='\'')
+                       {    
+                            if(top<0)
+                            {
+		                std::exit(1);
+		             }
+                            if(stack[top-1] != '\'')
+                            {
+                                  stack[top] = array[i];
+				  top++;
+			    }
+                            else
+                            {
+                            	if(top<0)
+                            	{
+		                     std::exit(1);
+		                }
+                                 top--;
+                            }
+                       }
+                                               
+      			if(array[i]=='}' || array[i]==']' || array[i]==')')
+			{
+      			        if(top<0)
+                            	{
+		                     std::exit(1);
+		                }
+                            top--;
+                      
+		          }
 		
 	}
 	if(top != 0)

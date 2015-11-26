@@ -10,7 +10,7 @@ void* realloc2(void* hin_zangvac, int hin_chap, int nor_chap)
 			nor_zangvac = (int*)malloc (nor_chap);
 			for(int i = 0; i < hin_chap; ++i)
 			{
-				*((int*)nor_zangvac + i) = *((int*)hin_zangvac + i);
+				*(nor_zangvac + i) = *((int*)hin_zangvac + i);
 			}
         	}	
 		else
@@ -21,12 +21,14 @@ void* realloc2(void* hin_zangvac, int hin_chap, int nor_chap)
 				*((int*)nor_zangvac + i) = *((int*)hin_zangvac + i);
 			}
 		}
-		free(hin_zangvac);
+		
 		return nor_zangvac;
+	}
 	else
 	{
-		return nor_chap * sizeof(int);
+		return 0;
 	}
+	free(hin_zangvac);
 }
 int main()
 {
@@ -46,11 +48,8 @@ int main()
 	std::cout << "x["<< i << "]= "<< x[i] << std::endl;
         }
 	int nor_chap_x = 0;
-	do
-	{
-		std::cout << "tpel erkrord zangvaci chap@ (arajinic mec) ";
-		std::cin >> nor_chap_x;
-	}while(nor_chap_x <= 0);
+	std::cout << "tpel erkrord zangvaci chap@ (arajinic mec) ";
+	std::cin >> nor_chap_x;
 	x = (int*)realloc2(x, chap_x, nor_chap_x * sizeof(int));
 	if(x > 0)
 	{

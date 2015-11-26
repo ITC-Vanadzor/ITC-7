@@ -14,23 +14,31 @@ int& Checking(char* array,const int number){
 				stack[top] = array[i];
                         	top++;
                         }
+
+			if(array[i]=='}' || array[i]==']' || array[i]==')')
+			{
+	      			        if(top==0)
+		                    	{      
+		                            std::cout<<"Top is being small from 0\n";
+				             std::exit(top);
+				        }
+		                    top--;
+                      
+		         }
 				
                         else if(array[i]=='"')
                         {
-                              if(top<0)
-                              {
-                                std::exit(1);
-                              }
-		                        if(stack[top-1] != '"')
+                             		if(stack[top-1] != '"'&& top>0 || top==0)
 		                        {
 		                          stack[top] = array[i];
 					  top++;
 					}
 		                        else
 		                        {
-				                if(top<0)
+				                if(top==0)
 				                {
-				                std::exit(1);
+							std::cout<<"Top is being small from 0\n";
+				               	        std::exit(top);
 				                }
 		                         top--;
 		                         }
@@ -38,47 +46,38 @@ int& Checking(char* array,const int number){
                                  
                  
                                
-                       else if(array[i]=='\'')
-                       {    
-                            if(top<0)
-                            {
-		                std::exit(1);
-		             }
-                            if(stack[top-1] != '\'')
-                            {
-                                  stack[top] = array[i];
-				  top++;
-			    }
-                            else
-                            {
-                            	if(top<0)
-                            	{
-		                     std::exit(1);
-		                }
-                                 top--;
-                            }
-                       }
+                         else if(array[i]=='\'')
+                         {    
+		                 if(stack[top-1] != '\''&& top>0 || top==0)
+		                    {
+		                          stack[top] = array[i];
+					  top++;
+				    }
+		                    else
+		                    {
+		                    	if(top==0)
+		                    	{
+	    					std::cout<<"Top is being small from 0\n";			                 
+	    					std::exit(top);
+				        }
+		                         top--;
+		                    }
+                         }
                                                
-      			if(array[i]=='}' || array[i]==']' || array[i]==')')
-			{
-      			        if(top<0)
-                            	{
-		                     std::exit(1);
-		                }
-                            top--;
-                      
-		          }
+      			
 		
 	}
 	if(top != 0)
 	{
 		std::cout << "The array is incorrect!!!" << std::endl;
-	}else
+	}
+	else
 	{
 		std::cout << "The array is correct " << std::endl;
 	}
 
 }
+
 int main()
 {	const int number=100;
 	char array[number];

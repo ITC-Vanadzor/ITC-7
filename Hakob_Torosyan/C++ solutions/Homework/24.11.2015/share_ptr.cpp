@@ -1,9 +1,20 @@
 #include <iostream>
 #include <cstdlib>
 
+struct B {
+  B()
+  {
+    std::cout << "Created B " << std::endl;
+  }
+  ~B()
+  {
+    std::cout << "Deleted B " << std::endl;
+  }
+};
+
 struct share_ptr
 {
-	int* Ptr;
+	B* Ptr;
         int* counter;
  	share_ptr()
 	  :Ptr(NULL), counter(new int(1))
@@ -31,7 +42,7 @@ share_ptr& operator = (share_ptr & k)
 		++(*counter);
   };
 
-void  dekrement(int* count, int* ptr)
+void  dekrement(int* count, B* ptr)
 {
   --(*count);
   if(*count == 0)
@@ -53,7 +64,7 @@ void  dekrement(int* count, int* ptr)
 int main()
 {
   	share_ptr a;
-  	a.Ptr = new int;
+  	a.Ptr = new B;
   	std::cout << a.Ptr <<" before " << std::endl;
   	share_ptr d(a);
   	std::cout << a.Ptr << " after " << std::endl;
@@ -64,5 +75,6 @@ int main()
 	c = c;
   	return 0;
 }
+
 
 

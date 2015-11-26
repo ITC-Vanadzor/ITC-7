@@ -1,4 +1,5 @@
 # include <iostream>
+# include <assert.h>
 struct Type{
    int variable;
 
@@ -23,44 +24,69 @@ struct Sptr{
     Sptr(const Sptr& rhs);
     ~Sptr();
     const Sptr& operator=(const Sptr& rhs);
-    Sptr Test(Sptr rhs);	 
+    Sptr Test(Sptr rhs);
+    void cleanup();	 
   	
  };
  //*************default constructer************
-	    Sptr::Sptr():ptr(new Type),counter(new int(1)){ 						 
-	     	std::cout<<"Called "<<this<<" DEFAULT "<<"  Counter "<< *(counter)<<" \n";
+	    Sptr::Sptr():ptr(NULL),counter(NULL){ 						 
+	     	std::cout<<"Called "<<this<<" DEFAULT "/*<<"  Counter "<< *(counter)*/<<" \n";
 	    }
   //************* constructer with one parameter************
-	    Sptr::Sptr(Type *rhs):ptr(rhs),counter(new int(1)){ 						 
-	     	std::cout<<"Called "<<this<<" CONSTRUCTER WITH PARAMETER"<<"  Counter "<<*(counter)<<" \n";
+	    Sptr::Sptr(Type *rhs):ptr(rhs),counter(NULL){
+	         if(counter!=0){
+	         counter=new int(1); 						 
+	     
+	     	}
+	     		std::cout<<"Called "<<this<<" CONSTRUCTER WITH PARAMETER"<</*"  Counter "<<*(counter)<<*/" \n";
 	    }
  //********************copy constructer**************	
-	    Sptr::Sptr(const Sptr& rhs){ 
-	   	 ptr=rhs.ptr;
-	         counter=rhs.counter;
-		 *(counter)+=1;							
-		 std::cout<<"Called "<<this<<" COPY CONSTRUCTER  "<<" Counter  "<<*(counter)<<" \n";
+	    Sptr::Sptr(const Sptr& rhs):counter(rhs.counter),ptr(rhs.ptr){ 
+	   	
+	          if(counter!=NULL)
+	          {
+			 *(counter)+=1;							
+			 std::cout<<"Called "<<this<<" COPY CONSTRUCTER  "<<" Counter  "<<*(counter)<<" \n";
+	          }
 	    } 
 //***************** Operator =*****************
     const Sptr&  Sptr::operator=(const Sptr& rhs){ 	
-         if(counter!=rhs.counter){// it has already been = to other object, which has been  pointed to that pointer of heap-memory  										
+         if(counter!=rhs.counter){// it has already been = to other object, which has been  pointed to that pointer of heap-memory  			          			
+                   cleanup();				
 		   ptr=rhs.ptr;
 		   counter=rhs.counter;
-		   *(counter)+=1;
+		   if(counter!=NULL)
+		   {
+		   	*(counter)+=1;
+		   	 std::cout<<"OPERATOR  = "<<this<<" Counter  "<<*(counter)<<" \n";
+		   }
            } 
-		    std::cout<<"OPERATOR  = "<<this<<" Counter  "<<*(counter)<<" \n";	
+		   	
            return *this;
+    }
+    void Sptr::cleanup()
+    {
+	    if(ptr!=0)
+	    {    
+	          assert(counter!=NULL);
+                  if((*counter)==1)
+                  {
+			  delete(ptr);
+			  ptr=0;
+			  delete(counter);
+			  counter=0;
+		    }
+		   else {
+		              (*counter)-=1;
+		    }
+          }
+   
     }
  //***********************Destructer*********
 	    Sptr::~Sptr(){
-	     	 std::cout<<"Called "<<this<<" destructer "<<*(counter)<<" \n";
-		   if(*(counter)==1){
-			  delete(ptr);
-			  delete(counter);
-		    }
-		   else {
-		              *(counter)-=1;
-		    }
+	    cleanup();
+	     	 std::cout<<"Called  destructer \n";
+		   
 	    }
 //*************Void Test**********
 Sptr Sptr::Test(Sptr rhs){

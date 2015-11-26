@@ -2,28 +2,23 @@
 #include<iostream>
 #include <stdlib.h>
 
-void *my_realloc(void *prev,int prev_size,int size){
+void *my_realloc(void *old,int old_size,int new_size){
 
-	if(size>0){
-        int n=(size>prev_size)?prev_size:size;
-		void *cp=malloc(size);
-		void *ptr=cp;
-		void *cpprev=prev;
+	if(new_size>0){
+        int n=(new_size>old_size)?old_size:new_size;
+		char *new_p=(char*)malloc(new_size);
 
 	for(int i=0;i<n;++i){
-			*((char*) ptr)=*((char*) prev);
-            ptr+=1;
-			prev+=1;
+			new_p[i]=*((char *)old+i);
 			}
-	free(cpprev);
-
-	return cp;
+	free(old);
+	return (void*)new_p;
 	}
-	else{
-		free(prev);
-		return NULL;
-	} 
-}
+
+    free(old);
+    return NULL;
+	}
+
 int main()
 {
  int *p=(int*)malloc(sizeof(int)*10);

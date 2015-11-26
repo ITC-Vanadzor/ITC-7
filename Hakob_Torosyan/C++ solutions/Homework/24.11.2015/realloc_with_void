@@ -58,7 +58,6 @@ int main()
 		++i;
 	}
 	std::cout << std::endl;
-	free(ptr1);
 	free(ptr2);
 	return 0;
 }

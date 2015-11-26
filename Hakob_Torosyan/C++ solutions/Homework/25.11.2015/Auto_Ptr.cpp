@@ -22,7 +22,7 @@ struct auto_ptr
              }
             else
             {
-       		std::cout << "Test " << std::endl;
+       		std::cout << "Wrong seting " << std::endl;
 	    }
  	}
   	auto_ptr(auto_ptr& a)

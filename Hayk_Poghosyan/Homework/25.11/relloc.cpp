@@ -1,15 +1,15 @@
 #include <iostream>
 #include <cstdlib>
 
-void* real(void* p, size_t size,int n)
+void* real(void* p, int size,int n)
 {
-	if (size = 0)
+	if (size == 0)
 	{
 		free (p);
 		return NULL;
 	}
-	void *pointer = 0;
-	pointer = (malloc(sizeof(size_t)*size));
+	char *pointer = 0;
+	pointer = (char*)(malloc(sizeof(char)*size));
 	if (p == 0)
 	{
 		return pointer;
@@ -19,14 +19,14 @@ void* real(void* p, size_t size,int n)
 	{
 		for (int i = 0; i < n; ++i)
 		{
-			static_cast<size_t*>(pointer)[i] = static_cast<int*>(p)[i];
+			pointer[i] = static_cast<char*>(p)[i];
 		}
 	}
 		else
 		{
 			for (int i = 0; i < size; ++i)
 			{
-				static_cast<size_t*>(pointer)[i] = static_cast<int*>(p)[i];
+			   pointer[i] = static_cast<char*>(p)[i];
 			}
 		}
 	free(p);
@@ -46,7 +46,7 @@ int main()
 		std::cin >> input;
 		counter++;
 
-		many_numbers =(int*) real(values, counter,counter-1);
+		many_numbers =(int*) real(values, counter*4,4*counter-1);
 
 		if (many_numbers != NULL)
 		{

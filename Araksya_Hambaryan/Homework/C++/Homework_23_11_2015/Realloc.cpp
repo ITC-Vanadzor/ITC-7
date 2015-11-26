@@ -23,23 +23,23 @@ void* realloc2(void* OldArr,size_t OldSize, size_t NewSize)
     return NewArr;
 }
 int main()  {
-    int old;
+    int Oldsize;
     std::cout << "Old size = ";
-    std::cin >> old;
-    int* x = (int*) malloc (old * sizeof(int));
-    for (int i = 0; i < old; ++i)
+    std::cin >> Oldsize;
+    int* x = (int*) malloc (Oldsize * sizeof(int));
+    for (int i = 0; i < Oldsize; ++i)
     {
 	x[i] = i + 1;
     }
-    for (int i = 0; i < old; ++i)
+    for (int i = 0; i < Oldsize; ++i)
     {
 	std::cout << "x["<< i << "]= "<< x[i] << std::endl;
     }
-    int New;
+    int Newsize;
     std::cout << "New size = ";
-    std::cin >> New;
-    int* y = (int*)realloc2(x, old * sizeof(int), New * sizeof(int));
-    for (int i = 0; i < New; ++i)
+    std::cin >> Newsize;
+    int* y = (int*)realloc2(x, Oldsize * sizeof(int), Newsize * sizeof(int));
+    for (int i = 0; i < Newsize; ++i)
     {
 	std::cout << "y[" << i << "]= " <<  y[i] << std::endl;
     }

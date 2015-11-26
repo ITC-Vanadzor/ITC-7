@@ -3,7 +3,7 @@
 
 struct shared_ptr
 {
-  int* ptr;
+  void* ptr;
   int* counter;
 
  shared_ptr()
@@ -51,7 +51,8 @@ int main()
 {
   shared_ptr a;
   shared_ptr b;
-  a.ptr = new int;
+  a.ptr = new long int;
+  b.ptr = new char;
   std::cout << "Pointer before =" << a.ptr << std::endl;
   std::cout << "Counter pointer before =" << a.counter << std::endl;
   std::cout << "Counter before =" << *a.counter << std::endl;

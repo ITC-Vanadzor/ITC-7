@@ -1,20 +1,20 @@
 #include <iostream>
 
 
-struct A
+struct auto_ptr
 	{
-		A & operator = (A& t);
+		auto_pt & operator = (auto_ptrauto_ptr& t);
 		int* a;
-		A();
-		A(A* h);
+		auto_ptr();
+		auto_ptr(auto_ptr* h);
 	};
 
-	A::A()
+	auto_ptr::auto_ptr()
 	{
 		std::cout << "---create---" << std::endl;
 	}
 
-	A::A(A* h)
+	auto_ptr::auto_ptr(auto_ptr* h)
 	{
 		std::cout << "---new--- " << std::endl;
 		a = h->a;
@@ -22,7 +22,7 @@ struct A
 		h->a = 0;
 	}
 
-	A& A::operator = (A& t)
+	auto_ptr& auto_ptr::operator = (auto_ptr& t)
 	{
 		std::cout << "---(=) new--- " << std::endl;
 		a = t.a;
@@ -32,12 +32,12 @@ struct A
 
 int main()
 {
-	A a(new A);
-	A b(a);
-	A c;
+	auto_ptr a(new auto_ptr);
+	auto_ptr b(a);
+	auto_ptr c;
 	c = b;
 	{
-		A x;
+		auto_ptr x;
 		x = c;
 	}
 

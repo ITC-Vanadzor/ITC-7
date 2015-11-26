@@ -7,6 +7,7 @@ struct auto_ptr
 {
 	int* Ptr;
  	auto_ptr()
+ 	:Ptr(NULL)
 	{  
 	std::cout << Ptr << std::endl;
 	};

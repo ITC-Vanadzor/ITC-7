@@ -70,7 +70,7 @@ int main() {
     Auto_ptr ff;
     Auto_ptr B(A);
     C = B;
-    std::cout << "all deleted " << std::endl;
+    std::cout << "All deleted " << std::endl;
     Auto_ptr D(C);
 
     return 0;

@@ -41,7 +41,7 @@ A::A(int* t)
 }
 
 A::A()
-
+:ptr(NULL)
 {
 }
 

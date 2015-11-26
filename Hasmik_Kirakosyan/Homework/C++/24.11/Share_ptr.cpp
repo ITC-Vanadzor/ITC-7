@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <assert.h>
 
 struct myObject {
    int* count;
@@ -16,49 +16,71 @@ struct myObject {
 struct shared_ptr {
    int* count;
    myObject* tmp;
+
 // Default constructor
-shared_ptr ():  count(new int(1)){
+
+shared_ptr ():  count(0), tmp(0) {
 	std::cout<<"Default Constructor"<<std::endl;
    } 
 // Constructor
-shared_ptr(myObject* x):  count(new int(1)) {
-        tmp = x;
-	std::cout<<"Constructor | Counter = "<<*count<<std::endl;
-   };
+
+shared_ptr(myObject* x):  count(0), tmp(x) {
+	if (x != 0) {
+		this->count = new int(1);
+	}
+
+	 std::cout<<"Constructor | Counter = "<<*count<<std::endl;
+   }
 
 // Operator =
-shared_ptr& operator= (const shared_ptr& B) {
+
+const shared_ptr& operator= (const shared_ptr& B)  {
+
 	if (this != &B) {
+
+		cleanup();
 		this->tmp = B.tmp;
 		this->count = B.count;
-		*(this->count)+=1;
-		std::cout<<"Operator = function | Counter = "<<*count<<std::endl;
+		if (this->count != 0) {
+			*(this->count)+=1;
+			std::cout<<"Operator = function | Counter = "<<*count<<std::endl;
+		}
 	}
 	return *this;
    };
 
 // Copy function
-shared_ptr (shared_ptr& B) {
-	this->count = B.count;
-	*(this->count)+=1;
-	std::cout<<"Copy function for shared_ptr object | Counter = "<<*count<<std::endl;
-   };
+
+shared_ptr (const shared_ptr& B): count(B.count), tmp(B.tmp) {
+	if (this->count != NULL) {
+		*(this->count) += 1;
+		std::cout<<"Copy function for shared_ptr object | Counter = "<<*count<<std::endl;
+  	}
+ };
+
+//  If tmp != NULL clear tmp and count, else decrement for *counter
+
+void cleanup () {
+		if (tmp != NULL) {
+			assert(count != NULL);
+			if (*count == 1) {
+				delete tmp;
+				tmp = NULL;
+				delete count;
+				count = NULL;
+			}
+			else {
+				*count-=1;
+			}
+		}
+}
 
 // Destructor
-~shared_ptr() {
-        if (*count == 1) {
-		std::cout<<"\nDestructor for "<<this<<" "<<*count;
-		delete this->tmp;
-		delete this->count;
-		}
-	else {
-                this->tmp = NULL;
-		std::cout<<"\nDestructor for "<<this<<" "<<*count;
-		*(this->count)-=1;
-	     }
-  }
 
-
+~shared_ptr () {
+		std::cout<<"\nDestructor for "<<this<<" | "<<*count<<std::endl;
+  		cleanup();
+}
 
 };
 

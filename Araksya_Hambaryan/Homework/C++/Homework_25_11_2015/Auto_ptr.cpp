@@ -5,46 +5,45 @@ struct A
     A();
     A(int*);
     A(A&);
-    const A& operator =(A&);
+    const A& operator = (A&);
     ~A();
 };
 
-const A& A::operator=(A& F)
+const A& A::operator = (A& F)
 {
-    if(this!=&F)
+    if (this != &F)
     {
 	if (ptr != NULL) {
 	    delete ptr;
 	}
-	ptr=F.ptr;
-	F.ptr=NULL;
+	ptr = F.ptr;
+	F.ptr = NULL;
     }
     return *this;
 }
 
 A::A()
+: ptr(0)
 {}
 A::A(int* t)
 {
-    ptr=t;
-    *ptr=51;
+    ptr = t;
+    *ptr = 51;
 }
 
 A::A(A & F)
 {
-    ptr=F.ptr;
-    F.ptr=NULL;
+    ptr = F.ptr;
+    F.ptr = NULL;
 }
 
 A::~A()
 { 
-    if (ptr != NULL){
 	delete ptr;
-    }
 }
 int main () 
 {
-    int*R=new int;
+    int*R = new int;
     A a(R);
     std::cout<<"a.ptr= " << a.ptr << "\n*a.ptr=  " << *a.ptr << std::endl;
     A b(a);

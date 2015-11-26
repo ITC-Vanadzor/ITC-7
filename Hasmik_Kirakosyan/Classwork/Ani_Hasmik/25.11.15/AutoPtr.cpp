@@ -29,6 +29,7 @@ struct Auto_ptr {
 // Operator =
 	Auto_ptr& operator= (Auto_ptr& baseObj) {
 	   if (this != &baseObj) {
+	   	if (tmp!=NULL) delete tmp;
 		tmp = baseObj.tmp;
 
 		std::cout<<"\nOperator = function | Previous pointer to be NULL "<<this<<"\nTransfered pointer "<<baseObj.tmp<<" "<<std::endl;

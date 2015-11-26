@@ -29,7 +29,7 @@ struct Auto_ptr {
     Auto_ptr(myObject* object)
 	: tmp(object)
     {
-	std::cout<<"\nConstructor | Address of this object : "<<this<<"\nTransfered pointer "<<tmp<<std::endl;
+	std::cout<<"\nConstructor | Address of this object : "<<this<<std::endl;
     }
 
     // Operator =
@@ -39,7 +39,7 @@ struct Auto_ptr {
 	{
 	    delete tmp;
 	    tmp = baseObj.tmp;
-	    std::cout<<"\nOperator = function | Previous pointer to be NULL "<<this<<"\nTransfered pointer "<<baseObj.tmp<<" "<<std::endl;
+	    std::cout<<"\nOperator = function | Previous pointer to be NULL "<<this<<std::endl;
 	    baseObj.tmp = NULL;
 	}
 	return  *this;
@@ -49,7 +49,7 @@ struct Auto_ptr {
     Auto_ptr (Auto_ptr& baseObj) 
 	: tmp(baseObj.tmp)
     {
-	std::cout<<"\nCopy function | Previous pointer to be NULL "<<this<<"\nTransfered pointer "<<baseObj.tmp<<std::endl;
+	std::cout<<"\nCopy function | Previous pointer to be NULL "<<this<<baseObj.tmp<<std::endl;
 	baseObj.tmp = NULL;
 
     }

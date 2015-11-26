@@ -29,12 +29,12 @@ struct Sptr{
   	
  };
  //*************default constructer************
-	    Sptr::Sptr():ptr(NULL),counter(NULL){ 						 
+	    Sptr::Sptr():ptr(0),counter(0){ 						 
 	     	std::cout<<"Called "<<this<<" DEFAULT "/*<<"  Counter "<< *(counter)*/<<" \n";
 	    }
   //************* constructer with one parameter************
-	    Sptr::Sptr(Type *rhs):ptr(rhs),counter(NULL){
-	         if(counter!=0){
+	    Sptr::Sptr(Type *rhs):ptr(rhs),counter(0){
+	         if(rhs!=0){
 	         counter=new int(1); 						 
 	     
 	     	}
@@ -50,15 +50,17 @@ struct Sptr{
 	          }
 	    } 
 //***************** Operator =*****************
-    const Sptr&  Sptr::operator=(const Sptr& rhs){ 	
-         if(counter!=rhs.counter){// it has already been = to other object, which has been  pointed to that pointer of heap-memory  			          			
+    const Sptr&  Sptr::operator=(const Sptr& rhs){ 
+    std::cout<<"OPERATOR  = "<<this<<" \n";	
+         if(counter!=rhs.counter){// it has already been = to other object, which has been  pointed to that pointer of heap-memory  
+     		
                    cleanup();				
 		   ptr=rhs.ptr;
 		   counter=rhs.counter;
 		   if(counter!=NULL)
 		   {
 		   	*(counter)+=1;
-		   	 std::cout<<"OPERATOR  = "<<this<<" Counter  "<<*(counter)<<" \n";
+		   	 std::cout<<" Counter  "<<*(counter)<<" \n";
 		   }
            } 
 		   	
@@ -71,9 +73,9 @@ struct Sptr{
 	          assert(counter!=NULL);
                   if((*counter)==1)
                   {
-			  delete(ptr);
+			  delete ptr;
 			  ptr=0;
-			  delete(counter);
+			  delete counter;
 			  counter=0;
 		    }
 		   else {
@@ -88,18 +90,15 @@ struct Sptr{
 	     	 std::cout<<"Called  destructer \n";
 		   
 	    }
-//*************Void Test**********
-Sptr Sptr::Test(Sptr rhs){
-  Sptr X(new Type);
-  return X;
-  }
+
+
            
 int main(){
         Sptr S(new Type);
 	Sptr Y;
         Y=S;
         Sptr A;
-        Y.Test(A);
+        
         
              
  

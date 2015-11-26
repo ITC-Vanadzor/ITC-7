@@ -9,6 +9,7 @@ struct Aptr
 };
 Aptr::Aptr()
 {
+	a = NULL;
 	std::cout << "sarqeci" <<std::endl;
 }
 Aptr::Aptr(Aptr* h)

@@ -5,28 +5,26 @@ void sxal() {
     std::cout << "sxal" << std::endl;
     exit(1);
 }
-void stugum ( char openbr; char closebr; int* begin; int count) {
-    	int stugum = 1;
-		std::cout <<"A0" << stugum<<std::endl;
-	int* end;
-	end = begin+sizeof(char);
-		do {
-		    if (*end == openbr) {
-			++stugum;	std::cout <<"A" << stugum<<std::endl;
-		    }
-		    if (*end == closebr) {
-			-- stugum;	std::cout <<"B" << stugum<<std::endl;
-			if (stugum ==0) {	std::cout <<"C" << stugum<<std::endl;
-			if (((begin-end)/sizeof(char))%2==0) {	std::cout <<"D" << stugum<<std::endl;
-			    sxal();
-			} 
-			}
-			else 
-			{break;
-		    }	std::cout <<"E" << stugum<<std::endl;
-		    end +=sizeof(char);
-		} while ((begin-end)/sizeof(char) < count);
-	
+void stugum ( char openbr, char closebr, int* begin, int* end) {
+    int stugum = 1;
+    int* end2;
+    end2 = begin+sizeof(char);
+    do {
+	if (*end2 == openbr) {
+	    ++stugum;
+	}
+	if (*end2 == closebr) {
+	    -- stugum;
+	    if (stugum ==0) {	
+		if (((begin-end2)/sizeof(char))%2==0) {	
+		    sxal();
+		} 
+	    } else   {
+		break;
+	    }	
+	}
+	end2 +=sizeof(char);
+    } while (end2 <= end);
 }
 int main () {
     char text[] = "abs{jhk{hfahc}gk}jkj";
@@ -51,24 +49,20 @@ int main () {
     int stugum;
     for (bacvox=0; bacvox <=m; ++bacvox) {
 	stugum=0;
-	switch (a[bacvox]) {
-	    case '{':
-		stugum ('{', '}', &a[i]; &a[0]+m*sizeof(char));
-		break;
-	    case '[':
-		stugum ('[', ']', &a[i]; &a[0]+m*sizeof(char));
-		break;
-	    case '(':
-		stugum ('(', ')', &a[i]; &a[0]+m*sizeof(char));
-		break;
-	    default: 
-		sxal();
+	if (a[bacvox]== '{') {
+		stugum ('{', '}', a+bacvox*sizeof(char),a+ m*sizeof(char));
 	}
+	if (a[bacvox]=='[') {
+		stugum ('[', ']', &a[bacvox], (m-bacvox));
+	}
+	if (a[bacvox]=='(') {
+		stugum ('(', ')', &a[bacvox], m-bacvox);
+    	}
     }
-	std::cout << "chisht" <<std::endl;
+    std::cout << "chisht" <<std::endl;
 
-	delete a;
+    delete a;
 
-	return 0;
-    }
+    return 0;
+}
 

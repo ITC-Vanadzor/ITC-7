@@ -2,19 +2,20 @@
 #include <cstdlib>
 
 
-void* realloc2(void* OldArr,int OldSize, int NewSize)
+void* realloc2(void* OldArr,size_t OldSize, size_t NewSize)
 {
-    void* NewArr;
     if (NewSize == 0) {
 	return NULL;
     }
     if (OldArr == NULL){
 	return malloc(NewSize);
     }
+    	void* NewArr;
 	NewArr = malloc (NewSize);
-	for (int i = 0; i < (OldSize < NewSize ? OldSize : NewSize)/sizeof(int); ++i)
+	int min = (OldSize < NewSize ? OldSize : NewSize);
+	for (int i = 0; i < min; ++i)
 	{
-	    *((int*)NewArr + i) = *((int*)OldArr + i);
+	    *((char*)NewArr+i) = *((char*)OldArr+i);
 	}
 
 	free(OldArr);
@@ -22,17 +23,23 @@ void* realloc2(void* OldArr,int OldSize, int NewSize)
     return NewArr;
 }
 int main()  {
-    int* x = (int*) malloc (4 * sizeof(int));
-    for (int i = 0; i < 4; ++i)
+    int old;
+    std::cout << "Old size = ";
+    std::cin >> old;
+    int* x = (int*) malloc (old * sizeof(int));
+    for (int i = 0; i < old; ++i)
     {
 	x[i] = i + 1;
     }
-    for (int i = 0; i < 4; ++i)
+    for (int i = 0; i < old; ++i)
     {
 	std::cout << "x["<< i << "]= "<< x[i] << std::endl;
     }
-    int* y = (int*)realloc2(x, 4*sizeof(int), 10 * sizeof(int));
-    for (int i = 0; i < 10; ++i)
+    int New;
+    std::cout << "New size = ";
+    std::cin >> New;
+    int* y = (int*)realloc2(x, old * sizeof(int), New * sizeof(int));
+    for (int i = 0; i < New; ++i)
     {
 	std::cout << "y[" << i << "]= " <<  y[i] << std::endl;
     }

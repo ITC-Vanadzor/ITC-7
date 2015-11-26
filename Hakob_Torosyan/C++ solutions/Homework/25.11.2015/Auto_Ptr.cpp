@@ -51,5 +51,6 @@ int main()
   	auto_ptr f(e);
  	auto_ptr c;
   	c = f;
+  	c = c;
   	return 0;
 }

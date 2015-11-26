@@ -4,23 +4,20 @@
 
 int* realloc2(int *a, int n,int size)
 {
-	int* c;
 	if(size == 0)
 	{
 		return 0;
 	}
-	else
+	int* c;
+	if(a == 0)
 	{
-		if(a == 0)
-		{
-			c=(int*)malloc(sizeof(int)*size);
-			for(int i = 0; i < size; i++)
-			{ 
-				c[i] = a[i];
-			}
-			free(a); 
-			return c;
+		c=(int*)malloc(sizeof(int)*size);
+		for(int i = 0; i < (size < n ? size : n); i++)
+		{ 
+			c[i] = a[i];
 		}
+		free(a); 
+		return c;
 	}
 }         
 

@@ -12,16 +12,16 @@
 #include <cstdlib>
 void *Real(void*ptr, int n,size_t size)
 {
-    void* newmemory;
     if(size==0)
        {
            return NULL;
        }
-   else {
+        void* newmemory;
         if(ptr==NULL)
           {
               newmemory=malloc(sizeof(size_t)*size);
-              for(int i=0;i<size;i++)
+              int min=(n<size) ? n : size;
+              for(int i=0;i<min;i++)
                {
                   *((char*)newmemory+i) = *((char*)ptr+i);
                }
@@ -29,8 +29,6 @@ void *Real(void*ptr, int n,size_t size)
               free(ptr); 
               return newmemory;
 		 
-              
-	   }
 	}
  }          
 int main()
@@ -38,7 +36,7 @@ int main()
     int n;
     std::cout << "n= ";
     std::cin >> n;
-    int array[n];
+    int* array=(int*)malloc(n*sizeof(int));
     for (int i=0; i<n; i++)
 	 {
                 std::cout << "array[" << i  << "]=";
@@ -49,18 +47,11 @@ int main()
     std::cin >> size;
     int* result=(int*) Real(array,n,size) ;
     int i = 0;
-    int max;
-    if(size>n)
-    {
-    	max=size;
-    }
-    else max=n;
-    while(i < max)
+    while(i < size)
      {
         std::cout << result[i] << std::endl;
         ++i;
      }
-           
-	
+    free(result);	
     return 0;
 }

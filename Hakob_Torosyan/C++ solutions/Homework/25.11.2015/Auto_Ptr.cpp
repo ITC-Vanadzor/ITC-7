@@ -11,12 +11,18 @@ struct auto_ptr
 	std::cout << Ptr << std::endl;
 	};
 	auto_ptr& operator = (auto_ptr & k)
-	{
+	{ if(Ptr!=k.Ptr)
+             {
 		Ptr=k.Ptr;
     		std::cout << "Created and gived "<< Ptr <<" pointer to the next object " << std::endl;
     		k.Ptr = NULL;
     		std::cout << k.Ptr << std::endl;
     		std::cout << "Gived old objects pointer NULL " << std::endl;
+             }
+            else
+            {
+       		std::cout << "Test " << std::endl;
+	    }
  	}
   	auto_ptr(auto_ptr& a)
   	{

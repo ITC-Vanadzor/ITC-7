@@ -7,6 +7,7 @@ struct auto_ptr
 {
 	int* Ptr;
  	auto_ptr()
+ 	:Ptr(NULL)
 	{  
 	std::cout << Ptr << std::endl;
 	};
@@ -21,7 +22,7 @@ struct auto_ptr
              }
             else
             {
-       		std::cout << "Test " << std::endl;
+       		std::cout << "Wrong seting " << std::endl;
 	    }
  	}
   	auto_ptr(auto_ptr& a)

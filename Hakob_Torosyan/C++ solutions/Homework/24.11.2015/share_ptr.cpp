@@ -65,16 +65,15 @@ int main()
 {
   	share_ptr a;
   	a.Ptr = new B;
-  	std::cout << a.Ptr <<" before " << std::endl;
+	//	std::cout << a.Ptr <<" before " << std::endl;
   	share_ptr d(a);
-  	std::cout << a.Ptr << " after " << std::endl;
-  	share_ptr e(d);
-  	share_ptr f(e);
- 	share_ptr c;
-  	c = f;
-	c = c;
+	//	std::cout << a.Ptr << " after " << std::endl;
+	share_ptr e;
+	e.Ptr = new B;
+	e = d;
   	return 0;
 }
+
 
 
 

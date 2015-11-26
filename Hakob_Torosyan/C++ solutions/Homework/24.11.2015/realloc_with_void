@@ -52,7 +52,7 @@ int main()
 	std::cin >> m;
 	int* ptr2 =(int *) realloc(ptr1,m);
 	int i = 0;
-	while(i < n && i < m)
+	while(i < m)
 	{
 		std::cout << ptr2[i] << " ";
 		++i;

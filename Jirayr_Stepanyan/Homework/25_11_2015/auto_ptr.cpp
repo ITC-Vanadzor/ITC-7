@@ -3,7 +3,7 @@ struct Aptr
 {
 	int* a;
 	Aptr();
-	Aptr(Aptr* h);
+	Aptr(int* h);
 	Aptr& operator = (Aptr& t);
 	Aptr(Aptr& n);
 };
@@ -11,11 +11,11 @@ Aptr::Aptr()
 {
 	std::cout << "sarqeci" <<std::endl;
 }
-Aptr::Aptr(Aptr* h)
-	:a = h->a;
-	,h->a = 0;
+Aptr::Aptr(int* h)	
 {
+	a = h;
 	std::cout << "veragreci " <<  std::endl;
+	h = 0;
 	std::cout << "jnjeci " << std::endl;	
 }
 Aptr& Aptr::operator = (Aptr& t)
@@ -26,16 +26,16 @@ Aptr& Aptr::operator = (Aptr& t)
 	t.a = 0;
 	
 }
-Aptr::Aptr(Aptr& n)
-	:a = n.a;
-	:n.a = 0;
+Aptr::Aptr(Aptr& n)	
 {
+	a = n.a;
 	std::cout << "(copy) veragreci " <<  std::endl;
+	n.a = 0;	
 	std::cout << "(copy) jnjeci " << std::endl;	
 }
 int main()
 {
-	Aptr a(new Aptr);
+	Aptr a(new int);
 	Aptr b(a);
 	Aptr c;
 	Aptr k;

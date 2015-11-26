@@ -4,23 +4,20 @@ struct Sptr
 	int* count;
 	int* x;
 	Sptr();
-	Sptr(Sptr* y);
+	Sptr(int* y);
 	Sptr(Sptr& k);
 	Sptr& operator = (const Sptr& h);
 	~Sptr();
 };
 Sptr::Sptr()
-	:count(new int(1))
-	,x(new int)
 {
-	
 	std::cout << "datark konstruktor 	";
 	std::cout << "count = " << *count << std::endl;
 }
-Sptr::Sptr(Sptr* y)
-	:x(y -> x)
-	,count(new int(1))
+Sptr::Sptr(int* y)
 {
+	count = new int(1);
+	x = y;
 	std::cout << "kostruktor	";
 	std::cout << "count = " << *count << std::endl;
 }
@@ -58,7 +55,7 @@ Sptr::~Sptr()
 }
 int main()
 {
-	Sptr a(new Sptr);
+	Sptr a(new int);
 	Sptr b(a);
 	Sptr c(b);
 	Sptr n;

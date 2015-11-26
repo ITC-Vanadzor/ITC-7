@@ -3,12 +3,14 @@
 
 struct myObject {
 
-   myObject()  {
+   myObject()  
+   {
 		std::cout<<"\nObject was created"<<std::endl;
-		}
-   ~myObject() {
-		 std::cout<<"Object was deleted"<<std::endl;	
-	       }
+   }
+   ~myObject() 
+   {
+		 std::cout<<"Object was deleted"<<std::endl;	 
+   }
 
 };
 
@@ -25,12 +27,14 @@ struct Auto_ptr
 };
 
 // Default constructor
-	Auto_ptr::Auto_ptr():tmp(NULL) 
+	Auto_ptr::Auto_ptr()
+        :tmp(NULL) 
 	{
 		std::cout << "Default Constructor "<< this << std::endl ;
 	} 
 // Constructor
-	Auto_ptr::Auto_ptr(myObject* rhs):tmp(rhs) 
+	Auto_ptr::Auto_ptr(myObject* rhs)
+        :tmp(rhs) 
 	{
 		 
 		std::cout << "Constructor "<< this << std::endl;

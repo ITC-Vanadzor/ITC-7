@@ -16,13 +16,19 @@ struct auto_ptr
 {
 	my_type* ptr;
 	
-	auto_ptr():ptr(NULL){}
-	
-	auto_ptr(my_type* p):ptr(p){}
-	
-	auto_ptr(auto_ptr& pp)
+	auto_ptr():ptr(NULL)
 	{
-		ptr = pp.ptr;
+		std::cout << "default konstructor: " << this << std::endl;
+	}
+	
+	auto_ptr(my_type* p):ptr(p)
+	{
+		std:: cout << "konstructor: address: " << this << std::endl;
+	}
+	
+	auto_ptr(auto_ptr& pp):ptr(pp.ptr)
+	{
+		std::cout << "copy function:" << this << " " << pp.ptr << std::endl;
 		if(pp.ptr != NULL) pp.ptr = NULL;
 	}
 	
@@ -31,6 +37,7 @@ struct auto_ptr
 		if(this != &x)
 		{
 			if(ptr != NULL) delete ptr;
+			std:: cout << "operator = function " << this << std::endl;
 			ptr = x.ptr;
 			x.ptr = NULL;
 		}
@@ -40,6 +47,7 @@ struct auto_ptr
 	~auto_ptr()
 	{
 		if(ptr != NULL) delete ptr;
+		std::cout << "destructor: auto_ptr: " << this << std::endl;
 	}
 };
 

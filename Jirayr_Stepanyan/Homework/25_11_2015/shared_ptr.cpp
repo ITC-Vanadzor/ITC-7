@@ -1,68 +1,103 @@
 #include <iostream>
+#include <cassert>
+struct B
+{
+    B()
+    { 
+	std::cout << "created B" << std::endl;
+    }
+    ~B()
+    {
+	std::cout << "deleted B" << std::endl;
+    }
+};
 struct Sptr
 {
 	int* count;
-	int* x;
+	B* x;
 	Sptr();
-	Sptr(Sptr* y);
+	Sptr(B* y);
 	Sptr(Sptr& k);
 	Sptr& operator = (const Sptr& h);
 	~Sptr();
+	void cleanup();
 };
 Sptr::Sptr()
-	:count(new int(1))
-	,x(new int)
+    : count(0)
+    , x(0)
 {
-	
 	std::cout << "datark konstruktor 	";
-	std::cout << "count = " << *count << std::endl;
 }
-Sptr::Sptr(Sptr* y)
-	:x(y -> x)
-	,count(new int(1))
+Sptr::Sptr(B* y)
+    : count(0)
+    , x(y)
 {
-	std::cout << "kostruktor	";
+    std::cout << "kostruktor	";
+    if (x != 0)
+    {
+	count = new int(1);
 	std::cout << "count = " << *count << std::endl;
+    }
 }
+
 Sptr::Sptr(Sptr& k)
+    : count(k.count)
+    , x(k.x)
 {
-	x = k.x;
-	count = k.count;
+    std::cout << "copy 	" << std::endl;
+    if (count != 0)
+    {
 	++(*count);
-	std::cout << "copy 	";
-	std::cout << "count = " << *count << std::endl;
+	std::cout << "count = " << count << std::endl;
+    }
 }
-Sptr& Sptr:: operator = (const Sptr& h)
+
+void Sptr::cleanup()
 {
-	x = h.x;
-	count = h.count;
-	++(*count);
-	std::cout << "operator = 	";
-	std::cout << "count = " << *count << std::endl;
+    if (x != 0)
+    {
+	assert(count != 0);
+	if (*count == 1)
+	{
+	    delete x;
+	    x = 0;
+	    delete count;
+	    count = 0;
+	}
+	else 
+	{
+	    --(*count);
+	}
+    }
 }
+
+Sptr& Sptr::operator = (const Sptr& h)
+{
+    std::cout << "operator = 	";
+    if (this == &h)
+    {
+	return *this;
+    }
+    cleanup();
+    x = h.x;
+    count = h.count;
+    if (count != 0)
+    {
+	++(*count);
+	std::cout << "count = " << *count << std::endl;
+    }
+}
+
 Sptr::~Sptr()
 {
-	if(--(*count) == 0)
-	{
-		std::cout << "jnjeci  DESTRUKTOR	";
-		std::cout << "count = " << *count << std::endl;
-		delete x;
-		delete count;
-	}
-	else
-	{
-		std::cout << "pakasacreci count  DESTRUKTOR	" ;
-		std::cout << "count = " << *count << std::endl;
-	}
-	
+    cleanup();	
 }
 int main()
 {
-	Sptr a(new Sptr);
-	Sptr b(a);
-	Sptr c(b);
-	Sptr n;
-	n = c;
-
-   return 0;
+    Sptr a(new B);
+    Sptr b(a);
+    Sptr c(b);
+    Sptr n;
+    n = c;
+    return 0;
 }

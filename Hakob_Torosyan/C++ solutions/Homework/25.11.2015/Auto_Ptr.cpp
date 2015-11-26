@@ -7,16 +7,26 @@ struct auto_ptr
 {
 	int* Ptr;
  	auto_ptr()
+ 	:Ptr(NULL)
 	{  
 	std::cout << Ptr << std::endl;
 	};
 	auto_ptr& operator = (auto_ptr & k)
-	{
+	{ if(Ptr!=k.Ptr)
+             {   if(Ptr!=0)
+             		{	
+             			delete Ptr;
+             		}
 		Ptr=k.Ptr;
     		std::cout << "Created and gived "<< Ptr <<" pointer to the next object " << std::endl;
     		k.Ptr = NULL;
     		std::cout << k.Ptr << std::endl;
     		std::cout << "Gived old objects pointer NULL " << std::endl;
+             }
+            else
+            {
+       		std::cout << "Wrong seting " << std::endl;
+	    }
  	}
   	auto_ptr(auto_ptr& a)
   	{
@@ -45,5 +55,6 @@ int main()
   	auto_ptr f(e);
  	auto_ptr c;
   	c = f;
+  	c = c;
   	return 0;
 }

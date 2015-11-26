@@ -2,15 +2,27 @@
 #include <iostream>
 #include <cstdlib>
 
-int* realloc_my(int* ptr, int m)
+void* realloc_my(void* ptr, size_t m)
 {
-  int* ptr2 = (int*)malloc(sizeof(ptr) * m);
-  int i =0;
-  while(i < m)
-    {
-      ptr2[i] = ptr[i];
-      ++i;
-    }
+  void* ptr2;
+  if(ptr == NULL)
+  {
+   return malloc(m);
+  }
+  if(m==0)
+  {
+   free(ptr);
+   return NULL;
+  }
+  else
+  {
+   ptr2=(char*)malloc(m);
+   for (size_t i=0; i<=m*sizeof(size_t); ++i)
+   {
+    *(char*)(ptr2+i)=*(char*)(ptr+i);
+   }
+  }
+  free(ptr);
   return ptr2;
 }
 
@@ -34,15 +46,14 @@ int main()
   std::cout << "Input new count of int numbers m= ";
   int m;
   std::cin >> m;
-  int* ptr2 = realloc_my(ptr1,m);
+  int* ptr2 =(int*) realloc_my(ptr1,m);
   int i = 0;
-  while(i < n && i < m)
+  while(i < m)
     {
       std::cout << ptr2[i] << " ";
       ++i;
     }
   std::cout << std::endl;
-  free(ptr1);
   free(ptr2);
   return 0;
 }

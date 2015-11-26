@@ -31,16 +31,19 @@ struct Sptr{
     Sptr operator=(const Sptr  &p ){
           if(this==&p) return *this;
 
-          if(this->counter!=NULL){
-            --(*this->counter);
-            if(*this->counter==0){
-                    this->~Sptr();
+          if(counter!=NULL){
+            --(*counter);
+            if(*counter==0){
+                    clean_up;
             }
           }
           return p;
     }
     //destructor
     ~Sptr(){
+        clean_up();
+    }
+    void clean_up(){
         if(counter==NULL) return;
         if(*counter==0){
             delete counter;

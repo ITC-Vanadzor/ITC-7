@@ -22,17 +22,18 @@ struct Sptr
 	~Sptr();
 	void cleanup();
 };
+
 Sptr::Sptr()
     : count(0)
     , x(0)
 {
-	std::cout << "datark konstruktor 	";
+	std::cout << "default constructor 	" << std::endl;
 }
+
 Sptr::Sptr(B* y)
-    : count(0)
-    , x(y)
+    :x(y)
 {
-    std::cout << "kostruktor	";
+    std::cout << "argument constructor	" << std::endl;
     if (x != 0)
     {
 	count = new int(1);
@@ -44,36 +45,17 @@ Sptr::Sptr(Sptr& k)
     : count(k.count)
     , x(k.x)
 {
-    std::cout << "copy 	" << std::endl;
+    std::cout << "copy constructor	" << std::endl;
     if (count != 0)
     {
 	++(*count);
-	std::cout << "count = " << count << std::endl;
-    }
-}
-
-void Sptr::cleanup()
-{
-    if (x != 0)
-    {
-	assert(count != 0);
-	if (*count == 1)
-	{
-	    delete x;
-	    x = 0;
-	    delete count;
-	    count = 0;
-	}
-	else 
-	{
-	    --(*count);
-	}
+	std::cout << "count = " << *count << std::endl;
     }
 }
 
 Sptr& Sptr::operator = (const Sptr& h)
 {
-    std::cout << "operator = 	";
+    std::cout << "(=) operator 	" << std::endl;
     if (this == &h)
     {
 	return *this;
@@ -88,15 +70,44 @@ Sptr& Sptr::operator = (const Sptr& h)
     }
 }
 
+void Sptr::cleanup()
+{
+	std::cout << "cleanup function	" << std::endl;
+    if (x != 0)
+    {
+	assert(count != 0);
+	if (*count == 1)
+	{
+	    delete x;
+	    x = 0;
+	    delete count;
+	    count = 0;
+	    std::cout << "deleted x and count	" << std::endl;
+	}
+	else 
+	{
+	    --(*count);
+	    std::cout << "sub count	" << std::endl;
+	    std::cout << "count	= " << *count << std::endl;
+	}
+    }
+}
+
 Sptr::~Sptr()
 {
     cleanup();	
 }
 int main()
+
 {
     Sptr a(new B);
     Sptr b(a);
     Sptr c(b);
+    {
+        Sptr m;
+	m = c;
+	Sptr p(m);
+    }
     Sptr n;
     n = c;
     return 0;

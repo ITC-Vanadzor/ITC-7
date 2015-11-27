@@ -160,20 +160,18 @@ int main()
 {
 	list my_list;
 
-	my_list.push_back(11);
-	my_list.push_back(12);
+	my_list.push_back(11); //11
+	my_list.push_back(12); //11,12
 
-	my_list.push_front(58);
-	my_list.push_front(59);
+	my_list.push_front(58); //58,11,12
+	my_list.push_front(59); //59,58,11,12
 
-	my_list.insert(17,my_list.get(2));
-	my_list.insert(18,my_list.get(3));
+	my_list.insert(17,my_list.get(2)); //59,58,11,17,12
+	my_list.insert(18,my_list.get(3)); //59,58,11,17,18,12
 
 	for(int i=0;i<6;++i){
         my_list.get(i);
 	}
-59,58,11,17,18,12
-
-
+	
   return 0;
 }

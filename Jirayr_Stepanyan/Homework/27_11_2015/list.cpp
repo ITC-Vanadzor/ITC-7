@@ -178,6 +178,7 @@ list::~list()
 	else
 	{
 		delete m_head;
+		m_tail = 0;
 	}
 	m_count = 0;
 }

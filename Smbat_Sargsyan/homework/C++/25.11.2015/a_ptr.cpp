@@ -8,24 +8,26 @@ struct auto_ptr {
  auto_ptr();
  ~auto_ptr();
  auto_ptr(object* s);
- auto_ptr(auto_ptr& h) {
- ptr=h.ptr;
+ auto_ptr(auto_ptr& h):ptr(h.ptr) {
+ std::cout << "copy constructor" << std::endl;
  h.ptr=0; 
 }
  auto_ptr& operator = (auto_ptr& f) {
 		if (this != &f) { 
                    if(ptr!=0) {  delete ptr; }
-		
+		       std::cout << "operator" << std::endl;
 		       ptr= f.ptr;
                        f.ptr=0;
                 }
 		return *this;
          }
  };
- auto_ptr::auto_ptr(object*s) {
- ptr=s;
+ auto_ptr::auto_ptr(object*s):ptr(s) {
+      std::cout << "object constructor" << std::endl;
 } 
- auto_ptr::auto_ptr() {} 
+ auto_ptr::auto_ptr():ptr(0) {
+      std::cout << "default constructor" << std::endl;
+} 
  auto_ptr::~auto_ptr() { 
  std::cout << "Delete " << std::endl;
  if(ptr!=0) {

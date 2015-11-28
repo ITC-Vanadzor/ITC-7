@@ -11,10 +11,15 @@ type1() { cout << "New " << endl; }
 struct Sptr {
 type1 *p;
 int *counter;
-Sptr(): counter(0),p(NULL) {}
-Sptr(const Sptr& ptr):counter(ptr.counter),p(ptr.p) 
-{
+Sptr();
+Sptr(Sptr& ptr):counter(ptr.counter),p(ptr.p) 
+{ 
+  std::cout << "copy constructor " << std::endl;
+  if(counter != 0)
+  {
   ++(*counter);
+  std::cout << "counter= " << counter << std::endl;
+  }
 }
 ~Sptr() 
 {
@@ -24,24 +29,33 @@ Sptr(const Sptr& ptr):counter(ptr.counter),p(ptr.p)
   }
 
 }
-Sptr(type1 *p1) {
- p=p1;
- counter=new int(0);
-}
+Sptr(type1 *p1);
 Sptr operator=(const Sptr &p2) {
   if(this==&p2) return *this;
 
           if(this->counter!=NULL){
             --(*this->counter);
             if(*this->counter==0){
+                            
                     this->~Sptr();
+                    delete p;
+                    delete counter;
             }
           }
-          return p2;
+          
     }
 
 };
+Sptr::Sptr(): counter(0),p(NULL) {std::cout << "default constructor" << std::endl;}
 
+Sptr::Sptr(type1 *p1):counter(0),p(p1) {
+ std::cout << "constructor " << std::endl;
+ if(p != 0)
+ {
+ counter=new int(1); 
+ std::cout << "counter=" << counter << std::endl;
+ }
+}
 Sptr test(Sptr x) {
  Sptr a(new type1);
  return a;
@@ -52,9 +66,9 @@ int main()
   type1 *q=new type1;
   {
     Sptr x(q);
-    Sptr y=test(x);
-    Sptr z(y);
+    //Sptr y=test(x);
+    Sptr z(x);
   }
-  Sptr g=new type1;
+  type1* g=new type1;
   return 0;
 }

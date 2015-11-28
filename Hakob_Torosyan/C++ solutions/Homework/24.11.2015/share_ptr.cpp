@@ -17,14 +17,14 @@ struct share_ptr
 	B* Ptr;
         int* counter;
  	share_ptr()
-	  :Ptr(NULL), counter(new int(1))
+	  :Ptr(NULL), counter(new int)
 	{  
-		std::cout << "Gives 1 value to counter " << *counter << std::endl;
+		std::cout << "Created new object and Gived 1 value to counter " <<std::endl;
 		*counter = 1;
 	};
-share_ptr& operator = (share_ptr & k)
+share_ptr& operator = (share_ptr &k)
   {        
-  	if(Ptr!=k.Ptr)
+  	if(Ptr != k.Ptr)
         {
            	std::cout << "Created new pointer "<< Ptr << std::endl;
 		counter = k.counter;
@@ -35,7 +35,7 @@ share_ptr& operator = (share_ptr & k)
 		std::cout << "Wrong seting " << std::endl;
 	}
    }
- share_ptr(share_ptr& a)
+ share_ptr(share_ptr &a)
   {
 	       	std::cout << "Created new pointer "<< Ptr << std::endl;
 		counter = a.counter;
@@ -49,9 +49,11 @@ void  dekrement(int* count, B* ptr)
     {
       delete ptr;
       delete count;
-      std::cout << "Deleted pointer " << std::endl;
-    }
-  	std::cout << "Deleted last pointer " << std::endl;
+      std::cout << "Deleted first pointer " << std::endl;
+    }else
+  	{
+		std::cout << "Deleted last pointer " << std::endl;
+	}
 };
   ~share_ptr()
   {
@@ -73,7 +75,5 @@ int main()
 	e = d;
   	return 0;
 }
-
-
 
 

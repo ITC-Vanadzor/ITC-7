@@ -10,7 +10,6 @@ struct node
 	,m_prev(prev)
 	,m_data(data)
 	{
-		//std::cout << "argument constructor" << std::endl;	
 	}
 	~node() 
 	{
@@ -84,11 +83,6 @@ void list::insert(const int i_d, node* i_p)
   		node* new_node = new node(i_d, i_p->m_next, i_p);
 		new_node->m_next->m_prev = new_node;
 		i_p->m_next = new_node;
-	/*	std::cout<<"\n\nPrevious node data "<<new_node->m_prev->m_data
-			 <<" | inserted node data= "<<new_node->m_data
-			 <<" | next  node data = "<<new_node->m_next->m_data
-			 <<std::endl;
-         */
 		++m_count;
 	}
 }
@@ -116,6 +110,7 @@ void list::pop_back()
 	}
 	else
 	{
+		std::cout<<"\nPop the last element "<<m_tail->m_data<<std::endl;
 		m_tail = m_tail->m_prev;
 		delete m_tail->m_next;
 		m_tail ->m_next = NULL;
@@ -130,10 +125,10 @@ void list::pop_front()
 	}
 	else
 	{	
-		std::cout<<"\n Head data is "<<m_head->m_data<<std::endl;
+		std::cout<<"\nPop  first element  "<<m_head->m_data<<std::endl;
+		m_head->m_next->m_prev = NULL;
 		m_head = m_head->m_next;
-		delete m_head ->m_prev;
-		m_head ->m_prev = NULL;
+		delete m_head->m_prev;
 		--m_count;
 	}
 }
@@ -184,7 +179,7 @@ void list::type ()
 {
 	for (size_t i = 0; i < this->size(); i++)
 		std::cout<<this->get(i+1)->m_data<<" ";	
-	std::cout<<"\n\n"<<std::endl;
+	std::cout<<"\n-------------------------------------------"<<std::endl;
 }
 
 list::~list() 
@@ -203,8 +198,10 @@ int main()
 
 	// Test empty
 	A.type();
-	std::cout<<" 1 - list is empty, 0 - list is full | "<<A.empty()<<		std::endl;	
+	std::cout<<"1 - list is empty, 0 - list is full | "<<A.empty()
+		 <<"\nSize | "<<A.size()<<std::endl;	
 
+	std::cout<<"-----------------------------------------------"<<std::endl;
 	// Test push_back
 	A.push_back(99); // 99
 	A.type();
@@ -215,13 +212,17 @@ int main()
 
 	// Test push_front 
 	A.push_front(66);  // 66 99 88 77
+	A.type();
 	A.push_front(55);  // 55 66 99 88 77
+	A.type();
 	A.push_front(44);  // 44 55 66 99 88 77
 	A.type();	   // Type list
 
 	// Test insert element
 	A.insert(77, A.get(3)); // 44 55 66 77 99 88 77
+	A.type();
 	A.insert(88, A.get(4)); // 44 55 66 77 88 99 88 77
+	A.type();
 	A.insert(111,A.get(6)); // 44 55 66 77 88 99 111 88 77
 	A.type();		// Type list
 
@@ -231,7 +232,8 @@ int main()
 	A.type();		// Type list
 
 	// Test empty and size. Size = 8, Empty = 1
-	std::cout<<"1 - list is empty, 0 - list is full = "<<A.empty()<<"| Size = "<<A.size()<<std::endl;
+	std::cout<<"1 - list is empty, 0 - list is full | "<<A.empty()
+		 <<"\nSize | "<<A.size()<<std::endl;
 	
 	// Test pop_back
 	A.pop_back();		// 44 55 66 77 88 99 111

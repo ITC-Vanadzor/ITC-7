@@ -45,22 +45,32 @@ list::list()
 	std::cout<<"Default constructor in list"<<std::endl;
 }
 void list::push_back(int b_d)
-{
-	m_tail = new node (b_d, NULL, m_tail);	
+{	
+	node* tmp = new node (b_d, NULL, m_tail);	
 	if(!m_count)
 	{
-		m_head = m_tail;
+		m_head = tmp;
 	}
+	else 
+	{
+		m_tail->m_next = tmp;  
+	}
+	m_tail = tmp;
 	++m_count;
 	
 }
 void list::push_front(int f_d)
 {
-	m_head = new node(f_d, m_head, 0);
+	node* tmp = new node(f_d, m_head, 0);
 	if(!m_count)
 	{
-		m_tail = m_head;
+		m_tail = tmp;
 	}
+	else
+	{
+		m_head->m_prev = tmp;
+	}
+	m_head = tmp;
 	++m_count;
 }
 void list::insert(const int i_d, node* i_p)
@@ -94,34 +104,36 @@ void list::pop_back()
 {
 	if(empty())
 	{
+		std::cout<<"List is empty. Nothing to pop!"<<std::endl;
 		return;
 	}
 	if(m_count == 1)
 	{
 		assert(m_tail == m_head);
-		delete m_tail;
+		delete m_head;
 		m_tail = 0;
 		m_head = 0;
 	}
 	else
 	{
 		m_tail = m_tail->m_prev;
-		delete m_tail ->m_next;
-		m_tail ->m_next = 0;
+		delete m_tail->m_next;
+		m_tail ->m_next = NULL;
 	}
 	--m_count;
 }
 void list::pop_front()
 {
-	if(empty() || m_count == 1)
+	if(empty() || (m_count == 1))
 	{
 		pop_back();
 	}
 	else
-	{
+	{	
+		std::cout<<"\n Head data is "<<m_head->m_data<<std::endl;
 		m_head = m_head->m_next;
 		delete m_head ->m_prev;
-		m_head ->m_prev = 0;
+		m_head ->m_prev = NULL;
 		--m_count;
 	}
 }
@@ -137,9 +149,9 @@ void list::remove(node* r_p)
 	}
 	else
 	{
-		r_p->m_next->m_prev = r_p->m_prev;
-		r_p->m_prev->m_next = r_p->m_next;
-		delete r_p;
+		r_p->m_next = r_p->m_next->m_next;
+		delete r_p->m_next->m_prev;
+		r_p->m_next->m_prev = r_p;
 		--m_count;
 	}
 }
@@ -197,7 +209,8 @@ int main()
 	A.push_back(99); // 99
 	A.type();
 	A.push_back(88); // 99 88 
-//	A.push_back(77); // 99 88 77
+	A.type();
+	A.push_back(77); // 99 88 77
 	A.type();	 // Type list 
 
 	// Test push_front 
@@ -209,15 +222,16 @@ int main()
 	// Test insert element
 	A.insert(77, A.get(3)); // 44 55 66 77 99 88 77
 	A.insert(88, A.get(4)); // 44 55 66 77 88 99 88 77
-//	A.insert(111,A.get(6)); // 44 55 66 77 88 99 111 88 77
+	A.insert(111,A.get(6)); // 44 55 66 77 88 99 111 88 77
 	A.type();		// Type list
 
+	
 	// Test delete member from list
-	A.remove(A.get(5));     // 44 55 66 77 88 99 111 77
+	A.remove(A.get(7));     // 44 55 66 77 88 99 111 77
 	A.type();		// Type list
 
 	// Test empty and size. Size = 8, Empty = 1
-	std::cout<<"1 - list is empty, 0 - list is full | "<<A.empty()<<" Size |	"<<A.size()<<std::endl;
+	std::cout<<"1 - list is empty, 0 - list is full = "<<A.empty()<<"| Size = "<<A.size()<<std::endl;
 	
 	// Test pop_back
 	A.pop_back();		// 44 55 66 77 88 99 111

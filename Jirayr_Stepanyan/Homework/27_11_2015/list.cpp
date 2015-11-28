@@ -178,7 +178,6 @@ list::~list()
 	else
 	{
 		delete m_head;
-		m_tail = 0;
 	}
 	m_count = 0;
 }
@@ -195,7 +194,6 @@ int main()
 	a.pop_front();
 	a.remove(a.get(1));
 	a.all_list();	
-	
 
   return 0;
 }

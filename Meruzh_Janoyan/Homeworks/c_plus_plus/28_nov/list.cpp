@@ -8,10 +8,7 @@ struct node
 	node* m_prev;
 	int m_data;
 	node(int data, node* next, node* prev)
-	:m_data(data),m_next(next),m_prev(prev)
-	{
-		std::cout << "node argument constructor" << std::endl;
-	}
+	:m_data(data),m_next(next),m_prev(prev){}
 };
 
 struct list
@@ -29,11 +26,18 @@ struct list
 	void pop_back();
 	void pop_front();
 	void remove(node* r_p);
+	void print_all();
 	node* get(size_t i);
 };
 list::list()
 	:m_head(0),m_tail(0),m_count(0){}
-
+void list::print_all(){
+    std::cout<<"___CURRENT LIST___"<<std::endl;
+    for(int i=0;i<m_count;++i){
+        std::cout<<get(i)->m_data<<"  ";
+	}
+	std::cout<<std::endl;
+}
 void list::push_back(int b_d)
 {
 	node* tmp = new node(b_d, 0, m_tail);
@@ -47,7 +51,6 @@ void list::push_back(int b_d)
 	}
 	m_tail=tmp;
 	++m_count;
-	std::cout<<"push_back "<<b_d<<std::endl;
 }
 void list:: push_front(int f_d)
 {
@@ -62,7 +65,6 @@ void list:: push_front(int f_d)
 	}
 	m_head=tmp;
 	++m_count;
-	std::cout<<"push_front "<<f_d<<std::endl;
 }
 void list:: insert(int i_d, node* i_p)
 {
@@ -76,16 +78,13 @@ void list:: insert(int i_d, node* i_p)
         i_p->m_next->m_next->m_prev = i_p->m_next;
 		++m_count;
 	}
-	std::cout<<"insert "<<i_d<<std::endl;
 }
 size_t list::size()
 {
-    std::cout<<"size is "<<m_count<<std::endl;
 	return m_count;
 }
 bool list::empty()
 {
-    std::cout<<"empty "<<(m_count==0)<<std::endl;
 	return m_count == 0;
 }
 void list::pop_back()
@@ -94,7 +93,6 @@ void list::pop_back()
 	{
 		return;
 	}
-	std::cout<<"pop_back "<<m_tail->m_data<<std::endl;
 	if(m_count== 1)
 	{
 		assert(m_tail == m_head);
@@ -118,7 +116,6 @@ void list::pop_front()
 	}
 	else
 	{
-	    std::cout<<"pop_front "<<m_head->m_data<<std::endl;
 		m_head = m_head->m_next;
 		delete m_head ->m_prev;
 		m_head ->m_prev = 0;
@@ -131,15 +128,15 @@ void list::remove(node* r_p)
 	{
 		pop_back();
 	}
-	if(r_p == m_head)
+	else if(r_p == m_head)
 	{
 		pop_front();
 	}
 	else
 	{
-		r_p->m_next = r_p->m_next->m_next;
-		delete r_p->m_next->m_prev;
-          	r_p->m_next->m_prev = r_p;
+		r_p->m_prev->m_next = r_p->m_next;
+		r_p->m_next->m_prev=r_p->m_prev;
+		delete r_p;
 		--m_count;
 	}
 }
@@ -152,7 +149,6 @@ node* list::get(size_t pos)
 	{
 		ptr = ptr->m_next;
 	}
-	std::cout<<"geting..OUT! :) "<<ptr->m_data<<std::endl;
 	return ptr;
 }
 
@@ -162,16 +158,25 @@ int main()
 
 	my_list.push_back(11); //11
 	my_list.push_back(12); //11,12
+	my_list.print_all();
 
 	my_list.push_front(58); //58,11,12
 	my_list.push_front(59); //59,58,11,12
+	my_list.print_all();
 
 	my_list.insert(17,my_list.get(2)); //59,58,11,17,12
 	my_list.insert(18,my_list.get(3)); //59,58,11,17,18,12
+	my_list.print_all();
 
-	for(int i=0;i<6;++i){
-        my_list.get(i);
-	}
-	
+    	my_list.pop_back(); //59,58,11,17,18
+    	my_list.print_all();
+
+    	my_list.pop_front(); //58,11,17,18
+    	my_list.print_all(); 
+
+    	node *p=my_list.get(2);
+    	my_list.remove(p); //58,11,18
+    	my_list.print_all();
+
   return 0;
 }

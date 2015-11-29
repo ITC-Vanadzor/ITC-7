@@ -57,7 +57,7 @@ list::list()
 	//std::cout <<this<< "List Constructor with 3 arguments\n";
 }
 
-void list::push_back(int b_d)
+void list::push_back(int b_d)// add from back
 {
 	m_tail = new node(b_d, NULL, m_tail);
         
@@ -72,7 +72,7 @@ void list::push_back(int b_d)
 	++m_count;
 	
 }
-void list:: push_front(int f_d)
+void list:: push_front(int f_d)// add from first
 {
 	m_head = new node(f_d, m_head, 0);
 	if(!m_count)
@@ -81,12 +81,12 @@ void list:: push_front(int f_d)
 	}
 	++m_count;
 }
-void list:: insert(int i_d, node* i_p)
+void list::insert(int i_d, node* i_p)// insert  that element after that node  
 {
         if(i_p->m_next==NULL)
         {
          	std::cout<<"Error... The size, you entered  is big\n";
-                std::exit(1);
+                return;
         }
 	if(i_p == m_tail)
 	{
@@ -100,17 +100,17 @@ void list:: insert(int i_d, node* i_p)
 	}
         
 }
-size_t list::size()
+size_t list::size()// returns the size of lists
 {       
 	//std::cout<<"The size is\t "<<m_count<<std::endl;
 	return m_count;
 }
-bool list::empty()
+bool list::empty()// if the list is empty, return true
 {
         
     return m_count == 0;
 }
-void list::pop_back()
+void list::pop_back()// delete from back
 {
 	if(!m_count)
 	{
@@ -135,41 +135,50 @@ void list::pop_back()
 	}
 	--m_count;
 }
-void list::pop_front()
+void list::pop_front()// delete from front
 {
 	if(empty() || m_count == 1)
 	{
 		pop_back();
 	}
 	else
-	{
-		m_head = m_head->m_next;
+	{       m_head->m_next->m_prev=0;
+                m_head=m_head->m_next;
                 delete m_head ->m_prev;
-		m_head ->m_prev = 0;
+                
 		--m_count;
+            
+
 	}
 }
-void list::remove(node* r_p)
+void list::remove(node* r_p)// delete  after  this element
 {
-	if(r_p == m_tail)
+        if(!size())
+        {
+		std::cout<<"The list is empty, You can't delete from there anything\n";
+                return;
+	} 
+        if(r_p->m_next==0)
+        {
+		std::cout<<"There is not any element after this\n";
+                return;
+        }
+        
+	if(r_p->m_next->m_next == 0)
 	{
 		pop_back();
 	}
-	if(r_p == m_head)
-	{
-		pop_front();
-	}
+	
 	else
-	{ 
+	{       
                 
-		r_p->m_next = r_p->m_next->m_next;
-                delete r_p->m_next->m_prev;
-                r_p->m_next->m_prev = r_p;
-                
-                 --m_count;
+               r_p->m_next = r_p->m_next->m_next;
+	       delete r_p->m_next->m_prev;
+	       r_p->m_next->m_prev = r_p;           
+               --m_count;
 	}
 }
-node* list::get(size_t pos)
+node* list::get(size_t pos) // gets the node*  from that  position
 {
      if(empty())
      { 
@@ -177,11 +186,6 @@ node* list::get(size_t pos)
 	   return 0;
      }
      if(pos==0)
-     {
-      	 //std::cout<<"You entered  negative or NULL   position\n";
-	   std::exit(1);;
-      }
-     if(pos==1)
      {
      	   return m_head;
      }
@@ -208,15 +212,15 @@ node* list::get(size_t pos)
      }
 }
 
-void list::Print()
+void list::Print()// prints the list
 {
     
         {
                  node *current=m_head;
-		for(size_t i=1; i<=m_count; ++i)
+		for(size_t i=0; i<m_count; ++i)
 		{  
 			std::cout<<current->m_data<<"\t";
-                       if(i!=m_count)
+                       if(i!=m_count-1)
                        {
                         current=current->m_next;
                        }
@@ -234,21 +238,20 @@ int main()
    newList.push_front(4);// 4 5 6  
    newList.push_back(7);// 4 5 6 7
    newList.Print();
-  // newList.pop_front();
-  //newList.Print();
-  //newList.pop_front();
-  //newList.Print();
-   newList.push_front(3);// 3 4 5 6 7
+   newList.pop_front();// 5 6 7
+   newList.push_front(3);// 3  5 6 7
    newList.Print();
-   newList.push_front(2);// 2 3 4 5 6 7
+   newList.push_front(2);// 2 3 5 6 7
    newList.Print();
-   newList.push_front(1);// 1 2 3 4 5 6 7
+   newList.push_front(1);// 1 2 3 5 6 7
    newList.Print();   
-   newList.insert(9,newList.get(4));// 1 2 3 4 9 5 6 7
+   newList.insert(9,newList.get(4));// 1 2 3 9 5 6 7
    newList.Print();
-   newList.insert(8,newList.get(5)); //1 2 3 4  9 8 5 6 7
+   newList.insert(8,newList.get(5)); //1 2 3 9 8 5 6 7
    newList.Print();
-   newList.insert(0,newList.get(10));
+   //newList.insert(0,newList.get(10));// error and exit, as there isn't node element in 10-th position
+   //newList.Print();
+   newList.remove(newList.get(0)); //1 2 3 4  9 8 5 6 
    newList.Print();
  
    

@@ -3,19 +3,17 @@ struct A
 {
 	static size_t x;
 	A();
-	~A();
 };
 
 A::A()
 {
 	++x;
-	std::cout << "x = " << x << std::endl;
-}
-
-A::~A()
-{
-	std::cout << "x = " << x << std::endl;
-	--x;
+	std::cout << x << std::endl;
+	if(x == 2)
+	{
+		std::cout << "ERROR" << std::endl;
+		throw(1);
+	}
 }
 
 size_t A::x = 0;

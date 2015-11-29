@@ -29,16 +29,16 @@ struct list
 	node* m_tail;
 	size_t m_count;
 	list();
-	void push_back(int b_d);  // ok
-	void push_front(int f_d); // ok
-	void insert(int i_d, node* i_p);//ok
-	size_t size(); //ok
-	bool empty(); //ok
-	void pop_back(); //ok
+	void push_back(int b_d);  
+	void push_front(int f_d); 
+	void insert(int i_d, node* i_p);
+	size_t size(); 
+	bool empty(); 
+	void pop_back(); 
 	void pop_front();
 	void remove(node* r_p);
-	node* get(size_t i);// ok
-        void Print(); // ok
+	node* get(size_t i);
+        void Print(); 
         ~list()
 	{       
                  

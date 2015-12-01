@@ -1,11 +1,11 @@
 # include <iostream>
 # include <cstdlib>
 
-void* Realloc(void* ptr,size_t prev_size,  size_t size) {
+void* Realloc(void* ptr, int prev_size,  int size) {
 // Set new array with new_size and copy old array in new one 
  
-     size_t min_size = (prev_size<size)? prev_size:size;
-     void* ptr2;
+     	int min_size = (prev_size<size)? prev_size:size;
+	void* ptr2;
 
 	if(ptr == NULL){
 	   	return malloc(size);
@@ -15,9 +15,9 @@ void* Realloc(void* ptr,size_t prev_size,  size_t size) {
 	     	return NULL;
 	}
 	else {
-	    	ptr2=(char*)malloc(size);
-		for (size_t i = 0; i <= min_size*sizeof(size_t); ++i) {
-			*(char*)(ptr2+i) = *(char*)(ptr+i);
+		ptr2 = (char*)malloc(size);
+		for (size_t i = 0; i < min_size; ++i) {
+			*((char*)ptr2+i) = *((char*)ptr+i);
 		}   
 	}	
 
@@ -48,7 +48,7 @@ int *ptr = (int*) malloc(n* sizeof(int));
 
 
 // Input new size for realloc
-    size_t new_size;
+int new_size;
 
 	do  {
 		std::cout<<"\nNew size: ";
@@ -56,17 +56,18 @@ int *ptr = (int*) malloc(n* sizeof(int));
    	} while (new_size < 0);
 
     	// Realloc function call
-    	int *new_arr = (int*)Realloc(ptr, n ,  new_size);
+    	int *new_arr = (int*)Realloc(ptr, n*sizeof(int),  new_size*sizeof(int));
 
 
 	// Type new array elements	   
     	std::cout<<"\nElements of array with new size "<<std::endl;
-    	for (int i = 0; i < new_size; ++i){
+    	for (int i = 0; i < new_size; ++i) {
 	       		 std::cout<<new_arr[i]<<" ";
   	}
 
    std::cout<<"\n";
    return 0;
+
  }
    
    

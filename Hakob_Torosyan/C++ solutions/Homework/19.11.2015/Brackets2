@@ -2,7 +2,7 @@
 #include <iostream>
 int main()
 {	
-	char array[100], stack[100];
+	char array[100], massive[100];
 	int top = -1, i = 0;
 	std::cout << "Please import string ";
 	std::cin >> array;
@@ -13,16 +13,16 @@ int main()
 			case '{':
 			case '(':
 			case '[':
-			stack[++top] = array[i];
+			massive[++top] = array[i];
 			break;
 			
 			case 39:
-			if(stack[top] == 39)
+			if(massive[top] == 39)
 			{
 				top--;	
 			}else
 			{
-				stack[++top] = array[i];			
+				massive[++top] = array[i];			
 			}
 			break;
 
@@ -35,19 +35,19 @@ int main()
 				return 0;
 			}		
 		
-			if(array[i] == '}' && stack[top--] != '{')
+			if(array[i] == '}' && massive[top--] != '{')
 			{
 				std::cout << "ERROR" << std::endl;
 				return 0;
 			}
 				
-			if(array[i] == ')' && stack[top--] != '(')
+			if(array[i] == ')' && massive[top--] != '(')
 			{
 				std::cout << "ERROR" << std::endl;
 				return 0;
 			}
 			
-			if(array[i] == ']' && stack[top--] != '[')
+			if(array[i] == ']' && massive[top--] != '[')
 			{
 				std::cout << "ERROR" << std::endl;
 				return 0;

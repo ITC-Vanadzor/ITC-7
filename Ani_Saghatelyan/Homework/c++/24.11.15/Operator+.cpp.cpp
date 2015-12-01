@@ -18,14 +18,20 @@ struct  T
 };
 
 
-T::T():a(5){
+T::T()
+ :a(5)
+{
 	std::cout<<this<<"  Called  Constructor\n";
 }
 
-T::T(int b):a(b){
+T::T(int b)
+ :a(b)
+{
 	std::cout<<this<<"  Called  Constructor(int)\n";
 }
-T::~T(){
+
+T::~T()
+{
 	std::cout<<this<<"  Called  Destructer\n";
 }
 

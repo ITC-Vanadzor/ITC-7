@@ -1,0 +1,29 @@
+sudo groupadd -p student students
+sudo groupadd peir
+
+sudo useradd  -G students,peir -m -d /home/Gevor -s /Bin Gevor
+sudo useradd  -G students,peir -m -d /home/Edgar -s /Bin Edgar
+sudo useradd  -g students -m -d /home/Ani -s /Bin Ani
+sudo useradd  -g students -m -d /home/Anush -s /Bin Anush
+sudo useradd  -g students -m -d /home/Hakob -s /Bin Hakob
+sudo useradd  -g students -m -d /home/Araqs -s /Bin Araqs
+sudo useradd  -g students -m -d /home/Hasmik -s /Bin Hasmik
+sudo useradd  -g students -m -d /home/Hayk -s /Bin Hayk
+sudo useradd  -g students -m -d /home/Jirayr -s /Bin Jirayr
+sudo useradd  -g students -m -d /home/Mary -s /Bin Mary
+sudo useradd  -g students -m -d /home/Smbat -s /Bin Smbat
+sudo useradd  -g students -m -d /home/Vagharsh -s /Bin Vagharsh
+
+sudo passwd Gevor
+sudo passwd Edgar
+.................
+.................
+
+sudo userdel -r Gevor
+sudo userdel -r Edgar
+.................
+.................
+
+
+
+

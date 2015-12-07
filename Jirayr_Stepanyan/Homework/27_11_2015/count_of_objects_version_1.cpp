@@ -1,36 +1,34 @@
 # include <iostream>
-static size_t x;
 struct A
 {
-	int y;
+        static size_t x;
 	A();
-	A(int h);
 	A(const A& k);
+	~A();
 };
 
 A::A()
-	:y(0)
-{
-	++x;
+{            
+	std::cout << ++x << std::endl;
 }
-A::A(int h)
-	:y(h)
-{
-	++x;
-}
-A::A(const A& k)
-	:y(k.y)
-{
-	++x;
-}
-int main()
-{
-	A a;
-	A b(5);
-	A c(b);
-	A n;
-	n = c;
-	std::cout << x << std::endl;
 
-return 0;
+A::A(const A& k)
+{
+	std::cout << ++x << std::endl;
+}
+
+A::~A()
+{
+	std::cout << --x << std::endl;
+}
+
+size_t A::x = 0;
+
+int main()
+{	
+	A a;
+	A b;
+	A c(b);
+
+   return 0;
 }

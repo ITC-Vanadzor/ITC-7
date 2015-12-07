@@ -47,11 +47,10 @@ int main()
                 if (cmdLineFile) {
 
                     std::getline(cmdLineFile, cmdLine);
-
-                }
-                size_t position=cmdLine.find(proc_name);
-                if(position!=std::string::npos){
+                    size_t position=cmdLine.find(proc_name);
+                    if(position!=std::string::npos){
                     std::cout<<cmdLine<<std::endl<<"PID:     "<<dirEntity->d_name<<std::endl;
+                    }
                 }
             }
         }

@@ -2,18 +2,20 @@
 
 struct Type
 {
-        
+        static int x;
 	Type()
 	{
-                static int x=0;
+                
        		std::cout<<"Object  "<<this<<" Constructor\t   Count of objects is:"<<++x<<std::endl;
 	};
 
 	~Type()
 	{
-		std::cout<<"Object  "<<this<<" Destructor\n";
+		std::cout<<"Object  "<<this<<" Destructor\t  Count of objects is:"<<--x<<std::endl;
 	};
 };
+
+int Type::x=0;
 
 int main()
 {

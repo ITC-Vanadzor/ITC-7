@@ -124,6 +124,10 @@ void list::pop_front()
 }
 void list::remove(node* r_p)
 {
+	if(empty())
+	{
+		return;
+	}
 	if(r_p == m_tail)
 	{
 		pop_back();

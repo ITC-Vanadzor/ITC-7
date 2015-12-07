@@ -2,8 +2,8 @@
 
 #include <unistd.h>
 #include <dirent.h>
-#include <sys/types.h> // for opendir(), readdir(), closedir()
-#include <sys/stat.h> // for stat()
+#include <sys/types.h> 
+#include <sys/stat.h> 
 
 #include <iostream>
 #include <cstdlib>

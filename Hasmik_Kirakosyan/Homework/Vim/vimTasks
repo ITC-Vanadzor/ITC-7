@@ -2,8 +2,7 @@
   Answer:  :%s/1./\=line(".")/
 
 2.Create hotkey for F3 (that will do *-s function
-  Answer:  <F3> -> * in .vimrc add map  <F2>*<CR>
-
+  Answer:  <F3> -> * in .vimrc add map  <F2> *
 3. Adding new line and correct line numbering
   Answer: In one record do
 	1. :%norm dt

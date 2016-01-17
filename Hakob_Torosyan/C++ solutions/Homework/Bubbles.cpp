@@ -1,4 +1,4 @@
-//The game about bubbles, which playing user and computer
+//The game about bubbles, wich playing user and computer
 #include <iostream>
 
 int main()
@@ -10,7 +10,7 @@ int main()
 	std::cout << "Thank you, now import " << endl;  
 	std::cout << "the maximum number of bubbles, which can except at every turn. ";
 	std::cin >> max_pop_bubbles;
-    std::cout << "If you want to do first spet, import first number, else import 0 " << std::endl;
+    std::cout << "If you want to do first step, import first number, else import 0 " << std::endl;
 	std::cin >> insert_pop_bubbles;
 	if( insert_pop_bubbles != 0 )
 	{

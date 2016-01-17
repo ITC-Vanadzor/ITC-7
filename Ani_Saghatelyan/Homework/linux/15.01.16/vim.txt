@@ -1,0 +1,32 @@
+      TASK 1
+
+	   Adding new next 
+
+		qe       - start recording
+		v         -go to visual mode
+		y          -copy the first number
+		j           -go down
+		ctrl p   - past the copied number
+		x          -delete current number
+		ctrl A   -increase  the previous  number
+		q         - finish recording
+
+
+	  
+     TASK 2
+
+	  Changing  ones into sequence
+
+		  :%/1/\=line(“.”)/
+
+			%                  -  in whole file
+			/1                    -   search 1
+			/\=line(“.”)/    - replace with line number of the cursor
+
+     TASK 3
+
+	Hot key F2 which will do the same as *
+
+		in ~/.vimrc  add a line 
+		map <F2> * 
+		but in my comp it isn't work:((((

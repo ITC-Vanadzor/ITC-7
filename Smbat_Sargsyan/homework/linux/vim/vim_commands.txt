@@ -1,0 +1,9 @@
+1.nuumbering commands  :%s/^/\=line('.').''
+		       :%s/^/\=strpart(line(".")."",0,5)
+		       :set number(:set nu!)
+
+2.correct numbering to the time of add new line command :%s/^/\=printf('%-0d.',line('.'))	
+
+3.hotkey in /etc/vim/vimrc    nmap <F2> :wq<CR>
+                              imap <F2> <Esc>:wq<CR>
+                              vmap <F2> <Esc>:wq<CR> 

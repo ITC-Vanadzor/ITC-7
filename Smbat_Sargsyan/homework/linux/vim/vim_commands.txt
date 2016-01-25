@@ -4,6 +4,6 @@
 
 2.correct numbering to the time of add new line command :%s/^/\=printf('%-0d.',line('.'))	
 
-3.hotkey in /etc/vim/vimrc    nmap <=> :wq<CR>
-                              imap <=> <Esc>:wq<CR>
-                              vmap <=> <Esc>:wq<CR> 
+3.hotkey in /etc/vim/vimrc    nmap <F2> :wq<CR>
+                              imap <F2> <Esc>:wq<CR>
+                              vmap <F2> <Esc>:wq<CR> 

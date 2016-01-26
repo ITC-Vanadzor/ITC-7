@@ -7,7 +7,7 @@ lastDate=`tail -1 $filename | cut -c 2-11`
 echo $lastDate
 select method in "zip" "tar.gz";
 do	
-	if [ "$method"="zip"]
+	if [ "$method" = "zip" ]
 	then
 			zip -r $filename$space$firstDate$space$lastDate.zip $filename
 	else

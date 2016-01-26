@@ -1,0 +1,8 @@
+1. Hotkey F1<=>*
+    
+    /home/user/.vimrc --->  map <F2> * <cr>
+
+
+2. Changing ones into line numbers
+    
+    :%s/1/\=line('.'). ' '

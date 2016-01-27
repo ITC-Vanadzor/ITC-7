@@ -1,11 +1,10 @@
 #!/bin/bash
-# payman@ sxal e stugum :((  
 echo "Process name"
 read name
 echo "Signal"
 read signal
 PID=`pidof $name`
-if [ '$PID -eq 0' ]
+if [[ "$PID" -eq 0 ]]
     then
 	echo "process not found"
 	exit 0

@@ -68,13 +68,70 @@ esac
 echo ${arr[0]} "|" ${arr[1]} "|" ${arr[2]}
 echo ${arr[3]} "|" ${arr[4]} "|" ${arr[5]}
 echo ${arr[6]} "|" ${arr[7]} "|" ${arr[8]}
-if [ ${arr[0]} = ${arr[1]} = ${arr[2]} = "0" or ${arr[3]} = ${arr[4]} = ${arr[5]} = "0"] && if [ ${arr[6]} = ${arr[7]} = ${arr[8]} = "0" or ${arr[0]} = ${arr[3]} = ${arr[6]} = "0" ] && if [ ${arr[1]} = ${arr[4]} = ${arr[7]} = "0" or ${arr[2]} = ${arr[5]} = ${arr[8]} = "0" ] && if [ ${arr[0]} = ${arr[4]} = ${arr[8]} = "0" or ${arr[2]} = ${arr[4]} = ${arr[6]} = "0" ]; then
-echo " WIN SECOND PLAYER!!!!!!ARI CHAKATD PACHEM GAZZAN!!! "
 
-elif
-[ ${arr[0]} = ${arr[1]} = ${arr[2]} = "x" or ${arr[3]} = ${arr[4]} = ${arr[5]} = "x" or ${arr[6]} = ${arr[7]} = ${arr[8]} = "x" or ${arr[0]} = ${arr[3]} = ${arr[6]} = "x" or ${arr[1]} = ${arr[4]} = ${arr[7]} = "x" or ${arr[2]} = ${arr[5]} = ${arr[8]} = "x" or ${arr[0]} = ${arr[4]} = ${arr[8]} = "x" or ${arr[2]} = ${arr[4]} = ${arr[6]} = "x" ]; then
-echo " WIN FIRST PLAYER!!!!APRES NXSHUN JAN!!! " 
+if [ ${arr[0]} = "0" ] && [ ${arr[1]} = "0" ] && [ ${arr[2]} = "0" ]; then
+echo " WIN SECOND PLAYER!!!!!!ARI CHAKATD PACHEM GAZZAN!!! "
+exit 0
 fi
+if [ ${arr[3]} = "0" ] && [ ${arr[4]} = "0" ] && [ ${arr[5]} = "0" ]; then
+echo " WIN SECOND PLAYER!!!!!!ARI CHAKATD PACHEM GAZZAN!!! "
 exit 0
+fi
+if [ ${arr[6]} = "0" ] && [ ${arr[7]} = "0" ] && [ ${arr[8]} = "0" ]; then 
+echo " WIN SECOND PLAYER!!!!!!ARI CHAKATD PACHEM GAZZAN!!! "
+exit 0
+fi
+if [ ${arr[0]} = "0" ] && [ ${arr[3]} = "0" ] && [ ${arr[6]} = "0" ]; then  
+echo " WIN SECOND PLAYER!!!!!!ARI CHAKATD PACHEM GAZZAN!!! "
+exit 0
+fi
+if [ ${arr[1]} = "0" ] && [ ${arr[4]} = "0" ] && [ ${arr[7]} = "0" ]; then  
+echo " WIN SECOND PLAYER!!!!!!ARI CHAKATD PACHEM GAZZAN!!! "
+exit 0
+fi
+if [ ${arr[2]} = "0" ] && [ ${arr[5]} = "0" ] && [ ${arr[8]} = "0" ]; then  
+echo " WIN SECOND PLAYER!!!!!!ARI CHAKATD PACHEM GAZZAN!!! "
+exit 0
+fi
+if [ ${arr[0]} = "0" ] && [ ${arr[4]} = "0" ] && [ ${arr[8]} = "0" ]; then  
+echo " WIN SECOND PLAYER!!!!!!ARI CHAKATD PACHEM GAZZAN!!! "
+exit 0
+fi
+if [ ${arr[2]} = "0" ] && [ ${arr[4]} = "0" ] && [ ${arr[6]} = "0" ]; then
+echo " WIN SECOND PLAYER!!!!!!ARI CHAKATD PACHEM GAZZAN!!! "
+exit 0
+fi
+if [ ${arr[0]} = "x" ] && [ ${arr[1]} = "x" ] && [ ${arr[2]} = "x" ]; then 
+echo " WIN FIRST PLAYER!!!!!!!!! "
+exit 0
+fi
+if [ ${arr[3]} = "x" ] && [ ${arr[4]} = "x" ] && [ ${arr[5]} = "x" ]; then 
+echo " WIN FIRST PLAYER!!!!!!!!! "
+exit 0
+fi
+if [ ${arr[6]} = "x" ] && [ $arr[7]} = "x" ] && [ ${arr[8]} = "x" ]; then 
+echo " WIN FIRST PLAYER!!!!!!!!! "
+exit 0
+fi
+if [ ${arr[0]} = "x" ] && [ ${arr[3]} = "x" ] && [ ${arr[6]} = "x" ]; then 
+echo " WIN FIRST PLAYER!!!!!!!!! "
+exit 0
+fi
+if [ ${arr[1]} = "x" ] && [ ${arr[4]} = "x" ] && [ ${arr[7]} = "x" ]; then 
+echo " WIN FIRST PLAYER!!!!!!!!! "
+exit 0
+fi
+if [ ${arr[2]} = "x" ] && [ ${arr[5]} = "x" ] && [ ${arr[8]} = "x" ]; then 
+echo " WIN FIRST PLAYER!!!!!!!!! "
+exit 0
+fi
+if [ ${arr[0]} = "x" ] && [ ${arr[4]} = "x" ] && [ ${arr[8]} = "x" ]; then 
+echo " WIN FIRST PLAYER!!!!!!!!! "
+exit 0
+fi
+if [ ${arr[2]} = "x" ] && [ ${arr[4]} = "x" ] && [ ${arr[6]} = "x" ]; then
+echo " WIN FIRST PLAYER!!!!!!!!! "
+exit 0
+fi
 done
-exit 0
+

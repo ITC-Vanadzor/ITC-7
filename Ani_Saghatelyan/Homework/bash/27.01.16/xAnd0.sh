@@ -82,12 +82,53 @@ elif [[ ${arr[4]} = ${arr[6]}  &&  ${arr[6]} =  ${arr[2]}  &&    ${arr[6]}  -eq 
   # the array sent to file
        printf "%s" "${arr[@]}" > /home/ani/Desktop/file.txt
   exit
+elif [[   ${arr[0]} = ${arr[1]}  &&  ${arr[0]} = ${arr[2]}   &&  ${arr[0]} -eq "O" ]]; then
+  echo " Game over"
+  #array sent to file
+    printf "%s" "${arr[@]}" > /home/ani/Desktop/file.txt
+   exit
+elif [[  ${arr[3]} = ${arr[5]}  &&   ${arr[3]} = ${arr[4]}    &&   ${arr[5]} -eq "O" ]]; then
+  echo  "Game over "
+  # the array sent to file
+       printf "%s" "${arr[@]}" > /home/ani/Desktop/file.txt
+  exit
+elif [[   ${arr[6]} = ${arr[7]}  &&   ${arr[6]} = ${arr[8]}  &&   ${arr[6]}  -eq "O" ]]; then
+  echo "Game over"
+  # the array sent to file
+       printf "%s" "${arr[@]}" > /home/ani/Desktop/file.txt
+  exit
+elif [[  ${arr[0]} = ${arr[3]}  &&  ${arr[0]} = ${arr[6]}   &&   ${arr[0]} -eq "O" ]]; then
+  echo "Game over"
+  # the array sent to file
+       printf "%s" "${arr[@]}" > /home/ani/Desktop/file.txt
+  exit
+elif [[  ${arr[4]} = ${arr[1]}  &&  ${arr[0]} = ${arr[7]}  &&   ${arr[1]} -eq "O" ]]; then
+  echo "Game over"
+  # the array sent to file
+       printf "%s" "${arr[@]}" > /home/ani/Desktop/file.txt
+  exit
+elif [[ ${arr[5]} = ${arr[8]}  && ${arr[8]} = ${arr[2]}   &&    ${arr[2]} -eq "O" ]]; then
+  echo "Game over"
+  # the array sent to file
+       printf "%s" "${arr[@]}" > /home/ani/Desktop/file.txt
+  exit
+elif [[ ${arr[0]} = ${arr[4]}  &&  ${arr[0]} = ${arr[8]} &&    ${arr[0]} -eq  "O" ]];  then
+  echo "Game over "
+ # the array sent to file
+       printf "%s" "${arr[@]}" > /home/ani/Desktop/file.txt
+  exit
+elif [[ ${arr[4]} = ${arr[6]}  &&  ${arr[6]} =  ${arr[2]}  &&    ${arr[6]}  -eq "O" ]]; then
+  echo " Game over"
+  # the array sent to file
+       printf "%s" "${arr[@]}" > /home/ani/Desktop/file.txt
+  exit
 fi
 }
 
 count=0
 
  while  [[ "$count" -lt 5 ]] ; do
+        condition
    flag=`head -1 /home/ani/Desktop/flag.txt | cut -c 1`
          while  [[ "$flag" -eq 0 ]]; do
             sleep 1
@@ -116,6 +157,7 @@ count=0
        done
       #puts the X in position
        arr[$coord]=X
+       condition
       # the array sent to file
        printf "%s" "${arr[@]}" > /home/ani/Desktop/file.txt
      # sent the flag for another player

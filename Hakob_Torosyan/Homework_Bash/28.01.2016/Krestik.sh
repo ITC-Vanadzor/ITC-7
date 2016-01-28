@@ -106,31 +106,31 @@ echo " WIN FIRST PLAYER!!!!!!!!! "
 exit 0
 fi
 if [[ ${arr[3]}=="x" && ${arr[4]}=="x" && ${arr[5]}=="x" ]]; then 
-echo " WIN SECOND PLAYER!!!!!!!!! "
+echo " WIN FIRST PLAYER!!!!!!!!! "
 exit 0
 fi
 if [[ ${arr[6]}=="x" && ${arr[7]}=="x" && ${arr[8]}=="x" ]]; then 
-echo " WIN SECOND PLAYER!!!!!!!!! "
+echo " WIN FIRST PLAYER!!!!!!!!! "
 exit 0
 fi
 if [[ ${arr[0]}=="x" && ${arr[3]}=="x" && ${arr[6]}=="x" ]]; then 
-echo " WIN SECOND PLAYER!!!!!!!!! "
+echo " WIN FIRST PLAYER!!!!!!!!! "
 exit 0
 fi
 if [[ ${arr[1]}=="x" && ${arr[4]}=="x" && ${arr[7]}=="x" ]]; then 
-echo " WIN SECOND PLAYER!!!!!!!!! "
+echo " WIN FIRST PLAYER!!!!!!!!! "
 exit 0
 fi
 if [[ ${arr[2]}=="x" && ${arr[5]}=="x" && ${arr[8]}=="x" ]]; then 
-echo " WIN SECOND PLAYER!!!!!!!!! "
+echo " WIN FIRST PLAYER!!!!!!!!! "
 exit 0
 fi
 if [[ ${arr[0]}=="x" && ${arr[4]}=="x" && ${arr[8]}=="x" ]]; then 
-echo " WIN SECOND PLAYER!!!!!!!!! "
+echo " WIN FIRST PLAYER!!!!!!!!! "
 exit 0
 fi
 if [[ ${arr[2]}=="x" && ${arr[4]}=="x" && ${arr[6]}=="x" ]]; then
-echo " WIN SECOND PLAYER!!!!!!!!! "
+echo " WIN FIRST PLAYER!!!!!!!!! "
 exit 0
 fi
 done

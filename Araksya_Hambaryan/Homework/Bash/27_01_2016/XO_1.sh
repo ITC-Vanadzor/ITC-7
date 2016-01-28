@@ -13,10 +13,10 @@ print_arr() {
 "
 }
 print_win() {
-    echo "$p win !!!"
+    echo "$p wins !!!"
     exit 0
 } 
-payman() {
+condition_win() {
     if [[ ${arr[00]} = ${arr[$step]} && ${arr[01]} = ${arr[$step]} && ${arr[02]} = ${arr[$step]} ]]
 	then print_win
     fi
@@ -42,6 +42,18 @@ payman() {
 	then print_win
     fi
 }
+print_step() {
+    echo "Incorrect step. Play again"
+    exit 1
+}
+condition_step() {
+    if [[ $step != 00 && $step != 01  && $step != 02 && $step != 10 && $step != 11 && $step != 12 && $step != 20 && $step != 21 && $step != 22 ]]
+	then print_step
+    fi
+    if [[ ${arr[$step]} = "X|" || ${arr[$step]} = "O|" ]]
+	then print_step
+    fi
+}
  
 print_arr
 i=1
@@ -52,16 +64,18 @@ while [ $i -le 9 ]
 		echo $p1
 		p=$p1
 		read step
+		condition_step
 		arr[$step]="X|"
 		print_arr
-		payman
+		condition_win
 	    else 
 		echo $p2
 		p=$p2
 		read step
+		condition_step
 		arr[$step]="O|"
 		print_arr
-		payman
+		condition_win
 	fi
 	((++i))
 done

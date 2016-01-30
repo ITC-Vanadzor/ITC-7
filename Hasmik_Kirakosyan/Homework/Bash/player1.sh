@@ -1,10 +1,14 @@
 #!/bin/bash
 
 declare arr
+count=0
+
 while [ 1 == 1 ]; do
+   clear
    sleep 1
-   flag=$(tail -n 1 court.txt)  
-   if [[ "$flag"="1" ]] && [ "$flag" != "Winner!!!!!!" ]
+   flag=$(tail -n 1 court.txt) 
+   echo $flag 
+if [[ "$flag" == "1" ]]
    then 
 	# move court to array
 	tmp=$(head -n 1 court.txt)
@@ -25,10 +29,18 @@ while [ 1 == 1 ]; do
 
 	# player1 step
 	echo 'Your step (enter x and y)'
-	read x y
-	index=$(( $x*3 + $y ))
-	arr[index]=x
-	   
+	until [[ ${arr[index]} == " " ]];
+	do
+		read x y
+		index=$(( $x*3 + $y ))
+	        if [[ ${arr[index]} != " " ]]
+		then 
+			echo Busy field!! Try again
+		fi
+	done
+	arr[index]="x"
+	count=$($count+1)
+   
 	# write in court
 	echo ' '${arr[0]}' | '${arr[1]}' | '${arr[2]} >  court.txt
 	echo ' '${arr[3]}' | '${arr[4]}' | '${arr[5]} >> court.txt
@@ -36,49 +48,55 @@ while [ 1 == 1 ]; do
 	echo 2 >> court.txt
 	  
 	# check for winner
-	if [ "$arr[0]" == "$arr[1]" ]  && [ "$arr[0]" == "$arr[2]" ] && [ "$arr[0]" != " " ]
-	   then 
+	if [[ ${arr[0]} == ${arr[1]} && ${arr[0]} == ${arr[2]}  &&  "${arr[0]}" != " " ]]
+		   then 
 		   echo Winner!!!!!!
 		   echo Winner!!!!!! >> court.txt
 		   exit
-   	elif [ "$arr[3]" == "$arr[4]" ] && [ "$arr[3]" == "$arr[5]" ] && [ "$arr[3]" != " " ]
-	   then 
+	elif [[ ${arr[3]} == ${arr[4]} && ${arr[3]} == ${arr[5]} &&  "${arr[3]}" != " " ]]
+		   then 
 		   echo Winner!!!!!!
 		   echo Winner!!!!!! >> court.txt
 		   exit
-   	elif [ "$arr[6]" == "$arr[7]" ] && [ "$arr[6]" == "$arr[8]" ] && [ "$arr[6]" != " " ]
-	   then 
+	elif [[ ${arr[6]} == ${arr[7]} && ${arr[6]} == ${arr[8]} &&  "${arr[6]}" != " " ]]
+		   then 
 		   echo Winner!!!!!!
 		   echo Winner!!!!!! >> court.txt
 		   exit
-	elif [ "$arr[0]" == "$arr[3]" ] && [ "$arr[0]" == "$arr[6]" ] && [ "$arr[0]" != " " ]
-	   then 
+	elif [[ ${arr[0]} == ${arr[3]} && ${arr[0]} == ${arr[6]} &&  "${arr[0]}" != " " ]]
+		   then 
 		   echo Winner!!!!!!
 		   echo Winner!!!!!! >> court.txt
 		   exit
-	elif [ "$arr[1]" == "$arr[4]" ] && [ "$arr[1]" == "$arr[7]" ] && [ "$arr[1]" != " " ]
-	   then 
+	elif [[ ${arr[1]} == ${arr[4]} && ${arr[1]} == ${arr[7]} &&  "${arr[1]}" != " " ]]
+		   then 
 		   echo Winner!!!!!!
 		   echo Winner!!!!!! >> court.txt
 		   exit
-	elif [ "$arr[2]" == "$arr[5]" ] && [ "$arr[2]" == "$arr[8]" ] && [ "$arr[2]" != " " ]
-	   then 
+	elif [[ ${arr[2]} == ${arr[5]} && ${arr[2]} == ${arr[8]} &&  "${arr[2]}" != " " ]]
+		   then 
 		   echo Winner!!!!!!
 		   echo Winner!!!!!! >> court.txt
 		   exit
-	elif [ "$arr[0]" == "$arr[4]" ] && [ "$arr[0]" == "$arr[8]" ] && [ "$arr[3]" != " " ]
-	   then 
+	elif [[ ${arr[0]} == ${arr[4]} && ${arr[0]} == ${arr[8]} &&  "${arr[0]}" != " " ]]
+		   then 
 		   echo Winner!!!!!!
 		   echo Winner!!!!!! >> court.txt
 		   exit
-	elif [ "$arr[2]" == "$arr[4]" ] && [ "$arr[2]" == "$arr[6]" ] && [ "$arr[2]" != " " ]
-	   then 
+	elif [[ ${arr[2]} == ${arr[4]} && ${arr[2]} == ${arr[6]} &&  "${arr[2]}" != " " ]]
+		   then 
 		   echo Winner!!!!!!
 		   echo Winner!!!!!! >> court.txt
 		   exit
-	fi
-else 
+       fi
+       if [[ $count == 5 ]]
+       then
+		  echo Your steps are terminated
+		  exit 
+       fi
+else  
 	echo "Game over!!! You are failed"
 	exit
 fi
-done
+
+   done

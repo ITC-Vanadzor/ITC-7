@@ -9,4 +9,4 @@ mystr=mystr.replace("/","")
 mystr=mystr.replace("\\","")
 mystr=mystr.replace("`","")
 
-print "Clean text: ",mystr
+print "Clean text: ",mystr 

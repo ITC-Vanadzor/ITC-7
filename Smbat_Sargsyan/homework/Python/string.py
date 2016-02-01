@@ -1,4 +1,4 @@
-text = 'sddss**FF$fgg>$*HHk>l'
+text = raw_input()
 newtext = text
 for i in range(0,len(text)):
 	if text[i] == '$':

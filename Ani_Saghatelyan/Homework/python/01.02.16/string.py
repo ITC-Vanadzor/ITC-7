@@ -1,10 +1,11 @@
 #!/usr/bin/python
-
-def CorrectionOfString(str):
-	for i in str:
+import sys
+def CorrectionOfString(string):
+	newstring=""
+	for i in string:
 		if i.isalpha():
-			print i,
-		
+			newstring=newstring +i
+	return newstring
 	
 
 
@@ -13,5 +14,5 @@ string = "he&%l)lo +wor(l)d"
 if string.isalpha():
 	print "It's all letters"
 else:
-	CorrectionOfString(string)
-
+	print CorrectionOfString(string)
+        

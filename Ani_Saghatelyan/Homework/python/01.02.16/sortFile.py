@@ -1,12 +1,16 @@
 #!/usr/bin/python
 import glob, os
-os.chdir("/home/ani/Desktop/python")
+dir=os.getcwd()
+nameArray=[]
 for file in glob.glob("*.txt"):
 
 	File=open(file, 'r+')
-	sortToFile = open("/home/ani/Desktop/sortedFile.txt", "w")
+	sortToFile = open("sortedFile.txt", "a")
 
-	for line in sorted(File):
-   		 sortToFile.write(line)
-
+	for line in File:
+		nameArray.append(line)
+nameArray.sort()
+for lines in nameArray:
+	sortToFile.write(lines)
+sortToFile.close()
 File.close()

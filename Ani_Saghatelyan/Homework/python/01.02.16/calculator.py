@@ -16,7 +16,7 @@ def Div(a,b):
 		print "can't divide to 0"
                 exit
         else:
-    		print   a/b
+    		print   float(a)/b
 
 # entering  the numbers for doing arithmetic operation
 x=input("Enter the  first number \t")

@@ -2,7 +2,7 @@
 import glob,os
 
 list=[]
-os.chdir("/home/hasmik/tests")
+os.chdir(".")
 for file in glob.glob("*.txt"):
 	with open(file, "r") as f:
 		for line in f:

@@ -12,5 +12,8 @@ def clearSymbols(str):
 
 # main program
 str="He%$ll%^o ^^g$o&$od m@a#n"
-print "Before clean process : ", str
-print "After  clean process : ", clearSymbols(str)
+if str.isalpha():
+    print "Before clean process : ", str
+    print "After  clean process : ", clearSymbols(str)
+else: 
+    print "Your input isn't a string"

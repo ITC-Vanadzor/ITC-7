@@ -1,9 +1,9 @@
 #!/usr/bin/python
+
 # Simple calculator
 
-
 # operations
-
+import sys
 def add(a, b):
 	return a+b
 
@@ -20,30 +20,15 @@ def divide(a,b):
 		return a/b
 
 # main program
-
-print "Select the operation:"
-print "1) add"
-print "2) subtract"
-print "3) multiply"
-print "4) divide"
-
-option = input("Enter one of these operations (1,2,3,4) ")
-
-num1 = input("The first number : ")
-num2 = input("The second number : ")
-
+num1 = int(sys.argv[1])
+num2 = int(sys.argv[3])
 print "======================================================="
 # print result
-
-if option==1:
-	print "Result : ", add(num1, num2)	
-elif option==2:
-	print "Result : ", subtract(num1, num2)
-elif option==3:
-	print "Result : ", multiply(num1, num2)
-elif option==4:
-	print "Result : ", divide(num1, num2)
-else:
-	print "No option selected"
+option = {
+	"+": add(num1, num2),
+	"-": subtract(num1, num2),
+	"*": multiply(num1, num2),
+	"/": divide(num1, num2)
+	}
 	
-
+print option[sys.argv[2]]

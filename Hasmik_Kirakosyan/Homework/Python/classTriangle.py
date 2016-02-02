@@ -5,8 +5,6 @@ import math
 # class point
 
 class point:
-	x = 0
-	y = 0
 	def __init__(self, x1, y1):
 		self.x = x1
 		self.y = y1
@@ -18,6 +16,9 @@ class triangle:
 		self.p2 = point2
 		self.p3 = point3
 
+	# destructor of triangle
+	def __del__(self)
+		print "Triangle object was deleted"
 	# area of triangle
 	def area(self, p1, p2, p3):
 		return abs(p1.x*(p2.y-p3.y)+p2.x*(p3.y-p1.y)+p3.x*(p1.y-p2.y))/2

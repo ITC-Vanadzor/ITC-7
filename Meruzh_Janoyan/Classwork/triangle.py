@@ -4,46 +4,42 @@ import math
 
 class Triangle:
 
-    def __init__(self,x1,y1,x2,y2,x3,y3):
+    def __init__(self,cord):
         print "Welcom my l...\n"
-        xx1=x2-x1
-        xx2=x3-x1
-        xx3=x3-x2
-        yy1=y2-y1
-        yy2=y3-y1
-        yy3=y3-y2
-        self.a=math.sqrt(math.pow(xx1,2)+math.pow(yy1,2))
-        self.b=math.sqrt(math.pow(xx2,2)+math.pow(yy2,2))
-        self.c=math.sqrt(math.pow(xx3,2)+math.pow(yy3,2))
-
+        x1=cord[3]-cord[1]
+        x2=cord[5]-cord[1]
+        x3=cord[5]-cord[3]
+        y1=cord[2]-cord[0]
+        y2=cord[4]-cord[0]
+        y3=cord[4]-cord[2]
+        self.a=math.sqrt(math.pow(x1,2)+math.pow(y1,2)) 
+        self.b=math.sqrt(math.pow(x2,2)+math.pow(y2,2)) 
+        self.c=math.sqrt(math.pow(x3,2)+math.pow(y3,2)) 
+    
     def area(self):
          p =self.perimeter()/ 2
          s = math.sqrt(p * (p - self.a) * (p - self.b) * (p - self.c))
          return s
-
+    
     def perimeter(self):
          return self.a + self.b + self.c
     def __del__(self):
         print "\nGood bye my l..."
 
-basic=Triangle(10,10,20,30,35,20)
-first=Triangle(10,10,20,30,25,25)
-second=Triangle(10,10,25,25,35,20)
-third=Triangle(25,25,20,30,35,20)
+base_coord=[10,10,20,30,35,20]
+point_coord= [25,25]
 
+basic=Triangle(base_coord)
+tmp=[base_coord[0],base_coord[1],base_coord[2],base_coord[3],point_coord[0],point_coord[1]]
+first=Triangle(tmp)
+tmp=[base_coord[0],base_coord[1],base_coord[4],base_coord[5],point_coord[0],point_coord[1]]
+second=Triangle(tmp)
+
+tmp=[base_coord[4],base_coord[5],base_coord[2],base_coord[3],point_coord[0],point_coord[1]]
+third=Triangle(tmp)
+
+print basic.area()
 if basic.area()==(first.area()+second.area()+third.area()):
-    print "Point in triangle!"
+   print "Point in triangle!"
 else:
     print "Point out of triangle!"
-
-~                                                                                                                                     
-~                                                                                                                                     
-~                                                                                                                                     
-~                                                                                                                                     
-~                                                                                                                                     
-~                                                                                                                                     
-~                                                                                                                                     
-~                                                                                                                                     
-~                                                                                                                                     
-~                                                                                                                                     
-~                                                    

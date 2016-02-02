@@ -1,28 +1,29 @@
+def Sum(x,y):
+    return (int)(x)+(int)(y)
+def Subtract(x,y):
+    return (int)(x)-(int)(y)
+def Multiply(x,y):
+    return (int)(x)*(int)(y)
+def Divide(x,y):
+    return (float)(x)/(float)(y)
 string = raw_input("write expression ")
-a = ''
-b = ''
+first = ''
+second = ''
 k = 0
 operation = ''
-for i in range(len(string)):
-    if not(string[i] == '+' or string[i] == '-' or string[i] == '*' or string[i] == '/' ):
-        a = a + string[i]
-        k = k + 1
-    else:
-        operation = string[i]
+for i in string:
+    if i == '+' or i == '-' or i == '*' or i == '/':
+        operation = i
         break
+    else:
+        first = first + i
+        k = k + 1
 for j in range(k+1,len(string)):
-    b = b + string[j]
-if operation == '+':
-    add = (int)(a)+(int)(b)
-    print string,"=",add
-elif operation == '-':
-    subtract = (int)(a)-(int)(b)
-    print string,"=",subtract
-elif operation == '*':
-    multiply = (int)(a)*(int)(b)
-    print string,"=",multiply
-elif operation == '/':
-    divide = (float)(a)/(float)(b)
-    print string,"=",divide
+    second = second + string[j]
+if first.isdigit() and second.isdigit() and (operation == '+' or operation == '-' or operation == '*' or operation == '/'):
+    options = { '+':Sum, '-':Subtract, '*':Multiply, '/':Divide }
+    answer = options[operation](first,second)
+    print string,'=',answer
 else:
     print "ther are no arithmetical operations"
+

@@ -1,0 +1,12 @@
+#!/usr/bin/python
+
+str="I /don't@` wanna/@ wait\ in@/ `\@/vain`/` for/\` @your@` \love/@."
+
+print "Old text: ",str
+
+str=str.replace("@","")
+str=str.replace("/","")
+str=str.replace("\\","")
+str=str.replace("`","")
+
+print "New text: ",str 

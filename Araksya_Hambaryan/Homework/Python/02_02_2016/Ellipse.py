@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import math
 
 class ellipse:
     def __init__(self, x, y):
@@ -12,6 +13,10 @@ class ellipse:
 	self.e = self.c / self.a
 ## Elipsi Sexmman gorcakic
 	self.k = self.b / self.a
+## Elipsi paragic
+	self.L = math.pi * self.a * self.b
+## Elipsi makeres
+	self.S = math.pi *(self.a + self.b)
 
     def stugum1(self, x_ket, y_ket):
 ## stugum @st elipsi kanonakan havasarman

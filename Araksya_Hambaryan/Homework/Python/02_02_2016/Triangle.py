@@ -7,6 +7,12 @@ class triangle:
 	self.Y2 = y2
 	self.X3 = x3
 	self.Y3 = y3
+    def sides (self):
+    	self.side1 = pow (pow((self.X2 - self.X1), 2) + pow((self.Y2 - self.Y1), 2), 0.5)
+    	self.side2 = pow (pow((self.X3 - self.X2), 2) + pow((self.Y3 - self.Y2), 2), 0.5)
+    	self.side1 = pow (pow((self.X3 - self.X1), 2) + pow((self.Y3 - self.Y1), 2), 0.5)
+    def perimeter(self):
+    	self.P = self.side1 + self.side2 + self.side3
     def area(self):
 	return abs((self.X2-self.X1)*(self.Y3-self.Y1) - (self.X3-self.X1)*(self.Y2-self.Y1))
     def check(self, a, b):

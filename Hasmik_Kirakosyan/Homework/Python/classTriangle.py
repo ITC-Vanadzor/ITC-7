@@ -12,12 +12,16 @@ class point:
 class triangle:
 	# constructor of triangle
 	def __init__(self, point1, point2, point3):
+
+		# check if points are on the same line
+		if ((point1.y-point2.y)*(point1.x-point3.x)==(point1.y-point3.y)*(point1.x-point2.x)):
+			print "\nPoints are on the same line!!!!\n"
 		self.p1 = point1
 		self.p2 = point2
 		self.p3 = point3
 
 	# destructor of triangle
-	def __del__(self)
+	def __del__(self):
 		print "Triangle object was deleted"
 	# area of triangle
 	def area(self, p1, p2, p3):
@@ -25,10 +29,13 @@ class triangle:
 	
 	# perimeter of triangle
 	def perimeter(self):
-		self.side1 = math.sqrt( (self.p2.x-self.p1.x)*(self.p2.x-self.p1.x)+(self.p2.y-self.p1.y)*(self.p2.y-self.p1.y) ) 
-		self.side2 = math.sqrt( (self.p3.x-self.p2.x)*(self.p3.x-self.p2.x)+(self.p3.y-self.p2.y)*(self.p3.y-self.p2.y) ) 
-		self.side3 = math.sqrt( (self.p3.x-self.p1.x)*(self.p3.x-self.p1.x)+(self.p3.y-self.p1.y)*(self.p3.y-self.p1.y) ) 
-		return self.side1+self.side2+self.side3	
+		if ((self.p1.y-self.p2.y)*(self.p1.x-self.p3.x)==(self.p1.y-self.p3.y)*(self.p1.x-self.p2.x)):
+			return 0
+		else:	
+			self.side1 = math.sqrt( (self.p2.x-self.p1.x)*(self.p2.x-self.p1.x)+(self.p2.y-self.p1.y)*(self.p2.y-self.p1.y) ) 
+			self.side2 = math.sqrt( (self.p3.x-self.p2.x)*(self.p3.x-self.p2.x)+(self.p3.y-self.p2.y)*(self.p3.y-self.p2.y) ) 
+			self.side3 = math.sqrt( (self.p3.x-self.p1.x)*(self.p3.x-self.p1.x)+(self.p3.y-self.p1.y)*(self.p3.y-self.p1.y) ) 
+			return self.side1+self.side2+self.side3	
 
 	# check if point is in triangle
 	def ifInTriangle(self, aPoint):

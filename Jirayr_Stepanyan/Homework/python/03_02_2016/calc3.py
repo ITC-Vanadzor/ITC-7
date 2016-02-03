@@ -11,8 +11,10 @@ def multiply(a , b):
 	return a * b;
 
 def divide(a, b):
-	if b == 0:
-		print "You can't divide to 0";
+	try:
+       	    a / b;
+    	except ZeroDivisionError:
+            print"You cant divide to 0";
 	else: 
 		return a / b;
 

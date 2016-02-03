@@ -14,9 +14,9 @@ class triangle:
 		self.p2 = b
 		self.p3 = c
 		print("Constructor of triangle")
-	def length(self, p1,p2):
+	def __length(self, p1,p2):
 		return math.sqrt((p2.x - p1.x)*(p2.x - p1.x) + (p2.y-p1.y)*(p2.y-p1.y))
-	def area(self,p1,p2,p3):
+	def area(self):
 		return abs(p1.x*(p2.y-p3.y)+p2.x*(p3.y-p1.y)+p3.x*(p1.y-p2.y))/2
 	def perimeter(self):
 		return self.length(p1,p2)+self.length(p2,p3)+self.length(p1,p3)
@@ -32,7 +32,6 @@ p1 = point(a,b)
 p2 = point(c,d)
 p3 = point(e,f)
 g = triangle(p1,p2,p3)
-print g.length(p1,p2)
 print g.area(p1,p2,p3)
 print g.perimeter()
 

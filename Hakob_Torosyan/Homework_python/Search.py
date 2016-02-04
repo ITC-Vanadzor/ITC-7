@@ -17,14 +17,11 @@ for line in f:
     if i==3
 	line4=line
     i+=1
-pattern1 = '^Program Name: '
-pattern11 = '[A-Z] [a-z]*+ $' 
-pattern2 = '^Version: '
-pattern22 = ' [\d\.]+ $'
-pattern3 = '^Programmer: '
-pattern33 = '[A-Z] [a-z]* | | [A-Z] [a-z]*yan $'
-pattern4 = '^Company: '
-pattern44 = '[A-Z]* $' 
-if re.search(pattern11,line1) is not None, re.match(pattern1,line1) is not None, re.search(pattern22,line2) is not None, re.match(pattern2,line2) is not None, re.search(pattern33,line3) is not None, re.match(pattern3,line3) is not None, re.search(pattern44,line4) is not None, re.match(pattern4,line4) is not None :
+pattern1 = '^Program Name: | | [A-Z] [a-z]*+ $' 
+pattern2 = '^Version: | | [\d\.]+ $'
+pattern3 = '^Programmer: | | [A-Z] [a-z]* | | [A-Z] [a-z]*yan $'
+pattern4 = '^Company: | | [A-Z]* $' 
+if   not re.match(pattern1,line1) is None and not re.match(pattern2,line2) is None and not re.match(pattern3,line3) is None and not re.match(pattern4,line4) is None:
 print "We have right template: "
  
+

@@ -26,7 +26,7 @@ except IOError:
 	exit(-1)
 
 
-#os.remove('./res.txt')
+#os.remove('./res.txt') #qani vor 'w'-arden nor fayl e stexcum
 fl = open('./res.log', 'w')
 for dt in names:
 	fl.write(dt+'\n')

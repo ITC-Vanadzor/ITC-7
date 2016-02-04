@@ -16,6 +16,10 @@ class ellipse:
 			print("kety elipsi vra e")
 		if self.__havasarum(x1,y1) > 1:
 			print("kety chi patkanum")
+class arancqneriStugum(Exception):
+        def __init__(self,a,b):
+                self.a=a
+                self.b=b
 try:
 	x=float(input("x= "))
 	y=float(input("y= "))
@@ -24,19 +28,16 @@ except TypeError:
 try:
 	arancq_mec=int(input("mec arancq= "))
 	arancq_poqr=int(input("poqr arancq= "))
+	if arancq_mec <= 0 or arancq_mec <= 0:
+		raise arancqneriStugum(arancq_mec,arancq_poqr)
 except ValueError:
-		print("Number,Please")
+	print("Number,Please")
 except ZeroDivisionError:
-		print("Divise in zero!!")
-except arancqneriStugum(arancq_mec,arancq_poqr):
-		print("Number Please")
-class arancqneriStugum(Exception):
-	def __init__(self,a,b):
-		self.a=a
-		self.b=b
-	def error(self,arancq_mec,arancq_poqr):
-		if self.arancq_mec <= 0 or self.arancq_mec <= 0:
-			print("ERROR")
+	print("Divise in zero!!")
+except arancqneriStugum as ex:
+	print("Positive Number Please")
+else:
+	print("NO excepts")
 Object=ellipse(arancq_mec,arancq_poqr)
 Object.stugum(x, y)
 print Object.paragic(arancq_mec,arancq_poqr)

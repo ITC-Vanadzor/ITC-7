@@ -19,7 +19,7 @@ def divide(a,b):
 	except ZeroDivisionError:
 		print "ERROR! Can't divide to 0"
 	else: 
-		return c
+		return c	# you can just write "return a/b" and skip the else :)
 
 # main program
 try:

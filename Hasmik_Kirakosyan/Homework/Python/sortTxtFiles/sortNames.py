@@ -1,28 +1,26 @@
 #! /usr/bin/python
-import glob,os
+import glob
+import os 
+import os.path
+import re
 
 list=[]
 os.chdir(".")
-
-
 for file in glob.glob("*.txt"):
 	try:
 		with open(file, "r") as f:
 			for line in f:
-				list.append(line[:-1])
-			check = 'true'
+				if (re.match('[A-Z][a-z]+ [A-Z][a-z]+', line[:-1])):
+					list.append(line[:-1])
 				
 	except IOError:
 		print "The file  does not exist. IO ERROR"
-
-if check: 
-	print "\nNot sorted version"
-	print "===================="
-	for x in list:
-		print x
-	print "\nSorted version"
-	print "===================="
-	list.sort()
-	for x in sorted(list):
-		print x
-
+		break
+	
+list.sort()
+if os.path.isfile('outputFilie'):
+	os.remove('outputFile')
+output = open('outputFile', 'a')
+# write in output file
+for x in sorted(list):
+	output.write(x+"\n")		 

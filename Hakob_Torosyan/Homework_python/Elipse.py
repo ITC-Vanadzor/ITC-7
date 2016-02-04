@@ -20,7 +20,10 @@ class Elipse:
 		else:
 			print "The point is not in elipse or in line of elipse "
 print "Input minor axis: "		
-a = input("a = ")
+try:
+	a = input("a = ")
+except IOError:
+	print "Error"
 print "Input major axis: "
 b = input("b = ")
 elipse = Elipse(a,b) # creating of new Elipse object

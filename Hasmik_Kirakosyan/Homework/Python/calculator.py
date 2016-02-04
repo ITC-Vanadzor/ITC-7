@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 import argparse
-import sys
 # Simple calculator
 
 # operations
@@ -24,10 +23,14 @@ def divide(a,b):
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--opt", help = "The sum of two numbers", choices=['+', '-', '*', '/'])
-parser.add_argument("-n1", help = "The first number as argument", type = int)
-parser.add_argument("-n2", help = "The second number as argument", type = int)
+parser.add_argument("--n1", help = "The first number as argument", type = int)
+parser.add_argument("--n2", help = "The second number as argument", type = int)
 args=parser.parse_args()
 try:
+	if args.opt is None:
+		opt = input("Enter the option from this list [ +, -, *, / ]")
+	else:
+		opt = args.opt
 		
 	if args.n1 is  None:
 		num1 = int(input("Enter the first number:"))
@@ -50,4 +53,4 @@ else:
 			"*": multiply(num1, num2),
 			"/": divide(num1, num2)
 		}
-	print args.n1, args.opt, args.n2, "= ", list[args.opt]
+	print num1, opt, num2, "= ", list[opt]

@@ -1,0 +1,4 @@
+Program Name: Firefox
+Version: 127
+Programmer: Hakob Torosyan
+Company: UNIVERSAL

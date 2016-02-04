@@ -15,12 +15,15 @@ class Elipse:
 	def point(self,x,y): #function for checking is point situated in elipse or not?
 		if x*x/(self.a * self.a) + y*y/(self.b * self.b) <= 1 :
 			print "The point is in elipse "
-		elif  x*x/(self.a * self.a) + y*y/(self.b * self.b) = 1 :
+		elif  x*x/(self.a * self.a) + y*y/(self.b * self.b) == 1 :
 			print "The point is in line of elipse "
 		else:
 			print "The point is not in elipse or in line of elipse "
 print "Input minor axis: "		
-a = input("a = ")
+try:
+	a = input("a = ")
+except IOError:
+	print "Error"
 print "Input major axis: "
 b = input("b = ")
 elipse = Elipse(a,b) # creating of new Elipse object

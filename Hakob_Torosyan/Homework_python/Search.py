@@ -1,7 +1,11 @@
 #!/usr/bin/python
 import re
 from os import listdir
-f=open("sevagir.txt", "r+")
+try:
+	f=open("sevagir.txt", "r+")
+except IOError:
+	print " ERROR "
+
 i=0;
 line1=0
 line2=0
@@ -14,17 +18,17 @@ for line in f:
         line2=line
     if i==2:
         line3=line
-    if i==3
+    if i==3:
 	line4=line
     i+=1
-pattern1 = '^Program Name: '
-pattern11 = '[A-Z] [a-z]*+ $' 
-pattern2 = '^Version: '
-pattern22 = ' [\d\.]+ $'
-pattern3 = '^Programmer: '
-pattern33 = '[A-Z] [a-z]* | | [A-Z] [a-z]*yan $'
-pattern4 = '^Company: '
-pattern44 = '[A-Z]* $' 
-if re.search(pattern11,line1) is not None, re.match(pattern1,line1) is not None, re.search(pattern22,line2) is not None, re.match(pattern2,line2) is not None, re.search(pattern33,line3) is not None, re.match(pattern3,line3) is not None, re.search(pattern44,line4) is not None, re.match(pattern4,line4) is not None :
-print "We have right template: "
+pattern1 = '^Program Name:[\s][A-Z][a-z]{5,}$' 
+pattern2 = '^Version:[\s][0-9]{3,}$'
+pattern3 = '^Programmer:[\s][A-Z][a-z]{5,}[\s][A-Z][a-z]{5,}yan$'
+pattern4 = '^Company:[\s][A-Z]{5,}$' 
+if  re.match(pattern1,line1) is not None and  re.match(pattern2,line2) is not None and  re.match(pattern3,line3) is not None and re.match(pattern4,line4) is not None:
+	print "We have right template: "
+else:
+	print "We have not right template: "
  
+
+

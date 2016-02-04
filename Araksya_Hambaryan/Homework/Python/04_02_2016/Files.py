@@ -2,10 +2,10 @@
 import glob, re, os
 
 data=[]
-path = raw_input('dir path')
+#path = raw_input('dir path')
 try:
-    if os.getcwd() != path :
-        os.chdir(path)
+#    if os.getcwd() != path :
+#        os.chdir(path)
     for file_txt in glob.glob('./*.txt'):
 	with open(file_txt, 'r') as tmp:
 	    for line_txt in tmp:

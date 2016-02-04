@@ -1,9 +1,10 @@
 #!/usr/bin/python
 
+import argparse
+import sys
 # Simple calculator
 
 # operations
-import sys
 def add(a, b):
 	return a+b
 
@@ -15,26 +16,38 @@ def multiply(a,b):
 
 def divide(a,b):
 	try:
-		c = a/b
-	except ZeroDivisionError:
-		print "ERROR! Can't divide to 0"
-	else: 
-		return c	# you can just write "return a/b" and skip the else :)
+		return a/b
+	except ZeroDivisionError as err:
+		print ("ZeroDivision error: {0}".format(err))	
 
 # main program
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--opt", help = "The sum of two numbers", choices=['+', '-', '*', '/'])
+parser.add_argument("-n1", help = "The first number as argument", type = int)
+parser.add_argument("-n2", help = "The second number as argument", type = int)
+args=parser.parse_args()
 try:
-	num1 = int(sys.argv[1])
-	num2 = int(sys.argv[3])
-except ValueError:
-	print "Wrong input datas"
+		
+	if args.n1 is  None:
+		num1 = int(input("Enter the first number:"))
+	else:
+		num1 = int(args.n1)
+
+	if args.n2 is  None:
+		num2 = int(input("Enter the second number :"))	
+	else:
+		num2 = int(args.n2)
+
+except (ValueError, TypeError) :
+	print "Wrong input data"
 else:
 	print "======================================================="
 	# print result
-	option = {
-		"+": add(num1, num2),
-		"-": subtract(num1, num2),
-		"*": multiply(num1, num2),
-		"/": divide(num1, num2)
+	list = {
+			"+": add(num1, num2),
+			"-": subtract(num1, num2),
+			"*": multiply(num1, num2),
+			"/": divide(num1, num2)
 		}
-	
-	print option[sys.argv[2]]
+	print args.n1, args.opt, args.n2, "= ", list[args.opt]

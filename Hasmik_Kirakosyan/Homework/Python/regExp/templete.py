@@ -5,6 +5,6 @@ import re
 
 def check(line, exp, message):
 	if (re.match(exp, line)):
-		print "OK"
+		return "OK"
 	else:
-		print message
+		return message

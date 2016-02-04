@@ -23,7 +23,9 @@ if args.second is None:
 else:
 	my_second=args.second
 
-
+if my_opt=='/' and my_second==0:
+	print 'Division by ZERO'
+	exit(-1)
 options={
 	'+': my_first + my_second,
 	'-': my_first - my_second,

@@ -14,21 +14,27 @@ def multiply(a,b):
 	return a*b
 
 def divide(a,b):
-	if b==0:
-		print "Can't divide to 0"
+	try:
+		c = a/b
+	except ZeroDivisionError:
+		print "ERROR! Can't divide to 0"
 	else: 
-		return a/b
+		return c	# you can just write "return a/b" and skip the else :)
 
 # main program
-num1 = int(sys.argv[1])
-num2 = int(sys.argv[3])
-print "======================================================="
-# print result
-option = {
-	"+": add(num1, num2),
-	"-": subtract(num1, num2),
-	"*": multiply(num1, num2),
-	"/": divide(num1, num2)
-	}
+try:
+	num1 = int(sys.argv[1])
+	num2 = int(sys.argv[3])
+except ValueError:
+	print "Wrong input datas"
+else:
+	print "======================================================="
+	# print result
+	option = {
+		"+": add(num1, num2),
+		"-": subtract(num1, num2),
+		"*": multiply(num1, num2),
+		"/": divide(num1, num2)
+		}
 	
-print option[sys.argv[2]]
+	print option[sys.argv[2]]

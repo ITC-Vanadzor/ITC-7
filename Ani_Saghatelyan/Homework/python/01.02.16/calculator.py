@@ -12,11 +12,10 @@ def Mult(a,b):
 	print  a*b
 
 def Div(a,b):
-        if b == 0:
-		print "can't divide to 0"
-                exit
-        else:
-    		print   float(a)/b
+	try:
+		print float(a)/b
+	except ArithmeticError:
+		print "Can't divide to 0"
 
 # entering  the numbers for doing arithmetic operation
 x=input("Enter the  first number \t")

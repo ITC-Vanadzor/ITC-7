@@ -26,7 +26,8 @@ pattern3 = '^Programmer: | | [A-Z] [a-z]* | | [A-Z] [a-z]*yan $'
 pattern4 = '^Company: | | [A-Z]* $' 
 if   not re.match(pattern1,line1) is None and not re.match(pattern2,line2) is None and not re.match(pattern3,line3) is None and not re.match(pattern4,line4) is None:
 	print "We have right template: "
-
+else:
+	print "We have not right template: "
  
 
 

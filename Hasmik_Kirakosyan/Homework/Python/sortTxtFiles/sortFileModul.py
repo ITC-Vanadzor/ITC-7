@@ -19,7 +19,9 @@ def fileCheck(filename):
 	list.sort()
 	if os.path.isfile('outputFilie'):
 		os.remove('outputFile')
-	output = open('outputFile', 'a')
+	else:
+		output = open('outputFile', 'a')
 	# write in output file
 	for x in sorted(list):
 		output.write(x+"\n")		 
+	output.close()

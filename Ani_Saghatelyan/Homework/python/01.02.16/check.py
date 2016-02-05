@@ -13,13 +13,13 @@ class SimpleWidgetTestCase(unittest.TestCase):
   		
                             
 	 def test_corrected(self):
-	 	self.assertRegexpMatches(truefile, sortedFile, msg="Yes, it is matched!!!")
+	 	self.assertRegexpMatches("Ani	Saghatelyan", self.sortedFile, msg="Yes, it is matched!!!")
 
 	 def clearfile(self):
 	 	open(sortedfile.txt, 'w').close()
 
 	 def test_incorrected(self):
-	 	self.assertNotRegexpMatches(falsefile, sortedFile, msg="Yes, it isn't matched")
+	 	self.assertNotRegexpMatches("Ani	Saghatelyan", self.sortedFile, msg="Yes, it isn't matched")
 
 	
 

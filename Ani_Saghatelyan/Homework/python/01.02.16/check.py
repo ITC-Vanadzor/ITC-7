@@ -3,7 +3,7 @@ import unittest
 
 class SimpleWidgetTestCase(unittest.TestCase):
 	 def setUp(self):
-		
+				
 		with open('file.txt', 'r') as fi:
     			self.truefile = fi.readline()
 		with open('foo.txt', 'r') as fa:
@@ -11,10 +11,6 @@ class SimpleWidgetTestCase(unittest.TestCase):
 		with open('sortedFile.txt', 'r') as fb:
                         self.sortToFile = fb.readline()
   		
-	 def tearDown(self):
-	     	self.fi.close()
-		self.fa.close()
-         	self.fb.close()
                             
 	 def test_corrected(self):
 	 	self.assertRegexpMatches(truefile, sortedFile, msg="Yes, it is matched!!!")

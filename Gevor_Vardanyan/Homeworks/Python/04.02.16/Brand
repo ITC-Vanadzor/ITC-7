@@ -1,0 +1,19 @@
+#!/usr/bin/python
+
+import re, sys
+
+try:
+	file=open(sys.argv[1],"r")
+	file_str=file.read()
+	file.close()
+except IOError:
+	print "Can't open file >>",sys.argv[1]
+	exit(-1)
+else:
+	tpl=re.compile(r"Name: [A-Z][A-Z]|\n|Version: [1-9].[0-9].[0-9]|\n|Made in: [A-z]{3.25}")
+# r"ab*" --> Raw string
+
+if tpl.match(file_str) is None:
+	print "Correct"
+else:
+	print "Incorrect"

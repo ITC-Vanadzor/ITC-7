@@ -23,22 +23,19 @@ class arancqneriStugum(Exception):
 try:
 	x=float(input("x= "))
 	y=float(input("y= "))
-except TypeError:
-	print("Number,Please!!")
-try:
 	arancq_mec=int(input("mec arancq= "))
 	arancq_poqr=int(input("poqr arancq= "))
 	if arancq_mec <= 0 or arancq_mec <= 0:
 		raise arancqneriStugum(arancq_mec,arancq_poqr)
+	Object=ellipse(arancq_mec,arancq_poqr)
+	Object.stugum(x, y)
+	print Object.paragic(arancq_mec,arancq_poqr)
+	print Object.area(arancq_mec,arancq_poqr)
 except ValueError:
 	print("Number,Please")
 except ZeroDivisionError:
 	print("Divise in zero!!")
 except arancqneriStugum as ex:
 	print("Positive Number Please")
-else:
-	print("NO excepts")
-Object=ellipse(arancq_mec,arancq_poqr)
-Object.stugum(x, y)
-print Object.paragic(arancq_mec,arancq_poqr)
-print Object.area(arancq_mec,arancq_poqr)
+except TypeError:
+	print("Number,Please!!")

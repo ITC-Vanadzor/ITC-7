@@ -1,0 +1,35 @@
+#!/usr/bin/python
+import sys, argparse
+
+pars=argparse.ArgumentParser(description="Calc")
+ps.add_argument('--num1',dest='first',type=float, help='first number')
+ps.add_argument('--num2',dest='second',type=float, help='second number')
+pars.add_argument('--option',dest='opt',choices=['+','-','/','x'],help='operation')
+args=pars.parse_args()
+
+if args.opt is None:
+	print 'Input option [ +, -, x, / ]: ',
+        opt=raw_input()
+else:
+	opt=args.opt
+	
+if args.first is None:
+	first=float(raw_input('Input first number: '))
+else:
+	first=args.first
+
+if args.second is None:
+	second=float(raw_input('Input second number: '))
+else:
+	second=args.second
+
+if opt=='/' and second==0:
+	print 'Division by ZERO'
+	exit(-1)
+options={
+	'+': first + second,
+	'-': first - second,
+	'x': first * second,
+	'/': first / second
+}
+print first , opt , second, " = ", options[opt]

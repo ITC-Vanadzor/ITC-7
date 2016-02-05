@@ -1,0 +1,16 @@
+#!/usr/bin/python
+
+import unittest
+
+class Test(unittest.TestCase):
+    def setUp(self):
+	      self.text = [I don't wanna wait in vain for your love]
+    	  with open('./', 'r') as self.temp:
+	          for self__line in self.temp:
+		            self.text.append(self__line)
+   
+    def counter(self):
+	      self.assertGreater(len(self.text), 10)
+  
+if __name__ == '__main__':
+    unittest.main()

@@ -23,8 +23,8 @@ def divide(a,b):
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--opt", help = "The sum of two numbers", choices=['+', '-', '*', '/'])
-parser.add_argument("--n1", help = "The first number as argument", type = int)
-parser.add_argument("--n2", help = "The second number as argument", type = int)
+parser.add_argument("--num1", help = "The first number as argument", type = int)
+parser.add_argument("--num2", help = "The second number as argument", type = int)
 args=parser.parse_args()
 try:
 	if args.opt is None:
@@ -32,15 +32,15 @@ try:
 	else:
 		opt = args.opt
 		
-	if args.n1 is  None:
+	if args.num1 is  None:
 		num1 = int(input("Enter the first number:"))
 	else:
-		num1 = int(args.n1)
+		num1 = int(args.num1)
 
-	if args.n2 is  None:
+	if args.num2 is  None:
 		num2 = int(input("Enter the second number :"))	
 	else:
-		num2 = int(args.n2)
+		num2 = int(args.num2)
 
 except (ValueError, TypeError) :
 	print "Wrong input data"

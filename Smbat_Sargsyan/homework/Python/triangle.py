@@ -31,11 +31,11 @@ try:
         d=int(raw_input("y2="))
         e=int(raw_input("x3="))
         f=int(raw_input("y3="))
+        p1 = point(a,b)
+        p2 = point(c,d)
+        p3 = point(e,f)
+        g = triangle(p1,p2,p3)
+        print"Area=",g.area()
+        print "Perimeter=",g.perimete
 except TypeError:
         print "ERROR"
-p1 = point(a,b)
-p2 = point(c,d)
-p3 = point(e,f)
-g = triangle(p1,p2,p3)
-print"Area=",g.area()
-print "Perimeter=",g.perimete

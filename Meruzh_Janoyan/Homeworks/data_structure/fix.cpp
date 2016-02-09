@@ -2,7 +2,7 @@
 #include <stack>
 #include <cstring>
 #include <cstdlib>
-
+#include <vector>
 
 int prior(char x){
 	
@@ -22,69 +22,101 @@ int prior(char x){
 	default:
 		return -1;
 	}
-} 
-int main(){
+}
+
+	
+std::vector<std::string>  postfix(std::string infix_str){
 	std::stack<char> char_stack;
-	std::stack<char> to_prefix;
+ 	std::vector<std::string> result;
+	char  clean_number[5];
+	int clean_index=0;
+	char buff[2]={'\0','\0'};
+
+	for(int i=0;i<infix_str.size() ;++i){
+		int q=prior(infix_str[i]);
+	
+		if(q==-1){
+			clean_number[clean_index++]=infix_str[i];
+		}
+		else if(q==0 && clean_index>0){
+			clean_number[clean_index]='\0';
+			result.push_back(clean_number);
+			clean_index=0;
+		}
+		else if(q>=8 && q<=10){
+
+			while(!char_stack.empty() && prior(char_stack.top())>q){
+					buff[0]=char_stack.top();
+					result.push_back(buff);
+					char_stack.pop();
+			}
+			char_stack.push(infix_str[i]);
+		}
+		else if(q==7){
+			char_stack.push(infix_str[i]);
+		}else if(q==6){
+			while( char_stack.top()!='('){
+				buff[0]=char_stack.top();
+				result.push_back(buff);
+				char_stack.pop();
+			}	
+			char_stack.pop();		
+		}
+
+	}
+	
+	while(!char_stack.empty()){
+		buff[0]=char_stack.top();
+		result.push_back(buff);
+		char_stack.pop();
+	}
+
+	return result;
+}
+std::vector<std::string>  prefix(std::string infix_str){
+	
+	std::vector<std::string> tmp=postfix(infix_str);
+	std::vector<std::string> stack;
+	for(int i=0;i<tmp.size();++i){
+		if(prior(tmp[i][0])!=-1){
+			int n=stack.size()-1;
+			std::string tmp1=stack[n];
+			std::string tmp2=stack[n-1];
+			
+			stack.pop_back();
+			stack.pop_back();
+			
+			stack.push_back(tmp[i][0]+tmp2+tmp1);
+			
+		}
+		else{
+			stack.push_back(tmp[i]);
+		}
+	}
+	return stack;
+}
+	
+void print_vector(std::vector<std::string> tmp, char name[]){
+
+	std::cout<<name;
+	for(int i=0;i<tmp.size();++i){
+		std::cout<<tmp[i]<<' ';
+	}
+	std::cout<<std::endl;
+}
+
+int main(){
 
 	std::string  infix_str;
 	std::cout<<"Input INFIX expression (space between chars..)-> ";
 	std::getline(std::cin,infix_str);
-	int n=infix_str.length();
-	std::cout<<"\n\nINFIX: "<<infix_str<<"\nPOSTFIX: ";
+	std::cout<<"\n\nINFIX: "<<infix_str<<std::endl;
 	
-	
+	std::vector<std::string> tmp;
+	tmp=postfix(infix_str);
+	print_vector(tmp,"POSTFIX: ");
+	tmp=prefix(infix_str);
+	print_vector(tmp,"PREFIX: ");
 
-	char  clean_number[5];
-	int clean_index=0;
-	for(int i=0;infix_str[i]!='\0' && i<n ;++i){
-		int q=prior(infix_str[i]);
-		if(q==-1){
-			clean_number[clean_index++]=infix_str[i];
-		}else if(q==0 && clean_index>0){
-			clean_number[clean_index]='\0';
-			std::cout<<atoi(clean_number)<<' ';
-			to_prefix.push(clean_number[0]);
-			clean_index=0;
-		}else if(q>=8 && q<=10){
-
-			while(!char_stack.empty()){
-				if(prior(char_stack.top())>q){
-					std::cout<<char_stack.top()<<' ';
-					to_prefix.push(char_stack.top());
-					char_stack.pop();
-				}else{
-					break;
-				}		
-			}
-			char_stack.push(infix_str[i]);
-		}else if(q==7){
-			char_stack.push(infix_str[i]);
-		}else if(q==6){
-			while( !char_stack.empty()){
-				if(char_stack.top()!='('){
-				std::cout<<char_stack.top()<<' ';
-				to_prefix.push(char_stack.top());
-				}
-				char_stack.pop();
-			}
-		}
-
-	}
-	while(!char_stack.empty()){
-		std::cout<<char_stack.top()<<' ';
-		to_prefix.push(char_stack.top());
-		char_stack.pop();
-	}
-	std::cout<<std::endl;
-
-	std::cout<<"PREFIX: ";
-	while(!to_prefix.empty()){
-		std::cout<<to_prefix.top()<<' ';
-		to_prefix.pop();
-	}
-
-	std::cout<<std::endl;
-	
 	return 0;
 }

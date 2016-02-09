@@ -1,77 +1,116 @@
 #include <iostream>
 #include <stack>
 #include <queue>
-
+#include <string>
+#include <algorithm>
 
 // Return true if  firstOpt priority is greater than  secondOpt priority, else return false
-bool priorityGreaterThan (char firstOpt, char secondOpt) {
-        char optPriority[5];
-        int firstPriority, secondPriority;
-        optPriority[4] = '(';
-        optPriority[3] = '*';
-        optPriority[2] = '/';
-        optPriority[1] = '+';
-        optPriority[0] = '-';
-        for (int i = 0; i < 5; i++ ) {
-                if (optPriority[i] == firstOpt)
-                        firstPriority = i;
-                if (optPriority[i] == secondOpt)
-                        secondPriority = i;
+int priority (char opt) {
+        switch (opt)
+	{
+		
+        	case '(': return 1;
+        	case '*': return 2;
+       		case '/': return 2;
+      		case '+': return 3;
+        	case '-': return 3;
         }
-        return (firstPriority > secondPriority);
-
+        
 }
 
-// get as argument infix expression and return it's prefix form
+// ============== Postfix ===========================
 
-std::queue<char> postfixConverter (char* exp) {
-	int length = sizeof(exp)/sizeof(char);
+std::queue<char> postfixConverter (std::string exp) {
         std::stack<char> optStack;
         std::queue<char> postfixExp;
 
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < exp.length(); i++) {
+		
+		// Add number to postfix expression queue
                 if (exp[i]-48 >= 0 &&  exp[i]-48 <= 9) {
                         postfixExp.push(exp[i]);
                 }
+		//  Add '(' scope to stack
                 else if (exp[i] == '(') {
                         optStack.push(exp[i]);
                 }
+		// If symbol is ')' 
                 else if (exp[i] == ')') {
-                        while ( optStack.top() != '(') {
-                                postfixExp.push(optStack.top());
-				optStack.pop();                 
-                        }
-			optStack.pop();
+                        while ( optStack.top() != '(' ) {
+                                	postfixExp.push(optStack.top());
+					optStack.pop();   
+				}            
                 }
+		// If symbol is operation symbol check protrities within stack actions
   		else if (exp[i] == '*' || exp[i] == '/' || exp[i] == '+' || exp[i] == '-') {
-                                if (priorityGreaterThan(optStack.top(), exp[i])) {
+                        if (!optStack.empty()) {
+				if ( priority(optStack.top()) > priority(exp[i]) ) {
                                         postfixExp.push(optStack.top());
 					optStack.pop();
                                 }
+			}	
                         optStack.push(exp[i]);
                 }
         }
-
+	// Add remained operators fro stack to postfix expression
         if ( !optStack.empty() ) {
-                while ( !optStack.empty() ) {
+                while (!optStack.empty() && optStack.top()!= '(') {
                         postfixExp.push( optStack.top() );
 			optStack.pop();
                 }
-        }
-	
- 	// return result queue
+        }	
+       // return result queue
        return postfixExp;
 }
 
-/* get as argument infix expression and return it's prefix form
-char* prefixConverter (char* exp) {
+//============ Prefix ================================
+std::string  prefixConverter (std::string exp) {
+        std::stack<char> optStack;
+        std::string prefixExp;
+
+        for (int i = exp.length()-1; i >= 0; i--) {
+		
+		// Add number to prefix expression queue
+                if (exp[i]-48 >= 0 &&  exp[i]-48 <= 9) {
+                        prefixExp += exp[i];
+                }
+		//  Add '(' scope to stack
+                else if (exp[i] == ')') {
+                        optStack.push(exp[i]);
+                }
+		// If symbol is ')' 
+                else if (exp[i] == '(') {
+                        while ( optStack.top() != ')' ) {
+                                	prefixExp += optStack.top();
+					optStack.pop();   
+				}            
+                }
+		// If symbol is operation symbol check protrities within stack actions
+  		else if (exp[i] == '*' || exp[i] == '/' || exp[i] == '+' || exp[i] == '-') {
+                        if (!optStack.empty()) {
+				if ( priority(optStack.top()) <= priority(exp[i]) ) {
+                                        prefixExp += optStack.top();
+					optStack.pop();
+                                }
+			}	
+                        optStack.push(exp[i]);
+                }
+        }
+	// Add remained operators from stack to prefix expression
+        if ( !optStack.empty() ) {
+                while (!optStack.empty() && optStack.top()!= ')') {
+                        prefixExp += optStack.top();
+			optStack.pop();
+                }
+        }	
+       // return result queue
+ 	return reverse(prefixExp.begin(), prefixExp.end());
 };
-*/
+
 
 
 int main() {
-
-       	char* infixExp;
+       	std::string infixExp;
         std::cout<<"Enter the expression : ";
         std::cin>>infixExp;
 
@@ -83,6 +122,8 @@ int main() {
                 std::cout<<postfixExp.front();
 		postfixExp.pop();
 	}
+
+	std::cout<<"\nConverted to pretfix : "<< prefixConverter(infixExp);	
 	
 
 return 0;

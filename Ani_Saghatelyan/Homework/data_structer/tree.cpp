@@ -18,6 +18,7 @@ struct tree
 	void   Delete(node* root, int value);
 	node*  Search( node* root ,int value);
 	void DeleteTree(node* root);
+	bool isSorted(node* root);
 };
 
 tree::tree()
@@ -25,6 +26,7 @@ tree::tree()
 {
 	std::cout<<"Constructor of tree\n";
 }
+
 
 void tree::DeleteTree(node* root)
 {
@@ -43,7 +45,19 @@ tree::~tree()
 	std::cout<<"Destructor of tree\n";
 }
 
-
+bool tree::isSorted(node* root)
+{
+	if(root==NULL)
+	{
+		return true;
+	}
+	else if( (root->right!=NULL && root->value > root->right->value) || (root->left!=NULL && root->value < root->left->value))
+	{
+		return false;
+	}
+	isSorted(root->left);
+	isSorted(root->right);
+}
 void tree::Print(node* root)
 {
 	std::cout<<"Print\t";

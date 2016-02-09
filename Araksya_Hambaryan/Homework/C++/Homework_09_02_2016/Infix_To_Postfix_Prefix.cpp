@@ -42,7 +42,6 @@ std::string prefix(std::string str) {
 }
 
 std::string postfix(std::string str) {
-    std::cout << "func";
     std::stack<char> action_stack;
     std::string output="";
     for (int i=0; i<=str.length(); ++i) {

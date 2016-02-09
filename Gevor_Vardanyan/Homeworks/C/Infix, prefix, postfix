@@ -1,0 +1,107 @@
+#include <iostream>
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+ 
+// data struct
+enum optype {power = 3, devide = 2, multiply = 2, minus = 1, plus = 1, null=0}; // prioritet
+ 
+struct stack {
+    char val[100]; // elementi arjeq
+    optype type;   // gorcoghutyan prioritet
+    stack * next;
+} *head;
+ 
+// stacki f-er
+void push(char[], optype);
+void push(stack *);
+stack * pop();
+
+//void fromSTR(char *, char *); // algoritmi f-an e
+void fromPostfix (char *, char *);
+void fromPrefix (char *, char *);
+ 
+int main() {
+    char infix[100], postfix[100], prefix[100]; // in + out str
+    printf("Nermuceq infix- ov togh@: ");
+    gets(infix);
+    fromPostfix(infix, postfix);
+    printf("%s\n", postfix);
+    fromPrefix(infix, prefix);
+    printf("%s\n", prefix);
+    //system("PAUSE");
+    return 0;
+}
+ 
+void push(stack *t) {
+    t->next = head;
+    head = t;
+}
+ 
+void push(char str[], optype type) {
+    stack *t;
+    t = new stack;
+    strcpy(t->val, str);
+    t->type = type;
+    t->next = head;
+    head = t;
+}
+ 
+stack * pop() {
+    stack *t;
+    if(head == NULL) return NULL;
+    t = head;
+    head = t->next;
+    return t;
+}
+ 
+void fromSTR(char * input, char * output) {
+    char c, temp[100];
+    int p_temp=0;
+    stack *h1, *h2; // stack-i 1-in, 2-rd element@ pahelu popoxakan
+    optype type;
+    head = NULL;
+    while(*input) { // qani der toghum simvol ka
+        c = (*input);
+        if(c>='0' && c<='9' || c=='.') { // amboghjakann el
+            temp[p_temp++] = c; //jamanakavor pahum e temp-um
+            temp[p_temp] = '\0';
+        } else if(c==' ') {
+            if(p_temp!=0) {
+                push(temp, null); 
+                p_temp=0; }
+            temp[0] = '\0'; // jamanakavor togh@ datarkum e
+        } else if(c=='+' || c=='-'|| c=='*' || c=='/' || c=='^') { //ete nshan e
+            h1 = pop(); 
+            h2 = pop(); // 1,2 element@ hanum e
+                        // gtnum prioritet@
+            if(c=='+') type = plus;
+            else if(c=='-') type = minus;
+            else if(c=='*') type = multiply;
+            else if(c=='/') type = devide;
+            else if(c=='^') type = power;
+            if(h2->type!=null && h2->type<type) { // ete prioritet@ 1-i namar poqr kargi e
+                temp[0]='('; temp[1] = '\0'; // pakagic e dnum
+                h2->val[strlen(h2->val)+2] = '\0';
+                h2->val[strlen(h2->val)+1] = c; 
+                h2->val[strlen(h2->val)] = ')';
+            } else {
+                h2->val[strlen(h2->val)+1] = '\0';
+                h2->val[strlen(h2->val)] = c;
+            }
+            strcat(temp, h2->val);
+            if(h1->type!=null && h1->type<type) {  // ete prioritet@ 2-i namar poqr kargi e
+                strcat(temp, "(");
+                h1->val[strlen(h1->val)+1] = '\0';
+                h1->val[strlen(h1->val)] = ')'; 
+            }
+            strcat(temp, h1->val);
+            strcpy(h2->val, temp); // nor hishoghutyun chzbaghacnelu hamar` stacvac@ copy 2-i mej
+            delete h1; 
+            h2->type = type; // gorcoghutyan nor prioritet enq nshanakum
+            push(h2);
+        }
+        input++;
+    }
+    strcpy(output, (pop())->val); // stack-i verevi eghac@ copy rezult-i toghum
+}

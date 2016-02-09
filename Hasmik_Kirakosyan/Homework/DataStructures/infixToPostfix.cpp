@@ -4,7 +4,7 @@
 #include <string>
 #include <algorithm>
 
-// Return true if  firstOpt priority is greater than  secondOpt priority, else return false
+// Return option prority
 int priority (char opt) {
         switch (opt)
 	{

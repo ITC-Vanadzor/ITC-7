@@ -1,109 +1,156 @@
 #include <iostream>
-int count = 0;
-char stack[10];
-char infix[10];
-char postfix[10];
-int compare(char symbol)
+#include <stack>
+#include <cstring>
+int priority(char symbol)
 {
-	if (symbol == '+' || symbol == '-') return 1;
-	if (symbol == '*' || symbol == '/') return 2;
-	if (symbol == '^') return 3;
-	if (symbol == '(' || symbol == ')') return 4;
-	return 0;
-}
-void push(char sumbol)
-{
-	stack[count] = sumbol;
-	++count;
-}
-char pop()
-{
-	--count;
-	return (stack[count]);
-}
-int check()
-{
-	int i = 0;
-	int count_postfix_value = 0;
-	int count_postfix_symbol = 0;
-	while ( postfix[i] != '\0')
+	switch (symbol)
 	{
-		if (postfix[i] == '+' || postfix[i] == '-' || postfix[i] == '*' || postfix[i] == '/' || postfix[i] == '^')
-		{
-			break;
-		}
-		else
-		{
-			++count_postfix_value;
-			++i;
-		}
+		case '+': return 1;
+		case '-': return 1;
+		case '*': return 2;
+		case '/': return 2;
+		case '^': return 3;
 	}
-	while ( postfix[i] != '\0' )
-	{
-		++count_postfix_symbol;
-		++i;
-	}
-	return (count_postfix_value - count_postfix_symbol);
 }
+
+void convert_postfix(char* infix) 
+{
+	std::stack<char> S;
+	char postfix[10];
+	int k = -1;
+	int open_bracket = 0;
+	for(int i = 0; i < strlen(infix); ++i)
+    {
+    	if (infix[i] == '+' || infix[i] == '-' || infix[i] == '*' || infix[i] == '/' || infix[i] == '^' || infix[i] == '(' || infix[i] == ')')
+        {
+            if ( infix[i] == '(' )
+            {
+                S.push(infix[i]);
+                ++open_bracket;
+            }
+            else if ( infix[i] == ')' )
+            {
+                while ( S.top() != '(' )
+                {
+                    postfix[++k] = S.top();
+                    S.pop();
+                }
+                S.pop();
+                --open_bracket;
+            }
+            else if ( S.size() == 0 )
+            {
+                S.push(infix[i]);
+            }
+            else if ( open_bracket > 0 )
+            {
+                S.push(infix[i]);
+            }
+            else if ( priority(S.top()) > priority(infix[i]) )
+            {
+                while ( priority(S.top()) >= priority(infix[i]) )
+                {
+                    postfix[++k] = S.top();
+                    S.pop();
+                    if (S.size() == 0) break;
+                }
+                S.push(infix[i]);
+            }
+            else
+            {
+                S.push(infix[i]);
+            }
+        }
+	 	else
+        {
+            postfix[++k] = infix[i];
+        }
+    }
+    while ( S.size() )
+    {
+        postfix[++k] = S.top();
+        S.pop();
+    }
+    std::cout << "postfix expression: ";
+    for( int i = 0; i <= k; ++i)
+    {
+        std::cout << postfix[i];
+    }
+	std::cout << std::endl;
+}
+
+void convert_prefix(char* infix)
+{
+	std::stack<char> S;
+	char prefix[10];
+	int close_bracket = 0;
+	int k = strlen(infix);
+	int kk = k;
+	for(int i = k-1; i >= 0; --i)
+    {
+        if (infix[i] == '+' || infix[i] == '-' || infix[i] == '*' || infix[i] == '/' || infix[i] == '^' || infix[i] == '(' || infix[i] == ')')
+        {
+            if ( infix[i] == ')' )
+            {
+                S.push(infix[i]);
+                ++close_bracket;
+            }
+            else if ( infix[i] == '(' )
+            {
+                while ( S.top() != ')' )
+                {
+                    prefix[--k] = S.top();
+                    S.pop();
+                }
+                S.pop();
+                --close_bracket;
+            }
+            else if ( S.size() == 0 )
+            {
+                S.push(infix[i]);
+            }
+            else if ( close_bracket > 0 )
+            {
+                S.push(infix[i]);
+            }
+            else if ( priority(S.top()) > priority(infix[i]) )
+            {
+                while ( priority(S.top()) >= priority(infix[i]) )
+                {
+                    prefix[--k] = S.top();
+                    S.pop();
+                    if (S.size() == 0) break;
+                }
+                S.push(infix[i]);
+            }
+            else
+            {
+                S.push(infix[i]);
+            }
+        }
+     else
+        {
+            prefix[--k] = infix[i];
+        }
+    }
+    while ( S.size() )
+    {
+        prefix[--k] = S.top();
+        S.pop();
+    }
+    std::cout << "prefix expression: ";
+    for( int i = k; i < kk; ++i)
+    {
+        std::cout << prefix[i];
+    }
+    std::cout << std::endl;
+}
+
 int main()
 {
-	int i = 0;
-	int k = 0;
-	char temp;
-	std::cout << "Enter infix expression:" << std::endl;
-	std::cin >> infix; 
-	while(infix[i] != '\0')
-	{
-		if (infix[i] == '+' || infix[i] == '-' || infix[i] == '*' || infix[i] == '/' || infix[i] == '^' || infix[i] == '(' || infix[i] == ')')
-		{
-			if (count == 0)
-			{	
-				push(infix[i]);
-			}
-			else
-			{
-				if (infix[i] == '(' || infix[i] == ')')
-				{
-					if (infix[i] == '(') push(infix[i]);
-                    if (infix[i] == ')')
-					{
-						temp = pop();
-						while(temp != '(')
-						{
-							postfix[k++] = temp;
-							temp = pop();
-						}
-					}
-				}
-			else
-			{
-				if (stack[count-1] != '(')
-				{
-					if ( compare(infix[i]) <= compare(stack[count-1]) )
-					{
-						int kk = check();
-						while( kk > 1 )
-						{
-							temp = pop();
-							postfix[k++] = temp;
-							kk = check();
-						}
-					}
-				}
-				push(infix[i]);
-			}
-			}
-		}
-		else
-		{
-			postfix[k++] = infix[i];
-		}
-		++i;
-	}
-	while(count != 0)
-	{
-		postfix[k++] = pop();
-	}
-	std::cout << "Postfix expression:"  << postfix << std::endl;
+	char infix[] = "a+b*(c+d)";
+	std::cout << "infix expression: " << infix << std::endl;
+	convert_prefix(infix);
+	convert_postfix(infix);
 	return 0;
 }

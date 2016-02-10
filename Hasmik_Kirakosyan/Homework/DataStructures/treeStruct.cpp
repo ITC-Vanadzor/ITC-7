@@ -1,73 +1,114 @@
 #include <iostream>
 #include <cstdlib>
 
-struct treeNode {
+struct node {
 	int data;
-	treeNode* right;
-	treeNode* left;
+	node* right;
+	node* left;
+};
+struct tree {
+	node* root;
 	
 	// constructor
-	treeNode(int rootData) {
-		
-		data = rootData;
-		right = NULL;
-		left = NULL;
+	tree() {
+		root = NULL;
 	}
-	~treeNode() {
-		free(right);
-		free(left);
-		free(this);
+	
+	// destructor
+	~tree() {
+		deleteTree();
 	}
 	//======= Insert new node with nodeData to tree ========
-	void insertNode (int nodeData) {
-		treeNode* tmpNode = (treeNode*) malloc(sizeof(treeNode));
-		if ((left == NULL ) && (data > nodeData)) {
-			left = tmpNode;
-			left ->data = nodeData;
-			return;
+	private: 
+	void insertNode (int newData, node* branch) {
+		if ( branch->data > newData) 
+		{
+			if (branch->left != NULL) {
+				insertNode(newData, branch->left);
+			}
+			else {
+				branch->left =new node;
+				branch->left->data = newData;
+				branch->left->right = NULL;
+				branch->left->left  = NULL;
+			}
 		}
-		else if ((right== NULL ) && (data < nodeData)) {
-			right = tmpNode;
-			right ->data = nodeData;
-			return;
-		}
-		else {
-			right->insertNode(nodeData);
-			left->insertNode(nodeData);
-		}
-		
+		else if (newData >= branch->data) {
+			if (branch->right != NULL)
+				insertNode(newData, branch->right);
+			else {
+				branch->right = new node;
+				branch->right->data = newData;
+				branch->right->left = NULL;
+				branch->right->right = NULL;
+			}
+		} 		
 	}
+
 	// ========== Binary search in tree ================
-	treeNode* searchData (int data1) {
+	node* searchData (int data1, node* branch) {
 		bool checkIfFind = false;
-		while (!checkIfFind) {
-			if (data == data1) {
-				return this;
+		if (branch != NULL) {
+			if (branch->data == data1) {
+				return branch;
 			}
-			else if (data1 > data) {
-				right->searchData(data1);
+			else if (data1 > branch->data) {
+				return (searchData(data1, branch->right));
 			}
-			else if (data1 < data) {
-				left->searchData(data1);
+			else if (data1 < root->data) {
+				return (searchData(data1, branch->left));
 			}
-			else if (left == NULL && right == NULL) {
-				std::cout<<"\nData was not found";
+			else if (branch->left == NULL && branch->right == NULL) {				std::cout<<"\nData was not found";
+				return NULL;	
 			}
 			 
 		}
 		
 	}
+	
 
-	void deleteNode (int data) {
-		
+	// ================= Delete node =========
+	 void deleteBranch (node* branch) {
+		if (branch != NULL) {
+			deleteBranch(branch->left);
+			deleteBranch(branch->right);
+			delete branch;
+		}
+	}
+	
+	public:
+	// ================ Verify tree ==========
+	 bool verify(node* treeRoot) {
+	}
+	
+	// ===============  Public insert ========
+	void insert(int newData) {
+		if(root != NULL)
+			insertNode (newData, root);
+		else {
+			root = new node;
+			root->data = newData;
+			root->left = NULL;
+			root->right = NULL;
+		}
+	}
+	
+	// ============ Public search ============
+	node* search (int data1)  {
+		return searchData( data1, root);
 	}
 
+	// ============ Public detele tree ========
+	void deleteTree () {
+		deleteBranch(root);
+	}
 };
 
 //============= Print function =============
-void print (treeNode* n) {
-	if (n != NULL)
+void print (node* n) {
+	if (n == NULL) {
 		return;
+	}
 	else {
 		print(n->left);
 		std::cout<<n->data;
@@ -76,15 +117,13 @@ void print (treeNode* n) {
 };
 
 
-
-
 // =========== main function ===============
 int main() {
 
-treeNode myNode = treeNode(20);
-myNode.insertNode(5);
-myNode.insertNode(23);
-print(&myNode);
+tree myTree;
+myTree.insert(5);
+myTree.insert(23);
+print(myTree.root);
 
 return 0;
 }

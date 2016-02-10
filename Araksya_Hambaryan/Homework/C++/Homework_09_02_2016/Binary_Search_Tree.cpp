@@ -1,5 +1,6 @@
 #include <iostream>
-
+#include <queue>
+#include <algorithm> 
 // incomplete
 
 struct node {
@@ -10,49 +11,13 @@ struct node {
     :data(a), left(NULL), right(NULL) {
 	std::cout << "Created node  " << a << std::endl;
     }
+    
 };
 
-struct tree {
-    node* root;
-    tree()
-    : root(NULL) {
-	std::cout << "Created tree" << std::endl;
-    }
-    void print(node* n);
-    void insert(node* n, int a );
-    void remove(node* n, int a);
-    node* find(node* n, int a);
-};
-void tree::print (node* n) {
-    std::cout << "print" << std::endl;
-    if (root == NULL) {
-	return;
-    }
-    print (n->left);
-    std::cout << n->data << std::endl;
-    print (n->right);
-}
-
-node* tree::find(node* n, int a) {
-    if (n == NULL) {
-	std::cout << "not found  " << a << std::endl;
-	return 0;
-    }
-    if (n->data == a) {
-	std::cout << "found  " << a << std::endl;
-	return n;
-    }
-    if (n->data < a) {
-	find (n->right, a);
-    } else {
-	find(n->left, a);
-    }
-}
-
-void tree::insert(node* n, int a) {
-    node* new_node = new node(a);
+void insert(node* &n, int a) {
     if (n==NULL) {
-	root=new_node;
+	node* new_node = new node(a);
+	n=new_node;
 	return;
     }
     if (n->data < a) {
@@ -62,31 +27,113 @@ void tree::insert(node* n, int a) {
     }
 }
 
-void tree::remove(node* n, int a) {
+void print (node* n) {
     if (n == NULL) {
 	return;
     }
+    print (n->left);
+    std::cout << n->data << std::endl;
+    print (n->right);
+}
+
+void print_levels(node* n) {
+    if ( n==NULL) {
+	return;
+    }
+    std::queue<node*> current_level;
+    std::queue<node*> next_level;
+    current_level.push(n);
+    while (! current_level.empty()) {
+	node* tmp = current_level.front();
+	current_level.pop();
+	if (tmp != NULL) {
+	    std::cout << tmp->data << "  ";
+	    next_level.push(tmp->left);
+	    next_level.push(tmp->right);
+	}
+	if (current_level.empty()) {
+	    std::cout << std::endl;
+	    swap(current_level, next_level);
+	}
+    }
+}
+
+
+node* find(node* n, int a) {
+    if (n == NULL) {
+	std::cout << "not found  " << a << std::endl;
+	return NULL;
+    }
+    if (n->data == a) {
+	std::cout << "found  " << a << std::endl;
+	return n;
+    }
+    if (n->data < a) {
+	return find (n->right, a);
+    } else {
+	return find(n->left, a);
+    }
+}
+
+node* maximum(node* n) {
+    if (n->right == NULL) {
+	return n;
+    }
+    return maximum(n->right);
+}
+
+node* minimum(node* n) {
+    if (n->left == NULL) {
+	return n;
+    }
+    return minimum(n->left);
+}
+bool verify(node* n) {
+    if ( n==NULL) {
+	return true;
+    }
+    node* min = minimum(n);
+    node* max = maximum(n);
+    if (n->data < min->data || n->data > max->data) {
+	return false;
+    }
+	return verify(n->left);
+	return verify(n->right);
+}
+
+/*void remove(node* n, int a) {
+    if (n == NULL) {
+	return;
+    }
+    
     node* tmp = find(n, a);
     if (tmp->right == NULL && tmp->left ==NULL) {
 	delete tmp;
     }
 	delete tmp;
-}
+}*/
 
 int main () {
-    tree my_tree;
-    std::cout << "root " << my_tree.root->data << std::endl;
-    my_tree.insert(my_tree.root, 5);
-    std::cout << "root " << my_tree.root->data << std::endl;
-    my_tree.insert(my_tree.root, 7);
-    my_tree.insert(my_tree.root, 3);
-    std::cout << "root " << my_tree.root->data << std::endl;
-    my_tree.insert(my_tree.root, 4);
-    std::cout << "root " << my_tree.root->data << std::endl;
+    node* root = NULL;
     
-    my_tree.find(my_tree.root, 3);
-    my_tree.print(my_tree.root);
-  //  my_tree.remove(4);
-
+    insert(root, 10);
+    insert(root, 6);
+    insert(root, 4);
+    insert(root, 15);
+    insert(root, 5);
+    insert(root, 13);
+    
+    print(root);
+    print_levels(root);
+    
+    find(root, 4);
+    find(root, 11);
+    
+    if ( verify(root) ) {
+	std::cout << "This is a binary search tree" <<std::endl;
+    } else {
+	std::cout << "This is not a binary search tree" << std::endl;
+    }
+    
     return 0;
 }

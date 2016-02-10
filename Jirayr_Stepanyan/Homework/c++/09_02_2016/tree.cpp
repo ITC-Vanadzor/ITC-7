@@ -18,7 +18,6 @@ struct tree
     void delete_object(node* root, int num);
     void find(node* root, int num);
     void print(node* root);
-    void print_strip(node* root);
 };
 void tree::insert(node* &root, int num)
 {

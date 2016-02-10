@@ -21,8 +21,14 @@ bool check_priority(char flag, char a, char b) {
         return (priority(a) >= priority(b));
     }
 }
+<<<<<<< HEAD
 // flags:  postfix --> 'o', prefix ---> 'r'
 std::string convert(std::string str, char flag) {
+=======
+
+std::string postfix(std::string str) {
+    std::cout << "func";
+>>>>>>> parent of 9317ae5... Update Infix_To_Postfix_Prefix
     std::stack<char> action_stack;
     std::string output="";
     char symbol1 = '(';

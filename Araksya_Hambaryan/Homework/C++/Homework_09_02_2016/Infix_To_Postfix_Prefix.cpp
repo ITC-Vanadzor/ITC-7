@@ -21,14 +21,20 @@ int priority(char x) {
 	}
     }
 }
+void incorrect_string() {
+    std::cout << "Incorrect string! Try again. " << std::endl;
+    exit(1);
+}
 
 void correct_string (std::string text) {
     int bracket_open = 0;
     int bracket_close = 0;
     for (int i = 0; i < text.length(); ++i) {
+	if (i != 0 && text[i] > 0 && text[i-1] > 0) {
+		incorrect_string();
+	}
 	if (priority(text[i]) == -1) {
-	    std::cout << "Incorrect string! Try again. " << std::endl;
-	    exit(1);
+	    incorrect_string();
 	}
 	if (text[i] == '(' ) {
 	    ++bracket_close;
@@ -36,12 +42,32 @@ void correct_string (std::string text) {
 	if (text[i] == ')' ) {
 	    ++bracket_open;
 	}
+	if (bracket_open - bracket_close < 0) {
+		incorrect_string();
+	}
     }
     if ( bracket_open != bracket_close || priority(text[0]) > 1 || priority(text[text.length()-1]) > 1 ) {
-        std::cout << "Incorrect string! Try again. " << std::endl;
-	exit(1);
+        incorrect_string();
     } else {
         std::cout << "Correct string " << std::endl;
+    }
+}
+
+std::vector<std::string> convert_vector(std::string text) {
+    std::vector<std::string> convert;
+    std::string tmp = "";
+    int i = 0;
+    while (i < text.length()) {
+	if (priority(text[i] > 0) {
+		tmp += text[i];
+	} else {
+		while (priority(text[i]) == 0) {
+			tmp += text[i];
+			++i;
+		}
+	}
+	convert.push_back(tmp);
+	tmp = "";
     }
 }
 

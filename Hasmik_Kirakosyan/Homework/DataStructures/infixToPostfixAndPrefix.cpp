@@ -51,7 +51,7 @@ bool validateScopes (std::string exp) {
 // ================== Validate symbols ===============
 bool validateExpSymbols (std::string exp) {
 	for (int i = 0; i < exp.length(); i++) {
-		if ((exp[i] <'(' && exp[i]>'9') || exp[i]!='^')
+		if ((exp[i] <'(' && exp[i]>'9') && exp[i]!='^')
 			return false;
 	}
 	return true;

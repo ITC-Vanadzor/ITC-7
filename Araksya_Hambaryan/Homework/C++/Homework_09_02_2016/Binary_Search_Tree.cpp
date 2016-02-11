@@ -1,7 +1,7 @@
 #include <iostream>
 #include <queue>
 #include <algorithm> 
-// incomplete
+
 
 struct node {
     int data;
@@ -88,6 +88,7 @@ node* minimum(node* n) {
     }
     return minimum(n->left);
 }
+
 bool verify(node* n) {
     if ( n==NULL) {
 	return true;
@@ -101,17 +102,35 @@ bool verify(node* n) {
 	return verify(n->right);
 }
 
-/*void remove(node* n, int a) {
+//incorrect
+void remove(node* &n, int a) {
     if (n == NULL) {
 	return;
     }
-    
-    node* tmp = find(n, a);
-    if (tmp->right == NULL && tmp->left ==NULL) {
-	delete tmp;
+    node* tmp = NULL;
+    if (n->data == a) {
+	if (n->left == NULL  && n->right == NULL) {
+	    n=NULL;
+	    delete n;
+	    return;
+	}
+	if (n->left == NULL) {
+	    if (n->right != NULL) {
+	        tmp = minimum(n->right);
+		std::swap (n->data, tmp->data);
+		remove (tmp, tmp->data);
+	    }
+	} else {
+	        tmp = maximum(n->left);
+		std::swap(n->data, tmp->data);
+		remove (tmp, tmp->data);
+	}
+    } else {
+	tmp = find(n, a);
+	remove (tmp, a);
     }
-	delete tmp;
-}*/
+}
+
 
 int main () {
     node* root = NULL;
@@ -123,7 +142,9 @@ int main () {
     insert(root, 5);
     insert(root, 13);
     
+    std::cout << "Print tree /ordinary/ " << std::endl;
     print(root);
+    std::cout << "Print tree /by levels/ " << std::endl;
     print_levels(root);
     
     find(root, 4);
@@ -135,5 +156,7 @@ int main () {
 	std::cout << "This is not a binary search tree" << std::endl;
     }
     
+    remove(root, 4);
+    print (root);
     return 0;
 }

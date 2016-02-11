@@ -7,10 +7,10 @@ struct node
         node *left;    
         node *right;  
 	node(int val)
-        {
-        value=val;
-	left = NULL;
-	right = NULL;
+        : value(val)
+	, left(NULL)
+	, right(NULL)
+	{
         };
 };
 
@@ -61,18 +61,26 @@ int Max(node* root)
 
 
 
-bool  BST(node* root, int min, int max) 
+
+bool isBST(node* root)
 {
-	 if (root == NULL)
-	 {
-		 return true;
-	 }
-	 if (root->value < min || root->value > max)
- 	 {
-		 return false;
-	 }
- BST(root->left, min, root->value);
- BST(root->right, root->value, max);
+        std::queue<int> q;
+        if (root != NULL) 
+	{ 
+	  isBST(root->left);
+          q.push(root->value);   
+          isBST(root->right);   
+        }
+	while(!q.empty())
+	{
+	    int current=q.front();
+	    q.pop();
+	    if(current < q.front())
+	    {
+		return false;
+	    }
+	}    
+    return true;
 }
 
 void Print(node *root)
@@ -189,6 +197,6 @@ int main()
       PrintLayer(root);
       std::cout<<"\nSearched value is "<<Search(root,5)<<std::endl;
       std::cout<<"max : "<<Max(root)<<" min : "<<Min(root)<<std::endl;
-      std::cout<<" BST :"<<BST(root, Min(root), Max(root));
+      std::cout<<" BST :"<<isBST(root);
       return 0;
 }

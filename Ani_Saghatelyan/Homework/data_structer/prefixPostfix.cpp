@@ -5,11 +5,28 @@
 #include <assert.h>
 #include <cmath>
 //***************function, which determines is the inputed string correct**********
-bool Assert(const std::string&  str)
+bool validation(const std::string&  str)
 {
 	std::string expectedCharacters="0123456789/*+-^)( ";
+	int count=0;
 	for (int i=0; i<str.size(); ++i)
-	{
+	{    
+		if(str[i]=='(')
+		{
+		    ++count;
+		    if(count<0)
+		    {
+			return false;
+		    }
+		}
+		else if(str[i]==')')
+		{
+		    --count;
+                    if(count<0)
+		    {
+			return false;
+		    }
+		}
         	if(expectedCharacters.find(str[i])==std::string::npos)
 		{
 			return false;
@@ -21,11 +38,11 @@ return true;
 }
 
 //***************does operation for 2  value from postfix********************
-void Calculation(const char& Operator, std::stack <int>&  Stack )
+void Calculation(const char& Operator, std::stack <double>&  Stack )
 {
-	int num2 = Stack.top();
+	double num2 = Stack.top();
 	Stack.pop();
-	int num1 = Stack.top();
+	double num1 = Stack.top();
 	Stack.pop();
 	switch (Operator)
 	{
@@ -41,9 +58,9 @@ void Calculation(const char& Operator, std::stack <int>&  Stack )
 }
 
 //*****************determines value from postfix************
-int DetermineValuePostfix(std::string str)
+double DetermineValuePostfix(std::string str)
 {
-  std::stack <int> numbers;
+  std::stack <double> numbers;
 	
 	 for(int i=0; i<str.size(); ++i)
 	{
@@ -67,12 +84,13 @@ int priority(char a)
 		case '+':case '-':  return 1;
 		case '*':case '/':  return 2;
 		case '^':           return 3;
+		defalut:   return 4;
 	}
 }
 //****************** compareing the priorities of two operators********************
-bool compare(char a, char b, bool flag)
+bool compare(char a, char b, bool ispostfix)
 {
-	if(flag)	
+	if(ispostfix)	
 	{
 		return (priority(a) >= priority(b))? true:false;
 	}
@@ -83,14 +101,14 @@ bool compare(char a, char b, bool flag)
 	
 }
 //*********************** choosing preferences****************
-void  preferences(char &prefopen, char& prefclose, bool flag)
+void  preferences(char &prefopen, char& prefclose, bool ispostfix)
 {
-    if(!flag)
+    if(!ispostfix)
     {
 	prefopen=')';
 	prefclose='(';
     }
-    else
+    else if(ispostfix)
     {
     	prefopen='(';
 	prefclose=')';
@@ -102,30 +120,32 @@ void addToString(std::string& newstr, std::stack <char> & stackOp)
   newstr+=stackOp.top();	
   stackOp.pop();
 }
-
-//*********function, which converts the infix string into postfix and prefix using flags*************
-std::string convert(const  std::string&  str,  bool flag)
+//*********function, which converts the infix string into postfix and prefix using ispostfixs*************
+std::string convert(const  std::string&  str,  bool ispostfix)
 {
-	assert(Assert(str));
-	std::string newstr;
+    	std::string newstr;
 	std::stack <char> stackOp;
 	char prefclose;
 	char prefopen;
-	preferences(prefopen, prefclose,flag);
+	preferences(prefopen, prefclose,ispostfix);
  	for(int i=0; i<str.size(); ++i)
 	{
 		if(str[i] >='0' && str[i] <='9')
 		{
 			newstr+=str[i];
+			std::cout<<str[i]<<std::endl;
 		}	
 		else  
 		{
-			while(!stackOp.empty() &&  compare(stackOp.top(), str[i], flag) && stackOp.top()!=prefopen)
+			while(!stackOp.empty() &&  compare(stackOp.top(), str[i], ispostfix) && stackOp.top()!=prefopen)
 			{
 	                    addToString(newstr, stackOp);
-			} 
+			
+		        }
+			std::cout<<prefopen<<" "<<prefclose<<std::endl;
 			if(str[i]!=prefclose)
 			{
+			    std::cout<<str[i];
 				stackOp.push(str[i]);
 	                 }	
 	       	         else if (str[i]==prefclose)
@@ -151,14 +171,16 @@ return newstr;
 //******************function, which converts  infix into postfix***************************
 std::string  postfix(std::string str)
 {
-	return 	convert(str, 1);
+	assert(validation(str));
+        return 	convert(str, true);
 }
 
 //******************function, which converts  infix into prefix***************************
 std::string prefix(std::string str)
 {
+        assert(validation(str));
 	reverse(str.begin(), str.end());
-        std::string newstr=convert(str, 0);
+        std::string newstr=convert(str, false);
 	reverse(newstr.begin(), newstr.end());
 	return newstr;
 }

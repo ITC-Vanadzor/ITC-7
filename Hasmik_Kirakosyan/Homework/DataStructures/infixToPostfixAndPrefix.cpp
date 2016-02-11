@@ -72,15 +72,12 @@ bool validateExp (std::string exp) {
 std::string postfixConverter (std::string exp) {
         std::stack<char> optStack;
         std::string postfixExp;
-
 	if (validateExp(exp)) {
-		std::cout<<"\nHey\n";
         	for (int i = 0; i < exp.length(); i++) {
 		
 			// Add number to postfix expression
                 	if (exp[i] >= '0' &&  exp[i] <= '9') {
                         	postfixExp += exp[i];
-				postfixExp += ' ';
                 	}
 			//  Add '(' scope to stack
                 	else if (exp[i] == '(') {
@@ -90,7 +87,7 @@ std::string postfixConverter (std::string exp) {
                	 else if (exp[i] == ')') {
                         	while ( optStack.top() != '(' ) {
                                 	addItemToString(optStack, postfixExp);  
-				}            
+				}							            
                 	}
 			// If symbol is operation symbol check priorities within stack actions
   			else if (exp[i] == '*' || exp[i] == '/' || exp[i] == '+' || exp[i] == '-' || exp[i] == '^') {
@@ -98,6 +95,7 @@ std::string postfixConverter (std::string exp) {
 			        	addItemToString(optStack, postfixExp);  
 				}
                         	optStack.push(exp[i]);
+				postfixExp += ' ';
                 	}
         	}
 		// Add remained operators from stack to postfix expression
@@ -124,7 +122,6 @@ std::string  prefixConverter (std::string exp) {
         std::string prefixExp;
 	
 	if (validateExp(exp)) {
-		std::cout<<"\nHey\n";
         	for (int i = exp.length()-1; i >= 0; i--) {
 		
 			// Add number to prefix expression
@@ -180,53 +177,51 @@ void  computePostfixExp (std::string exp) {
 	int tmpVal=0, num1=0, num2=0;
 	for (int i = 0; i< exp.length(); i++) {
 		if (exp[i]>='0' && exp[i]<='9') {
-			std::cout<<"\nExp [i] : "<<exp[i];
 			tmpStr += exp[i]; 
 			tmpVal =tmpVal*10+ std::stoi(tmpStr);
-			std::cout<<"\ntmpVal : "<<tmpVal;
 		}
 		else  if ( exp[i] == ' ') {
 			numberStack.push(tmpVal);
-			std::cout<<"Stack top after each push : "<<numberStack.top();
 			tmpStr="";
 			tmpVal=0;
 		}	
-		else if (numberStack.size()==2 &&
+		else if (!numberStack.empty() &&
 			(exp[i]=='+' || exp[i]=='-' || exp[i]=='*' || exp[i]=='/' || exp[i]=='^')) { 
-				std::cout<<"\nSize of stack :"<<numberStack.size();
 				num2 = numberStack.top();
 				numberStack.pop();
-				std::cout<<"\n Num2 : "<<num2;
 				num1 = numberStack.top();
-				numberStack.pop();
-				std::cout<<"\n Num1 : "<<num1;	 
-				std::cout<<"\nSize of stack :"<<numberStack.size();
+				numberStack.pop(); 
 	
 				switch (exp[i]) {
 					case '+': {
 							numberStack.push(num1+num2);
-							std::cout<<"After + push top : "<<numberStack.top();
-		}
-					case '-': numberStack.push(num1-num2);
+							break;
+						  }
+					case '-': {
+							numberStack.push(num1-num2);
+							break;
+						}
+					case '*': {
+							numberStack.push(num1*num2);
+							break;
+						}
 					
-					case '*': numberStack.push(num1*num2);
+					case '/': {
+							numberStack.push(num1/num2);
+							break;
+						}
 					
-					case '/': numberStack.push(num1/num2);
-					
-					case '^': numberStack.push(num1^num2);
+					case '^':{
+							numberStack.push(num1^num2);
+							break;
+						}
 					default: {};
 				}		
 
 		}
-	std::cout<<"\n=================================\n";
 	}
-
-	std::cout<<numberStack.top()<<std::endl;	
-	numberStack.pop();
-	std::cout<<"\n for check1 :  "<<numberStack.top()<<std::endl;	
-	numberStack.pop();
-	std::cout<<"\n for check2 :  "<<numberStack.top()<<std::endl;	
-	std::cout<<"\n Stack size : " <<numberStack.size();	
+	std::cout<<"\n========================================\n";
+	std::cout<<numberStack.top()<<std::endl;
 }
 
 
@@ -242,7 +237,7 @@ int main() {
         std::cout<<"\nConverted to postfix : "<< postfixConverter(infixExp);
                                                                                                        
 	std::cout<<"\nConverted to prefix : " << prefixConverter(infixExp)<<std::endl;
-	//computePostfixExp(postfixConverter(infixExp));	
+	computePostfixExp(postfixConverter(infixExp));	
 	
 return 0;
 }                       

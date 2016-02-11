@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstdlib>
-
+#include <queue>
 struct node {
 	int data;
 	node* right;
@@ -77,8 +77,35 @@ struct tree {
 	}
 	
 	public:
-	// ================ Verify tree ==========
-	 bool verify(node* treeRoot) {
+	// ================ Tree as queue ==========
+	void treeToQueue(node* treeRoot, std::queue<int> &treeDatas) {
+		if (treeRoot == NULL) {
+			return;
+		}
+		else {
+			treeToQueue(treeRoot->left, treeDatas);	
+			//std::cout<<" "<<treeRoot->data;
+			treeDatas.push(treeRoot->data);
+			treeToQueue(treeRoot->right, treeDatas);
+		}
+	}
+
+	// ================ Check whether tree is a binary search tree ======
+	void verify (node* treeRoot) {
+		int tmp;
+		std::queue<int> treeQueue;
+		treeToQueue(treeRoot, treeQueue);
+		while (!treeQueue.empty()) {
+			tmp = treeQueue.front();
+			std::cout<<" "<<tmp;
+			treeQueue.pop();
+			if (tmp > treeQueue.front() && treeQueue.front()!=0)
+			{
+				std::cout<<"\nTree isn't binary search tree : "<<tmp<<" "<<treeQueue.front();
+				return;
+			}
+	    	}
+		std::cout<<"\nTreee is a binary search tree\n";	
 	}
 	
 	// ===============  Public insert ========
@@ -111,19 +138,30 @@ void print (node* n) {
 	}
 	else {
 		print(n->left);
-		std::cout<<n->data;
+		std::cout<<" "<<n->data;
 		print(n->right);
 	}
 };
 
 
+// ========== Print level by level ========
+void print_Tree(node * p,int level)
+{
+}
+
 // =========== main function ===============
 int main() {
 
 tree myTree;
+myTree.insert(13);
 myTree.insert(5);
 myTree.insert(23);
-print(myTree.root);
+myTree.insert(44);
+myTree.insert(1);
 
+std::queue<int> datas;
+myTree.verify(myTree.root);
+//print(myTree.root);
+//print_Tree(myTree.root, 1);
 return 0;
 }

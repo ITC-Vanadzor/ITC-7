@@ -12,6 +12,7 @@ struct Node{
 
 
 struct Tree{
+	
 	Node *m_root;
 
 	Tree(int);

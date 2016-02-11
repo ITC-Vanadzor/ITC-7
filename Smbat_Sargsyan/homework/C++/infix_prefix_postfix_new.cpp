@@ -82,8 +82,10 @@ bool Stugum ( std::string infix) {
 		}
 		if (infix[i] == ')') {
 			-- stugum;
+			if(stugum < 0) {
+				return false;
+			}
 		}
-	}
 	if(stugum == 0) {
 		std::cout << "Is correct " << std::endl;
 		return true;

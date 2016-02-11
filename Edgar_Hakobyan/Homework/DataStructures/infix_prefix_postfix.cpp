@@ -1,6 +1,77 @@
 #include <iostream>
 #include <stack>
-#include <cstring>
+#include <string>
+#include <cmath>
+#include <stdlib.h>
+
+bool isOperator(char ch)
+{
+    if (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch =='^')
+        return true;
+    else
+        return false;
+}
+
+bool validation(std::string str)
+{
+	int count_bracket = 0;
+	for(int i = 0; i < str.length(); ++i)
+	{
+		if ( str[i]-48 >= 0 && str[i]-48 <= 9)
+		{
+			continue;
+		}
+		else if ( isOperator(str[i]) )
+		{
+			if ( isOperator(str[i+1]) )
+			{
+                return 0;
+			}
+		}
+		else if ( str[i] == '(' )
+		{
+			++count_bracket;
+		}
+		else if ( str[i] == ')' )
+		{
+			--count_bracket;
+			if ( count_bracket < 0 )
+			{
+				return 0;
+			}
+		}
+		else
+		{
+			return 0;
+		}
+	}
+	return 1;
+}
+
+int value_operand(int op1, int op2, char op)
+{
+    int tmp;
+    switch(op)
+	{
+    	case '+':
+    	    tmp = op1 + op2;
+        	break;
+    	case '-':
+        	tmp = op1 - op2;
+        	break;
+    	case '*':
+        	tmp = op1 * op2;
+        	break;
+    	case '/':
+        	tmp = op1 / op2;
+        	break;
+		case '^':
+			tmp = pow(op1,op2);
+			break;
+    }
+    return tmp;
+}
+
 int priority(char symbol)
 {
 	switch (symbol)
@@ -13,13 +84,14 @@ int priority(char symbol)
 	}
 }
 
-void convert_postfix(char* infix) 
+std::string convert_postfix(std::string infix) 
 {
+	if ( validation(infix) )
+	{
 	std::stack<char> S;
-	char postfix[10];
-	int k = -1;
+	std::string postfix = "";
 	int open_bracket = 0;
-	for(int i = 0; i < strlen(infix); ++i)
+	for(int i = 0; i < infix.length(); ++i)
     {
     	if (infix[i] == '+' || infix[i] == '-' || infix[i] == '*' || infix[i] == '/' || infix[i] == '^' || infix[i] == '(' || infix[i] == ')')
         {
@@ -32,8 +104,8 @@ void convert_postfix(char* infix)
             {
                 while ( S.top() != '(' )
                 {
-                    postfix[++k] = S.top();
-                    S.pop();
+                 	postfix += S.top();
+					S.pop();
                 }
                 S.pop();
                 --open_bracket;
@@ -50,7 +122,7 @@ void convert_postfix(char* infix)
             {
                 while ( priority(S.top()) >= priority(infix[i]) )
                 {
-                    postfix[++k] = S.top();
+					postfix += S.top();
                     S.pop();
                     if (S.size() == 0) break;
                 }
@@ -63,30 +135,55 @@ void convert_postfix(char* infix)
         }
 	 	else
         {
-            postfix[++k] = infix[i];
+			postfix += infix[i];
         }
     }
     while ( S.size() )
     {
-        postfix[++k] = S.top();
+		postfix += S.top();
         S.pop();
     }
-    std::cout << "postfix expression: ";
-    for( int i = 0; i <= k; ++i)
-    {
-        std::cout << postfix[i];
-    }
-	std::cout << std::endl;
+    return postfix;
+	}
+	else
+	{
+		std::cout << "sintax error!" << std::endl;
+		exit(0);
+	}
 }
 
-void convert_prefix(char* infix)
+int value_postfix(std::string p)
 {
+	int value;
+	std::stack<int> value_stack;
+	for(int i = 0; i < p.length(); ++i)
+	{
+		if ( isOperator(p[i]) )
+		{
+			int op2 = value_stack.top();
+			value_stack.pop();
+			int op1 = value_stack.top();
+			value_stack.pop();
+			value = value_operand(op1,op2,p[i]);
+			value_stack.push(value);
+		}
+		else
+		{
+			int tmp = p[i] - 48;
+			value_stack.push(tmp);
+		}
+	}
+	return value;
+}
+
+std::string convert_prefix(std::string infix)
+{
+	if ( validation(infix) )
+	{
 	std::stack<char> S;
-	char prefix[10];
+    std::string prefix = "";
 	int close_bracket = 0;
-	int k = strlen(infix);
-	int kk = k;
-	for(int i = k-1; i >= 0; --i)
+	for(int i = infix.length()-1; i >= 0; --i)
     {
         if (infix[i] == '+' || infix[i] == '-' || infix[i] == '*' || infix[i] == '/' || infix[i] == '^' || infix[i] == '(' || infix[i] == ')')
         {
@@ -99,7 +196,7 @@ void convert_prefix(char* infix)
             {
                 while ( S.top() != ')' )
                 {
-                    prefix[--k] = S.top();
+                    prefix.insert(0,1,S.top());
                     S.pop();
                 }
                 S.pop();
@@ -117,7 +214,7 @@ void convert_prefix(char* infix)
             {
                 while ( priority(S.top()) >= priority(infix[i]) )
                 {
-                    prefix[--k] = S.top();
+					prefix.insert(0,1,S.top());
                     S.pop();
                     if (S.size() == 0) break;
                 }
@@ -130,27 +227,33 @@ void convert_prefix(char* infix)
         }
      else
         {
-            prefix[--k] = infix[i];
+			prefix.insert(0,1,infix[i]);
         }
     }
     while ( S.size() )
     {
-        prefix[--k] = S.top();
+		prefix.insert(0,1,S.top());
         S.pop();
     }
-    std::cout << "prefix expression: ";
-    for( int i = k; i < kk; ++i)
-    {
-        std::cout << prefix[i];
-    }
-    std::cout << std::endl;
+	return prefix;
+	}
+	else 
+	{
+		std::cout << "sintax error!" << std::endl;
+		exit(0);
+	}
 }
 
 int main()
 {
-	char infix[] = "a+b*(c+d)";
-	std::cout << "infix expression: " << infix << std::endl;
-	convert_prefix(infix);
-	convert_postfix(infix);
+	std::string expression = "2+(3*2)-8/2*2^2";
+//  std::getline(std::cin,expression);
+	std::string postfix = convert_postfix(expression);
+	std::string prefix = convert_prefix(expression);
+	int value = value_postfix(postfix);
+	std::cout << "infix_expression " << expression << std::endl;
+	std::cout << "postfix_expression " << postfix << std::endl;
+	std::cout << "prefix_expression " << prefix << std::endl;
+	std::cout << "value = " << value << std::endl;
 	return 0;
 }

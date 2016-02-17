@@ -1,0 +1,5 @@
+Calculator
+==========
+
+.. automodule:: calc
+   :members:

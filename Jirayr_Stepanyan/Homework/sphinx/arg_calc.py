@@ -2,9 +2,10 @@
 import sys, argparse
 
 def add(a, b):
-   """
-   add function
-   :param name: a, b
+   """   
+   :param name: a
+   :param type: float
+   :param name: b
    :param type: float
    :returns: float
    """

@@ -20,4 +20,4 @@ Members
 +-----------+---------------+----------------------+
 
 
-
+.. todo:: the itc7 stidents images from Members page

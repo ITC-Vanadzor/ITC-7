@@ -1,6 +1,6 @@
 In Future
 ====================================
-What i will be in future,i think....
+Who I will be in the future :) I am thinking ...
 
 
 .. image:: future.jpg

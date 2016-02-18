@@ -1,0 +1,25 @@
+#amboxj 
+{
+    width: 360px;
+    height:625px; 
+    border:solid 2px black;
+    border-radius:5px; 
+    margin:50px auto; 
+    background-color:#BAE5FD
+}
+#please
+{
+    
+    color: #14608c; 
+    margin-top: 35%;
+    margin-left: 22%;
+}
+.fb_and_g
+{
+    border: 1px solid #1996d4;
+    border-radius:5px;
+    background:#1996d4;
+    margin-left:15%;
+    margin-top:10%;
+    width: 250px;
+}

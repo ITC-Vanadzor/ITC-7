@@ -2,17 +2,26 @@
 <html>
     <head>
 	<title>login page</title>
+	<link rel = "stylesheet" type = "text/css" href = "page_3.css">
     </head>
 <body>
-<div style = "width:360px; height:625px; border:solid 2px black; border-radius:5px; margin:50px auto; background-color:#BAE5FD"> 
+<div id = "amboxj"> 
     <img src = "resurses/jam.png">
-    <a href = "page_2.html"><button style = "margin-top: 15%">	
-	<img src = "resurses/slaq.png">
-    </button></a>
-    <img src = "resurses/email.png" style = "margin-top: 60%; margin-left: 6%">
-    <img src = "resurses/password.png" style = "margin-top: 1%; margin-left: 6%">
-    <button style = "margin-top: 10%; margin-left: 6%">
-	<img src = "resurses/log.png">
+    <div>
+	<a href = "page_2.html">
+	    <button id = "slaq">
+		<img src = "resurses/slaq.png">
+	    </button>
+	</a>
+    </div>
+    <div id = "log_pass">
+	<input class = "login_password" type = "login" placeholder = "Email or phone"><br>
+	    <hr color = #1491D2>
+	<input class = "login_password" type = "password" placeholder = "Password" style = "margin-top: 5%"><br>
+	    <hr color = #1491D2>
+    </div>
+    <button id = "log">
+	<img id = "img" src = "resurses/fb.png">Log in
     </button>
 </div>
 </body>

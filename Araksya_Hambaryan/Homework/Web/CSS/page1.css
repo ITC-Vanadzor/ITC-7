@@ -18,10 +18,24 @@ div h2 {
     font-family:Arial;
 }
 
-#button_div {
+div img{
+    width:25px;
+    height:25px;
+    margin:25px;
+}
+
+/* for page 1 */
+#button_div_1 {
     width:360px;
     height:70px; 
     margin-top:20%;
+}
+
+/*for page2 */
+#button_div_2 {
+    width:360px;
+    height:70px; 
+    margin-top:72%;
 }
 
 .easy_button {
@@ -35,7 +49,8 @@ div h2 {
     font-size:18px;
     color:white;
 }
-   
+
+/* for "g+" */
 .letterG {
     font-family:Georgia;
     color:white;
@@ -43,7 +58,8 @@ div h2 {
     margin-right:30px;
     margin-left:10px;
 }
-   
+
+/* for "f" */
 .letterF {
     font-family:Arial;
     color:white;

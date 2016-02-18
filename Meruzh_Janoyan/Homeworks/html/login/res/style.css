@@ -1,6 +1,13 @@
- a.mybutton {
+body{
+	margin:0;
+	padding:0;
+}
+
+/* sign in */
+ .mybutton {
          float: left;
          margin-left: 10%;
+         margin-top: 1%;
          text-align: center;
          width:75%;
          font-weight: bold;
@@ -12,11 +19,78 @@
          box-shadow: 0 -3px #0076C4 inset;
          transition: 0.2s;
  } 
- a.mybutton:hover { background: #0076C4; }
- a.mybutton:active {
+ .mybutton:hover { background: #0076C4; }
+ .mybutton:active {
          background: #0064A6;
          box-shadow: 0 3px #0076C4 inset;
  }
+  #menuButtonsignup {
+	 margin-left:20px;
+         text-align: center;
+         width:100px;
+	 height:35px;
+         width:100px;
+         font-weight: bold;
+         color: black;
+         text-decoration: none;
+         padding: 0.3% 0.3%;
+         border-radius: 5px;
+         background: #e6e6e6;
+         box-shadow: 0 -3px #e6e6e6 inset;
+         transition: 0.2s;
+ } 
+ #menuButtonsignup:hover { background: #cccccc; }
+ #menuButtonsignup:active {
+         background: #b3b3b3;
+         box-shadow: 0 3px #e6e6e6 inset;
+ }
+
+#menuButtonsignin {
+         text-align: center;
+         width:100px;
+	 height:35px;
+         font-weight: bold;
+         color: white;
+         text-decoration: none;
+         padding: 0.3% 0.3%;
+         border-radius: 5px;
+         background: #0094F7;
+         box-shadow: 0 -3px #0076C4 inset;
+         transition: 0.2s;
+ } 
+ #menuButtonsignin:hover { background: #0076C4; }
+ #menuButtonsignin:active {
+         background: #0064A6;
+         box-shadow: 0 3px #0076C4 inset;
+ }
+/*  end of sign in*/
+
+/*    index  page */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #E8E8E8;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    color: #BFBFBF;
+}
+
+/*  end of index*/
 
  .myinput {
          border-style: solid;
@@ -53,6 +127,12 @@
 	margin-left:38%;
 	width:30%;
 	margin-top:5%;
+}
+#smallogo{
+	float:left;
+        width:40px;
+	margin-left:1%;
+	margin-top:0.3%;
 }
 
 

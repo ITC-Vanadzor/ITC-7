@@ -4,13 +4,13 @@
 		<style>
 			a.mybutton {
 				float: left;
-				margin-left: 15%;
+				margin-left: 10%;
 				text-align: center;
-				width:70%;
+				width:75%;
 				font-weight: bold;
 				color: white;
 				text-decoration: none;
-				padding: 10px 10px;
+				padding: 12px 10px;
 				border-radius: 5px;
 				background: #0094F7;
 				box-shadow: 0 -3px #0076C4 inset;
@@ -22,22 +22,37 @@
 				box-shadow: 0 3px #0076C4 inset;
 			}
 			</style>
+		
+		<style>
+			.myinput {
+				border-style: solid;
+				border-width: 1px; 
+				border-color: #B2B0B0; 
+				padding: 10px; 10px;
+				border-radius: 5px;
+				margin-left:10%;
+				width: 75%; 
+				margin-top:5%;				
+				
+			}
+			</style>
 	</head>
 		
 
 	<body>
 
-	<div style="background-color:#EEEEEE; color:black; padding:20px; height:400px;width:350px;margin:auto">
+	<div style="background-color:#E8E8E8; color:black;  height:450px;width:400px;margin:auto;border-radius: 10px;">
 
-	<div style="background-color:#888888; color:white; padding:20px; height:1px;width:350px;margin-left:-5.6%;margin-top:-6%">
+	<div style="background-color:#B2B0B0; color:white; height: 25px;width: 100%;border-radius: 3px;">
 	</div>
-		<img src="res/icon.png" style="margin-left:35%; width:35%; margin-top:5%;" >
+		<img src="res/icon.png" style="margin-left:38%; width:30%; margin-top:5%;" >
 
 		<form action="#" >
-			<input type="text" name="email" placeholder="Email" style="margin-left:15%; width:70%;margin-top:10%;" >
-			<input type="password" name="password" placeholder="Password" style="margin-left:15%; width:70%;margin-top:5%;">
-			<label><input style="margin-left:15%; margin-top:5%;" type="checkbox" name="remember"  >Remember me</label>
-			<p><a href="#" class="mybutton">Sign In</a></p>						
+			<input type="text" name="email" placeholder="Email" class="myinput"  >
+			<input type="password" name="password" placeholder="Password" class="myinput">
+			<label><input style="margin-left:10%; margin-top:5%;" type="checkbox" name="remember"  >Remember me</label>
+			<p><a href="#" class="mybutton">Sign In</a></p>	
+			<p align="center" style="margin-top: 20%;" ><a href="#sss" align="center" style="color:#5FA5FF;text-decoration: none;" >Create an account</a></p>
 		</form> 
 	</div> 
 </body>

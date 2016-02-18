@@ -1,0 +1,70 @@
+ a.mybutton {
+         float: left;
+         margin-left: 10%;
+         text-align: center;
+         width:75%;
+         font-weight: bold;
+         color: white;
+         text-decoration: none;
+         padding: 12px 10px;
+         border-radius: 5px;
+         background: #0094F7;
+         box-shadow: 0 -3px #0076C4 inset;
+         transition: 0.2s;
+ } 
+ a.mybutton:hover { background: #0076C4; }
+ a.mybutton:active {
+         background: #0064A6;
+         box-shadow: 0 3px #0076C4 inset;
+ }
+
+ .myinput {
+         border-style: solid;
+         border-width: 1px; 
+         border-color: #B2B0B0; 
+         padding: 10px; 10px;
+         border-radius: 5px;
+         margin-left:10%;
+         width: 75%; 
+         margin-top:5%;                          
+         
+ }
+
+#loginbg{
+	background-color:#E8E8E8;
+	color:black;
+        height:450px;
+	width:400px;
+	margin:auto;
+	border-radius: 10px;
+}
+
+#logintopbg{
+
+	background-color:#B2B0B0;
+	color:white;
+	height: 25px;
+	width: 100%;
+	border-radius: 3px;
+}
+
+#logo{
+
+	margin-left:38%;
+	width:30%;
+	margin-top:5%;
+}
+
+
+#checkbox{
+	margin-left:12%; 
+	margin-top:5%;
+}
+
+/* create an account */
+#signuplink
+{
+	color:#5FA5FF;
+	text-decoration: none; 
+	margin-top: 1%;
+}

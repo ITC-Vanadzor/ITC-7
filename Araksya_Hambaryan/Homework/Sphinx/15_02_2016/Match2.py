@@ -4,6 +4,7 @@
 :param type: file
 :returns: bool
 :raise: IndexError, FileNotFoundError
+
 """
 
 import re
@@ -18,7 +19,7 @@ def PrintIncorrect():
 def Line_1(data):
    '''
    This function checks the first line
-   :param name: data
+   :param data: first line in file
    :type: string
    :return: bool
    '''
@@ -29,7 +30,7 @@ def Line_2(data):
    '''
    This function checks the second line
    
-   :param name: data
+   :param data: second line in file
    :type: string
    :return: bool
    '''
@@ -40,7 +41,7 @@ def Line_3(data):
    '''
    This function checks the third line
    
-   :param name: data
+   :param data: third line in file
    :type: string
    :value: 'Armenia', 'France', 'Italy', 'USA'
    :return: bool

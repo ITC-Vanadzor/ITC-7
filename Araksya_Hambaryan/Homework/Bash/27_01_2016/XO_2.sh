@@ -58,49 +58,74 @@ condition_step() {
     fi
 }
 game() {
-
+    echo $p
+    read step
+    condition_step
+    echo $step $step_text > log
+    arr[$step]=$step_text
+    print_arr
+    condition_win
 }
-
+cikl() {
+    until  [ "`head -1 log | cut -c 4-5`" = $step_text ]
+		    do
+			sleep 5
+		done
+    tmp=`head -1 log | cut -c 1-2`
+    arr[$tmp]=$step_text2
+    print_arr
+}
 p1="Player1__X";
 p2="Player2__O";
-if [-z `ls | grep "log"` ]
+print_arr
+if test -f log
     then
-	echo $p1 > log
-	p=$p1
-	step_count=1
-	while :
-	   do
-	    sleep 5
-	    if [ `cat log` -eq $p2 ]
-		then echo "" > log
-		     break
-	    fi
-	done
-    else
 	echo $p2 > log
 	p=$p2
 	step_count=2
+	step_text="O|"
+	step_text2="X|"
+    else
+	echo $p1 > log
+	p=$p1
+	step_count=1
+	step_text="X|"
+	step_text2="O|"
+	while :
+	   do
+	    sleep 5
+	    if [ "`cat log`" = $p2 ]
+		then sed -i -e '$d' log
+		     break
+	    fi
+	done
 fi
-print_arr
+if [ $step_count -eq 1 ]
+    then 
+        echo "game1"
+	    game
+fi
+#step_count=$[step_count+2]
+ until  [ "`head -1 log | cut -c 4-5`" = $step_text ]
+    do
+	sleep 5
+    done
+echo "0"
 while [ $step_count -le 9 ]
     do
-    if [ `expr $step_count % 2` -ne 0 ]
-    then 
-	echo $p
-	read step
-	condition_step
-	echo $step > log
-	arr[$step]="X|"
-	print_arr
-	condition_win
-    else 
-	echo $p
-        read step
-	condition_step
-	arr[$step]="O|"
-	print_arr
-	condition_win
-    fi
-    step_count=$((step_count+2))
+	echo "1"
+	echo "2"
+	if [ $step_count -ne 1 ]
+	    then
+		if [ `expr $step_count % 2` -ne 0 ]
+		    then
+			cikl
+			game
+		    else
+			cikl
+			game
+		fi
+	fi
+	step_count=$[step_count+1]
 done
 rm log

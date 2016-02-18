@@ -1,0 +1,70 @@
+.phone{
+    width: 360px;
+    height: 625px;
+    background-image: linear-gradient(to bottom,#B6E4FC,white);
+    border: 10px solid black;
+    border-radius:10px;
+    margin-left: 35%;
+}
+
+.header{
+   width: 99%;
+   height: 66px;
+   background-color: #0589D1;
+   color: white;
+   border-radius: 4px;
+}
+
+input{
+    width: 97%;
+    height: 30px;
+    margin-left: 5px;
+   }
+   
+.header img{
+    margin-top: 1px;
+    vertical-align: middle;
+}   
+
+a{
+    text-decoration: underline;
+}
+
+.group{
+    margin-right: 120px;
+    margin-left: 30px
+}
+
+.content{
+    padding-top: 20px;
+    padding-left: 8px;
+}
+
+.message{
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.message img{
+    height: 42px;
+    width: 42px;
+    border: 2px solid #2D759D;
+    border-radius: 15px;
+    vertical-align: top;
+}
+
+.names{
+    font-size: 12px;
+    display: inline-block;
+    width: 300px;
+}
+
+.sms{
+    width: 301px;
+    float: left;
+    color: #5FBBE8;
+}
+
+.time{
+    float: right;
+}

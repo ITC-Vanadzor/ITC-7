@@ -4,7 +4,7 @@
         border: 10px solid black;
         width: 360px;
         height: 625px;
-	background-color: #C2E8FC;
+	background-image: linear-gradient(to bottom,#B6E4FC,white);
 }
 button {
         border-radius: 10px;

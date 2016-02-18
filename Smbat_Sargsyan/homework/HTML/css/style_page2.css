@@ -1,0 +1,46 @@
+.phone {
+        margin-left: 35%;
+        border-radius:10px;
+        border: 10px solid black;
+        width: 360px;
+        height: 625px;
+	background-color: #C2E8FC;
+}
+button {
+        border-radius: 10px;
+        border: 0px solid black ;
+	vertical-align: middle;
+}
+
+
+.background_button {
+        background: #1996D4;
+        color: white;
+        width: 300px;
+        height: 50px;
+}
+
+.content {
+        margin-top: 50%;
+}
+
+.ikon {
+        margin-left: 3px;
+        margin-right: -33px;
+        float: left;
+}
+.back {
+        margin-left: 4%;
+        margin-top: 25px;
+        width: 30px;
+}
+.facebook_icon {
+        background-image: url("../images/fb.png")
+}
+button img
+    {
+        width: 15%;
+    }
+p {
+	text-align: center;
+}

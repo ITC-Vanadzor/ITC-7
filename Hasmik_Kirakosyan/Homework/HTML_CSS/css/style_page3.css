@@ -20,24 +20,45 @@ body
 
     }
 
+#phone_border img
+   {
+
+	width:2em; 
+	height:2em; 
+	margin-top: 1em;
+	margin-left:1em;
+	position:0px 0px 0px 0px;
+ 
+   }
 .content_center 
     {
-	margin-top:1em;
+	margin-top:8em;
 	padding-top:1px;
 	border-radius: 8px;
 	width:20em;
+	text-align: center;
     }
-.content_center img 
-    {
-	margin-top:2em;
-        margin-left:1em;
-	width: 2em;
-        height: 2em;
-	position: 0px 0px 0px 0px;
-    }
+
+.content_center input 
+   {
+	margin-bottom:2em;
+	text-align: left;
+	border: 0; 
+	outline: 0; 
+	background: transparent; 
+	border-bottom: 2px solid #1993D4;
+	width:300px; 
+	height:25px; 
+	background-color:#C4E9FD; 
+	color:#1993D4; 
+	font-size:18px; 
+	font-family:Arial;	
+   }
+
 button 
     {
 	 margin-bottom: 2em;
+	 margin-left: 0.5em;
 	 width:300px; 
 	 height:50px; 
 	 background-color:#1993D4; 
@@ -48,7 +69,7 @@ button
 	 border:none;
 	 vertical-align: middle;
 	 background-repeat: no-repeat;
-	 background-size: 2em 2em;
+	 background-size: 1.8em 2.3em;
     }
 
 .facebook_icon {

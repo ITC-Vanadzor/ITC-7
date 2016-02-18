@@ -1,0 +1,24 @@
+.but {
+     background: #0000FF; /* Backgrounds color for button is blue */
+     color: white; /* White text */
+     font-size: 100%; /* Size of text */
+     width: 200px;  /*Width of buttons */
+     padding: 2px 5px; /*Space from button borders */
+    }
+.sign-text {
+     text-align: center;
+     font-size:100%;
+     margin-bottom: 50px;
+     padding-top: 50px;
+    }
+.bgr{
+     color: #00FFFF;
+    }
+#phone {
+    background:linear-gradient(to top, white, #BCE6FD);
+    width:360px; 
+    height:625px; 
+    border:solid 5px black; 
+    border-radius:10px; 
+    margin:50px auto;
+}

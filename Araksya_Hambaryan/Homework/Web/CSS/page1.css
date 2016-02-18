@@ -1,0 +1,53 @@
+#background {
+    background-color:#E8E8E8;
+}
+
+#phone {
+    background:linear-gradient(to top, white, #BCE6FD);
+    width:360px; 
+    height:625px; 
+    border:solid 5px black; 
+    border-radius:10px; 
+    margin:50px auto;
+}
+
+div h2 {
+    color:#14608C;
+    text-align:center;
+    margin-top:45%;
+    font-family:Arial;
+}
+
+#button_div {
+    width:360px;
+    height:70px; 
+    margin-top:20%;
+}
+
+.easy_button {
+    margin:auto 30px;
+    border:solid 0px black;
+    border-radius:5px;
+    background-color:#1491D2;
+    width:300px;
+    height:43px;
+    text-align:left;
+    font-size:18px;
+    color:white;
+}
+   
+.letterG {
+    font-family:Georgia;
+    color:white;
+    font-size:32px;
+    margin-right:30px;
+    margin-left:10px;
+}
+   
+.letterF {
+    font-family:Arial;
+    color:white;
+    font-size:32px;
+    margin-right:50px;
+    margin-left:15px;
+   }

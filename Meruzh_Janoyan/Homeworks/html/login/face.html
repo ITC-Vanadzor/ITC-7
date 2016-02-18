@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
    <head>
-	 <link rel="stylesheet" href="res/style.css">       
+	 <link rel="stylesheet" href="res/style.css">      
+	 <meta charset="utf-8"> 
 
    </head>
 
@@ -9,15 +10,21 @@
 
 
  <ul>
- <a class="active" href="#home"><img src="res/icon.png" id="smallogo"></a>
+ <a class="active" href="index.html"><img src="res/icon.png" id="smallogo"></a>
   <li><a href="#about">About us</a></li>
   <li><a href="#use">How to use</a></li>
   <li><a href="#download">Download</a></li>
-  <div style="float: right;margin-top: 0.5% ; margin-right:1%;">
-  <button  id="menuButtonsignin" >Sign In</button>
-  <button  id="menuButtonsignup" >Sign Up</button>
+  <div id="menuButtonalign">
+  <button  id="menuButtonsignin" class="menuButtonSize" >Sign Up</button>
+  <button  id="menuButtonsignup" class="menuButtonSize">Sign In</button>
  </div>
 </ul>
+
+
+ <div id="biglogobg">
+	<img src="res/money.jpg" id="biglogobgimg">
+	<img src="res/icon.png" id="biglogoimg">
+ </div>
 
 </body>
 </html>

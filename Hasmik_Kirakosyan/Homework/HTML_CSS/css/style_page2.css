@@ -4,46 +4,53 @@ body
     }
 
 .content_center div
-    {
-	margin-top:100px;
+    {	
+	margin-top:5em;
+	margin-left:0.5em;
     }
 
-#phone_border 
-    {	
-	text-align:center; 
+#phone_border
+   {
 	margin:350px 600px;
 	width: 20em;
 	height: 35em;
 	border: 20px solid #666666;
 	border-radius: 25px;
+	background-color:#CEEDFE;
+
     }
 
 .content_center 
     {
+	margin-top:1em;
 	padding-top:1px;
 	border-radius: 8px;
 	width:20em;
-	height:35em;
-	background-color: #C4E9FD;
     }
-
+.content_center img 
+    {
+	margin-top:2em;
+        margin-left:1em;
+	width: 2em;
+        height: 2em;
+	position: 0px 0px 0px 0px;
+    }
 button 
     {
+	 margin-bottom: 2em;
 	 width:300px; 
 	 height:50px; 
 	 background-color:#1993D4; 
 	 color:white; 
-	 font-size:14px;
+	 font-size:20px;
 	 border-radius:7px;
 	 text-align: center;
 	 border:none;
 	 vertical-align: middle;
-	 background-repeat: repeat-y;
-	 background-size: 3em 3em;
+	 background-repeat: no-repeat;
+	 background-size: 2em 2em;
     }
 
-button img 
-
 .facebook_icon {
-	background-image: url("../img/facebook1.png")
+	background-image: url("../img/facebook.png");
 }

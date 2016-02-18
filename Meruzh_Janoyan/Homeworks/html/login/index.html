@@ -1,59 +1,22 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<style>
-			a.mybutton {
-				float: left;
-				margin-left: 10%;
-				text-align: center;
-				width:75%;
-				font-weight: bold;
-				color: white;
-				text-decoration: none;
-				padding: 12px 10px;
-				border-radius: 5px;
-				background: #0094F7;
-				box-shadow: 0 -3px #0076C4 inset;
-				transition: 0.2s;
-			} 
-			a.mybutton:hover { background: #0076C4; }
-			a.mybutton:active {
-				background: #0064A6;
-				box-shadow: 0 3px #0076C4 inset;
-			}
-			</style>
-		
-		<style>
-			.myinput {
-				border-style: solid;
-				border-width: 1px; 
-				border-color: #B2B0B0; 
-				padding: 10px; 10px;
-				border-radius: 5px;
-				margin-left:10%;
-				width: 75%; 
-				margin-top:5%;				
-				
-			}
-			</style>
-	</head>
-		
-
-	<body>
-
-	<div style="background-color:#E8E8E8; color:black;  height:450px;width:400px;margin:auto;border-radius: 10px;">
-
-	<div style="background-color:#B2B0B0; color:white; height: 25px;width: 100%;border-radius: 3px;">
-	</div>
-		<img src="res/icon.png" style="margin-left:38%; width:30%; margin-top:5%;" >
-
+  <head>
+	<title>Sign In to HDM</title>
+    		<link rel="stylesheet" href="res/style.css">
+  </head>
+ 
+  <body>
+	<div id="loginbg">
+  		<div id="logintopbg"></div>
+		<img src="res/icon.png"  id="logo">
 		<form action="#" >
 			<input type="text" name="email" placeholder="Email" class="myinput"  >
 			<input type="password" name="password" placeholder="Password" class="myinput">
-			<label><input style="margin-left:10%; margin-top:5%;" type="checkbox" name="remember"  >Remember me</label>
+			<label><input  id="checkbox" type="checkbox" name="remember"  >Remember me</label>
 			<p><a href="#" class="mybutton">Sign In</a></p>	
-			<p align="center" style="margin-top: 20%;" ><a href="#sss" align="center" style="color:#5FA5FF;text-decoration: none;" >Create an account</a></p>
 		</form> 
 	</div> 
-</body>
+	<p align="center"><a href="#sss" align="center" id ="signuplink">Create an account</a></p>
+
+  </body>
 </html>

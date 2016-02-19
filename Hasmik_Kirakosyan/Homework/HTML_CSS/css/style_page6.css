@@ -1,0 +1,120 @@
+body 
+    {
+	background-color: #cccccc;
+	
+    }
+
+#phone_border
+   {
+	background:linear-gradient(to top, white, #BCE6FD);
+	margin-left:30em;
+	margin-top:0em;
+	width: 20em;
+	height: 35em;
+	border: 20px solid #666666;
+	border-radius: 25px;
+	background-color:#CEEDFE;
+
+    }
+#menu_bar
+   {
+	background-color:#0488CE; 
+	height:100px; 
+	margin-top:0em; 
+	margin-left:0em;
+   }
+
+#menu_bar img 
+   {
+	width:2em; 
+	height:2em; 
+	margin-top: 0.5em;
+	margin-left:0.5em;
+   }
+#menu_bar h3 
+   {
+	color:white; 
+	font-family:arial; 
+	font-size:18px; 
+	font-weight:100; 
+   }
+#selected_menu 
+   {
+	margin-top:-1.9em;
+	margin-left:3em;	
+	text-decoration: underline;
+   }
+
+#not_selected_menu 
+   {
+	margin-top:-2em;
+	margin-left:12em;	
+   }
+
+
+#menu_bar input 
+   {
+	border:none; 
+	background-image:url('http://i47.tinypic.com/r02vbq.png'); 
+	background-repeat:no-repeat; 
+	background-position:left; 
+	width:20.8em; 
+	height:2em;
+	text-align:left; 
+	color: #0488CE;
+	margin-top:0.7em;
+	margin-left:0.5em;
+   }
+.content_center 
+    {
+	padding-top:1px;
+	border-radius: 8px;
+	width:20em;
+	text-align: center;
+	margin-left:0em;
+    }
+
+.user_block 
+    {
+	margin-top:1em;
+	margin-left: -13em;
+    }
+.user_block img
+    {
+ 	width:3em; 
+	height:3em; 
+	border-style:solid; 
+	border-color:#0488CE; 
+	border-radius:15px;
+    }
+.user_block div
+    {
+	margin-top:-1em; 
+	margin-left:0em;
+	font-family:arial; 
+	color:#0488CE;
+    }
+.user_block div button 
+   {
+	font-size:24; 
+	font-family:Georgia;  
+	background-color: #C4E9FD; 
+	color:#036396; 
+/*	display:inline;*/
+        border:none;
+   }
+.date 
+   {
+	font-size:12px; 
+   }
+    
+.name
+   {
+	margin-top:-5em;
+	margin-left:17em;
+	color:#036396;
+   }
+.message
+   {
+	margin-left:13em;
+   }

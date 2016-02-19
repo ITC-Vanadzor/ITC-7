@@ -1,63 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
- <style>
- body{
-     background-color: #C4E9FD; 
- } 
-</style>
-    <title>Chats</title>
-
+   <title>Chats</title>
+   <link rel="stylesheet" type="text/css" href="../css/style_page6.css">
 </head>
 <body>
-
-<div style="background-color:#0488CE; height:100px; margin-top:-10px; margin-left: -10px;">
-   <img src="../img/appbar_icon.png" alt="appbar icon" width="50px" height="50px" style="position:0px 0px 0px 0px">
-   <h3 style=" color:white; font-family:arial; font-size:24px; font-weight:100; margin: -45px 80px;">Friends</h3>  
-   <h3 style="text-decoration:underline; color:white; font-family:arial; font-size:24px; font-weight:100; margin: 20px 400px;">Chats</h3>
-   <input type="search" placeholder="               Search friends" style="border:none; background-image:url('http://i47.tinypic.com/r02vbq.png'); background-repeat:no-repeat; background-position:-10px; outline:0; width:50%; height:35px; margin:-5px 0px 50px 10px;">
-
-
-</div>
+<div id="phone_border">
+	 <div id="menu_bar">
+   		<img src="../img/appbar_icon.png" alt="appbar icon">
+   		<h3 id="not_selected_menu">Friends</h3>  
+   		<h3 id="selected_menu">Chats</h3>
+   		<span><input type="button" value="&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Search friends"></span>
+	</div>
 
 <!--======================== Users Chats ===========================-->
+   <div class="content_center">
+   	<div class="user_block">
+		<img src="../img/collage_chat1.jpg" alt="Ani Avetyan">
+		<div> 
+			<span  class="name">Ashot A., Sargis S., Anna M.</span>
+                	<br>
+			<span class="message"><i>Sargis :)))</i></span>
+                	<span class="date">20:21</span>
 
-   <div style="margin-top:10px;">
-	<img src="../img/collage_chat1.jpg" alt="Ani Avetyan" width="70px" height="70px" style="border-style:solid; border-color:#0488CE; border-radius:20px">
-	<div style="margin:-50px 0px 0px 100px; font-family:arial; color:#0488CE;">
-		<span style="color:#036396;">Ashot A., Sargis S., Anna M.</span>
-                <br>
-		<span><i>Sargis :)))</i></span>
-                <span style="font-size:12px; margin-left:400px;">20:21</span>
-
-	</div>
-
-  <div style="margin-top:30px;">
-	<img src="../img/profile_pic1.jpg" alt="Aren Aren" width="70px" height="70px" style="border-style:solid; border-color:#0488CE; border-radius:20px">
-	<div style="margin:-50px 0px 0px 100px; font-family:arial; color:#0488CE;">
-		<span style="color:#036396;">Anna Meliqyan</span>
-		<button style="font-size:24;  background-color: #C4E9FD; color:#036396; border:none;"><b>f</b></button>
-                <br>
-		<span><i>Anna: Hi :)</i></span>
-        	<span style="font-size:12px; margin-left:390px;">21:59</span>
 		</div>
-  </div>
-
- <div style="margin-top:30px;">
-	<img src="../img/profile_pic2.jpg" alt="Ashot Avetyan" width="70px" height="70px" style="border-style:solid; border-color:#0488CE; border-radius:20px">
-	<div style="margin:-50px 0px 0px 100px; font-family:arial; color:#0488CE;">
-		<span style="color:#036396;">Sargis Sargsyan</span>
-		<button style="font-size:24; font-family:Georgia;  background-color: #C4E9FD; color:#036396; border:none;">g+</button>
-		<br>
-		<span><i>Sargis: How are you?</i></span>
-		<span style="font-size:12px; margin-left:290px;">20.01.2016</span>
-
 	</div>
+  	<div class="user_block">
+		<img src="../img/profile_pic1.jpg" alt="Aren Aren">
+		<div>
+			<span class="name">Anna Meliqyan</span>               	<br>
+                	<br>
+			<span class="message"><i>Anna: Hi :)</i></span>
+        		<span class="date">21:59</span>
+		</div>
+  	</div>
 
- <div>
+ 	<div class="user_block">
+		<img src="../img/profile_pic2.jpg" alt="Ashot Avetyan">
+		<div>
+			<span class="name">Sargis Sargsyan</span>
+			<button>g+</button>
+			<br>
+			<span class="message"><i>Sargis: How are you?</i></span>
+			<span  class="date">20.01.2016</span>
 
-<!--=============================End of chat list===============================-->
+		</div>
+ 	</div>
+   </div>
 
-
+<!--===========================End of chat list====================-->
+</div>
 </body>
 </html> 

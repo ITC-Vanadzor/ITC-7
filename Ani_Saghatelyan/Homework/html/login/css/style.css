@@ -253,6 +253,45 @@ H2{
  color:#737373;
 }
 
+/* usage page  */
+.usageUl{
+
+        background-color:black;
+        background: linear-gradient(45deg,#cccccc,#ccccc1);
+        border-width: 0px;
+        margin: 8% 20%;
+}
+/* each step div*/
+.usageSteps{
+        width:20%;
+        border-radius: 5px;
+        height: 25%;
+        padding: 4%;
+        font-size: 120%;
+        text-align:center;
+}
+.usageSteps:hover{
+   Display:block;
+
+}
+
+/* image style+size  for steps*/
+.imageStep{
+	
+        width:56%;
+        margin-top: 0px;
+	margin-left: 15%;
+}
+
+
+.usageText{
+	text-align:center;
+        width: 84%;
+        margin-bottom:0px;
+}
+/*end of usage page*/
+
+
 /*____________________________GEVOR__________________________*/
 
 

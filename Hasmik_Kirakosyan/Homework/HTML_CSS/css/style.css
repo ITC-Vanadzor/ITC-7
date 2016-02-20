@@ -267,8 +267,8 @@ h2
 
 .chat_header
 {
-		background-color:#0488CE; 
-		height:3em; 
+		  background-color:#0488CE; 
+		  height:3em; 
 }
 .chat_header img 
 {
@@ -279,11 +279,11 @@ h2
 
 .chat_header header
 {
-		color:white; 
-		font-family: arial; 
-		font-size:14px; 
-		margin-left:50px;
-		margin-top:-2em;
+		  color:white; 
+		  font-family: arial; 
+		  font-size:14px; 
+		  margin-left:50px;
+		  margin-top:-2em;
 }
 
 .chat_header header h3
@@ -293,7 +293,7 @@ h2
 
 .chat_header header img 
 {
- 		  width:15%;
+		  width:15%;
 		  height:5%; 
 		  display:block; 
 		  margin-left:17em;
@@ -307,61 +307,61 @@ h2
 }
 .chat span
 {
-		margin-top:2em;
-	   margin-left: 2em;	
-		float: left; 
-		color:#0A5C89; 
-		font-size:16px; 
-		font-family:arial;
+		  margin-top:2em;
+		  margin-left: 2em;	
+		  float: left; 
+		  color:#0A5C89; 
+		  font-size:16px; 
+		  font-family:arial;
 }
 .chat input
 {
-		margin-left:6em; 
-		margin-top:0px; 
-		width:70%; 
-		height: 50px; 
-		border-radius:20px; 
-		border: 3px solid #0492DD; 
-		background-color:#E7F7FF"
+		  margin-left:6em; 
+		  margin-top:0px; 
+		  width:70%; 
+		  height: 50px; 
+		  border-radius:20px; 
+		  border: 3px solid #0492DD; 
+		  background-color:#E7F7FF;
 }
 /* message date */
 .chat .date
 {
-		margin-left:26em;
-	   margin-top:-2em;	
-		color:#0D93DE; 
-		font-size:11px;
+		  margin-left:26em;
+		  margin-top:-2em;	
+		  color:#0D93DE; 
+		  font-size:11px;
 }
 
 .chat #pencil_icon
 {
- 		width:8%; 
-		height:10%;
-		margin-top:2em; 
-		margin-left:1em;
-		border:none;
-		border-radius:5px;
-		display:inline;
+		  width:8%; 
+		  height:10%;
+		  margin-top:2em; 
+		  margin-left:1em;
+		  border:none;
+		  border-radius:5px;
+		  display:inline;
 }
 
 /* second_message */
 .chat .message_field
 {
-		margin-left:2.5em; 
-		margin-top:1em; 
-		width:70%; 
-		height: 50px; 
-		border-radius:20px; 
-		border: 3px solid #0492DD; 
-		background-color:#72CCFC;
-		position:relative;
+		  margin-left:2.5em; 
+		  margin-top:1em; 
+		  width:70%; 
+		  height: 50px; 
+		  border-radius:20px; 
+		  border: 3px solid #0492DD; 
+		  background-color:#72CCFC;
+		  position:relative;
 }
 
 .chat .message_date
 {
-		margin-left:-4em; 
-		color:#0D93DE; 
-		font-size:11px;
-		margin-top:4.5em;
-		position:absolute;
+		  margin-left:-4em; 
+		  color:#0D93DE; 
+		  font-size:11px;
+		  margin-top:4.5em;
+		  position:absolute;
 }

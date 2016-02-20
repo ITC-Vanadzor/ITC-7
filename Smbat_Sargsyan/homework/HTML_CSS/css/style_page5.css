@@ -1,0 +1,108 @@
+.phone { 
+        margin:0 auto;               
+        border-radius:10px;
+        border: 10px solid black;       
+        max-width: 360px;                   
+        width:80%; 
+		background-image: linear-gradient(to bottom,#B6E4FC,white); 
+}
+
+.header{
+   width: 100%;
+   background-color: #0589D1;
+   color: white;
+   border-radius: 4px;
+}
+
+input{
+    width: 97%;
+    height: 30px;
+    margin-left: 5px;
+    margin-bottom:5px;
+    background:url(../images/search.png) 5px center no-repeat #FFFFFF;
+    background-size:20px;
+    padding-left:13%;
+   }
+   
+.header img{
+	max-width:11%;
+    margin-top: 1px;
+    vertical-align: middle;
+}   
+
+.active
+{
+    text-decoration: underline;
+	display: inline-block;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.group p{
+	display:inline-block;
+    margin-right: 25%;
+    margin-left: 8%;
+}
+
+.content{
+    padding-top: 20px;
+    padding-left: 8px;
+	margin-bottom: 85%;
+}
+
+.message{
+	width:100%;
+    height: 50px;
+    margin-bottom: 20px;
+	position: relative;
+}
+
+.message img{
+    max-height: 100%;
+    width: 13%;
+    border: 2px solid #1492d5;
+    border-radius: 15px;
+    vertical-align: top;
+}
+
+.names{
+    font-size: 12px;
+    display: inline-block;
+	float:right;
+    width: 83%;
+    color:#14608C;
+    font-family:arial;
+    font-weight: 100;
+}
+
+.sms{
+    width: 98%;
+    float: right;
+    color: #5FBBE8;
+}
+
+.time{
+    float: right;
+}
+.names span{
+    font-size:16px;
+}
+.letterLeft {
+    padding-right:50px;
+    float:right;
+}
+
+.letterRight {
+    margin-right:36px;
+    float:right;
+}
+
+.letterG {
+    font-family:Georgia;
+}
+
+.letterOne {
+    float:right;
+    padding-right:102px;
+}
+

@@ -1,0 +1,106 @@
+
+body{
+    font-family: arial;
+}
+div.wrapper{
+    width: 320px;
+    margin: 20px auto;
+}
+/*General*/
+.floatL{
+    float: left;
+}
+.floatR{
+    float: right;
+}
+/*Header*/ 
+header{
+    background: #0488CE;   
+}
+header>div{
+    width: 50%;
+}
+.header-left{
+}
+.header-right{
+}
+.menu-icon{
+}
+.search-box {
+    width: 96%;
+    padding: 2%;
+}
+.search-box input {
+    width: 100%;
+    padding: 5px 5px 5px 25px;
+    background: url(../images/nav-icon-search.png) 5px center no-repeat #ffffff;
+    background-size: 20px;
+    border: none;
+}
+.link{
+    text-decoration: none;
+    color: white;
+    /*color: #fff;*/
+}
+.link h2{     
+    font-size: 17px;
+    text-align: center;
+    margin: 7px;
+}
+.friends-link, .chat-link{
+
+}
+.friends-link{
+
+}
+.chat-link{
+
+}
+/*endHeader*/
+section{
+    background: #B3E4FD;
+    float: left;
+    width: 100%;
+}
+.friends-list{
+    padding: 10px 0;
+    list-style: none;
+    margin: 0;
+    float: left;
+}
+.friend-item{
+    width: 100%;
+    float: left;
+    margin: 10px 0;
+}
+.friends-list .thumbnail{
+    border: 2px solid #0D7BB7;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 18%;
+    margin-left: 2%;
+}
+.friends-list .thumbnail img{
+    width: 100%;
+    height: auto;
+    float: left;
+}
+.friend-message{
+    width: 58%;
+    margin-left: 2%;
+}
+.friend-message h3{
+    margin: 5px 0;
+    font-size: 10px;
+    color: #0D7BB7;
+}
+.friend-message p,.messageDate p{
+    margin: 5px 0;
+    font-size: 10px;
+    color: #05A1EE;
+    font-style: italic;
+}
+.messageDate{
+    width: 15%;
+    margin-right: 2%;
+}

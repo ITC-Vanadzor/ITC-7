@@ -57,14 +57,36 @@ a{
 }
 
 .names{
-    font-size: 12px;
+    font-size: 14px;
     display: inline-block;
     width: 300px;
     color:#14608C;
     font-family:arial;
-    font-weight: 100;
+    font-weight: bold;
+    padding-left:2px;
+
+}
+.names span{
+    font-size:16px;
+}
+.letterLeft {
+    padding-right:50px;
+    float:right;
 }
 
+.letterRight {
+    margin-right:36px;
+    float:right;
+}
+
+.letterG {
+    font-family:Georgia;
+}
+
+.letterOne {
+    float:right;
+    padding-right:102px;
+}
 .sms{
     width: 301px;
     float: left;

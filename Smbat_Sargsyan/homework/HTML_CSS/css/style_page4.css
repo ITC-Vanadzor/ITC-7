@@ -1,0 +1,35 @@
+.phone { 
+        margin:0 auto;               
+        border-radius:10px;
+        border: 10px solid black;       
+        max-width: 360px;                   
+        width:80%; 
+	background-image: linear-gradient(to bottom,#B6E4FC,white); 
+} 
+
+.blokline {
+	margin-left: auto;
+ 	margin-right: auto;
+    	margin-bottom: 17%;
+    	width: 60%;
+}
+.password {
+	margin-top: 42%;
+}
+img {
+	width: 7%;
+}
+
+.blokline img:first-child{
+	float: left;
+	margin-right: 40%;
+}
+
+.blokline img:last-child{
+	float:right;
+}
+
+.text {
+	margin-top: 50%;
+}
+

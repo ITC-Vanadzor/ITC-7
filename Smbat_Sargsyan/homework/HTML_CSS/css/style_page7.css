@@ -1,0 +1,115 @@
+#background {
+    background-color:#E8E8E8;
+}
+
+/*phone area*/
+#phone {
+    background:linear-gradient(to top, white, #BCE6FD);
+    width:360px; 
+    height:625px; 
+    border:solid 5px black; 
+    border-radius:10px; 
+    margin:3% auto;
+}
+
+.header {
+    background-color:#0488CE;
+    padding:17px;
+    width:90.5%;
+    color:white;
+    text-align:center;
+}
+
+.header img {
+    vertical-align:middle;
+}
+
+.header-left {
+    float:left;
+    width:7%;
+}
+
+span {
+    font-size: 15px;
+    font-family:Arial;
+    font-weight: bold;
+}
+
+.header-right {
+    float:right;
+    width:11%;
+}
+
+.receivedMessage {
+    padding:7% 2% 0% 2%;
+}
+
+.AnnaImage {
+    float:left;
+    width:13%;
+    border:2px solid #0488CE;
+    border-radius:18px;
+}
+h2 {
+    color:#14608C;
+    font:12px Arial;
+    font-weight: bold;
+    float:left;
+    padding:1px;
+    margin:0 10px 8px 10px;
+}
+
+textarea {
+    display:block;
+    overflow:hidden;
+    border: 2px solid #0488CE;
+    border-radius:13px;
+    font:14px Arial;
+    color: #14608C;
+} 
+.Anna{	     
+    background-color:#E7F7FF;
+    margin:1% 17%;
+    padding:5px 3px;
+}
+
+.answerMessage {
+    padding:7% 2%;
+}
+
+.edit{
+    width:8%;
+    float:left;
+    padding:10px;
+    margin-left:6%;
+}
+.answer{	     
+    background-color: #72CCFC;
+    margin:0% 23%;
+    padding:5px 3px;
+}
+
+.inputMessage{
+    margin-top: 33%;
+    background-color:#0488CE;
+    padding:1px;
+}
+
+.enterText{
+    background-color: #C8EBFE;
+    width: 80%;
+    padding: 9px;
+    border: 3px solid #0488CE;
+    color: #78CEFC;
+    text-align: center;
+    font: 18px Arial;
+}
+
+.send {
+    float:right;
+    width:6%;
+    padding:12px;
+}
+.keyboard {
+    width:100%;
+}

@@ -1,0 +1,57 @@
+.phone { 
+        margin:0 auto;               
+        border-radius:10px;
+        border: 10px solid black;       
+        max-width: 360px;                   
+        width:80%; 
+		background-image: linear-gradient(to bottom,#B6E4FC,white); 
+}
+button {
+        border-radius: 10px;            
+        border: 0px solid black ; 
+	width:80%;
+	padding-bottom:5%;
+	padding-top:5%; 
+	position:relative;
+}
+
+
+.background_button {     
+        background: #1996D4;            
+        color: white;
+	margin-bottom: 13%;		
+}
+
+.content {        
+        margin-top: 50%; 
+	margin-bottom: 53%;
+	text-align:center;           
+}
+
+
+
+.text{
+	width: 80%;
+    	float: right;
+    	margin-right: 9%;
+}
+
+.back {
+        margin-left: 4%;
+        margin-top: 8%;
+        width: 8%;
+}
+
+
+button img 
+{
+    max-width: 15%;
+    position: absolute;
+    left: 2%;
+    top: 6%;
+}
+
+	
+p {
+	text-align: center;
+}

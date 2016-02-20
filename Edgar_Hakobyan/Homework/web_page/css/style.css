@@ -1,0 +1,75 @@
+/*@ndhanur */
+.main
+{
+	border:solid;
+	margin:5% auto;
+	width:320px;
+	background-color:#bbe5fc;
+	background:linear-gradient(to top, white, #d7effc);
+}
+.content
+{
+	text-align:center;
+	padding:40% 0%;
+}
+/*sign in*/
+.content h2
+{
+	font-family:arial;
+	font-weight:100;
+	color:#155f8a;
+}
+.button
+{
+	background-repeat:no-repeat;
+	background-color:#1592d1;
+	padding:3% 18%;
+	color:white;
+	border-radius:5px;
+	border:1px solid #1996d4;
+	text-decoration:none;
+}
+.content div
+{
+	margin:10% 0%;
+	padding:5%;
+}
+.google_icon
+{
+	background-image:url("../resource/google.png");
+}
+.face_icon 
+{
+	background-image:url("../resource/facebook.png");
+}
+/*facebook page*/
+.back
+{	
+	padding:5%;
+}
+/*log in page */
+.login_passwd
+{
+    margin:50% 5%;
+}
+.login_passwd input
+{
+	background-color:transparent;
+	border:0px;
+	width:98%;
+}
+.login_passwd hr
+{
+	height:2px;
+	background-color:#0489cc;
+}
+.log_in
+{
+	
+	padding:10% 1%;
+}
+.log_in a
+{
+	padding:3% 35%;
+	margin:6%;
+}

@@ -115,15 +115,20 @@ header
     background-size: 20px;
     border: none;
 }
-.friends-list{
-    padding: 10px 0;
-    list-style: none;
-    margin: 0;
-    float: left;
+.list
+{
+    margin-top:5%;
+    margin-bottom:5%;
 }
-.friend-item{
-    width: 100%;
-    float: left;
-    margin: 10px 0;
+.name
+{
+    display:inline-block;
+    text-decoration:none;
+    width:9em;
+    color:#0b5c87;
+    margin-left:5%;
 }
-
+.img
+{
+    vertical-align:middle;
+}

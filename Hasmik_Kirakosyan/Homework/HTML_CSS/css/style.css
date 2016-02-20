@@ -218,15 +218,49 @@ h2
 		  margin-left: 28%;
 		  margin-top:12%;
 		  font-family:arial;
-		  font-size:16px;
+		  font-size:14px;
 		  color:#0B5CB3;
 }
 .friends_list .icons
 {
 		  border:none;
 		  float: right;
-		  margin-left:10%;
 		  margin-top:0%;
-		  width:9%;
+		  width:5%;
 		  height:0%;
+		  margin-right: 2em;
+}
+
+#chat_memebers_names
+{
+		  font-size:14px;
+
+}
+
+.message
+{			 
+		  width: 58%;
+		  margin-left: 2%;
+}
+.message p
+{
+		  margin-top: 3%;
+		  margin-left:45%;
+		  font-size: 14px;
+		  color: #0D7BB7;
+}
+
+.message_date span
+{
+		  margin: 5px 0;
+		  font-size: 11px;
+		  color: #05A1EE;
+		  font-style: italic;
+}
+.message_date
+{
+		  width: 15%;
+		  margin-right: 6%;
+		  margin-left:79%;
+		  margin-top:-10%;
 }

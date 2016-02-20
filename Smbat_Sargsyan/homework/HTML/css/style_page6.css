@@ -8,18 +8,21 @@
 }
 
 .header{
-   width: 99%;
+   width: 95.5%;
    height: 66px;
    background-color: #0589D1;
    color: white;
    border-radius: 4px;
+   padding:8px;
+   font:18px Arial;
 }
 
 input{
-    width: 97%;
-    height: 30px;
-    margin-left: 5px;
-   }
+    width: 100%;
+    padding: 8px 5px 8px 39px;
+    background: url(../images/search.png) 5px center no-repeat #ffffff;
+    background-size: 20px;
+}
    
 .header img{
     margin-top: 1px;
@@ -54,14 +57,36 @@ a{
 }
 
 .names{
-    font-size: 12px;
+    font-size: 14px;
     display: inline-block;
     width: 300px;
     color:#14608C;
     font-family:arial;
-    font-weight: 100;
+    font-weight: bold;
+    padding-left:2px;
+
+}
+.names span{
+    font-size:16px;
+}
+.letterLeft {
+    padding-right:50px;
+    float:right;
 }
 
+.letterRight {
+    margin-right:36px;
+    float:right;
+}
+
+.letterG {
+    font-family:Georgia;
+}
+
+.letterOne {
+    float:right;
+    padding-right:102px;
+}
 .sms{
     width: 301px;
     float: left;

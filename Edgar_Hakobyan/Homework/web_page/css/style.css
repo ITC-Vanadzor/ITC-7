@@ -73,3 +73,57 @@
 	padding:3% 35%;
 	margin:6%;
 }
+/* easy board */
+.easy
+{
+    padding-left:25%;
+    padding-top:30%;
+    color:#155f8a;
+}
+.point
+{
+    height:20px;
+    width:20px;
+    padding:40px;
+}
+/* friends list */
+header
+{
+	padding:5%;
+    background: #0488CE;
+}
+.floatL
+{
+    float: left;
+}
+.floatR
+{
+    float: right;
+}
+.link
+{
+	float:left;
+    text-decoration: none;
+    color: white;
+    /*color: #fff;*/
+}
+.search-box input 
+{
+    width: 100%;
+    padding: 5px 5px 5px 25px;
+    background: url(../resource/search.png) 5px center no-repeat #ffffff;
+    background-size: 20px;
+    border: none;
+}
+.friends-list{
+    padding: 10px 0;
+    list-style: none;
+    margin: 0;
+    float: left;
+}
+.friend-item{
+    width: 100%;
+    float: left;
+    margin: 10px 0;
+}
+

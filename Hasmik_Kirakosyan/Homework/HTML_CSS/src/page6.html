@@ -1,54 +1,90 @@
 <!DOCTYPE html>
 <html>
-<head>
-   <title>Chats</title>
-   <link rel="stylesheet" type="text/css" href="../css/style_page6.css">
-</head>
-<body>
-<div id="phone_border">
-	 <div id="menu_bar">
-   		<img src="../img/appbar_icon.png" alt="appbar icon">
-   		<h3 id="not_selected_menu">Friends</h3>  
-   		<h3 id="selected_menu">Chats</h3>
-   		<span><input type="button" value="&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Search friends"></span>
-	</div>
+		  <head>
+					 <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+					 <title>Friends Chats</title>
 
-<!--======================== Users Chats ===========================-->
-   <div class="content_center">
-   	<div class="user_block">
-		<img src="../img/collage_chat1.jpg" alt="Ani Avetyan">
-		<div> 
-			<span  class="name">Ashot A., Sargis S., Anna M.</span>
-                	<br>
-			<span class="message"><i>Sargis :)))</i></span>
-                	<span class="date">20:21</span>
+		  </head>
+		  <body>
+					 <div class="screen">
+								<div class="content_center">
+										  <div id="header">
+													 <div class="left_side">
+																<a href="#">
+																		  <img src="../img/appbar_icon.png"/>
+																</a>
+																<a href="page5.html">
+																		  <h2>Friends</h2>  
+																</a>
+													 </div>
+													 <div class="right_side">
+																<a href="page6.html">
+																		  <h2>Chats</h2>
+																</a>			
+													 </div>
+																<div class="search_box">
+																		  <input type="search" placeholder="Search friends">
+																</div>
+										  </div>
 
-		</div>
-	</div>
-  	<div class="user_block">
-		<img src="../img/profile_pic1.jpg" alt="Aren Aren">
-		<div>
-			<span class="name">Anna Meliqyan</span>               	<br>
-                	<br>
-			<span class="message"><i>Anna: Hi :)</i></span>
-        		<span class="date">21:59</span>
-		</div>
-  	</div>
 
- 	<div class="user_block">
-		<img src="../img/profile_pic2.jpg" alt="Ashot Avetyan">
-		<div>
-			<span class="name">Sargis Sargsyan</span>
-			<button>g+</button>
-			<br>
-			<span class="message"><i>Sargis: How are you?</i></span>
-			<span  class="date">20.01.2016</span>
+										  <!--======================== Users list ===========================-->
+										  <ul class="friends_list">  
+													 <li class="friends_list item">
+																<img src="../img/collage_chat1.jpg" alt="Ani Avetyan">		
 
-		</div>
- 	</div>
-   </div>
+																<div class="name">
+																		  <span><b>Ashot A., Sargis S., Anna M.</b></span>
+																</div>
+																<div class="message">
+																	<p><i>Sargis:  :))))</i></p>
+																</div>
+																<div class="message_date">
+																		  <span>20.21</span>
+																</div>
+													 </li>
 
-<!--===========================End of chat list====================-->
-</div>
-</body>
-</html> 
+													 <li class="friends_list item">
+																<img src="../img/profile_pic1.jpg" alt="Aren Aren">		
+
+																<div class="name">
+																		  <span><b>Anna Meliqyan</b></span>
+																</div>
+																		  <a href="https://facebook.com">
+																					 <img class="icons" src="../img/small_icon.png" alt="facebook icon">
+																		  </a>
+																<div class="message">
+																	<p><i>Anna:  Hi :)</i></p>
+																</div>
+																<div class="message_date">
+																		  <span>21.59</span>
+																</div>
+		
+																
+													 </li>
+													 <li class="friends_list item">
+																<img src="../img/profile_pic5.jpg" alt="Sargis Sargsyan">		
+
+																<div class="name" id="chat_members_names">
+																		  <span><b>Sargis Sargsyan</b></span>
+
+																</div>
+																		  <a href="https://plus.google.com">
+																					 <img class="icons" src="../img/small_google.png" alt="google icon">
+																		  </a>
+																<div class="message">
+																	<p><i>Sargis:  How are you?</i></p>
+																</div>
+																<div class="message_date">
+																		  <span>20.01.2016</span>
+																</div>
+		
+													 </li>
+										  </ul>
+
+										  <!--=============================End of friends list===============================-->
+
+								</div>
+					 </div>
+		  </body>
+</html>

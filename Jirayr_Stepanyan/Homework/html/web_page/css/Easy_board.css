@@ -1,0 +1,39 @@
+.body_background
+{
+    width: 360px;
+    height: 625px; 
+    border: solid 2px black;
+    border-radius: 5px; 
+    margin: 50px auto; 
+    background:linear-gradient(to top, white, #BCE6FD);
+}
+.please_sign_in
+{
+    
+    color: #14608c; 
+    margin-top: 35%;
+    margin-left: 22%;
+}
+.back
+{
+    margin-top: 10%;  
+    border: 1px solid #BAE5FD;
+    border-radius: 5px;
+    background-color: #BAE5FD;
+}
+.fb_and_g
+{
+    border: 1px solid #1491D2;
+    border-radius: 5px;   
+    margin-left: 15%;
+    margin-top: 10%;
+    width: 250px;
+    height: 40px;
+    padding-left: 12%;
+}
+.fb_or_g
+{
+    margin-right: 20%;
+    vertical-align: middle;
+}
+

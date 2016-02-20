@@ -15,6 +15,7 @@ div img{
     width:25px;
     height:25px;
     margin:25px;
+    cursor:pointer;
 }
 
 #div_email {

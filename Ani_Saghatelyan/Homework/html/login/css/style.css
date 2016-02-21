@@ -1,6 +1,15 @@
 body{
 	margin:0;
 	padding:0;
+
+}
+H2{
+	margin-top: 1%;
+	color: #737373;
+}
+
+p{
+	margin-left:10%;
 }
 
 /*web site background*/
@@ -37,6 +46,10 @@ body{
     	 border-width: 1px; 
     	 border-color: #005c99; 
 	 background: linear-gradient(to top, #0094F7, #007acc);
+         border-radius: 0.3em;
+	 font-size: 1.15em;
+	 font-weight: bold;
+	
  } 
 .blueButton:hover { 
 	background: #0076C4;
@@ -53,9 +66,6 @@ body{
 	margin-left: 10%;
 	height: 2.1em;
 	width: 80%;
-	border-radius: 0.3em;
-	font-size: 1.15em;
-	font-weight: bold;
 }
 
 /*Menu bar buttons sizes*/
@@ -98,7 +108,7 @@ li a {
     display: inline-block;
     color: #737373;
     text-align: center;
-    padding: 21px 16px;
+    padding: 21px 18px;
     text-decoration: none;
     font-size: 0.9em;
     font-weight: bold;
@@ -128,22 +138,21 @@ li a:hover {  color: #4d94ff;}
          width: 75%; 
 }
 /*sign in background*/
-#loginBg{
+.loginBg{
 	background-color:#E8E8E8;
 	background: linear-gradient(to top, #e8e8e8, #bfbfbf);
 	-moz-box-shadow: 0 0 10px 3px rgba(128,128,128,.55);
     	-webkit-box-shadow: 0 0 10px 3px rgba(128,128,128,.55);
 	box-shadow: 0 0 10px 3px rgba(128,128,128,.55);
 	color:black;
-	width:25em;
-        height:30em;
-	margin:auto;
-	margin-top: 4%;
+	width:30%;
+	padding: 4% 1%; 
+	margin:5% auto 5% auto;
 	border-radius: 10px;
 }
 
 /*sign in top background*/
-#loginTopBg{
+.loginTopBg{
 	background-color:#B2B0B0;
 	height: 3%;
 	width: 100%;
@@ -198,6 +207,9 @@ li a:hover {  color: #4d94ff;}
 	font-size: 0.85em;
 }
 
+#forgotTextAbove{
+	margin:2% 10% 1%;
+}
 /*checkbox style*/
 #checkbox{
 	float: left;
@@ -221,75 +233,22 @@ li a:hover {  color: #4d94ff;}
 /*______________________ANI_______________________*/
 
 /* registration page*/
-.regDivstyle{
-	
-	margin: 1% auto;
-        text-align:left;
-        height:50%;
-        width:50%; 
-        padding:8%;   
-}
 
 .textUnderRegInput{
 	font-size: 85%
+	
 }
 
-.regInputField {
+.regInputSize {
 	padding: 2%;
 	margin-top: 3%;
         width:95%; 
-	font-size: 70%
+	font-size: 90%
 }
 /* end of registration page*/
 
-.regButtonSize {
-		font-size: 70%;
-		width: 40%;
-		margin: auto 20%; 
-		padding: 1.5%;
- } 
-H2{
 
- color:#737373;
-}
-
-/* usage page  */
-.usageUl{
-
-        background-color:black;
-        background: linear-gradient(45deg,#cccccc,#ccccc1);
-        border-width: 0px;
-        margin: 8% 20%;
-}
-/* each step div*/
-.usageSteps{
-        width:20%;
-        border-radius: 5px;
-        height: 25%;
-        padding: 4%;
-        font-size: 120%;
-        text-align:center;
-}
-.usageSteps:hover{
-   Display:block;
-
-}
-
-/* image style+size  for steps*/
-.imageStep{
-	
-        width:56%;
-        margin-top: 0px;
-	margin-left: 15%;
-}
-
-
-.usageText{
-	text-align:center;
-        width: 84%;
-        margin-bottom:0px;
-}
-/*end of usage page*/
+ 
 
 
 /*____________________________GEVOR__________________________*/

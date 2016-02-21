@@ -26,7 +26,7 @@ div img{
 }
 
 /* for page 1 */
-#button_div_1 {
+.button_div_1 {
     width:360px;
     height:70px; 
     margin-top:20%;
@@ -39,32 +39,30 @@ div img{
     margin-top:72%;
 }
 
-.easy_button {
+.easyButton {
     margin:auto 30px;
     border:solid 0px black;
     border-radius:5px;
-    background-color:#1491D2;
     width:300px;
     height:43px;
     text-align:left;
     font-size:18px;
     color:white;
+    padding-left: 65px;
+}
+.distanceButton {
+    margin-top: 43px;
+
 }
 
-/* for "g+" */
-.letterG {
-    font-family:Georgia;
-    color:white;
-    font-size:32px;
-    margin-right:30px;
-    margin-left:10px;
+.buttonGoogle {
+    background:url(../Sources/Google.png) 12px center no-repeat #1491D2;
+    background-size: 26px;
+    
 }
 
-/* for "f" */
-.letterF {
-    font-family:Arial;
-    color:white;
-    font-size:32px;
-    margin-right:50px;
-    margin-left:15px;
+
+.buttonFacebook {
+    background:url(../Sources/fb.png) 11px center no-repeat #1491D2;
+    background-size: 18px;
    }

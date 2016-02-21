@@ -16,7 +16,8 @@
 }
 .back
 {
-    margin-top: 10%;  
+    margin-top: 10%; 
+    margin-left: 5%; 
     border: 1px solid #BAE5FD;
     border-radius: 5px;
     background-color: #BAE5FD;
@@ -50,6 +51,11 @@
     color: #1491D2;
     width: 90%;
 }
+.text_log_in
+{
+    font-size: 26px;
+    margin-top: 1%;
+}
 .Easy_board
 {
     margin-top: 40%;
@@ -61,4 +67,120 @@
     margin-top: 20%;
     width: 360px;
     height: 400px;
+}
+.header
+{
+    width: 100%;
+    height: 18%;
+    background-color: #1491D2;
+}
+.header input
+{
+    background: url(../resurses/search.png) 5px center no-repeat #FFFFFF;
+    background-size: 20px;
+    border: none;
+    width: 97%;
+    margin: 19px 5px;
+    padding: 11px 10px 10px 39px;
+    color: #1491D2;    
+}
+.left_side
+{
+    width: 50%;
+    float: left;
+}
+.right_side
+{
+    width: 50%;
+    float: right;
+    padding-top: 7px;
+    
+}
+.none_decoration {
+    text-decoration: none;
+}
+
+.menu
+{
+    padding: 8px 0px 0px 9px;
+}
+.Friends_chats
+{
+    padding: 0px 0px 0px 27%;
+    font-family:arial;
+    color: white;
+    font-size: 20px;
+}
+.friend
+{
+    width: 97%;
+    padding: 31px 10px;
+}
+.photo
+{
+    width: 20%;
+    float: left;
+}
+.icon
+{
+    border: 2px solid #14608C;
+    border-radius: 15px;
+}
+.name
+{
+    width: 50%;
+    float: left;
+}
+.friend p
+{
+    color: #14608C;
+    font: 14px arial;
+    font-weight: bold;
+    padding-bottom: 1%;
+}
+.left
+{
+    width: 10%;
+    float: left;
+}
+.right
+{
+    width: 20%;
+    float: left;
+}
+.date
+{
+    width: 10%;
+    float: right;
+    padding-top: 20px;
+    padding-left: 5px;
+}
+.friend h3
+{
+    width: 10%;
+    float: right;
+    color: #6DD6FD;
+    font-size: 13px;
+} 
+.chat_friend
+{
+   width: 97%;
+   padding: 31px 10px;
+}
+.chat_friend p
+{
+    color: #14608C;
+    font: 12px arial;
+    font-weight: bold;
+    margin: 6px 0px 0px;
+}
+.chat_friend h3
+{
+    color: #6DD6FD;
+    font-size: 13px;
+    margin-top: 8px;
+}
+.or
+{
+    margin-left: -28px;
 }

@@ -13,11 +13,13 @@ p{
 	margin-left:10%;
 }
 
+
 /*web site background*/
 .webSiteBackground {
 	background-color:black; 
 	background: linear-gradient(45deg,#cccccc,#ccccc1);
 }
+
 
 
 /* Styled gray button*/
@@ -38,6 +40,7 @@ p{
 	background: #b3b3b3;
 	background: linear-gradient(to top, #b3b3b3,#bfbfbf);
 }
+
 
 /*Blue styled button*/
 .blueButton {
@@ -148,6 +151,7 @@ li a:hover {  color: #4d94ff;}
 	color:black;
 	border-radius: 10px;
 }
+
 /* size of login Bg*/
 .loginBgSize{
 	width:30%;
@@ -195,7 +199,7 @@ li a:hover {  color: #4d94ff;}
 /*sign in page logo*/
 .signInLogoSize{
 	margin-left:35%;
-	width:30%;
+	width:10%;
 	margin-top:5%;
 }
 
@@ -268,7 +272,7 @@ li a:hover {  color: #4d94ff;}
 	width:500px; 
 	height: 430px; 
 	margin:5% auto;
-	outline:1px solid blue;"
+	outline:1px solid blue;
 	-moz-box-shadow: 0 0 10px 3px rgba(77,77,255,.55);
     	-webkit-box-shadow: 0 0 10px 3px rgba(77,77,255,.55);
 	box-shadow: 0 0 10px 3px rgba(77,77,255,.55);

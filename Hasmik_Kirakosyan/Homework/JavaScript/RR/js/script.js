@@ -1,19 +1,26 @@
 var regButton = document.getElementById('SignUp');
-regButton.onclick = function () {
-		  var fso = new ActiveXObject("Scripting.FileSystemObject");
-		  var check = fso.FileExists("usersData.txt"); // true, if file exists
-		  
-  		  alert("Check: function is called");
+regButton = function () {
+   	  var jsonArr = '{"userData":[{"userEmail":"mailExample@gmail.com","password":"passwordExample"}]}';
 
-		  // check if file exists open file, if doesn't exist create userData.txt file and write email and password for user
-		  if (check) {
-					 alert("File exists");
-					 var dataFile = fso.OpenTextFile("./usersData.txt", 3);
-		  }
-		  else {
-					 alert("File doesn't exist");
-					 var dataFile = fso.CreateTextFile("./userData.txt", true);
-		  }
-		  dataFile.WriteLine(getElementById("email").value + " "+getElementById("password").value);
-		  dataFile.Close();
+			
+		  var obj = JSON.parse(jsonArr);
+		  /*for (var i = 0; i < obj.userData.length; i++) {
+					     if(obj.userData[i].userEmail == document.getElementById("email").value) {
+									   document.getElementById("validateEmail").color=red;
+										document.getElementById("validateEmail").innerHTML="There is a user  already with this email address. Try another";
+										alert("hi");
+							}
+						  else {
+									 alert("Goodbye");
+						  }
+		  };*/
+
+
+		  obj['userData'].push({"userEmail":document.getElementById("email").value,"password":document.getElementById("password").value});
+		  jsonArr = JSON.stringify(obj);
+
+		  for (var i = 0; i < obj.userData.length; i++) {
+					     console.log( obj.userData[i].userEmail );
+		  };
+
 }

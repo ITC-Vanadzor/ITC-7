@@ -1,4 +1,4 @@
-.body_background
+.main
 {
     width: 360px;
     height: 625px; 
@@ -7,17 +7,16 @@
     margin: 50px auto; 
     background:linear-gradient(to top, white, #BCE6FD);
 }
-.please_sign_in
+div h2
 {
     
     color: #14608c; 
     margin-top: 35%;
-    margin-left: 22%;
+    text-align: center;
 }
 .back
 {
-    margin-top: 10%; 
-    margin-left: 5%; 
+    margin: 7% 5%; 
     border: 1px solid #BAE5FD;
     border-radius: 5px;
     background-color: #BAE5FD;
@@ -32,17 +31,41 @@
     height: 40px;
     padding-left: 12%;
     color: white;
+    font-size: 17px;
+}
+.g
+{
+    margin-top: 28%;
+    background: url(../resurses/g+.png) no-repeat;
+    background-color: #1491D2;
+}
+.f
+{
+    background: url(../resurses/fb.png) no-repeat;
+    background-color: #1491D2;
+}
+.f_marg
+{
+    margin-top: 55%;
 }
 .fb_or_g
 {
     margin-right: 20%;
     vertical-align: middle;
 }
-.Email_or_password
+.Email_or_phone
 {
     background-color: #D5ECFA;
     color: #1491D2;
-    margin-top: 45%;
+    margin-top: 60%;
+    margin-left: -7%;
+    border: 0px;
+}
+.password
+{
+    margin-top: 5%;
+    background-color: #D5ECFA;
+    color: #1491D2;
     margin-left: 9%;
     border: 0px;
 }
@@ -55,12 +78,6 @@
 {
     font-size: 26px;
     margin-top: 1%;
-}
-.Easy_board
-{
-    margin-top: 40%;
-    margin-left: 24%;
-    color: #0F608C;
 }
 .circle
 {

@@ -1,0 +1,64 @@
+ body {
+    background-color:#E8E8E8;
+}
+
+ #phone {
+     max-width:360px;
+    background:linear-gradient(to top, white, #BCE6FD);
+    width:37.58%;  
+    border:solid 5px black; 
+    border-radius:10px; 
+    margin:7% auto;
+}
+
+.backIcon{
+    width:7%;
+    margin:7% 5%;
+    cursor:pointer;
+}
+
+.logInPage1{
+    width:100%;
+    margin-top:45%;
+    padding-bottom:56%;
+}
+ .logInPage1 h2 {
+    color:#14608C;
+    text-align:center;
+    font-family:Arial;
+    padding-bottom:17%;
+}
+
+.switchAccountArea {
+    width:100%;
+    padding-bottom:59%;
+    margin-top:75%;
+}
+.signIn {
+    margin:0% 2% 2% 8%;
+    border:solid 0px black;
+    border-radius:5px;
+    width:66%;
+    text-align:left;
+    font-size:18px;
+    color:white;
+    padding:3% 0% 4% 18%;
+    display:block;
+    text-decoration: none;
+    font:18px Arial;
+}
+
+.withGoogle {
+    background:url(../Resources/Google.png) 12px center no-repeat #1491D2;
+    background-size: 26px;
+    
+}
+
+
+.withFacebook {
+    background:url(../Resources/fb.png) 11px center no-repeat #1491D2;
+    background-size: 18px;
+    margin-top:13%;
+   }
+
+

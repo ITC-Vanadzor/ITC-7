@@ -21,18 +21,15 @@
 }
 .button
 {
+	display:block;
 	background-repeat:no-repeat;
 	background-color:#1592d1;
 	padding:3% 18%;
+	margin:10% 5%;
 	color:white;
 	border-radius:5px;
 	border:1px solid #1996d4;
 	text-decoration:none;
-}
-.content div
-{
-	margin:10% 0%;
-	padding:5%;
 }
 .google_icon
 {
@@ -48,64 +45,46 @@
 	padding:5%;
 }
 /*log in page */
-.login_passwd
-{
-    margin:50% 5%;
-}
-.login_passwd input
+.content input
 {
 	background-color:transparent;
 	border:0px;
-	width:98%;
+	width:90%;
 }
-.login_passwd hr
+.content hr
 {
+	width:90%;
 	height:2px;
 	background-color:#0489cc;
 }
-.log_in
-{
-	
-	padding:10% 1%;
-}
-.log_in a
-{
-	padding:3% 35%;
-	margin:6%;
-}
 /* easy board */
-.easy
-{
-    padding-left:25%;
-    padding-top:30%;
-    color:#155f8a;
-}
 .point
 {
     height:20px;
     width:20px;
-    padding:40px;
+    padding:20px 40px;
 }
 /* friends list */
 header
 {
-	padding:5%;
-    background: #0488CE;
+	padding:3% 0%;
+    background:#0489cc;
+}
+header a
+{
+	float: left;
+	text-decoration: none;
+    color: white;
 }
 .floatL
 {
     float: left;
+	padding:8% 4%;
 }
-.floatR
+.chat_link
 {
     float: right;
-}
-.link
-{
-	float:left;
-    text-decoration: none;
-    color: white;
-    /*color: #fff;*/
+	margin-right:20%;
 }
 .search-box input 
 {
@@ -115,7 +94,12 @@ header
     background-size: 20px;
     border: none;
 }
-.list
+section ul
+{
+	padding:5%;
+	list-style:none;
+}
+section ul li
 {
     margin-top:5%;
     margin-bottom:5%;
@@ -131,4 +115,19 @@ header
 .img
 {
     vertical-align:middle;
+}
+/*chats page*/
+.time
+{
+	float:right;
+	color:#0b5c87;
+}
+.friend-item
+{
+    float: left;
+}
+.message
+{
+    width: 58%;
+    margin-left: 2%;
 }

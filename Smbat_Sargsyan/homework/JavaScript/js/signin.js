@@ -11,12 +11,15 @@ function clicked() {
 		}
 		else {
 			window.alert("incorrect mail orpassword");
+			window.open("profile.html");
 		}
 	}
 	else {
-		window.alert("incorrect mail orpassword");
+		window.alert("incorrect mail orpassword,try again");
+		window.open("signin.html");
 
 	}
 	if(mail.value == usermail && pass.value != userpass) {
 		window.alert("forgot password");
+		window.open("forgotPassword.html");
 }	}

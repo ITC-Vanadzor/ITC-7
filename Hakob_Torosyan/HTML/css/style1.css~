@@ -13,27 +13,33 @@ body {
 .phone-content {
     width:100%;
     margin-bottom:50%;
-    margin-top:70%;
     text-align: center;
 }
-
-.but2
- {
+.sign-text {
+     text-align:center;
+     font-size:140%;
+     margin-top:50%;
+     margin-bottom:25%;
+     color:#006691;
+     font-family:Geneva, Arial, Helvetica, sans-serif;  
+}
+.but1 {
+     background:#0094CE url('../images/google.png') no-repeat 5% 40%;
+}
+.but2 {
      background:#0094CE url('../images/facebook.png') no-repeat 5% 40%;
+} 
+.but1, .but2 {
      border:none;
      margin:5% auto; 
      color:#FFFFFF;
      background-size:11%; 
-     font-size:130%; 
+     font-size:105%; 
      width:85%;  
      padding:3% 1%;
      height:20%;
      border-radius:3%;
      text-align:center;
 }
-.slaq {
-     width:7%;
-     height:15%;
-     margin: 3% 3%;    
-}
+
 

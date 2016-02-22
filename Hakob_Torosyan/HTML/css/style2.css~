@@ -17,7 +17,7 @@ body {
     text-align: center;
 }
 
-.but2
+.but
  {
      background:#0094CE url('../images/facebook.png') no-repeat 5% 40%;
      border:none;

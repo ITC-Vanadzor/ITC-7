@@ -1,18 +1,28 @@
+body {
+	background-color: #CCCCCC;
+}
 .phone { 
         margin:0 auto;               
         border-radius:10px;
         border: 10px solid black;       
         max-width: 360px;                   
         width:80%; 
-		background-image: linear-gradient(to bottom,#B6E4FC,white); 
+	background-image: linear-gradient(to bottom,#B6E4FC,white); 
 }       
-button {
+a.button {
+        background-color:#1491D2;
+        text-decoration:none;
+        display:block;
         border-radius: 10px;            
         border: 0px solid black ; 
-		width:80%;
-		padding-bottom:5%;
-		padding-top:5%; 
-		position:relative;
+	width:80%;
+	padding-bottom:5%;
+	padding-top:5%; 
+	position:relative;
+	margin-left: 9%;
+	font-size: 16px;
+	font-weight: bold;
+        font-family: arial;
 }       
 h2{
 	text-align:"center"; 
@@ -26,7 +36,7 @@ h2{
 .background_button {     
         background: #1996D4;            
         color: white;
-		margin-bottom: 13%;		
+	margin-bottom: 13%;		
 }               
 
 .content {        
@@ -55,3 +65,14 @@ button img
     left: 2%;
     top: 6%;
     }
+.fb_icon {
+        background-color:#1491D2;
+	background:url(../images/fb.png) 12px center no-repeat;
+        background-size:15%;
+        margin-top:15%;
+}
+.go_icon {
+        background-color:#1491D2;
+	background:url(../images/go.png) 12px center no-repeat;
+        background-size:15%;
+}

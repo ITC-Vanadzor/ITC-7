@@ -9,6 +9,7 @@ H2{
 }
 
 p{
+	color: #737373;
 	margin-left:10%;
 }
 
@@ -47,7 +48,8 @@ p{
     	 border-color: #005c99; 
 	 background: linear-gradient(to top, #0094F7, #007acc);
          border-radius: 0.3em;
-	 font-size: 1.15em;
+	 padding: 2% 1%;
+	 font-size: 100%;
 	 font-weight: bold;
 	
  } 
@@ -62,9 +64,7 @@ p{
 /*sign in button size*/
 
 .signInButtonSize {
-	margin-top: 5%;
-	margin-left: 10%;
-	height: 2.1em;
+	margin: 5% auto 5% 10%;
 	width: 80%;
 }
 
@@ -122,8 +122,14 @@ li a:hover {  color: #4d94ff;}
          border-width: 1px; 
          border-color: #B2B0B0; 
          padding: 10px; 10px;
+         resize: horizontal;
+	 font-size: 80%;
          border-radius: 5px;
+	 margin-left:9.5%;                          
+         margin-top:5%;                          
+         width: 75%; 
 }
+
 .lightInput:focus{
     	-moz-box-shadow: 0 0 10px 3px rgba(77,77,255,.55);
     	-webkit-box-shadow: 0 0 10px 3px rgba(77,77,255,.55);
@@ -131,34 +137,39 @@ li a:hover {  color: #4d94ff;}
 	overflow: hidden; 	
 }
 
-/*sign in input align*/
-.signInInputs {
-         margin-left:9.5%;                          
-         margin-top:5%;                          
-         width: 75%; 
-}
-/*sign in background*/
-.loginBg{
+
+/*styled  background*/
+.styledBg{
 	background-color:#E8E8E8;
 	background: linear-gradient(to top, #e8e8e8, #bfbfbf);
 	-moz-box-shadow: 0 0 10px 3px rgba(128,128,128,.55);
     	-webkit-box-shadow: 0 0 10px 3px rgba(128,128,128,.55);
 	box-shadow: 0 0 10px 3px rgba(128,128,128,.55);
 	color:black;
+	border-radius: 10px;
+}
+/* size of login Bg*/
+.loginBgSize{
 	width:30%;
 	padding: 4% 1%; 
 	margin:5% auto 5% auto;
-	border-radius: 10px;
+
 }
 
-/*sign in top background*/
-.loginTopBg{
-	background-color:#B2B0B0;
-	height: 3%;
-	width: 100%;
-	border-radius: 3px;
+/* size of Forgot Password  Bg*/
+.forgotBgSize{
+	width:30%;
+	padding: 1% 1%; 
+	margin:5% auto 5% auto;
+
 }
 
+/* forgot div logo*/
+.forgotLogoSize{
+	margin-left:35%;
+	width:20%;
+	margin-top:1%;
+}
 /*home page big logo background*/
 #bigLogoBg {
 	margin-top: 0;
@@ -182,7 +193,7 @@ li a:hover {  color: #4d94ff;}
 }
 
 /*sign in page logo*/
-#logo{
+.signInLogoSize{
 	margin-left:35%;
 	width:30%;
 	margin-top:5%;
@@ -203,21 +214,20 @@ li a:hover {  color: #4d94ff;}
 	color:#5FA5FF;
 	text-decoration: none; 
 	margin-top: 2%;
-	align: right;
 	font-size: 0.85em;
 }
 
 #forgotTextAbove{
 	margin:2% 10% 1%;
 }
-/*checkbox style*/
-#checkbox{
+/*Remember me style*/
+#rememberStyle{
 	float: left;
 	margin-left:9.5%; 
         font-weight: bold;
-	margin-top:3%;
+	margin-top:2%;
 	color: gray;
-	font-size: 0.9em;
+	font-size: 90%;
 }
 
 /* create an account */

@@ -1,3 +1,0 @@
-Brand: VANADZOR_TRAVEL_GUIDE
-Version: 1.0.0
-Made by: Armenia

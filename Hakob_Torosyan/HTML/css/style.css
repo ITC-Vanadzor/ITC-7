@@ -1,0 +1,124 @@
+
+.butt {
+     border:none;
+     background:#0094CE; /* Backgrounds color for button is blue */
+     color:white; /* White text */
+     font-size:100%; /* Size of text */
+     width:90%;  /*Width of buttons */
+     padding:1% 1%; /*Space from button borders */
+     height:20%;
+     border-radius:3%;
+     margin-bottom:8%;
+     margin-left:5%;
+     margin-top:5%;
+     text-align:center; 
+     }
+
+.but {
+     border:none;
+     background:#0094CE; /* Backgrounds color for button is blue */
+     color:white; /* White text */
+     font-size:100%; /* Size of text */
+     width:90%;  /*Width of buttons */
+     padding:1% 1%; /*Space from button borders */
+     height:20%;
+     border-radius:3%;
+     margin-bottom:8%;
+     margin-left:5%;
+     margin-top:5%;
+     text-align:center;
+     }
+.buttonlast {
+     margin-bottom:40%;  
+     }
+.sign-text {
+     text-align:center;
+     font-size:140%;
+     margin-top: 50%;
+     margin-bottom:25%;
+     color:#006691;
+     font-family:Geneva, Arial, Helvetica, sans-serif;  
+    }
+.bgr {
+     color: #00FFFF;
+     }
+#phone {
+    background:linear-gradient(to top, white, #AAE5FB);
+    width:18%; 
+    height:100%; 
+    border:solid 5px black; 
+    border-radius:10px; 
+    max-height: 620px;
+    margin: auto auto;	
+}
+.google {
+    font-family:"Times New Roman", Georgia, Serif; 
+    color:white;
+    font-size:200%;
+}
+.facebook {
+    color:white;
+    font-size:200%;
+    margin-right:18%;
+}
+.plus {
+    margin-right:18%;
+    font-size:180%;
+}
+.buttontext {
+    font-size:110%;
+    margin-bottom:2%;
+    margin-right:0%;
+    margin-top:2%;
+    width:90%;
+    float:right;
+    text-align:center;
+}
+.buttontextt
+{
+    font-size:110%;
+    margin-bottom:2%;
+    margin-right: 3%;
+    text-align:center;
+    float:center;
+    margin-top:2%;
+}
+.facebookPage2 {
+    color:white;
+    font-size:200%;
+    margin-left:1%;
+    float:left;
+}
+.slaq {
+    width:10%;
+    height:10%;
+    margin-left:2%;
+    margin-top:2%;
+}
+
+.plhold1 {
+    margin-top:70%;
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    border:none;
+    height:10%;
+    background:none;
+    text-decoration:underline;
+    font-size:100%;
+    }
+.plhold2 {
+    margin-top:3%;
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:20%;
+    border:none;
+    height:10%;
+    background:none;
+    text-decoration:underline;
+    font-size:100%;
+    }
+.textpholder {
+    color:#0094CE;
+}

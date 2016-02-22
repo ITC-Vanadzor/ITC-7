@@ -1,3 +1,6 @@
+body {
+	background-color: #CCCCCC;
+}
 .phone { 
         margin:0 auto;               
         border-radius:10px;
@@ -6,15 +9,29 @@
         width:80%; 
 		background-image: linear-gradient(to bottom,#B6E4FC,white); 
 }
-button {
+/*button {
         border-radius: 10px;            
         border: 0px solid black ; 
 	width:80%;
 	padding-bottom:5%;
 	padding-top:5%; 
 	position:relative;
+}*/
+a.button {
+        background-color:#1491D2;
+        text-decoration:none;
+        display:block;
+        border-radius: 10px;
+        border: 0px solid black ;
+        width:80%;
+        padding-bottom:5%;
+        padding-top:5%;
+        position:relative;
+        margin-left: 9%;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: arial;
 }
-
 
 .background_button {     
         background: #1996D4;            
@@ -55,3 +72,10 @@ button img
 p {
 	text-align: center;
 }
+.fb_icon {
+        background-color:#1491D2;
+        background:url(../images/fb.png) 12px center no-repeat;
+        background-size:15%;
+        margin-top:15%;
+}
+

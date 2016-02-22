@@ -1,10 +1,10 @@
 .phone { 
-        margin-left: 5%;               
+        margin:0 auto;               
         border-radius:10px;
         border: 10px solid black;       
         max-width: 360px;                   
         width:80%; 
-		background-image: linear-gradient(to bottom,#B6E4FC,white); 
+	background-image: linear-gradient(to bottom,#B6E4FC,white); 
 }
 
 .header{

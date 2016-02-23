@@ -11,27 +11,14 @@ body {
 .content {
     padding-bottom: 100px;
 }
-footer {
-    position: absolute;
-    text-align:right;
-    bottom: 0;
-    width: 85%;
-    margin: 9% 10%;
-    margin-bottom: 0;
-}
-
-/*footer > p {
-
-    width: 100%;
-    padding-top: 0.1%;
-    padding-bottom: 0.1%;
+.footer {
     position: absolute;
     left: 0;
     bottom: 0;
-
-
-
-}*/
+    width: 100%;
+    margin-top: 0.1%;
+    margin-bottom: 0;
+}
 H2 {
     margin-top: 1%;
     color: #737373;
@@ -123,7 +110,16 @@ li a {
 li a:hover {
     color: #4d94ff;
 }
+/*footer */
 
+.footerPanelSize {
+    width: 100%;
+    padding-top: 0.1%;
+    padding-bottom: 0.1%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
 /*styled input*/
 
 .lightInput {
@@ -253,7 +249,7 @@ li a:hover {
 .textUnderRegInput {
     text-align: left;
     font-size: 85%;
-    margin: 1% 10.5%;
+    margin: 1% 10%;
  
 }
 .regInputSize {

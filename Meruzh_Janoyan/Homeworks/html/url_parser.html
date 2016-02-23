@@ -39,8 +39,8 @@
            }
            tmp=url.match(/([a-z]+?)=(.+?)&/ig);
            for(i=0;i< tmp.length;++i){
-               my_obj.variable[i]=tmp[i].slice(0,tmp[i].length-1);
-               document.getElementById('iDisplay').value+="\nVAR" + i+": " + my_obj.variable[i]
+               my_obj[i]=tmp[i].slice(0,tmp[i].length-1);
+               document.getElementById('iDisplay').value+="\nVAR" + i+": " + my_obj[i];
              }  
            
          }

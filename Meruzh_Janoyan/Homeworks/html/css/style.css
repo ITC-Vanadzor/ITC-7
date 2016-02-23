@@ -1,0 +1,300 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(45deg, #cccccc, #ccccc1);
+}
+.wrapper {
+    position: relative;
+    min-height: 100%;
+}
+.content {
+    padding-bottom: 100px;
+}
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-top: 0.1%;
+    margin-bottom: 0;
+}
+H2 {
+    margin-top: 1%;
+    color: #737373;
+}
+p {
+    color: #737373;
+    margin-left: 10%;
+}
+/* Styled gray button*/
+
+.grayButton {
+    color: #4d4d4d;
+    background: #e6e6e6;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #666666;
+    background: linear-gradient(to top, #e6e6e6, #bfbfbf);
+    border-radius: 0.3em;
+    padding: 2% 1%;
+    font-size: 100%;
+    font-weight: bold;
+    text-decoration: none;
+}
+.grayButton:hover {
+    background: linear-gradient(to top, #cccccc, #bfbfbf);
+}
+.grayButton:active {
+    background: linear-gradient(to top, #b3b3b3, #bfbfbf);
+}
+/*Blue styled button*/
+
+.blueButton {
+    color: white;
+    background: #0094F7;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #005c99;
+    background: linear-gradient(to top, #0094F7, #007acc);
+    border-radius: 0.3em;
+    padding: 2% 1%;
+    font-size: 100%;
+    font-weight: bold;
+    text-decoration: none;
+}
+.blueButton:hover {
+    background: linear-gradient(to top, #0076C4, #007acc);
+}
+.blueButton:active {
+    background: linear-gradient(to top, #0064A6, #007acc);
+}
+/*sign in button size*/
+
+.signInButtonSize {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 80%;
+}
+/*Menu bar buttons sizes*/
+
+.menuBarButtonSize {
+    float: left;
+    width: 4.8em;
+    height: 0.9em;
+}
+/* Menu Bar*/
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #E8E8E8;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #B2B0B0;
+}
+li {
+    float: left;
+}
+li a {
+    display: inline-block;
+    color: #737373;
+    text-align: center;
+    padding: 21px 18px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+li a:hover {
+    color: #4d94ff;
+}
+/*footer */
+
+.footerPanelSize {
+    width: 100%;
+    padding-top: 0.1%;
+    padding-bottom: 0.1%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+/*styled input*/
+
+.lightInput {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #B2B0B0;
+    padding: 10px;
+    10px;
+    font-size: 80%;
+    border-radius: 5px;
+    /*margin-left:9.5%;   */
+    
+    margin-top: 5%;
+    width: 75%;
+}
+.lightInput:focus {
+    box-shadow: 0 0 10px 3px rgba(77, 77, 255, .55);
+}
+/*styled  background*/
+
+.styledBg {
+    background: linear-gradient(to top, #e8e8e8, #bfbfbf);
+    box-shadow: 0 0 10px 3px rgba(128, 128, 128, .55);
+    border-radius: 10px;
+}
+/* size of login Bg*/
+
+.loginBgSize {
+    width: 30%;
+    min-width: 300px;
+    min-height: 340px;
+    padding: 4% 1%;
+    margin: 7% auto 2% auto;
+}
+/*hiden Div forgot pass*/
+
+#forgotPassDiv {
+    display: none;
+}
+#signUpDiv {
+    display: none;
+}
+#signInDiv {}
+/* size of Forgot Password  Bg*/
+
+.forgotBgSize {
+    width: 30%;
+    padding: 1% 1%;
+    margin: 5% auto 5% auto;
+}
+/* forgot div logo*/
+
+.forgotLogoSize {
+    margin-left: 35%;
+    width: 20%;
+    margin-top: 1%;
+}
+/*home page big logo background*/
+
+#bigLogoBg {
+    margin-top: 0;
+    height: 450px;
+}
+/*home page big logo image*/
+
+#bigLogoImg {
+    height: 20em;
+    margin-top: -25em;
+    float: right;
+}
+/*home page big logo background image*/
+
+#bigLogoBgImg {
+    opacity: 0.25;
+    width: 100%;
+    height: 100%;
+}
+/*sign in page logo*/
+
+.signInLogoSize {
+    /*	margin-left:35%;*/
+    
+    width: 30%;
+    margin-top: 5%;
+}
+/*menu bar small logo*/
+
+#smallogo {
+    float: left;
+    width: 50px;
+    margin-left: 1%;
+    margin-top: 0.4%;
+}
+/*forgot password style*/
+
+#forgot {
+    float: right;
+    margin-right: 10%;
+    color: #5FA5FF;
+    text-decoration: none;
+    margin-top: 2%;
+    font-size: 0.85em;
+}
+#forgotTextAbove {
+    margin: 2% 10% 1%;
+}
+/*Remember me style*/
+
+#rememberStyle {
+    float: left;
+    margin-left: 9.5%;
+    font-weight: bold;
+    margin-top: 2%;
+    color: gray;
+    font-size: 90%;
+}
+/* create an account */
+
+#signUpLink {
+    color: #5FA5FF;
+    text-decoration: none;
+    margin-top: 5%;
+}
+/*______________________ANI_______________________*/
+/* registration page*/
+
+.textUnderRegInput {
+    font-size: 85%
+}
+.regInputSize {
+    padding: 2%;
+    margin-top: 3%;
+    width: 95%;
+    font-size: 90%
+}
+/* end of registration page*/
+/*____________________________GEVOR__________________________*/
+
+.profileDivSize {
+    width: 500px;
+    height: 430px;
+    margin: 5% auto;
+    outline: 1px solid blue;
+    box-shadow: 0 0 10px 3px rgba(77, 77, 255, .55);
+    overflow: hidden;
+}
+.profileInputs {
+    float: right;
+    width: 65%;
+}
+.profileInputSize {
+    float: right;
+    margin-top: 3%;
+    margin-right: 3%;
+    width: 90%;
+}
+.profileDateSize {
+    float: left;
+    margin-top: 3%;
+    margin-right: 3%;
+    width: 20%;
+}
+.profileLabels {
+    text-align: right;
+    float: right;
+    margin-right: 3%;
+    height: 100%;
+    margin-top: -2%;
+}
+.profileButtonSize {
+    margin-top: 7%;
+    margin-left: 20%;
+    width: 50%;
+    height: 3em;
+}
+.profileLabelsTop {
+    margin-top: 21%;
+}

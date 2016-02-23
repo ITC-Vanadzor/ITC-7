@@ -1,26 +1,8 @@
 body{
 	margin:0;
 	padding:0;
-  height: 100%;
-  background: linear-gradient(45deg,#cccccc,#ccccc1);
-}
 
-.wrapper {
-  position: relative;
-  min-height: 100%;
 }
-.content {
-  padding-bottom: 100px;
-}
-.footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  margin-top: 0.1%;
-  margin-bottom: 0;
-}
-
 H2{
 	margin-top: 1%;
 	color: #737373;
@@ -31,56 +13,58 @@ p{
 	margin-left:10%;
 }
 
+/*web site background*/
+.webSiteBackground {
+	background-color:black; 
+	background: linear-gradient(45deg,#cccccc,#ccccc1);
+}
+
 
 /* Styled gray button*/
 .grayButton {
-   color: #4d4d4d;
-   background: #e6e6e6;
+	 margin-left:10px;
+         color: #4d4d4d;
+         background: #e6e6e6;
 	 border-style: solid;
-   border-width: 1px; 
-   border-color: #666666; 
+    	 border-width: 1px; 
+    	 border-color: #666666; 
 	 background: linear-gradient(to top, #e6e6e6, #bfbfbf);
-   border-radius: 0.3em;
-	 padding: 2% 1%;
-	 font-size: 100%;
-	 font-weight: bold;
-   text-decoration: none;
  } 
 .grayButton:hover { 
+	background: #cccccc; 
 	background: linear-gradient(to top, #cccccc, #bfbfbf);
 }
 .grayButton:active {
+	background: #b3b3b3;
 	background: linear-gradient(to top, #b3b3b3,#bfbfbf);
 }
 
-
-
 /*Blue styled button*/
 .blueButton {
-   color: white;
-   background: #0094F7;
+         color: white;
+         background: #0094F7;
 	 border-style: solid;
-   border-width: 1px; 
-   border-color: #005c99; 
+    	 border-width: 1px; 
+    	 border-color: #005c99; 
 	 background: linear-gradient(to top, #0094F7, #007acc);
-   border-radius: 0.3em;
+         border-radius: 0.3em;
 	 padding: 2% 1%;
 	 font-size: 100%;
 	 font-weight: bold;
-   text-decoration: none;
 	
  } 
 .blueButton:hover { 
+	background: #0076C4;
 	background: linear-gradient(to top, #0076C4, #007acc);
  }
 .blueButton:active {
+         background: #0064A6;
 	 background: linear-gradient(to top, #0064A6, #007acc);
 }
-
 /*sign in button size*/
+
 .signInButtonSize {
-	margin-top: 5%;
-  margin-bottom: 5%;
+	margin: 5% auto 5% 10%;
 	width: 80%;
 }
 
@@ -89,8 +73,19 @@ p{
 	 float: left;
 	 width:4.8em;
 	 height: 0.9em;
+         border-radius: 5px;
+	 text-align: center; 
+	 font-weight: bold;
+         text-decoration: none;
+         padding: .5em 1em calc(.5em + .5em);
 }
 
+/*Menu bar  button align*/
+#menuBarButtonAlign{
+	float: right;
+	margin-top: 0.7% ; 
+	margin-right:7%;
+}
 
 
 /* Menu Bar*/
@@ -121,63 +116,53 @@ li a {
 
 li a:hover {  color: #4d94ff;}
 
-/*footer */
-.footerPanelSize {
-  width: 100%;
-  padding-top: 0.1%;
-  padding-bottom: 0.1%;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-}
 /*styled input*/
 .lightInput {
-  border-style: solid;
-  border-width: 1px; 
-  border-color: #B2B0B0; 
-  padding: 10px; 10px;
-  font-size: 80%;
-  border-radius: 5px;
-	/*margin-left:9.5%;   */                       
-  margin-top:5%;                          
-  width: 75%; 
+	 border-style: solid;
+         border-width: 1px; 
+         border-color: #B2B0B0; 
+         padding: 10px; 10px;
+         resize: horizontal;
+	 font-size: 80%;
+         border-radius: 5px;
+	 margin-left:9.5%;                          
+         margin-top:5%;                          
+         width: 75%; 
 }
 
 .lightInput:focus{
+    	-moz-box-shadow: 0 0 10px 3px rgba(77,77,255,.55);
+    	-webkit-box-shadow: 0 0 10px 3px rgba(77,77,255,.55);
 	box-shadow: 0 0 10px 3px rgba(77,77,255,.55);
+	overflow: hidden; 	
 }
-
-
-
 
 
 /*styled  background*/
 .styledBg{
+	background-color:#E8E8E8;
 	background: linear-gradient(to top, #e8e8e8, #bfbfbf);
+	-moz-box-shadow: 0 0 10px 3px rgba(128,128,128,.55);
+    	-webkit-box-shadow: 0 0 10px 3px rgba(128,128,128,.55);
 	box-shadow: 0 0 10px 3px rgba(128,128,128,.55);
+	color:black;
 	border-radius: 10px;
 }
-
-
-
 /* size of login Bg*/
 .loginBgSize{
 	width:30%;
-  min-width: 300px;
-  min-height: 340px;
 	padding: 4% 1%; 
-	margin:7% auto 2% auto;
+	margin:5% auto 5% auto;
+
 }
-
-
 
 /* size of Forgot Password  Bg*/
 .forgotBgSize{
 	width:30%;
 	padding: 1% 1%; 
 	margin:5% auto 5% auto;
-}
 
+}
 
 /* forgot div logo*/
 .forgotLogoSize{
@@ -185,21 +170,20 @@ li a:hover {  color: #4d94ff;}
 	width:20%;
 	margin-top:1%;
 }
-
 /*home page big logo background*/
 #bigLogoBg {
 	margin-top: 0;
+	background-color: black;
 	height: 450px;
 }
 
-
 /*home page big logo image*/
 #bigLogoImg {
+	position:relative;
 	height: 20em;
 	margin-top: -25em;
 	float: right;
 }
-
 
 /*home page big logo background image*/
 #bigLogoBgImg {
@@ -208,30 +192,20 @@ li a:hover {  color: #4d94ff;}
 	height: 100%;
 }
 
-
-
 /*sign in page logo*/
 .signInLogoSize{
-/*	margin-left:35%;*/
+	margin-left:35%;
 	width:30%;
 	margin-top:5%;
 }
 
-/*Sign in forgot password hide*/
-#showForgotPassword{
-	display:none;
-}
-
-
-
 /*menu bar small logo*/
 #smallogo{
 	float:left;
-  width:50px;
+        width:50px;
 	margin-left:1%;
 	margin-top:0.4%;
 }
-
 
 /*forgot password style*/
 #forgot {
@@ -243,28 +217,29 @@ li a:hover {  color: #4d94ff;}
 	font-size: 0.85em;
 }
 
-
 #forgotTextAbove{
 	margin:2% 10% 1%;
 }
-
 /*Remember me style*/
 #rememberStyle{
 	float: left;
 	margin-left:9.5%; 
-  font-weight: bold;
+        font-weight: bold;
 	margin-top:2%;
 	color: gray;
 	font-size: 90%;
 }
 
-
 /* create an account */
-#signUpLink{
+#signuplink{
 	color:#5FA5FF;
 	text-decoration: none; 
-  margin-top: 5%;
+	margin-top: 1%;
 }
+
+
+
+
 /*______________________ANI_______________________*/
 
 /* registration page*/
@@ -277,7 +252,7 @@ li a:hover {  color: #4d94ff;}
 .regInputSize {
 	padding: 2%;
 	margin-top: 3%;
-  width:95%; 
+        width:95%; 
 	font-size: 90%
 }
 /* end of registration page*/
@@ -293,7 +268,9 @@ li a:hover {  color: #4d94ff;}
 	width:500px; 
 	height: 430px; 
 	margin:5% auto;
-	outline:1px solid blue;
+	outline:1px solid blue;"
+	-moz-box-shadow: 0 0 10px 3px rgba(77,77,255,.55);
+    	-webkit-box-shadow: 0 0 10px 3px rgba(77,77,255,.55);
 	box-shadow: 0 0 10px 3px rgba(77,77,255,.55);
 	overflow: hidden; 	
 
@@ -301,7 +278,8 @@ li a:hover {  color: #4d94ff;}
 
 .profileInputs {
 	float: right;
-	width: 65%;	
+	width: 65%;
+	
 }
 
 .profileInputSize {

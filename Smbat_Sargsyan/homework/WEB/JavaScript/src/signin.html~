@@ -8,8 +8,8 @@
    </head>
 
   <body  class="webSiteBackground">
-	<!-- ----------Sign IN ----------------------->
-	<div id="Signin">
+	<!-- ******** Sign IN *********** -->
+	<div id="Signin" class="sign" >
 		<div class="styledBg loginBgSize">
 			<a href="index.html"><img src="../res/icon.png"  class="logo"></a>
 			<form action="#" >
@@ -23,9 +23,8 @@
 		<p align="center"><a href="registration.html" align="center" id ="signuplink">Create an account</a></p>
 	</div>
 
-
-	<div id="registration">
-	<!-- ---------Registration----------->
+	<!-- *****Registration***** -->
+	<div id="registration" class="regis">
 		<ul>
  <a class="active" href="index.html"><img src="../res/icon.png" id="smallogo"></a>
   <li><a href="#about">About us</a></li>
@@ -67,8 +66,8 @@
          </div>
      </form>
 </div>
-	<div id="Frgot">
-	<!-- ------Forgot Password------->
+	<div id="forgot" class="forg">
+	<!-- *****Forgot Password**** -->
 	<div class="styledBg forgotBgSize">
 			<form action="#" >
 				<a href="index.html" ><img src="../res/icon.png"   class="forgotLogoSize"></a>
@@ -78,5 +77,61 @@
 			</form> 
 		</div>
 	</div> 
+	<div id="profile" class="prof">
+		 <ul>
+                <a class="active" href="index.html"><img src="../res/icon.png" id="smallogo"></a>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#use">How to use</a></li>
+                <li><a href="#download">Download</a></li>
+                <div id="menuBarButtonAlign">
+                        <a href="registration.html"  class="blueButton menuBarButtonSize" >Sign Up</a>
+                        <a href="signin.html"   class="grayButton menuBarButtonSize">Sign In</a>
+                </div>
+        </ul>
+
+
+
+   <div class="profileDivSize">
+        <div class="profileInputs">
+              <input type="text" name="name" value="Nane" class="lightInput profileInputSize" >
+              <input type="text" name="surname" value="Hambardzumyan" class="lightInput profileInputSize">
+                <input type="text" name="email"  value="narenane@mail..com" class="lightInput profileInputSize">
+                <input type="password" name="password"  class="lightInput profileInputSize">
+                 <input type="password" name="newpass"  class="lightInput profileInputSize">
+                 <input type="password" name="repass"  class="lightInput profileInputSize">
+                 <input class="lightInput profileDateSize" type="number" name="points" min="1" max="31" step="1" value="01">
+                <select class="lightInput profileDateSize">
+                        <option value="jan">January</option>
+                        <option value="feb">February</option>
+                        <option value="mar">March</option>
+                         <option value="apr">April</option>
+                        <option value="may">May</option>
+                        <option value="jun">June</option>
+                        <option value="jul">July</option>
+                        <option value="aug">August</option>
+                        <option value="sep">September</option>
+                        <option value="oct">October</option>
+                        <option value="nov">November</option>
+                        <option value="dec">December</option>
+                </select>
+
+
+  <input class="lightInput profileDateSize" type="number" name="points"
+   min="1900" max="2016" step="1" value="1990">
+
+      <button class="blueButton profileButtonSize" >Save cahnges</button>
+        </div>
+
+ <div class="profileLabels">
+      <p class="profileLabelsTop">Name</p>
+      <p class="profileLabelsTop">Surname</p>
+      <p class="profileLabelsTop">Email</p>
+      <p class="profileLabelsTop">Password</p>
+      <p class="profileLabelsTop">New Password</p>
+      <p class="profileLabelsTop">Repeat Password</p>
+      <p class="profileLabelsTop">Birthday</p>
+</div>
+</div>
+</div>
   </body>
 </html>

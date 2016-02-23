@@ -1,9 +1,12 @@
-document.getElementById("Signin").style.visibility = "show";
-document.getElementById("registration").style.visibility = "hidden";	
-document.getElementById("forgot").style.visibility = "hidden";	
-document.getElementById("profile").style.visibility = "hodden";
-alert("Hi");
+/*document.getElementById("Signin").style.display = "block";
+document.getElementById("registration").style.display = "none";
+document.getElementById("forgot").style.display = "none";
+document.getElementById("profile").style.display = "none";*/
 function clicked() {
+	/*document.getElementById("Signin").style.display = "block";
+	document.getElementById("registration").style.display = "none";
+	document.getElementById("forgot").style.display = "none";
+	document.getElementById("profile").style.display = "none"; */
 	var mail = document.getElementById('mail');
 	var pass = document.getElementById('pass');
 
@@ -13,27 +16,28 @@ function clicked() {
 	if(mail.value == usermail) {
 		if(pass.value == userpass) {
 			window.alert("you are log in as " + mail.value);
-			document.getElementById("Signin").style.visibility = "hidden";
-			document.getElementById("registration").style.visibility = "hidden";	
-			document.getElementById("forgot").style.visibility = "hidden";	
-			document.getElementById("profile").style.visibility = "show";
-		}
-		else {
-			window.alert("incorrect mail or password");
-		}
+			document.getElementById("Signin").style.display = "none";
+			document.getElementById("registration").style.display = "none";	
+			document.getElementById("forgot").style.display = "none";	
+			document.getElementById("profile").style.display = "block";
+	}
+	}
+		
+	else if(mail.value == usermail) {
+		if(pass.value != userpass) {
+		window.alert("forgot password");
+		document.getElementById("Signin").style.display = "none";
+		document.getElementById("forgot").style.display = "block";
+		document.getElementById("registration").style.display = "none";
+		document.getElementById("profile").style.display = "none"
+	}
 	}
 	else {
-		window.alert("incorrect mail orpassword,try again");
-		document.getElementById("Signin").style.visibility = "show"
-		document.getElementById("forgot").style.visibility = "hidden";
-		document.getElementById("registration").style.visibility = "hidden";
-		document.getElementById("profile").style.visibility = "hidden";
-	}
-	if(mail.value == usermail && pass.value != userpass) {
-		window.alert("forgot password");
-		document.getElementById("Signin").style.visibility = "hidden"
-		document.getElementById("forgot").style.visibility = "show";
-		document.getElementById("registration").style.visibility = "hidden";
+                window.alert("incorrect mail orpassword,try again");
+                document.getElementById("Signin").style.display = "none";
+                document.getElementById("forgot").style.display = "block";
+                document.getElementById("registration").style.display = "none";
+                document.getElementById("profile").style.display = "none";
+        }
 
-	}
 }

@@ -4,34 +4,8 @@ body {
     height: 100%;
     background: linear-gradient(45deg, #cccccc, #ccccc1);
 }
-.wrapper {
-    position: relative;
-    min-height: 100%;
-}
-.content {
-    padding-bottom: 100px;
-}
-footer {
-    position: absolute;
-    text-align:right;
-    bottom: 0;
-    width: 85%;
-    margin: 9% 10%;
-    margin-bottom: 0;
-}
-
-/*footer > p {
-
-    width: 100%;
-    padding-top: 0.1%;
-    padding-bottom: 0.1%;
-    position: absolute;
-    left: 0;
-    bottom: 0;
 
 
-
-}*/
 H2 {
     margin-top: 1%;
     color: #737373;
@@ -135,8 +109,6 @@ li a:hover {
     10px;
     font-size: 80%;
     border-radius: 5px;
-    /*margin-left:9.5%;   */
-    
     margin-top: 5%;
     width: 75%;
 }
@@ -167,7 +139,9 @@ li a:hover {
 #signUpDiv {
     display: none;
 }
-#signInDiv {}
+#signInDiv {
+    display: none;
+}
 /* size of Forgot Password  Bg*/
 
 .forgotBgSize {
@@ -187,12 +161,13 @@ li a:hover {
 #bigLogoBg {
     width: 100%;
     height: 33em;
-    background: url(../res/money.jpg, .25)
+    background: url(../res/money.jpg)
 }
 
 /*home page big logo */
 
 #bigLogoImg {
+    opacity: 0.75;
     float: right;
     width: 30%;
     margin-top: 5%;
@@ -240,7 +215,7 @@ li a:hover {
 }
 /* create an account */
 
-#signUpLink {
+.signUpLink {
     color: #5FA5FF;
     text-decoration: none;
     margin-top: 5%;

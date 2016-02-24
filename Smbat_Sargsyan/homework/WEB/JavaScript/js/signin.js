@@ -17,21 +17,14 @@ function clicked() {
 	var pass = document.getElementById('pass');
 
      for(i=0;i<objPeople.length;i++) {
-	if(mail.value == objPeople[i].usermail) {
-		if(pass.value == objPeople[i].userpass) {
+	if(mail.value == objPeople[i].usermail && pass.value == objPeople[i].userpass) {
 			window.alert("you are log in as " + mail.value);
 			document.getElementById("Signin").style.display = "none";
-			document.getElementById("registration").style.display = "none";	
-			document.getElementById("forgot").style.display = "none";	
 			document.getElementById("profile").style.display = "block";
 			return;
-		}
-	}
 		
-      }
+	}
+		}
                 window.alert("incorrect mail orpassword,try again");
-                document.getElementById("Signin").style.display = "none";
                 document.getElementById("forgot").style.display = "block";
-                document.getElementById("registration").style.display = "none";
-                document.getElementById("profile").style.display = "none";
 }

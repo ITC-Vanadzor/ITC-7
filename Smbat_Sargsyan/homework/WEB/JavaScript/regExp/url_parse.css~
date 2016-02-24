@@ -1,0 +1,6 @@
+table
+{
+	border:1px;
+	background:#FFCC55;  
+	padding:20px;
+}

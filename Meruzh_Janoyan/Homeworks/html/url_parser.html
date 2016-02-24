@@ -1,56 +1,152 @@
 <html>
-   <head>
-      <title>Url Parser</title>
-      <script>
-         function parseUrl(){
-           var my_obj={};
 
-         
-           my_obj.url=document.getElementById('iUrl').value;
-           var url=my_obj.url;
-           document.getElementById('iDisplay').value="URL: "+url;
-           my_obj.host=url.match('(.+?)://')[1];
-           document.getElementById('iDisplay').value+="\nHost: "+my_obj.host;
-           
-           var tmp=url.match('://(.+?):');
-           if(tmp){
-             my_obj.domen=tmp[1];
-             document.getElementById('iDisplay').value+="\nDomen: "+my_obj.domen;
-             my_obj.port=url.match(':[0-9](.+?)/')[1];
-             document.getElementById('iDisplay').value+="\nPort: "+my_obj.port;
-           }
-           else{
-             document.getElementById('iDisplay').value+="\nPort: Not found"; 
-             my_obj.domen=url.match('://(.+?)/')[1];
-             document.getElementById('iDisplay').value+="\nDomen: "+my_obj.domen;
-           }
-           tmp=url.match(/[^:\/]\/(.+?)[?]/);
-           if(tmp){
-             my_obj.path=tmp[1];
-             document.getElementById('iDisplay').value+="\nPATH: "+ my_obj.path;
-           }
-           else if(url.search("/[?]")!=-1){
-             document.getElementById('iDisplay').value+="\nPATH: Not found";
-               }
-           else {     
-              my_obj.path=url.match(/[^:\/]\/(.+?)$/)[1];
-              document.getElementById('iDisplay').value+="\nPATH: "+my_obj.path;
-              return;
-           }
-           tmp=url.match(/([a-z]+?)=(.+?)&/ig);
-           for(i=0;i< tmp.length;++i){
-               my_obj[i]=tmp[i].slice(0,tmp[i].length-1);
-               document.getElementById('iDisplay').value+="\nVAR" + i+": " + my_obj[i];
-             }  
-           
-         }
-      </script>
-   </head>
-   <body>
-      <div>
-         <input type="txt" id="iUrl" placeholder="Input URL">
-         <button id="iButton" onclick="parseUrl()" >Parse</button>
-      </div>
-      <p><textarea rows="20" cols="90" name="text" id="iDisplay"></textarea></p>
-   </body>
+<head>
+    <title>Url Parser</title>
+    <script>
+        function Parser(url) {
+            this.url = url;
+            this.getHost = function() {
+                return this.url.match('(.+?)://')[1];
+
+            }
+
+            this.getPort = function() {
+                var tmp = this.url.match('://(.+?):');
+                if (tmp) {
+                    return this.url.match(':[0-9](.+?)/')[1];
+
+                } else {
+                    return "Not found";
+                }
+
+            }
+            this.getDomen = function() {
+
+                return this.url.match('://(.+?)[/|:]')[1];
+            }
+            this.getPath = function() {
+                tmp = this.url.match(/[^:\/]\/(.+?)[?]/);
+                if (tmp) {
+                    return tmp[1];
+                }
+                if (this.url.search("/[?]") != -1) {
+                    return " Not found";
+                } else {
+                    return this.url.match(/[^:\/]\/(.+?)$/)[1];
+                }
+            }
+            this.getVariable = function() {
+                return this.url.match(/([a-z]+?)=(.+?)$/ig);
+
+            }
+
+        }
+
+        function parseUrl() {
+            var body = document.querySelector("body"),
+
+                tr = "",
+                td = "",
+                firstTable = document.querySelector("table");
+
+            table = document.createElement("table"),
+                table.setAttribute("border", "2px");
+
+
+
+            tr = document.createElement("tr");
+
+            td = document.createElement("td");
+            text = document.createTextNode("URL");
+            td.appendChild(text);
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            text = document.createTextNode("HOST");
+            td.appendChild(text);
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            text = document.createTextNode("DOMEN");
+            td.appendChild(text);
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            text = document.createTextNode("PORT");
+            td.appendChild(text);
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            text = document.createTextNode("PATH");
+            td.appendChild(text);
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            text = document.createTextNode("VARIABLES");
+            td.appendChild(text);
+            tr.appendChild(td);
+
+            table.appendChild(tr);
+
+            var myUrl = document.getElementById('iUrl').value.split('\n');
+
+            for (var i = 0, ln = myUrl.length; i < ln; ++i) {
+
+                var o = new Parser(myUrl[i]);
+                tr = document.createElement("tr");
+                td = document.createElement("td");
+                text = document.createTextNode(o.url);
+                td.appendChild(text);
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                text = document.createTextNode(o.getHost());
+                td.appendChild(text);
+                tr.appendChild(td);
+
+
+
+                td = document.createElement("td");
+                text = document.createTextNode(o.getDomen());
+                td.appendChild(text);
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                text = document.createTextNode(o.getPort());
+                td.appendChild(text);
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                text = document.createTextNode(o.getPath());
+                td.appendChild(text);
+                tr.appendChild(td);
+
+
+                td = document.createElement("td");
+                text = document.createTextNode(o.getVariable());
+                td.appendChild(text);
+                tr.appendChild(td);
+                table.appendChild(tr);
+
+            }
+
+
+
+
+            if (firstTable == null) {
+                return body.appendChild(table);
+            } else {
+                var newTable = body.appendChild(table);
+                return document.body.replaceChild(newTable, firstTable);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <p><textarea placeholder="Insert URLs" rows="10" cols="150" name="text" id="iUrl"></textarea></p>
+        <button id="iButton" onclick="parseUrl()">Parse</button>
+</body>
+
 </html>

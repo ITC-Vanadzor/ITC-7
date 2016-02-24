@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 		  <head>
+					 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 					 <title>Sign In to HDM</title>
 					 <link rel="stylesheet" href="../css/style.css">
 					 <script src="../js/script.js"></script>
@@ -19,7 +20,7 @@
 																<label onclick="showDiv('forgotPassDiv')" id="forgot">Forgot password?</label>
 																<input  id = "passLogin" type="password" name="password" placeholder="Password" class="lightInput signInInputs">
 																<label id="rememberStyle"><input  type="checkbox" name="remember"  >Remember me</label>
-																<button id="signIn" class="blueButton signInButtonSize" >Sign In</button>	
+																<button id="signIn" onclick="signInSite()" class="blueButton signInButtonSize" >Sign In</button>	
 													 </form>
 													 <div align="center"><label onclick="showDiv('signUpDiv')" id="signUpLink">Create an account</label></div>
 										  </div>
@@ -30,8 +31,8 @@
 													 <form action="#" >
 																<a href="index.html" ><img src="../res/icon.png"   class="signInLogoSize"></a>
 																<p class="textUnderRegInput" id="forgotTextAbove">Enter your email address and we will send you a link to reset your password.</p>
-																<input class="lightInput"  placeholder="Enter your email address" type="email">
-																<button class="blueButton signInButtonSize">Send password reset email</button>	
+																<input class="lightInput"  placeholder="Enter your email address" type="email" id="emailTo">
+																<button class="blueButton signInButtonSize" onclick="sendMail()">Send password reset email</button>	
 													 </form>
 													 <div align="center"><label onclick="showDiv('signUpDiv')" id="signUpLink">Create an account</label></div>
 										  </div>
@@ -59,7 +60,7 @@
 																		  Use at least one lowercase letter, one numeral and seven characters.
 																		  </p>
 																		  <!--Button of registration-->
-																		  <button id="signUp" class ="signInButtonSize blueButton ";  type="submit">Create an account</button>
+																		  <button id="signUp" onclick="signUp()" class ="signInButtonSize blueButton ";  type="submit">Create an account</button>
 																</div>
 													 </form>
 										  </div>

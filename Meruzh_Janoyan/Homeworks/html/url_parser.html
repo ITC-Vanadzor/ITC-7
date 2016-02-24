@@ -9,7 +9,7 @@
                 return this.url.match('(.+?)://')[1];
 
             }
-            
+
             this.getPort = function() {
                 var tmp = this.url.match('://(.+?):');
                 if (tmp) {
@@ -43,26 +43,110 @@
         }
 
         function parseUrl() {
-            var myObj = new Parser(document.getElementById('iUrl').value);
+            var body = document.querySelector("body"),
 
-            document.getElementById('iDisplay').value = "Url: " + myObj.url;
-            document.getElementById('iDisplay').value += "\nHost: " + myObj.getHost();
-            document.getElementById('iDisplay').value += "\nDomen: " + myObj.getDomen();
-            document.getElementById('iDisplay').value += "\nPort: " + myObj.getPort();
-            document.getElementById('iDisplay').value += "\nPath: " + myObj.getPath();
-            document.getElementById('iDisplay').value += "\nVar: " + myObj.getVariable();
-            
+                tr = "",
+                td = "",
+                firstTable = document.querySelector("table");
 
+            table = document.createElement("table"),
+                table.setAttribute("border", "2px");
+
+
+
+            tr = document.createElement("tr");
+
+            td = document.createElement("td");
+            text = document.createTextNode("URL");
+            td.appendChild(text);
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            text = document.createTextNode("HOST");
+            td.appendChild(text);
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            text = document.createTextNode("DOMEN");
+            td.appendChild(text);
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            text = document.createTextNode("PORT");
+            td.appendChild(text);
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            text = document.createTextNode("PATH");
+            td.appendChild(text);
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            text = document.createTextNode("VARIABLES");
+            td.appendChild(text);
+            tr.appendChild(td);
+
+            table.appendChild(tr);
+
+            var myUrl = document.getElementById('iUrl').value.split('\n');
+
+            for (var i = 0, ln = myUrl.length; i < ln; ++i) {
+
+                var o = new Parser(myUrl[i]);
+                tr = document.createElement("tr");
+                td = document.createElement("td");
+                text = document.createTextNode(o.url);
+                td.appendChild(text);
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                text = document.createTextNode(o.getHost());
+                td.appendChild(text);
+                tr.appendChild(td);
+
+
+
+                td = document.createElement("td");
+                text = document.createTextNode(o.getDomen());
+                td.appendChild(text);
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                text = document.createTextNode(o.getPort());
+                td.appendChild(text);
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                text = document.createTextNode(o.getPath());
+                td.appendChild(text);
+                tr.appendChild(td);
+
+
+                td = document.createElement("td");
+                text = document.createTextNode(o.getVariable());
+                td.appendChild(text);
+                tr.appendChild(td);
+                table.appendChild(tr);
+
+            }
+
+
+
+
+            if (firstTable == null) {
+                return body.appendChild(table);
+            } else {
+                var newTable = body.appendChild(table);
+                return document.body.replaceChild(newTable, firstTable);
+            }
         }
     </script>
 </head>
 
 <body>
     <div>
-        <input type="txt" id="iUrl" placeholder="Input URL">
+        <p><textarea placeholder="Insert URLs" rows="10" cols="150" name="text" id="iUrl"></textarea></p>
         <button id="iButton" onclick="parseUrl()">Parse</button>
-    </div>
-    <p><textarea rows="20" cols="90" name="text" id="iDisplay"></textarea></p>
 </body>
 
 </html>

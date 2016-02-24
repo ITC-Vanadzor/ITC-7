@@ -1,0 +1,21 @@
+
+
+function showDiv(divname){
+
+  document.getElementById("forgotPassDiv").style.display="none";
+  document.getElementById("signInDiv").style.display="none";
+  document.getElementById("signUpDiv").style.display="none";
+
+  switch(divname){
+	case 1:
+		document.getElementById("forgotPassDiv").style.display="block";
+  		break;
+	case 2:
+		document.getElementById("signUpDiv").style.display="block";
+		document.getElementById("signUpLink").style.display="none";
+		break;
+	case 3:
+		document.getElementById("signInDiv").style.display="block";
+		break;
+	}
+}

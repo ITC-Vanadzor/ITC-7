@@ -3,15 +3,12 @@ window.fbAsyncInit = function() {
 	appId      : '1573877892928843',
 	xfbml      : true,
 	version    : 'v2.5'
-    });
+});
 
-FB.getLoginStatus(function(response) {
+    FB.getLoginStatus(function(response) {
 	if (response.status === 'connected') {
+
 	document.getElementById('login').style.visibility = 'hidden';
-	} else if (response.status === 'not_authorized') {
-	document.getElementById('status').innerHTML = 'We are not logged in.'
-	} else {
-	document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
 	}
 	});
 };
@@ -28,12 +25,7 @@ FB.getLoginStatus(function(response) {
 function login() {
     FB.login(function(response) {
 	    if (response.status === 'connected') {
-	    document.getElementById('status').innerHTML = 'We are connected.';
-	    document.getElementById('login').style.visibility = 'hidden';
-	    } else if (response.status === 'not_authorized') {
-	    document.getElementById('status').innerHTML = 'We are not logged in.'
-	    } else {
-	    document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
+	        document.getElementById('login').style.visibility = 'hidden';
 	    }
 	    }, {scope: 'email'});
 }

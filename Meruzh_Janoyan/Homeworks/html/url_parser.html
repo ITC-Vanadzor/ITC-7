@@ -1,56 +1,68 @@
 <html>
-   <head>
-      <title>Url Parser</title>
-      <script>
-         function parseUrl(){
-           var my_obj={};
 
-         
-           my_obj.url=document.getElementById('iUrl').value;
-           var url=my_obj.url;
-           document.getElementById('iDisplay').value="URL: "+url;
-           my_obj.host=url.match('(.+?)://')[1];
-           document.getElementById('iDisplay').value+="\nHost: "+my_obj.host;
-           
-           var tmp=url.match('://(.+?):');
-           if(tmp){
-             my_obj.domen=tmp[1];
-             document.getElementById('iDisplay').value+="\nDomen: "+my_obj.domen;
-             my_obj.port=url.match(':[0-9](.+?)/')[1];
-             document.getElementById('iDisplay').value+="\nPort: "+my_obj.port;
-           }
-           else{
-             document.getElementById('iDisplay').value+="\nPort: Not found"; 
-             my_obj.domen=url.match('://(.+?)/')[1];
-             document.getElementById('iDisplay').value+="\nDomen: "+my_obj.domen;
-           }
-           tmp=url.match(/[^:\/]\/(.+?)[?]/);
-           if(tmp){
-             my_obj.path=tmp[1];
-             document.getElementById('iDisplay').value+="\nPATH: "+ my_obj.path;
-           }
-           else if(url.search("/[?]")!=-1){
-             document.getElementById('iDisplay').value+="\nPATH: Not found";
-               }
-           else {     
-              my_obj.path=url.match(/[^:\/]\/(.+?)$/)[1];
-              document.getElementById('iDisplay').value+="\nPATH: "+my_obj.path;
-              return;
-           }
-           tmp=url.match(/([a-z]+?)=(.+?)&/ig);
-           for(i=0;i< tmp.length;++i){
-               my_obj[i]=tmp[i].slice(0,tmp[i].length-1);
-               document.getElementById('iDisplay').value+="\nVAR" + i+": " + my_obj[i];
-             }  
-           
-         }
-      </script>
-   </head>
-   <body>
-      <div>
-         <input type="txt" id="iUrl" placeholder="Input URL">
-         <button id="iButton" onclick="parseUrl()" >Parse</button>
-      </div>
-      <p><textarea rows="20" cols="90" name="text" id="iDisplay"></textarea></p>
-   </body>
+<head>
+    <title>Url Parser</title>
+    <script>
+        function Parser(url) {
+            this.url = url;
+            this.getHost = function() {
+                return this.url.match('(.+?)://')[1];
+
+            }
+            
+            this.getPort = function() {
+                var tmp = this.url.match('://(.+?):');
+                if (tmp) {
+                    return this.url.match(':[0-9](.+?)/')[1];
+
+                } else {
+                    return "Not found";
+                }
+
+            }
+            this.getDomen = function() {
+
+                return this.url.match('://(.+?)[/|:]')[1];
+            }
+            this.getPath = function() {
+                tmp = this.url.match(/[^:\/]\/(.+?)[?]/);
+                if (tmp) {
+                    return tmp[1];
+                }
+                if (this.url.search("/[?]") != -1) {
+                    return " Not found";
+                } else {
+                    return this.url.match(/[^:\/]\/(.+?)$/)[1];
+                }
+            }
+            this.getVariable = function() {
+                return this.url.match(/([a-z]+?)=(.+?)$/ig);
+
+            }
+
+        }
+
+        function parseUrl() {
+            var myObj = new Parser(document.getElementById('iUrl').value);
+
+            document.getElementById('iDisplay').value = "Url: " + myObj.url;
+            document.getElementById('iDisplay').value += "\nHost: " + myObj.getHost();
+            document.getElementById('iDisplay').value += "\nDomen: " + myObj.getDomen();
+            document.getElementById('iDisplay').value += "\nPort: " + myObj.getPort();
+            document.getElementById('iDisplay').value += "\nPath: " + myObj.getPath();
+            document.getElementById('iDisplay').value += "\nVar: " + myObj.getVariable();
+            
+
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <input type="txt" id="iUrl" placeholder="Input URL">
+        <button id="iButton" onclick="parseUrl()">Parse</button>
+    </div>
+    <p><textarea rows="20" cols="90" name="text" id="iDisplay"></textarea></p>
+</body>
+
 </html>

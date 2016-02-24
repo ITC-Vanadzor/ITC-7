@@ -1,0 +1,5 @@
+"userData":[
+		{"userEmail":"hasmikus@gmail.com","password":"passwordMine"},
+      {"userEmail":"anisaghatelyan@mail.ru", "password": "Anispassword"},
+      {"userEmail":"smbatsargsyan@mail.ru", "password": "Smbatspassword"},
+]

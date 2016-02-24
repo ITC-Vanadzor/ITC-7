@@ -158,7 +158,16 @@ li a:hover {
     padding: 4% 1%;
     margin: 7% auto 2% auto;
 }
+/*hiden Div forgot pass*/
 
+#forgotPassDiv {
+    display: none;
+}
+#signUpDiv {
+    display: none;
+}
+#signInDiv {}
+/* size of Forgot Password  Bg*/
 
 .forgotBgSize {
     width: 30%;
@@ -295,17 +304,4 @@ li a:hover {
 }
 .profileLabelsTop {
     margin-top: 21%;
-}
-
-
-#signInDiv {
-	 display: block;
-}
-
-#forgotPassDiv {
-	display:none;
-}
-
-#signUpDiv {
-	display:none;
 }

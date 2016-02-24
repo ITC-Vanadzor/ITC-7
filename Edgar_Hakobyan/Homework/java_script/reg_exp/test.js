@@ -40,6 +40,7 @@ alert(parser2.endpoint);
 alert(parser2.username);
 alert(parser2.password);
 
+
 //errord tarberak
 function parser3() {
     this.protocol=protocol;

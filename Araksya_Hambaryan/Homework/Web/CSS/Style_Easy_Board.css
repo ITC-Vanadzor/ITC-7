@@ -1,9 +1,9 @@
- body {
+body {
     background-color:#E8E8E8;
 }
 
- #phone {
-     max-width:360px;
+#phone {
+    max-width:360px;
     background:linear-gradient(to top, white, #BCE6FD);
     width:37.58%;  
     border:solid 5px black; 
@@ -22,7 +22,8 @@
     margin-top:45%;
     padding-bottom:56%;
 }
- .logInPage1 h2 {
+
+.logInPage1 h2 {
     color:#14608C;
     text-align:center;
     font-family:Arial;
@@ -34,6 +35,30 @@
     padding-bottom:59%;
     margin-top:75%;
 }
+
+.emailPasswordArea {
+    width:100%;
+    padding-bottom:59%;
+    margin-top:62%;
+}
+
+.emailPasswordArea form {
+    width:90%;
+    padding:1%;
+}
+
+form input {
+    border:none;
+    width:85%;
+    border-bottom:2px solid #1491D2;
+    display:block;
+    background: transparent;
+    padding: 0% 3% 2% 4%;
+    margin-left: 8%;
+    margin-top: 5%;
+    font:15px Arial;
+}
+
 .signIn {
     margin:0% 2% 2% 8%;
     border:solid 0px black;
@@ -54,11 +79,12 @@
     
 }
 
-
 .withFacebook {
     background:url(../Resources/fb.png) 11px center no-repeat #1491D2;
     background-size: 18px;
     margin-top:13%;
    }
 
-
+.emailPasswordArea input {
+    width:84%;
+ }

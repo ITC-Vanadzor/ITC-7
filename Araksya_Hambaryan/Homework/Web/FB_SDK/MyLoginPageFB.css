@@ -73,12 +73,31 @@ form input {
     font:18px Arial;
 }
 
+#login {
+    margin:0% 2% 2% 8%;
+    border:solid 0px black;
+    border-radius:5px;
+    width:66%;
+    text-align:left;
+    font-size:18px;
+    color:white;
+    padding:3% 0% 4% 18%;
+    display:block;
+    text-decoration: none;
+    font:18px Arial;i
+    background-size: 18px;
+    
+    background:url(fb.png) 11px center no-repeat #1491D2;
+    background-size: 18px;
+}
 .withGoogle {
     background:url(google.png) 12px center no-repeat #1491D2;
     background-size: 26px;
     
 }
-
+#status {
+    color: transparent;
+}
 .withFacebook {
     /*background:url(fb.png) 11px center no-repeat #1491D2;
     background-size: 18px;*/

@@ -1,28 +1,61 @@
-var str = "http://google.com:8080/search?a=ok&limit=10";
+/*var str = "http://google.com:8080/search?a=ok&limit=10";
 
 var protocol = str.match(/^(.*):\/\//);
-//alert(protocol[1]);
+
 
 var host=str.match(/:\/\/(.*):/);
-//alert(host[1]);
+
 
 var port=str.match(/:([0-9].*)\//);
-//alert(port[1]); 
+
 
 var endpoint=str.match(/[0-9]\/(.*)\?/);
-//alert(endpoint[1]);
+
 
 var el1=str.match(/\?(.*)&/);
-//alert(el1[1]);
 
-var el2=str.match(/&(.*)$/);
-//alert(el2[1]);
-var myObject={};
-myObject[protocol]=protocol;
-myObject[host]=host;
-myObject[port]=port;
-myObject[endpoint]=endpoint;
-myObject[el1]=el1;
-myObject[el2]=el2;
-console.log(myObject);
+var el2=str.match(/&(.*)$/);*/
 
+"use strict";
+var str = "http://google.com:8080/search?username=hi&password=by"
+
+
+function urlParser (url) {
+
+	this.url = url;
+
+	this.getProtocol = function() {
+		var protocol = url.match(/^(.*):\/\//);
+		return protocol[1];
+	}
+
+	this.getPort = function() {
+		var port = url.match(/:([0-9].*)\//);
+		return port[1];
+	}
+
+	this.getPar1 = function() {
+		var var1 = url.match(/\?(.*)&/);
+		return var1[1];
+	}	
+
+	this.getPar2 = function () {
+		var var2 = url.match(/&(.*)$/);
+		return var2[1];
+	}
+	this.getHost = function() {
+		var host = url.match(/:\/\/(.*):/);
+		return host[1];		
+	}
+     this.getPath = function() {
+		var path = url.match(/[0-9]\/(.*)\?/);
+		return path[1];		
+	}
+} 
+
+var obj = new urlParser(str);
+alert ("Protocol : "+obj.getProtocol()+"\n"+
+       "host : " +obj.getHost()+"\n"+
+       "Port : " +obj.getPort()+"\n"+
+       "Parameter N1 : " +obj.getPar1()+"\n"+
+       "Parameter N2 : " +obj.getPar2()+"\n Path :" +obj.getPath())

@@ -1,21 +1,58 @@
-var str="http://google.com:8080/search?q=hello"
+str="http://google.com:8080/search?username=hi&password=by",
+protocol=str.match(/[a-z]+(?=:\/\/)/i);
+host=str.match(/[a-z]+[.]+[a-z]+(?=:)/i);
+port=str.match(/[0-9]+(?=\/)/i);
+endpoint=str.match(/(?:)+[a-z]+(?=\?)/i);
+username=str.match(/(?=)+[a-z]+(?=&)/i);
+password=str.match(/(?:password)+(?:=)+[a-z]+/i);
 
-var pat1=/[a-z]+(?=:\/\/)/i;
-var pratacol=str.match(pat1);
-alert(pratacol);
+//arajin tarberak
+var parser={
+    
 
-var pat2=/[a-z]+[.]+[a-z]+(?=:)/i;
-var host=str.match(pat2);
-alert(host);
+    "protocol":protocol,
+	"host"    :host,  
+    "port"    :port, 
+    "endpoint":endpoint,
+    "username":username,
+	"password":password
+}
+alert(parser.protocol);
+alert(parser.host);
+alert(parser.port);
+alert(parser.endpoint);
+alert(parser.username);
+alert(parser.password);
 
-var pat3=/[0-9]+(?=\/)/i;
-var port=str.match(pat3);
-alert(port);
+//erkrord tarberak
+var parser2=new Object();
+	parser2.protocol = protocol;
+	parser2.host = host;
+	parser2.port = port;
+	parser2.endpoint = endpoint;
+	parser2.username = usewrname;
+	parser2.password = password;
 
-var pat4=/(?:\/)+[a-z]+(?=\?)/i;
-var endport=str.match(pat4);
-alert(endport);
+alert(parser2.protocol);
+alert(parser2.host);
+alert(parser2.port);
+alert(parser2.endpoint);
+alert(parser2.username);
+alert(parser2.password);
 
-var pat5=/(?:q)+(?:=)+[a-z]+/i;
-var parameters=str.match(pat5);
-alert(parameters);
+//errord tarberak
+function parser3() {
+    this.protocol=protocol;
+    this.host=host;
+    this.port=port;
+    this.endpoint=endpoint;
+    this.username=username;
+    this.password=password;
+}
+alert(parser3.protocol);
+alert(parser3.host);
+alert(parser3.port);
+alert(parser3.endpoint);
+alert(parser3.username);
+alert(parser3.password);
+

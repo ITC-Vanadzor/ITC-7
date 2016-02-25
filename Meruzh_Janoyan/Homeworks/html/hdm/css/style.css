@@ -236,6 +236,93 @@ li a:hover {
     font-size: 90%
 }
 /* end of registration page*/
+
+/*Usage page*/
+
+/*usage big div background*/
+#sizeOfUsageBg{
+	padding:2%;
+	width: 50%;
+    	min-width: 300px;
+    	min-height: 400px;
+    	margin: 7% auto 2% auto;
+}
+/*progress size*/
+.sizeOfProgress{
+	float:right;
+	margin:0%;
+	width: 30%;
+	height:10px;
+	border:1px;
+	border-color:gray;
+	border-style:solid;
+	background: #bfbfbf;
+	-webkit-border-radius: 5px;
+      	-moz-border-radius:  5px;
+      	border-radius:  5px;
+}
+/*each circle for steps*/
+.circle {
+	margin-right:-5%;
+	margin-top:-10%;
+	float:right;
+	color: white;
+    	border-color: #005c99;
+    	background: linear-gradient(to top, #0094F7, #007acc);
+    	font-size: 100%;
+    	font-weight: bold;
+	text-align:center;
+      	width: 15%;
+	padding:5%;
+      	-webkit-border-radius: 70%;
+      	-moz-border-radius: 70%;
+      	border-radius: 70%;
+    }
+.circle:hover {
+    background: linear-gradient(to top, #0076C4, #007acc);
+}
+.circle:active {
+    background: linear-gradient(to top, #0064A6, #007acc);
+}
+
+
+/* Size of Div for Usage rules*/
+#usageRules{
+	width:90%;
+	margin:0% 9%;
+}
+.usageText{
+	margin: 3% 0% 3% 0%;
+	width:35%;
+	float:right;
+	font-size:90%;
+	padding:1%;
+	text-align:left;
+}
+/*size of div for image*/
+
+/*show first image and text*/
+#firstStep{
+	display:block;
+
+}
+#secondStep{
+	display:none;
+
+}
+#thirdStep{
+	display:none;
+
+}
+
+/*size of images for usage */
+.usageImageSize{
+	float:left;
+	margin:3% 0% 3%  2%;
+	width: 60%;
+}
+/*end of usage page*/
+
 /*____________________________GEVOR__________________________*/
 
 .profileDivSize {

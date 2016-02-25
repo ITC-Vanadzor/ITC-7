@@ -362,3 +362,8 @@ input::-webkit-datetime-edit-fields-wrapper {
 	background-color: #2FADEF;
 	color: white;
 }
+#tableZone td {
+	border: 0.5px solid  #6D6D6D;
+	text-align: center;
+	color:#6D6D6D;
+}

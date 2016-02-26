@@ -18,9 +18,9 @@
 		</ul>
 		<div>
 		     <div id="filtr" >
-			<input type="date" class="blueButton"name="day" min="2000-01-02">
-			<input type="date" class="blueButton"name="day" min="2000-01-02">
-			<button type="button" class="blueButton">Filter</button> 
+			<input type="date"id="firstDate" class="grayButton"name="day" min="2000-01-02">
+			<input type="date"id="secondDate" class="grayButton"name="day" min="2000-01-02">
+			<button onclick="Filter()" type="button" class="grayButton">Filter</button> 
 		     </div>
 			<table id="myTable"></table>
 			<img id="moreImage"  onclick="count()" src="../res/more-icon.png" alt="more"/>

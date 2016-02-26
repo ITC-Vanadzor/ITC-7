@@ -51,37 +51,39 @@ function signIn(){
 
 }
 /*Ani SAghatelyan*/
-
-
 /* statistic page Table*/
 Datas=[
 {dt:"03/25/2015",market:"Sparapet",account:"500"},
 {dt:"05/17/2012",market:"Arevik",account:"1800"},
 {dt:"01/5/2005",market:"Grin-Plaza",account:"3645"},
-{dt:"09/13/2015",market:"Voskya",account:"8500"},
-{dt:"06/25/2015",market:"Vega",account:"4530"},
-{dt:"11/18/2015",market:"Proshyan",account:"50050"},	
+{dt:"09/13/2002",market:"Voskya",account:"8500"},
+{dt:"06/25/2013",market:"Vega",account:"4530"},
+{dt:"11/18/2014",market:"Proshyan",account:"50050"},	
 {dt:"01/05/2015",market:"Evrika",account:"50350"},
 {dt:"12/13/2015",market:"Smayl",account:"2500"}
 	];
-         
+ 
+/*date converting into format Date*/
+        
 /**function count, which shows 3 rows on every click 'more' button*/        
 
         var count=(function()
 	{ 
-			var num=0;
-		return function(){
+		var num=0;
+		return function()
+		{
 			var first=num;
 			num+=3;
 			for(var i=first; i<num+3 && i<Datas.length;  ++i)
 			{
 				 document.getElementById("myTable").rows[i].style.display="table-row";
 			}
-	}})()
+		}
+	})()
 /**function, which hides all rows beside first three rows*/ 
-	var hideOtherRows=function()
+	var hideOtherRows=function(number)
 	{
-		for( var i=3; i<Datas.length; ++i)
+		for( var i=number; i<Datas.length; ++i)
 		{
 			 document.getElementById("myTable").rows[i].style.display="none";		
 		}
@@ -90,7 +92,8 @@ Datas=[
 
 /* function, which creates table with all datas, and calls onload*/			
  
- table=function(){
+function  table()
+{
 	   	
   		var myTable = document.getElementById("myTable");
 		myTable.setAttribute("style", "width:50% ; margin:5% 10% 0%; padding:0%;");
@@ -120,8 +123,24 @@ Datas=[
   			}
  
   			myTable.setAttribute("border", "2");
-			hideOtherRows();
-			}	
+			hideOtherRows(3);
+ }	
+/*function, which filters using dates*/
+function Filter()
+{
+	hideOtherRows(1);
+	for(var i=0; i<Datas.length; ++i)
+	{
+    			if((new Date(Datas[i].dt) >= new Date(document.getElementById("firstDate").value)) &&(new Date(Datas[i].dt) <= new Date(document.getElementById("secondDate").value)))
+			{
+        			document.getElementById("myTable").rows[i].style.display="table-row";
+			}
+	}
+	
+}
+
+
+
 /* Usage page*/						
 /* function for progress usage page*/	
 function progressSteps(idProgress,idCircle, idStep){
@@ -148,6 +167,5 @@ function progressSteps(idProgress,idCircle, idStep){
   	 	 case 'firstProgress':	document.getElementById("firstProgress").style.background="#007acc";
 		}
 	
-//  document.getElementById(divId).style.display="block";
 }
 

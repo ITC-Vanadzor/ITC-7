@@ -232,12 +232,16 @@ li a:hover {
 	float:right;
 	width:20%;
 	padding:1.4%;
-	font-text: 10px;
+	font-size: 100%;
 	
 }
 #moreImage{
 	margin: 1% 30%;
 	width: 3%;
+}
+#filtr input{
+	color:gray;
+	font-size:100%;
 }
 	
 

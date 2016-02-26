@@ -241,8 +241,8 @@ li a:hover {
 
 /*usage big div background*/
 #sizeOfUsageBg{
-	padding:2%;
-	width: 50%;
+		padding:2%;
+		width: 50%;
     	min-width: 300px;
     	min-height: 400px;
     	margin: 7% auto 2% auto;
@@ -256,22 +256,22 @@ li a:hover {
 	border:1px  solid  gray;
 	background: #ffffff;
 	-webkit-border-radius: 5px;
-      	-moz-border-radius:  5px;
-      	border-radius:  5px;
+  	-moz-border-radius:  5px;
+  	border-radius:  5px;
 }
 /*each circle for steps*/
 .Progress button {
 	margin-right:-1%;
 	margin-top:-10%;
-	float:right;
-	color: white;
-    	border: #005c99;
-    	background: linear-gradient(to top, #0094F7, #007acc);
-    	font-size: 100%;
-    	font-weight: bold;
-	text-align:center;
+		float:right;
+			color: white;
+    		border: #005c99;
+    		background: linear-gradient(to top, #0094F7, #007acc);
+    		font-size: 100%;
+    		font-weight: bold;
+			text-align:center;
       	width: 25%;
-	padding:5%;
+			padding:5%;
       	-webkit-border-radius: 70%;
       	-moz-border-radius: 70%;
       	border-radius: 70%;

@@ -2,6 +2,7 @@
 
 <head>
     <title>Url Parser</title>
+     <script type="text/JavaScript" src="url_parse.css"></script>
      <script type="text/JavaScript" src="url_parse.js"></script>
 </head>
 

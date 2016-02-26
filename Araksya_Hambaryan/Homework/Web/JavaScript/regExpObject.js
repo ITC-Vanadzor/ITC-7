@@ -1,7 +1,6 @@
-// incomplete
 
-
-str= "http://google.com:8080/search?username=hi&password=by";
+//str= "http://google.com:8080/search?username=hi&password=by";
+str=document.getElementById("myURL").value;
 
 valueProtocol=str.match(/[a-z]+(?=:\/\/)/i);
 valueHost=str.match(/[a-z]+[.]+[a-z]+(?=:)/i);
@@ -15,40 +14,37 @@ function consoleLogObject(parser) {
 	console.log(parser[i]);
     }
 }
+
 function creatTable(person){
-    var column = (function(){
-		countKeys = 0;
-		for (i in person) {
-		    countKeys++;
-		}
-		return countKeys;
-	    })();
-	    //var row=2;
-    var body = document.getElementById('body')
-    var newTable = document.createElement('table');
+  
+    var bd = document.getElementById("my");
+	//console.log ("body " + bd);
+    var newTable = document.createElement("table");
     newTable.setAttribute('id', 'tl');
     newTable.setAttribute('width', '500');
     newTable.setAttribute('border', '5');
     newTable.setAttribute('border-color', 'black');
-    newTable.setAttribute('margin-top', '15');
-    var tab=document.getElementByID;
+    
     var header = newTable.createTHead();
     var row = header.insertRow(0);
     for (var key in person) {
-	var cellHeader = row.insertCell(0);
+	var cellHeader = row.insertCell(-1);
 	cellHeader.innerHTML=key;
     }
-    var row2=header.appendChild(row);
-   /* for (var key in person) {
-	var cell = row2.appendChild("td");
+    
+    var row2 = newTable.insertRow()
+    for (var key in person) {
+	var cell = row2.insertCell(-1);
 	cell.innerHTML=person[key];
-	}*/
-    if (tab != null) {
-    body.appendChild(newTable);
+	}
+    
+    if (newTable != null) {
+    bd.appendChild(newTable);
     } else {
 	console.log (":(((((((((((((((((")
     }
 }
+
 // Creat literal object
 var parser={
     protocol  : valueProtocol,
@@ -60,7 +56,7 @@ var parser={
 }
 
 consoleLogObject(parser)
-creatTable(parser);
+
 
 // creat Object()
 

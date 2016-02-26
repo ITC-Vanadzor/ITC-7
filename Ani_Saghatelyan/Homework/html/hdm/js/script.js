@@ -50,7 +50,65 @@ function signIn(){
     return 0;
 
 }
+/*Ani SAghatelyan*/
 
+Datas=[
+{dt:"03/25/2015",market:"Sparapet",account:"500"},
+{dt:"05/17/2012",market:"Arevik",account:"1800"},
+{dt:"01/5/2005",market:"Grin-Plaza",account:"3645"},
+{dt:"09/13/2015",market:"Voskya",account:"8500"},
+{dt:"06/25/2015",market:"Vega",account:"4530"},
+{dt:"11/18/2015",market:"Proshyan",account:"50050"},	
+{dt:"01/05/2015",market:"Evrika",account:"50350"},
+{dt:"12/13/2015",market:"Smayl",account:"2500"}
+	];
+         
+         num=0;
+
+        var count=function()
+	{ 
+	 			
+		num+=3;
+		for( var i=0; i<num && i<Datas.length; ++i)
+		{
+		        document.getElementById("myTable").rows[i].setAttribute("style","display:''");
+		}
+	}
+
+
+			
+ 
+ table=function(){
+	   	
+  		var myTable = document.getElementById("myTable");
+		myTable.setAttribute("style", "width:50% ;display:none; margin:5% 10% 0%; padding:0%;")
+	        var header = myTable.createTHead();
+		var headerRow = header.insertRow(0);
+		var dataDate = headerRow.insertCell(0);
+		dataDate.innerHTML="<b>Date</b>";
+		var market=headerRow.insertCell(1);
+		market.innerHTML="<b>Market<b>";
+		var account=headerRow.insertCell(2);
+		account.innerHTML="<b>Price</b>";
+			for (var i = 0; i < Datas.length; i++) 
+	    		{
+                   		var row = document.createElement("tr");
+				var hdm=Datas[i] 
+    				for (obj in hdm) 
+				{
+      					var cell = document.createElement("td");
+      					var cellText = document.createTextNode(hdm[obj]);
+      					cell.appendChild(cellText);
+      					row.appendChild(cell);
+   			 	}
+ 	
+    				myTable.appendChild(row);
+  			}
+ 
+  			myTable.setAttribute("border", "2");
+			count();
+			}				
+	
 function progressSteps(idProgress,idCircle, idStep){
 
 	document.getElementById("thirdStep").style.display="none";

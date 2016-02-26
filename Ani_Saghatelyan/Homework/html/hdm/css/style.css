@@ -221,6 +221,42 @@ li a:hover {
     margin-top: 5%;
 }
 /*______________________ANI_______________________*/
+/* statistic  page*/
+/* it is for statistic pages styling dates*/
+
+#filtr{
+ 	width:50%;
+	margin:10% 10% 4% 10%;
+}
+#filtr button{
+	float:right;
+	width:20%;
+	padding:1.4%;
+	font-text: 10px;
+}
+#moreImage{
+	margin: 1% 30%;
+	width: 3%;
+}
+	
+
+input[type=date] {
+ 	 height: 35px;
+  	 margin: 0 auto;
+  	 width: 30%;
+	 padding:1%;
+  	 font-family: arial, sans-serif;
+  	 font-size: 10px;
+  	 font-weight: bold;
+  	 text-transform: uppercase;
+  	 background-color: blue;
+  	 outline: none;
+  	 border: 0;
+  	 border-radius: 3px;
+  	 padding: 0 3px;
+  	 color: #fff;
+  
+}
 /* registration page*/
 
 .textUnderRegInput {

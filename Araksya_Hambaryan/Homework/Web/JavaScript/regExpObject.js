@@ -1,3 +1,6 @@
+// incomplete
+
+
 str= "http://google.com:8080/search?username=hi&password=by";
 
 valueProtocol=str.match(/[a-z]+(?=:\/\/)/i);
@@ -7,23 +10,57 @@ valueEndpoint=str.match(/(?:)+[a-z]+(?=\?)/i);
 valueParameter1=str.match(/(?:username)+(?:=)+[a-z]+/i);
 valueParameter2=str.match(/(?:password)+(?:=)+[a-z]+/i);
 
+function consoleLogObject(parser) {
+    for (var i in parser) {
+	console.log(parser[i]);
+    }
+}
+function creatTable(person){
+    var column = (function(){
+		countKeys = 0;
+		for (i in person) {
+		    countKeys++;
+		}
+		return countKeys;
+	    })();
+	    //var row=2;
+    var body = document.getElementById('body')
+    var newTable = document.createElement('table');
+    newTable.setAttribute('id', 'tl');
+    newTable.setAttribute('width', '500');
+    newTable.setAttribute('border', '5');
+    newTable.setAttribute('border-color', 'black');
+    newTable.setAttribute('margin-top', '15');
+    var tab=document.getElementByID;
+    var header = newTable.createTHead();
+    var row = header.insertRow(0);
+    for (var key in person) {
+	var cellHeader = row.insertCell(0);
+	cellHeader.innerHTML=key;
+    }
+    var row2=header.appendChild(row);
+   /* for (var key in person) {
+	var cell = row2.appendChild("td");
+	cell.innerHTML=person[key];
+	}*/
+    if (tab != null) {
+    body.appendChild(newTable);
+    } else {
+	console.log (":(((((((((((((((((")
+    }
+}
 // Creat literal object
 var parser={
-    "protocol"  : valueProtocol,
-    "host"      : valueHost,
-    "port"      : valuePort,
-    "endpoint"  : valueEndpoint,
-    "parameter1": valueParameter1,
-    "parameter2": valueParameter2
+    protocol  : valueProtocol,
+    host      : valueHost,
+    port      : valuePort,
+    endpoint  : valueEndpoint,
+    parameter1: valueParameter1,
+    parameter2: valueParameter2
 }
 
-
-alert(parser.protocol);
-alert(parser.host);
-alert(parser.port);
-alert(parser.endpoint);
-alert(parser.parameter1);
-alert(parser.parameter2);
+consoleLogObject(parser)
+creatTable(parser);
 
 // creat Object()
 
@@ -35,13 +72,8 @@ var parser2=new Object();
     parser2.parameter1 = valueParameter1;
     parser2.parameter2 = valueParameter2;
 
-alert(parser2.protocol);
-alert(parser2.host);
-alert(parser2.port);
-alert(parser2.endpoint);
-alert(parser2.parameter1);
-alert(parser2.parameter2);
-
+  
+consoleLogObject(parser2);
 
 function parser3() {
     this.protocol = valueProtocol;
@@ -54,9 +86,4 @@ function parser3() {
 
    var pars=new parser3();
 
-alert(pars.protocol);
-alert(pars.host);
-alert(pars.port);
-alert(pars.endpoint);
-alert(pars.parameter1);
-alert(pars.parameter2);
+consoleLogObject(pars);

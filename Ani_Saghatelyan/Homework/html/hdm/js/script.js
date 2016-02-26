@@ -52,6 +52,8 @@ function signIn(){
 }
 /*Ani SAghatelyan*/
 
+
+/* statistic page Table*/
 Datas=[
 {dt:"03/25/2015",market:"Sparapet",account:"500"},
 {dt:"05/17/2012",market:"Arevik",account:"1800"},
@@ -63,33 +65,45 @@ Datas=[
 {dt:"12/13/2015",market:"Smayl",account:"2500"}
 	];
          
-         num=0;
+/**function count, which shows 3 rows on every click 'more' button*/        
 
-        var count=function()
+        var count=(function()
 	{ 
-	 			
-		num+=3;
-		for( var i=0; i<num && i<Datas.length; ++i)
+			var num=0;
+		return function(){
+			var first=num;
+			num+=3;
+			for(var i=first; i<num+3 && i<Datas.length;  ++i)
+			{
+				 document.getElementById("myTable").rows[i].style.display="table-row";
+			}
+	}})()
+/**function, which hides all rows beside first three rows*/ 
+	var hideOtherRows=function()
+	{
+		for( var i=3; i<Datas.length; ++i)
 		{
-		        document.getElementById("myTable").rows[i].setAttribute("style","display:''");
+			 document.getElementById("myTable").rows[i].style.display="none";		
 		}
 	}
 
 
-			
+/* function, which creates table with all datas, and calls onload*/			
  
  table=function(){
 	   	
   		var myTable = document.getElementById("myTable");
-		myTable.setAttribute("style", "width:50% ;display:none; margin:5% 10% 0%; padding:0%;")
+		myTable.setAttribute("style", "width:50% ; margin:5% 10% 0%; padding:0%;");
 	        var header = myTable.createTHead();
 		var headerRow = header.insertRow(0);
-		var dataDate = headerRow.insertCell(0);
-		dataDate.innerHTML="<b>Date</b>";
-		var market=headerRow.insertCell(1);
-		market.innerHTML="<b>Market<b>";
-		var account=headerRow.insertCell(2);
-		account.innerHTML="<b>Price</b>";
+		var Head=["Date","Market","Price"] ;
+		for(var i=0; i< Head.length;++i)
+		{
+			var dataDate = headerRow.insertCell(i);
+			dataDate.innerHTML=Head[i];
+			dataDate.setAttribute("style", "font-weight: bold;");
+
+		}
 			for (var i = 0; i < Datas.length; i++) 
 	    		{
                    		var row = document.createElement("tr");
@@ -106,9 +120,10 @@ Datas=[
   			}
  
   			myTable.setAttribute("border", "2");
-			count();
-			}				
-	
+			hideOtherRows();
+			}	
+/* Usage page*/						
+/* function for progress usage page*/	
 function progressSteps(idProgress,idCircle, idStep){
 
 	document.getElementById("thirdStep").style.display="none";

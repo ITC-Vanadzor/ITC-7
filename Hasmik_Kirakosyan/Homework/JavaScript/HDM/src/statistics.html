@@ -19,10 +19,18 @@
 										  <input type="date" name="dateFrom"></input>
 										  <span> To </span>
 										  <input type="date" name="dateTo"></input>
-										  <button type="confirm" onclick="sortByDate()">Sort Date</button>
+										  <button>Sort Date</button>
 								</form>
 					 </div>	 
-					 <script src="../js/statistics.js"></script>
+
+					 <div id="addRow">
+								<input type="text" placeholder="date" id="date"/>
+								<input type="text" placeholder="market"id="market"/>	
+								<input type="text" placeholder="product" id="product"/>
+								<input type="text" placeholder="price" id="price"/>	 
+								<button type="confirm" onclick="addRow()"> Add</button>
+					 </div>
+										 <script src="../js/statistics.js"></script>
 
 		  </body>
 </html>

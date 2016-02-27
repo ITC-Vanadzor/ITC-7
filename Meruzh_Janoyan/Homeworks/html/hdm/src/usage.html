@@ -17,16 +17,18 @@
          </div>
       </ul>
       <!--Usage div -->
-      <div class="styledBg" id="sizeOfUsageBg">
-      <div   id="thirdProgress" class="sizeOfProgress">
-         <div   id="thirdCircle"onclick="progressSteps('thirdProgress','thirdCircle', 'thirdStep')" class="circle">3</div>
-      </div>
-      <div  id="secondProgress" class="sizeOfProgress">
-         <div  id="secondCircle" onclick="progressSteps('secondProgress','secondCircle', 'secondStep')" class="circle">2</div>
-      </div>
-      <div  id="firstProgress" class="sizeOfProgress">
-         <div id="firstCircle" onclick="progressSteps('firstProgress' ,'firstCircle', 'firstStep')" class="circle">1</div>
-      </div>
+      <div class="styledBg" id="sizeOfUsageBg" class="Progress" >
+				  <div class="Progress">
+						<div   id="firstProgress" >
+				  				<button id="firstCircle" onclick="progressSteps('firstProgress' ,'firstCircle', 'firstStep')" >1</button>
+				        </div>
+      				<div  id="secondProgress" >
+         					<button  id="secondCircle" onclick="progressSteps('secondProgress','secondCircle', 'secondStep')" >2</button>
+      				</div>	
+      				<div  id="thirdProgress" >
+         					<button  id="thirdCircle"onclick="progressSteps('thirdProgress','thirdCircle', 'thirdStep')" >3</button>	
+ 				     </div>
+	 			</div>
       <div id="usageRules">
          <div id="firstStep">
             <img class="usageImageSize"   src="../res/1step.png" alt="first step"/>

@@ -28,6 +28,7 @@ p {
     font-size: 17px;
     font-weight: bold;
     text-decoration: none;
+    text-align: center;
 }
 .grayButton:hover {
     background: linear-gradient(to top, #cccccc, #bfbfbf);
@@ -49,6 +50,7 @@ p {
     font-size: 17px;
     font-weight: bold;
     text-decoration: none;
+    text-align: center;
 }
 .blueButton:hover {
     background: linear-gradient(to top, #0076C4, #007acc);
@@ -105,8 +107,7 @@ li a:hover {
     border-style: solid;
     border-width: 1px;
     border-color: #B2B0B0;
-    padding: 10px;
-    10px;
+    padding: 10px  10px;
     font-size: 80%;
     border-radius: 5px;
     margin-top: 5%;
@@ -128,8 +129,8 @@ li a:hover {
     width: 30%;
     min-width: 300px;
     min-height: 340px;
-    padding: 4% 1%;
-    margin: 7% auto 2% auto;
+    padding: 0% 1% 4% 1%;
+    margin: 100px auto 2% auto;
 }
 /*hiden Div forgot pass*/
 
@@ -142,20 +143,7 @@ li a:hover {
 #signInDiv {
     display: none;
 }
-/* size of Forgot Password  Bg*/
 
-.forgotBgSize {
-    width: 30%;
-    padding: 1% 1%;
-    margin: 5% auto 5% auto;
-}
-/* forgot div logo*/
-
-.forgotLogoSize {
-    margin-left: 35%;
-    width: 20%;
-    margin-top: 1%;
-}
 /*home page big logo background*/
 
 #bigLogoBg {
@@ -169,8 +157,8 @@ li a:hover {
 #bigLogoImg {
     opacity: 0.75;
     float: right;
-    width: 30%;
-    margin-top: 5%;
+    width: 200px;
+    margin-top: 120px;
     margin-left: 5%;
     
 }
@@ -220,7 +208,52 @@ li a:hover {
     text-decoration: none;
     margin-top: 5%;
 }
+
+/*Canvas div*/
+#iGraph{
+  display: none;
+
+}
 /*______________________ANI_______________________*/
+/* statistic  page*/
+/* it is for statistic pages styling dates*/
+
+#filtr{
+ 	width:50%;
+	margin:10% 10% 4% 10%;
+}
+#filtr button{
+	float:right;
+	width:20%;
+	padding:1.4%;
+	font-size: 100%;
+	
+}
+#moreImage{
+	margin: 1% 30%;
+	width: 3%;
+}
+#filtr input{
+	color:gray;
+	font-size:100%;
+}
+	
+
+input[type=date] {
+ 	 height: 35px;
+  	 margin: 0 auto;
+  	 width: 30%;
+	 padding:1%;
+  	 font-family: arial, sans-serif;
+  	 font-size: 13px;
+  	 font-weight: bold;
+  	 text-transform: uppercase;
+  	 background-color: blue;
+  	 border: 0;
+  	 border-radius: 3px;
+  	 color: #fff;
+  
+}
 /* registration page*/
 
 .textUnderRegInput {
@@ -241,47 +274,45 @@ li a:hover {
 
 /*usage big div background*/
 #sizeOfUsageBg{
-	padding:2%;
-	width: 50%;
+		padding:2%;
+		width: 50%;
     	min-width: 300px;
     	min-height: 400px;
     	margin: 7% auto 2% auto;
 }
 /*progress size*/
-.sizeOfProgress{
-	float:right;
+.Progress div{
+	float:left;
 	margin:0%;
-	width: 30%;
+	width: 33%;
 	height:10px;
-	border:1px;
-	border-color:gray;
-	border-style:solid;
-	background: #bfbfbf;
+	border:1px  solid  gray;
+	background: #ffffff;
 	-webkit-border-radius: 5px;
-      	-moz-border-radius:  5px;
-      	border-radius:  5px;
+  	-moz-border-radius:  5px;
+  	border-radius:  5px;
 }
 /*each circle for steps*/
-.circle {
-	margin-right:-5%;
+.Progress button {
+	margin-right:-1%;
 	margin-top:-10%;
-	float:right;
-	color: white;
-    	border-color: #005c99;
-    	background: linear-gradient(to top, #0094F7, #007acc);
-    	font-size: 100%;
-    	font-weight: bold;
-	text-align:center;
-      	width: 15%;
-	padding:5%;
+		float:right;
+			color: white;
+    		border: #005c99;
+    		background: linear-gradient(to top, #0094F7, #007acc);
+    		font-size: 100%;
+    		font-weight: bold;
+			text-align:center;
+      	width: 25%;
+			padding:5%;
       	-webkit-border-radius: 70%;
       	-moz-border-radius: 70%;
       	border-radius: 70%;
     }
-.circle:hover {
+.Progress button:hover {
     background: linear-gradient(to top, #0076C4, #007acc);
 }
-.circle:active {
+.Progress button:active {
     background: linear-gradient(to top, #0064A6, #007acc);
 }
 
@@ -289,7 +320,7 @@ li a:hover {
 /* Size of Div for Usage rules*/
 #usageRules{
 	width:90%;
-	margin:0% 9%;
+	margin:0% 3%;
 }
 .usageText{
 	margin: 3% 0% 3% 0%;
@@ -324,44 +355,3 @@ li a:hover {
 /*end of usage page*/
 
 /*____________________________GEVOR__________________________*/
-
-.profileDivSize {
-    width: 500px;
-    height: 430px;
-    margin: 5% auto;
-    outline: 1px solid blue;
-    box-shadow: 0 0 10px 3px rgba(77, 77, 255, .55);
-    overflow: hidden;
-}
-.profileInputs {
-    float: right;
-    width: 65%;
-}
-.profileInputSize {
-    float: right;
-    margin-top: 3%;
-    margin-right: 3%;
-    width: 90%;
-}
-.profileDateSize {
-    float: left;
-    margin-top: 3%;
-    margin-right: 3%;
-    width: 20%;
-}
-.profileLabels {
-    text-align: right;
-    float: right;
-    margin-right: 3%;
-    height: 100%;
-    margin-top: -2%;
-}
-.profileButtonSize {
-    margin-top: 7%;
-    margin-left: 20%;
-    width: 50%;
-    height: 3em;
-}
-.profileLabelsTop {
-    margin-top: 21%;
-}

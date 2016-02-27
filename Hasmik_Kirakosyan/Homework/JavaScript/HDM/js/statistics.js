@@ -25,26 +25,14 @@ var Datas=[
 	{date:"2015-13-12",market:"Smayl",   product:"sweets", price:"2500"}
 ];
 
-for (var i=0; i < 4; i++) {
+var fields=["Date", "Market", "Product", "Price"];
+for (field in fields) {
 		  var th = document.createElement("th");
-		  var t;
-		  switch (i) {
-					 case 0:  t=document.createTextNode("Date");
-								 break;
-					 case 1:  t=document.createTextNode("Market");
-								 break;
-					 case 2:  t=document.createTextNode("Product");
-								 break;
-					 case 3:  t=document.createTextNode("Price");
-								 break;
-					 default:break;
-
-		  }
+		  var t=document.createTextNode(fields[field]);
 
 		  th.appendChild(t);
 		  tbdy.appendChild(th);
 		  table.appendChild(tbdy);
-
 }
 
 
@@ -134,5 +122,5 @@ function sortByMarket() {
 
 }
    
-sortByMarket();
+//sortByMarket();
 

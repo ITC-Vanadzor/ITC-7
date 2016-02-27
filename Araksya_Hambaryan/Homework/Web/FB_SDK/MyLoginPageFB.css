@@ -72,7 +72,10 @@ form input {
     text-decoration: none;
     font:18px Arial;
 }
-
+#info {
+    padding-bottom:5%;
+    text-align:center;
+}
 #login {
     margin:10% 2% 2% 8%;
     border:solid 0px black;

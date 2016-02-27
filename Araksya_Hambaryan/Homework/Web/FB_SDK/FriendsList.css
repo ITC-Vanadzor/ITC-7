@@ -1,0 +1,110 @@
+#background {
+    background-color:#E8E8E8;
+}
+
+/*phone area*/
+#phone {
+    background:linear-gradient(to top, white, #BCE6FD);
+    width:360px; 
+    height:625px; 
+    border:solid 5px black; 
+    border-radius:10px; 
+    margin:3% auto;
+}
+.header {
+    background-color:#0488CE;
+    padding:6px;
+    width:97%;
+    color:white;
+    text-align:center;
+}
+
+.header img {
+    vertical-align:middle;
+    padding:2% 0%;
+    cursor:pointer;
+}
+
+.header-left {
+    float:left;
+    width:7%;
+}
+
+.menuBar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+li a {
+    color: white;
+    font:16px Arial;
+ }
+
+.nonDecoration {
+    text-decoration: none;
+}
+
+.menuTab{
+    float:left;
+    margin:2% 15% 4% 15%;
+    font: 18px Arial;
+}
+
+.header input {
+    width: 100%;
+    padding: 8px 5px 8px 39px;
+    background: url(search.png) 5px center no-repeat #ffffff;
+    background-size: 20px;
+    border: none;
+}
+
+friendsList {
+    padding: 10px 0;
+    list-style: none;
+    margin: 0;
+    float: left;
+    width:100%;
+}
+
+#friendInfo {
+    padding:11px;
+}
+
+.AnnaImage {
+    float:left;
+    border:2px solid #0488CE;
+    border-radius:18px;
+    margin-bottom:5%;
+}
+#friendsList h2 {
+    color:#14608C;
+    font:14px Arial;
+    font-weight: bold;
+    float:left;
+    padding:20px 0px;
+    margin:0px 0px 8px 16px;
+    vertical-align:middle;
+    width:80%;
+}
+.friendInfo span{
+    font-size:16px;
+}
+.letterLeft {
+    padding-right:28px;
+    float:right;
+}
+
+.letterRight {
+    margin-right:36px;
+    float:right;
+}
+
+.letterG {
+    font-family:Georgia;
+}
+
+.letterOne {
+    float:right;
+    padding-right:79px;
+}

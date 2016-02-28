@@ -25,10 +25,12 @@ function loadFriendsList() {
     var results = '';
     var list=document.getElementById("friendsList");
     for (var i = 0; i < json.length; i++) {
-	results += '<div><img class="AnnaImage" src="' +json[i].profile_picture + '">'+ '<h2>'+json[i].name + '</h2></div>';
+	results += '<div><img class="profilePicture" src="' +json[i].profile_picture + '">'+ '<h2>'+json[i].name + '</h2></div>';
 	     
 	list.innerHTML=results;
      }
 }
 
-
+function loadChatsList() {
+    window.location="ChatsList.html";
+}

@@ -54,12 +54,12 @@ li a {
 .header input {
     width: 100%;
     padding: 8px 5px 8px 39px;
-    background: url(search.png) 5px center no-repeat #ffffff;
+    background: url(../Sources/search.png) 5px center no-repeat #ffffff;
     background-size: 20px;
     border: none;
 }
 
-friendsList {
+.friendsList {
     padding: 10px 0;
     list-style: none;
     margin: 0;
@@ -67,7 +67,7 @@ friendsList {
     width:100%;
 }
 
-#friendInfo {
+.friendInfo {
     padding:11px;
 }
 
@@ -77,34 +77,33 @@ friendsList {
     border-radius:18px;
     margin-bottom:5%;
 }
-#friendsList h2 {
+.friendsList  p{
+    float:left;
+    padding:7px 0px 13px 0px;
+    margin:0px 0px 17px 16px;
+    vertical-align:middle;
+    width:80%;
+}
+.name{
+    float:left;
     color:#14608C;
     font:14px Arial;
     font-weight: bold;
+}
+.messageText {
+    padding-left:1px;
     float:left;
-    padding:21px 0px;
-    margin:0px 0px 8px 16px;
-    vertical-align:middle;
-    width:65%;
-}
-.friendInfo span{
-    font-size:16px;
-}
-.letterLeft {
-    padding-right:28px;
-    float:right;
+    color:#0492DD;
+    font-size:13px;
+    font-style:italic;
+    font-weight:bold;
 }
 
-.letterRight {
-    margin-right:36px;
+.messageDate{
     float:right;
+    color:#0492DD;
+    font-size:13px;
+    font-style:italic;
+    font-wiight:bold;
 }
 
-.letterG {
-    font-family:Georgia;
-}
-
-.letterOne {
-    float:right;
-    padding-right:79px;
-}

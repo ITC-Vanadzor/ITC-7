@@ -21,7 +21,7 @@ var json=[
 }
 ]
 
-function loadFriendsList(fs) {
+function loadFriendsList() {
     var results = '';
     var list=document.getElementById("friendsList");
     for (var i = 0; i < json.length; i++) {

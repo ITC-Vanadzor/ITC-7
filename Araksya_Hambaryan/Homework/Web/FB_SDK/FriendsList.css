@@ -82,10 +82,10 @@ friendsList {
     font:14px Arial;
     font-weight: bold;
     float:left;
-    padding:20px 0px;
+    padding:21px 0px;
     margin:0px 0px 8px 16px;
     vertical-align:middle;
-    width:80%;
+    width:65%;
 }
 .friendInfo span{
     font-size:16px;

@@ -1,3 +1,5 @@
+// url = "http://google.com:8080/search?username=hi&password=by"
+
 function getstr() {
 str=prompt("Please import URL-s if you stoped inputing insert -1");
 }

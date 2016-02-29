@@ -3,12 +3,43 @@
 <head>
   <title>Your profile</title>
 <style>
+/*Blue styled button*/
+.blueButton {
+color: white;
+background: #0094F7;
+border-style: solid;
+border-width: 1px;
+border-color: #005c99;
+background: linear-gradient(to top, #0094F7, #007acc);
+border-radius: 0.3em;
+padding: 0.5% 1%;
+font-size: 17px;
+font-weight: bold;
+text-decoration: none;
+text-align: center;
+}
+.blueButton:hover {
+background: linear-gradient(to top, #0076C4, #007acc);
+}
+.blueButton:active {
+background: linear-gradient(to top, #0064A6, #007acc);
+}
+/*sign in button size*/
+.signInButtonSize {
+margin-top: 2%;
+margin-left: 38%;
+padding: 1% 1%;
+width: 20%;
+}
 .center {
     margin: auto;
     width: 50%;
     border: 1px ;
     padding: 10px;
     background: #E8E8E8;
+    //background: linear-gradient(to top, #e8e8e8, #bfbfbf);
+    //box-shadow: 0 0 10px 3px rgba(128, 128, 128, .55);
+    //border-radius: 10px;
 }
 		/*nkar*/
 .rightBoard {
@@ -50,6 +81,7 @@
 
 <body>
 	<br>
+  
 	<div class="h2"><label>Profile</label></div>
 
 
@@ -60,8 +92,7 @@
 
 
 <div class="rightBoard">
-<img src="" style="width:100%; " ><br>
-<input type="file" onchange="previewFile()" >
+<div onclick="browsFile()"><img src="" style="width:100%; "><br><input id="brs"type="file" onchange="previewFile()" style="opacity: 0;" ></div>
 
 <script>
  function previewFile(){
@@ -80,7 +111,9 @@
  }											        
 
 previewFile();  //previewFile() f-i kanch@
-
+function browsFile(){
+    document.getElementById('brs').click();
+}
  </script>
 </div>
 
@@ -139,6 +172,10 @@ previewFile();  //previewFile() f-i kanch@
 <div class="center">
   <label>Repeat:</label><input class="lightInput" type="password" name="pass" placeholder="Password"  style="float:right;">
 </div>
+
+<button class="blueButton signInButtonSize">Save Changes</button>
+
+
 
 
 </body>

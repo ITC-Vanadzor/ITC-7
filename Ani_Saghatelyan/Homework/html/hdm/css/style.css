@@ -225,25 +225,30 @@ li a:hover {
 /*______________________ANI_______________________*/
 /* statistic  page*/
 /* it is for statistic pages styling dates*/
-
+/*button for saving added datas for new row*/
+#saveButtonAdd{
+	width:23%;
+	padding:1%;
+	float:right;
+	margin:0% 6%;
+	min-width:45px;
+}
 #editWindow{
-	width:30%;
-	padding:0.5% 0%;
-	margin:0% 20%;
+	width:20%;
+	padding:0.3% ; 
+	margin:-10% 20%;
 }
 #editWindow input{
-	float:right;
-	width:85%;
-	padding:3%;
+	width:75%;
+	padding:3% 4%;
 	font-size:90%;
+	margin:2% 10%;
 }
 #editWindow ul,li{
 	background: none;
 	padding:0%;
 	margin:0%;
 	border:none;
-}
-#editWindow p{
 }
 #filter{
  	width:50%;
@@ -259,7 +264,9 @@ li a:hover {
 /*image for show more rows*/
 #moreImage{
 	margin: 1% 30%;
-	width: 3%;
+	width: 10%;
+	min-width:40px;
+
 }
 #filter input{
 	color:gray;

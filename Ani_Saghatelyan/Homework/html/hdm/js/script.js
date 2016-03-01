@@ -164,9 +164,15 @@ var hideOtherRows = function(number) {
 /*adds row for new input*/
 function addRow()	
 {
-	document.getElementById("myTable").style.opacity="0.25";
+	document.getElementById("TableBG").style.opacity="0.5";
 	document.getElementById("editWindow").style.display="block";
 }
+	function hideDiv()
+	{
+		document.getElementById("myTable").style.opacity="none";
+		document.getElementById("editWindow").style.display="none";		
+	}
+	document.body.addEventListener('click', hideDiv(), true); 
 
 
 function table() 
@@ -199,10 +205,10 @@ function table()
             cell.appendChild(cellText);
             row.appendChild(cell);
         }
+	myTable.appendChild(row);
     }
 	 
      
-
     myTable.setAttribute("border", "2");
     hideOtherRows(3);
 }

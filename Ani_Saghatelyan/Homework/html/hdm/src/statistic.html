@@ -24,13 +24,31 @@
 			<button onclick="addRow()">Add row</button>
  
 		     </div>
-									<table id="myTable"></table>
-					<img id="moreImage"  onclick="count()" src="../res/more-icon.png" alt="more"/>
+			<table id="myTable"></table>
+			<img id="moreImage"  onclick="count()" src="../res/more-icon.png" alt="more"/>
 		</div>
-			
-
-
-
+		<div id="editWindow" class="ligthBg">
+			<ul>
+	 			<li><p>Market</p></li>
+				<li><input type="text"id="Market"  name="market" min="2000-01-02"></li>
+			</ul>
+			<ul>
+				<li><p>Date</p></li>
+				<li><input type="text"id="Date"  name="date" min="2000-01-02"></li>
+                        </ul>    
+			<ul>   	
+				<li><p>Time</p></li>
+				<li><input type="text"id="Time"  name="time" min="2000-01-02"></li>
+			</ul>
+			<ul>	
+				<li><p>Price</p></li>
+				<li><input type="text"id="Price"  name="price" min="2000-01-02"></li>
+			</ul>
+			<ul>
+				<li><p>Item</p></li>
+				<li><input type="text"id="Item"  name="item" min="2000-01-02"></li>
+			</ul>
+		</div>
 
 </body>
 </html>

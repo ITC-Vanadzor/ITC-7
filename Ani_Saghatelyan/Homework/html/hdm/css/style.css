@@ -101,7 +101,7 @@ li a:hover {
 
 /*styled input*/
 
-.lightInput {
+.lightInput, #editWindow  input {
     border-style: solid;
     border-width: 1px;
     border-color: #B2B0B0;
@@ -117,7 +117,7 @@ li a:hover {
 }
 /*styled  background*/
 
-.styledBg {
+.styledBg,#editWindow {
     background: linear-gradient(to top, #e8e8e8, #bfbfbf);
     box-shadow: 0 0 10px 3px rgba(128, 128, 128, .55);
     border-radius: 10px;
@@ -225,25 +225,25 @@ li a:hover {
 /*______________________ANI_______________________*/
 /* statistic  page*/
 /* it is for statistic pages styling dates*/
-#edit{
-	width:50%;
-}
-/*buttons for editrow*/
-#edit button{
-	text-align:center;
-	font-size: 70%;
-	padding:1%;
-	float:right;
-	margin:0%;
-	width:10%;
-	
-}
 
-#buttonsEdit{
-	margin-right:7%;
+#editWindow{
+	width:30%;
+	padding:0.5% 0%;
+	margin:0% 20%;
 }
-#editTable{
-	margin:7%;
+#editWindow input{
+	float:right;
+	width:85%;
+	padding:3%;
+	font-size:90%;
+}
+#editWindow ul,li{
+	background: none;
+	padding:0%;
+	margin:0%;
+	border:none;
+}
+#editWindow p{
 }
 #filter{
  	width:50%;
@@ -256,7 +256,7 @@ li a:hover {
 	font-size: 100%;
 	
 }
-
+/*image for show more rows*/
 #moreImage{
 	margin: 1% 30%;
 	width: 3%;
@@ -265,21 +265,8 @@ li a:hover {
 	color:gray;
 	font-size:100%;
 }
-
-
 	
-/*style for  new item input*/
-#editRow input{
-	width:100%;
-	margin:0%;
-	background: #bfbfbf;
 
-}
-
-/* size for cell item*/
-#itemInput{
-		width:100%;
-}
 input[type=date] {
  	 height: 35px;
   	 margin: 0 auto;

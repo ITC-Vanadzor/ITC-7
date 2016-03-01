@@ -52,10 +52,11 @@ function signIn() {
 
 }
 /*Database structure */
-function DatabaseItem(name, date, money) {
+function DatabaseItem(name, date, money, item) {
     this.name = name;
     this.date = date;
     this.money = money;
+    this.item="";
     this.getArray = function() {
         var arr = [this.name, this.date.toLocaleDateString(), this.date.toLocaleTimeString(), this.money];
         return arr;
@@ -163,36 +164,14 @@ var hideOtherRows = function(number) {
 /*adds row for new input*/
 function addRow()	
 {
-		tmp = myDb.item[0].getArray();
-        	var row = document.createElement("tr");
-        	for (s in tmp) 
-        	{
-
-                        var cell=document.createElement("td");
-       	     		var btn = document.createElement("input");
-                	btn.setAttribute("id","itemInput");
-                	btn.setAttribute("style","background: #bfbfbf;");
-               		cell.setAttribute("style","width:10%;");
-                	cell.appendChild(btn);
-                	row.appendChild(cell);
-                	myTable.appendChild(row);
-	
-
-        	}
-		 var cell = document.createElement("td");
-                var btn = document.createElement("input");
-                btn.setAttribute("id","itemInput");
-                btn.setAttribute("style","background: #bfbfbf;");
-                cell.setAttribute("style","width:10%;");
-                cell.appendChild(btn);
-                row.appendChild(cell);
-                myTable.appendChild(row);
+	document.getElementById("myTable").style.opacity="0.25";
+	document.getElementById("editWindow").style.display="block";
 }
 
 
 function table() 
 {
-
+    document.getElementById("editWindow").style.display="none";	
     var myTable = document.getElementById("myTable");
     myTable.setAttribute("style", "width:50% ; margin:5% 10% 0%; padding:0%;");
     var header = myTable.createTHead();
@@ -220,15 +199,6 @@ function table()
             cell.appendChild(cellText);
             row.appendChild(cell);
         }
-		/*adding cell for inputing item*/
-		var cell = document.createElement("td");
-		var btn = document.createElement("input");
-		btn.setAttribute("id","itemInput");
-		btn.setAttribute("style","background: #bfbfbf;");
-    		cell.setAttribute("style","width:10%;");
-		cell.appendChild(btn);
-		row.appendChild(cell);
-		myTable.appendChild(row);
     }
 	 
      

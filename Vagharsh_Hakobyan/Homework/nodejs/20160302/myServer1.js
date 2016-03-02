@@ -4,9 +4,13 @@ var http = require('http');
 //Lets define a port we want to listen to
 const PORT=8888; 
 
-var text='<script> function mySubmit() {var form = document.forms.myForm;form.submit();}</script>\
+var text='\
+	<script>\
+		function mySubmit()\
+			{var form = document.forms.myForm;form.submit();}\
+	</script>\
 	<body onLoad="mySubmit()";>\
-	<form > First name:\
+	<form method="POST"> First name:\
 		<br>\
 		<input type="text" name="firstname">\
 		<br> Last name:<br>\

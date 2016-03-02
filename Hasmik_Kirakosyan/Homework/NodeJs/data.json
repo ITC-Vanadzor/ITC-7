@@ -1,0 +1,16 @@
+{
+	"data" : [
+	  {
+		  "username": "Hasmik",
+		  "password": "hi",
+		  "age" : "26",
+		  "country" : "Germany"
+		}, 
+		{
+		  "username": "Anna",
+		  "password": "hi",
+		  "age" : "25",
+		  "country" : "USA"
+		}	
+	]
+}

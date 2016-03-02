@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script>
+function setCookie(name,value,days) {
+    var day = new Date();
+    day.setTime(day.getTime() + (days*24*60*60*1000));
+    var expires = "expires=" + day.toGMTString();
+    document.cookie = name+"="+value+"; "+expires;
+}
+
+function getCookie(myname) {
+    var name = myname + "=";
+    var arr = document.cookie.split(';');
+    for(var i=0; i<arr.length; i++) {
+        var c = arr[i];
+        while (c.charAt(0)==' ')c = c.substring(1);
+	
+         if (c.indexOf(name) == 0) 
+	 {
+            return c.substring(name.length, c.length);
+         }
+    }
+    return "";
+}
+
+function checkCookie() 
+{
+    var user=getCookie("username");
+    if (user != "") 
+    {
+        alert("Welcome again " + user);
+    } 
+   else 
+  {
+       user = prompt("Please enter your name:","");
+       if (user != "" && user != null) 
+	{
+           setCookie("username", user, 5);
+  	}
+  }
+}
+
+</script>
+</head>
+<body onload="checkCookie()">
+	
+</body>
+</html>

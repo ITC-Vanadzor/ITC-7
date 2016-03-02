@@ -1,0 +1,36 @@
+<!DOCTYPE html5>
+<html>
+		  <head>
+					 <title>HDM User Profile</title>
+					 <link rel="stylesheet" href="../css/style.css">
+		  </head>
+		  <body  class="webSiteBackground">
+					 <ul>
+								<a class="active" href="index.html"><img src="../res/icon.png" id="smallogo"></a>
+								<li><a href="#about">About us</a></li>
+								<li><a href="#use">How to use</a></li>
+								<li><a href="#download">Download</a></li>
+					 </ul>
+
+					 <!--  Main table -->
+					 <div id="tableZone">
+								<form>
+										  <span id="span"> From </span>
+										  <input type="date" name="dateFrom"></input>
+										  <span> To </span>
+										  <input type="date" name="dateTo"></input>
+										  <button>Sort Date</button>
+								</form>
+					 </div>	 
+
+					 <div id="addRow">
+								<input type="text" placeholder="date" id="date"/>
+								<input type="text" placeholder="market"id="market"/>	
+								<input type="text" placeholder="product" id="product"/>
+								<input type="text" placeholder="price" id="price"/>	 
+								<button type="confirm" onclick="addRow()"> Add</button>
+					 </div>
+										 <script src="../js/statistics.js"></script>
+
+		  </body>
+</html>

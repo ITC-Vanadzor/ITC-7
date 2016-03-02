@@ -1,0 +1,38 @@
+<html>
+<head>
+
+<script type="text/javascript">
+function WriteCookie(key, value)	{
+		  document.cookie=key+"=" + value;
+}
+
+
+function getCookie(name) {
+		  var matches = document.cookie.match(new RegExp(
+										  "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+										  ));
+		  return matches ? decodeURIComponent(matches[1]) : "";
+}
+
+function checkCookie() {
+		  var user=getCookie("name");
+		  if (user != "") {
+					 alert("Welcome again " + user);
+		  } else {
+					 user = prompt("Please enter your name:","");
+					 if (user != "" && user != null) {
+								WriteCookie("name", user);
+								console.log("name="+user);
+					 }
+		  }	
+}			
+
+
+</script>
+
+</head>
+
+<body onload="checkCookie()">
+
+</body>
+</html>

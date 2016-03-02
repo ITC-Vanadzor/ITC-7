@@ -8,6 +8,7 @@ module.exports = function(server) {
 		  // html renderer
 		  server.set('view engine', 'ejs');
 		  server.engine('html', require('ejs').renderFile);
+
 		  // for rendering static file
 		  server.use(express.static('./public'));
 

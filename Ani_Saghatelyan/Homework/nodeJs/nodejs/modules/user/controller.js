@@ -21,18 +21,20 @@ module.exports.signUp = function(req, res){
       console.log(e, s, '-----');
     });
   	res.end('------post------');
+console.log(e, s, '-----');
+   
   };
 module.exports.signIn=function(req, res){
    fs.readFile(logFile, function(err, data){
    	if (err) throw err;           
  });
-	var obj = JSON.parse(text);
+	var obj = JSON.parse(logFile);
 	var arr=obj.post;
-        for (var i=0; i<arr.length, ++i)
+        for (var i=0; i<arr.length;++i)
         {
 		if(arr[i].email===req.body.email && arr[i].password===req.body.password)
 		{
-			res.redirect(./statistic.html);
+			res.redirect('./statistic.html');
 		}
 		else
 		{

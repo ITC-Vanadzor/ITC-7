@@ -1,7 +1,7 @@
 'use strict';
 
 var express = require('express'),
-	     app  = express();
+    app  = express();
 var bodyParser = require('body-parser');
 var util = require('util');
 var fs = require('fs');
@@ -13,10 +13,10 @@ module.exports.get = function(req, res) {
 
 };
 module.exports.signUp = function(req, res) {
-		  json.post.push(req.body);
-  		  var body = JSON.stringify(json);
-		  console.log(body);
-	     fs.writeFile(jsonFile, body, function() {});
+	json.post.push(req.body);
+	var body = JSON.stringify(json);
+	console.log(body);
+	fs.writeFile(jsonFile, body, function(e, s) {console.log(e)});
 	res.end();
 };
 
@@ -25,16 +25,16 @@ module.exports.signIn = function(req, res) {
 	var password = req.body.password;
 	var obj = require("./data.json");
 	var t;
-	for (var item in obj) {
-		if (obj[item].email == email && obj[item].password == password) {
-				 res.redirect("../public/src/profile2.html");
-			     t = true;
+	for (var item in obj.post) {
+		if (item.email == email && item.password == password) {
+			res.redirect("../public/src/profile2.html");
+			t = true;
 		}
 		else
-				  t = false;
+			t = false;
 	}
-   if (!t) {
-			 res.end("No such user.  Please sign in");
+	if (!t) {
+		res.end("No such user.  Please sign in");
 	}
 };
 

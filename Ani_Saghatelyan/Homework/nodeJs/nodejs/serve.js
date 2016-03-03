@@ -4,6 +4,7 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 app = require('./config')(app);
+require('./router/')(app);
 
 
 server.listen(8080, 'localhost', function () {

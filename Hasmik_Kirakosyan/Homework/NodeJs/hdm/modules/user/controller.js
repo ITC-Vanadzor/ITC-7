@@ -10,7 +10,15 @@ module.exports.get = function(req, res) {
 };
 
 module.exports.signUp = function(req, res) {
-	json.post.push(req.body);
+	var obj = require(__dirname+"/data.json");
+	var arr = obj.post;
+	for (var i = 0; i<arr.length; ++i ) {
+		if (arr[i].email === req.body.email ) {
+		res.end("Sorry, there is an user with this email address!"); 		
+		return;
+		}
+	}
+   json.post.push(req.body);
 	var body = JSON.stringify(json);
 	console.log(body);
 	fs.writeFile(jsonFile, body, function(e,s) {});

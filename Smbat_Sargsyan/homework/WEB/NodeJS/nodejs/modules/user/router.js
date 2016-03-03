@@ -3,7 +3,7 @@ var express = require('express');
 var controller = require('./controller')
 var fs = require('fs');
 var router = express.Router();
-var log = require('./log');
+var db = require('./log');
 var logFile = './log.json';
 module.exports = function() {
   router.get('/', controller.get);
@@ -13,44 +13,33 @@ module.exports = function() {
   });
 
   router.post('/registration/', function(req, res){
-    //var name = req.body.username;
-    //var email = req.body.useremail;
-    //var password = req.body.userpass;
-    //log.post.push(req.body);
-    var data = fs.readFileSync(logFile);
-    var dataBase = JSON.parse(data);
-    dataBase[req.body.username] = {
-            username: req.body.username,
-            useremail: req.body.useremail,
-            userpass: req.body.userpass
-        };
-    var body = JSON.stringify(req.body);
+    var user = req.body;
+    // TODO:validate user
+    db[user.useremail] = user;
+    var body = JSON.stringify(db);
     fs.writeFile(logFile, body, function(e, s){
       console.log(e, s, '---registration--');
     });
-  	res.end('------post------');
-  }
-);
+   res.end('------post------');
+  });
 
   router.post('/signin/',function(req,res) {
     var email = req.body.useremail;
     var password = req.body.userpass;
-    
-    fs.readFile('log.json','utf8',function(err,data) {
-	var jsonData = JSON.parse(data);
-        for(var i = 0; i < jsonData.length; ++i) {
-           if(email == jsonData[i].useremail && password == jsobData[i].userpass) {
-	     console.log("You are sign in " + jsonData[i].username);
-	    }
-   	 }
-	res.end('------sign in------');
-	})
-});
+    var result = "You aren't sign in " + req.body.username;
+    if(db[email] && password == db[email].userpass) {
+        result = "You are sign in " + db[key].username;
+     }
+     res.end(result);
+  });
+
   router.put('/', function(req, res){
   	res.end('----put----');
   });
+
   router.delete('/', function(req, res) {
   	res.end('---delete---');
   });
+
   return router;
 }

@@ -1,10 +1,7 @@
 'use strict';
 var express = require('express');
 var controller = require('./controller')
-var fs = require('fs');
 var router = express.Router();
-var log = require('./log');
-var logFile = './log.json';
 
 module.exports = function() {
   router.get('/', controller.get);
@@ -13,14 +10,7 @@ module.exports = function() {
   	res.end('---id vareble---' + req.params.id);
   });
 
-  router.post('/post', function(req, res){
-    log.post.push(req.body);
-    var body = JSON.stringify(log);
-    fs.writeFile(logFile, body, function(e, s){
-      console.log(e, s, '-----');
-    });
-  	res.end('------post------');
-  });
+  router.post('/post', controller.create);
   router.put('/', function(req, res){
   	res.end('----put----');
   });

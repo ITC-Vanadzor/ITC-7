@@ -19,21 +19,20 @@ module.exports = function()
     });
     router.post('/signIn', function(req, res)
     {
-	log.post.push(req.body);
-	var body = JSON.stringify(log);
-	body = JSON.parse(body);
-	var signIn = fs.readFileSync('log.json', 'utf8', function(err){});
+	var body = JSON.parse(req.body);
+	var signIn = fs.readFileSync('log', 'utf8');
 	signIn = JSON.parse(signIn);
-	for (body in signIn)
+	for (user in signIn.post)
 	{
-	    if(body.email == signIn.post.email && body.password == signIn.post.password)
+	    if(body.email == user.email && body.password == user.password)
 	    {
-		res.end('------You are signin----------post--------');
+		var text='------You are signin----------post--------';
 	    }
 	    else
 	    {
-		res.end('------Wrong email or password-----------post--------');
+		var text='------Wrong email or password-----------post--------';
 	    }
+	res.end(text);
 	}
     });
     router.put('/', function(req, res)

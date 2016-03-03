@@ -21,11 +21,12 @@ module.exports.signIn = function(req, res) {
 	var email = req.body.email;
 	var password = req.body.password;
 	var obj = require("./data.json");
-	var t;
-	for (var item in obj.post) {
-		if (item.email == email && item.password == password) {
-			return;		
+	var arr = obj.post;
+	for (var i = 0; i<arr.length; ++i ) {
+		if (arr[i].email === email && arr[i].password === password) {
+		res.end("Ok, you are siggned in"); 		
 		}
 	}
+
 	res.end("No such user.  Please sign in");
 };

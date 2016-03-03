@@ -10,7 +10,7 @@ module.exports = function() {
   	res.end('---id vareble---' + req.params.id);
   });
   router.post('/',controller.signin);
-  router.post('/',controller.registration);
+  router.post('/registration',controller.registration);
 
   return router;
 }

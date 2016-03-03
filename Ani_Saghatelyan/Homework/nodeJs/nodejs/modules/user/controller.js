@@ -28,20 +28,20 @@ module.exports.signIn=function(req, res){
    fs.readFile(logFile, function(err, data){
    	if (err) throw err;           
  });
-	var obj = JSON.parse(logFile);
+	var obj = require('./log.json');
 	var arr=obj.post;
         for (var i=0; i<arr.length;++i)
         {
 		if(arr[i].email===req.body.email && arr[i].password===req.body.password)
 		{
-			res.redirect('./statistic.html');
+			res.end("ok");
+                               return;
 		}
-		else
-		{
-			throw err;
-		}
+}
+			res.end("no");
 		
-	}
+		
+
 };
 
 // puts datas for updating info

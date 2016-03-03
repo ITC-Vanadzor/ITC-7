@@ -22,4 +22,3 @@ module.exports = function(server) {
     server.use(parser.array());
     return server;
 };
-

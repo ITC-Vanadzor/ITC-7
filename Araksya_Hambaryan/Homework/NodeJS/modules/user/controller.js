@@ -2,9 +2,9 @@
 var fs = require('fs');
 var express = require('express');
 var path = require('path');
-var log = require('./log');
-var logFile = './log.json';
-var  dataBase={};
+var db = require(path.join(__dirname +'/log'));
+var logFile = path.join(__dirname+'/log.json');
+
 
 
 module.exports.get = function(req, res) {
@@ -17,36 +17,28 @@ module.exports.id = function(req, res){
 
 
 module.exports.registration = function(req, res){
-    log.push(req.body);
-    var body = JSON.stringify(req.body);
-    console.log(body);
-    fs.writeFile(logFile, body, function(e, s){
-      console.log(e, s, '---registration--');
-    });
-    res.end('------post------');
+    if (db[req.body.email]) {
+        console.log("you are already registration");
+    } else {
+        db[req.body.email] = req.body;
+        var body = JSON.stringify(db);
+        fs.writeFile(logFile, body, function(e, s){
+            console.log(e, s, '---registration--');
+     	})
+    };
+    res.render('public/profile') // chi ashxatum
 };
 
 module.exports.signin = function(req,res) {
-    var email = JSON.stringify(req.body.email);
-    console.log(email);
+    var email = req.body.email;
     var password = req.body.password;
-    console.log(password);
-    fs.readFile('log.json','utf8',function(err,data) {
-	var jsonData = JSON.parse(data);
-	for(var i  in jsonData) {
-           if((email == jsonData[i].email || email == jsonData[i].username) && password == jsonData[i].password) {
-		
-		res.sendfile('profile.html');
-	        console.log("You are sign in " + jsonData[i].username);
-	    } else {
-		
-		res.sendfile('../../public/index.html', {root:__dirname});
-		console.log("Incorrect email or password. Try again!");
-	    }
-   	 }
-
-	//res.end();
-	})
+    if(db[email] && db[email].password == password) {
+	res.sendfile('profile.html'); //sxal
+	console.log("You are sign in " + db[email].username);
+    } else {
+	res.sendfile('public/index.html', {root:__dirname}); //sxal
+	console.log("Incorrect email or password. Try again!");
+    }
 };
 
 module.exports.put = function(req, res){

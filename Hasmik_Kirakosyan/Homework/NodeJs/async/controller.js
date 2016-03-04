@@ -15,5 +15,5 @@ async.series([
 ],
 // optional callback
 function(err, results){
-		  console.log('error : ', error, 'results : ', results);
+		  console.log('error : ', err, 'results : ', results);
 });

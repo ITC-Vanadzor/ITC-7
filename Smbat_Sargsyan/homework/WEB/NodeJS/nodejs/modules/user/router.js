@@ -9,7 +9,7 @@ module.exports = function() {
   router.get('/:id', function(req, res){
   	res.end('---id vareble---' + req.params.id);
   });
-  router.post('/',controller.signin);
+  router.post('/signin',controller.signin);
   router.post('/registration',controller.registration);
 
   return router;

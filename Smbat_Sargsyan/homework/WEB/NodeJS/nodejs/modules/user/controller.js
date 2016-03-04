@@ -20,7 +20,8 @@ module.exports.delete = function(req, res) {
 module.exports.registration = function(req, res){
     var user = req.body;
     if(db[user.email]) {
-	console.log("User already exist");	
+	console.log("User already exist");
+        res.send(500,"User already exist");	
     }
     else {
     db[user.email] = user;
@@ -38,7 +39,11 @@ module.exports.signin = function(req,res) {
     var result = "You aren't sign in " + req.body.username;
     if(db[email] && password == db[email].password) {
         result = "You are sign in " + db[key].username;
+        res.send(500,"You are sign in ");
      }
+    else {
+        res.send(500, 'Something went wrong');
+    }
      res.end(result);
   };
 

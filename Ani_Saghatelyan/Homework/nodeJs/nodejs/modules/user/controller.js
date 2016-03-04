@@ -1,7 +1,9 @@
 'use strict';
 var fs = require('fs');
-var log = require('./log');
-var logFile = './log.json';
+var log = require(__dirname+'/log');
+var logFile = __dirname+'/log.json';
+
+
 
 //gets data 
 module.exports.get = function(req, res) {
@@ -15,33 +17,49 @@ module.exports.getId=function(req, res){
 
 //posts data for saving in file
 module.exports.signUp = function(req, res){
-    log.post.push(req.body);
+       var obj = require(__dirname+'/log.json');
+	var arr=obj.post;
+    // checking for consisting that email in file
+        for (var i=0; i<arr.length;++i)
+        {
+		if(arr[i].email===req.body.email)
+		{
+			res.end("this email has already consists.Please enter another email");
+                               return;
+		}
+         }
+    		log.post.push(req.body);
     var body = JSON.stringify(log);
     fs.writeFile(logFile, body, function(e, s){
       console.log(e, s, '-----');
     });
-  	res.end('------post------');
-console.log(e, s, '-----');
+ //res.end('------post------');
+ //console.log(e, s, '-----');
    
   };
 module.exports.signIn=function(req, res){
    fs.readFile(logFile, function(err, data){
    	if (err) throw err;           
- });
-	var obj = require('./log.json');
+   });
+	var obj = require(__dirname+'/log.json');
 	var arr=obj.post;
+       // checking the correction of input datas
         for (var i=0; i<arr.length;++i)
         {
 		if(arr[i].email===req.body.email && arr[i].password===req.body.password)
 		{
-			res.end("ok");
+                        
+			res.render('usage.html');
                                return;
+		} 
+		// checking if  password is entered correctly
+		else if(arr[i].email===req.body.email && arr[i].password!==req.body.password)
+		{
+			res.end("Incorrect password");
 		}
-}
+        }
 			res.end("no");
 		
-		
-
 };
 
 // puts datas for updating info

@@ -1,6 +1,1 @@
-{ "post": [{
-				"username" : "Hasmik",
-				"email": "hasmikus@gmail.com",
-			   "password" : "passexample"
-			}]
-}
+{"post":[{"username":"Hasmik","email":"hasmikus@gmail.com","password":"passexample"},{"username":"testUser","email":"test@gmail.com","password":"testest"}]}

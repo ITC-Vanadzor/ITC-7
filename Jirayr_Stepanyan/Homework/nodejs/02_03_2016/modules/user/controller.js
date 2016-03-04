@@ -36,7 +36,8 @@ module.exports.signIn = function(req, res)
 	{
 	    if(body.email == post[i].email && body.password == post[i].password)
 	    {
-		res.end('------You are signin----------post--------');
+		res.render('profile2.html');
+		return;
 	    }
 	}
 	res.end('------Wrong email or password-----------post--------');

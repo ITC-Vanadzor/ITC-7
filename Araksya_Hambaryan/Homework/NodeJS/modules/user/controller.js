@@ -18,26 +18,24 @@ module.exports.id = function(req, res){
 
 module.exports.registration = function(req, res){
     if (db[req.body.email]) {
-        console.log("you are already registration");
+        res.render('index.html');
     } else {
         db[req.body.email] = req.body;
         var body = JSON.stringify(db);
         fs.writeFile(logFile, body, function(e, s){
             console.log(e, s, '---registration--');
-     	})
-    };
-    res.render('public/profile') // chi ashxatum
+        })
+    res.render('profile.html');
+    }
 };
 
 module.exports.signin = function(req,res) {
     var email = req.body.email;
     var password = req.body.password;
     if(db[email] && db[email].password == password) {
-	res.sendfile('profile.html'); //sxal
-	console.log("You are sign in " + db[email].username);
+        res.render('profile.html');
     } else {
-	res.sendfile('public/index.html', {root:__dirname}); //sxal
-	console.log("Incorrect email or password. Try again!");
+        res.render('index.html');
     }
 };
 

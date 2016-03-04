@@ -34,9 +34,11 @@ stack.userPassword = function(callback) {
 
 }
 async.parallel(stack,function(err,result) {
+        for(var key in db) {
 	if(err) {
 		consoler.err(err);
 		return;
 	}
 	console.log(result);
+	}
 });

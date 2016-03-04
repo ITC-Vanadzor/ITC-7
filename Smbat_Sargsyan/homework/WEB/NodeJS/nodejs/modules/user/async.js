@@ -13,27 +13,25 @@ stack.userName = function(callback) {
 	for(var key in db) {
 		var name = db[key].username;
 		console.log(db[key].username);
-	
-		callback(null,name);
 	}
+	callback(null,name);
 }
 
 stack.userEmail = function(callback) {
         for(var key in db) {
                 var useremail = db[key].email;
                 console.log(db[key].email);
-        
-        	callback(null,useremail);
 	}
+	callback(null,useremail);
 }
 
 stack.userPassword = function(callback) {
         for(var key in db) {
                 var userpassword = db[key].password;
                 console.log(db[key].password);
-        
-       		callback(null,userpassword);
 	}
+	callback(null,userpassword);
+
 }
 async.parallel(stack,function(err,result) {
 	if(err) {

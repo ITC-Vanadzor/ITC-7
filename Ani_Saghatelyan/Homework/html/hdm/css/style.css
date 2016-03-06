@@ -355,24 +355,28 @@ input[type=date] {
 }
 /*each circle for steps*/
 .Progress button {
-	margin-right:-1%;
-	margin-top:-10%;
 		float:right;
-			color: white;
+		color: white;
     		border: #005c99;
     		background: linear-gradient(to top, #0094F7, #007acc);
     		font-size: 100%;
+		position:absolute;
     		font-weight: bold;
-			text-align:center;
-      	width: 25%;
-			padding:5%;
-      	-webkit-border-radius: 70%;
-      	-moz-border-radius: 70%;
-      	border-radius: 70%;
+		text-align:center;
+		
+      		width: 5%;
+		padding:1%;
+		margin:-2% 15%;
+		min-width: 50px;
+      		-webkit-border-radius: 70%;
+      		-moz-border-radius: 70%;
+      		border-radius: 70%;
     }
 .Progress button:hover {
+	cursor: pointer;  
     background: linear-gradient(to top, #0076C4, #007acc);
 }
+
 .Progress button:active {
     background: linear-gradient(to top, #0064A6, #007acc);
 }
@@ -384,7 +388,7 @@ input[type=date] {
 	margin:0% 3%;
 }
 .usageText{
-	margin: 3% 0% 3% 0%;
+	margin:  10% 0% 3% 0%;
 	width:35%;
 	float:right;
 	font-size:90%;
@@ -410,8 +414,8 @@ input[type=date] {
 /*size of images for usage */
 .usageImageSize{
 	float:left;
-	margin:3% 0% 3%  2%;
-	width: 60%;
+	margin:10% 0% 4%  2%;
+	width: 55%;
 }
 /*end of usage page*/
 

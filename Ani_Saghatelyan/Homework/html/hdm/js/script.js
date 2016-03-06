@@ -165,13 +165,11 @@ var hideOtherRows = function(number) {
 /*adds row for new input*/
 function addRow()	
 {
-	document.getElementById("TableBG").style.opacity="0.5";
 	document.getElementById("editWindow").style.display="block";
 }
 // hides edit div after canceling or saveing
 function hideDiv()
 {
-		document.getElementById("myTable").style.opacity="1.0";
 		document.getElementById("editWindow").style.display="none";		
 }
 // edits the row

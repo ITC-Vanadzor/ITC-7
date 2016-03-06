@@ -28,6 +28,7 @@ p {
     font-size: 17px;
     font-weight: bold;
     text-decoration: none;
+    min-width:60px;
 }
 .grayButton:hover {
     background: linear-gradient(to top, #cccccc, #bfbfbf);
@@ -240,40 +241,39 @@ li a:hover {
 	width:60%;
 	padding:3%;
 	height: 300px;
-	margin:0% 10% 0%;
-	background: linear-gradient(to top, #0094F7, #007acc);
+	margin:-20% 20% 0%;
+	position:absolute;
 }
 #editWindow input{
-	width:95%;
+	width:55%;
 	padding:2%;
 	font-size:90%;
+	margin-right:4%;
 }
 
 /*all divs in edit window*/
 #editWindow  div, #editWindow img{
 	margin: 2% 0% 0%;
 	background:none;
-	width: 32%;
+	width: 50%;
 	float:right;
 	padding:0%;
 }
 #editWindow button{
-	width:18%;
+	width:29%;
 	margin:8% 0% 2% ;
 	padding:1%;
 	float:left;
 	min-width:60px;
 
 }
-#editWindow p{
-	line-height: 140%;
-	width:99%;
+#editWindow label{
 	min-width:50px;
-	color:white;
 }
-#editImageSize{
-	margin-top:0%;
-	width:99%;
+#editWindow img{
+	margin:4%;
+	width:42%;
+	margin-right:4%;
 }
 
 #filter{
@@ -291,7 +291,7 @@ li a:hover {
 #moreImage{
 	margin: 1% 30%;
 	width: 10%;
-	min-width:40px;
+	min-width:60px;
 
 }
 #filter input{

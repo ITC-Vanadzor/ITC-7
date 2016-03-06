@@ -14,7 +14,6 @@ function showDiv(divId) {
     if (!divId) {
         divId = 'signInDiv';
     }
-
     switch (divId) {
         case 'signUpDiv':
             document.title = "Create account";
@@ -25,32 +24,11 @@ function showDiv(divId) {
         default:
             document.title = "Sign In to HDM";
             divId = 'signInDiv';
-            if (signIn()) {
-                return;
-            }
 
     }
     document.getElementById(divId).style.display = "block";
 }
 
-
-
-function signIn() {
-
-    var email = location.href.match('email=(.+?)&');
-    var pass = location.href.match('password=(.+?)#');
-
-
-    if (email && pass) {
-        if (email[1] == "Janoyan" && pass[1] == "student") {
-            location.href = 'index.html';
-            return 1;
-        }
-    }
-
-    return 0;
-
-}
 
 function progressSteps(idProgress, idCircle, idStep) {
 
@@ -114,7 +92,7 @@ function Database() {
             });
 
         }
-        /*sort array by Price*/
+    /*sort array by Price*/
     this.sortByPrice = function() {
 
         this.item.sort(function(a, b) {
@@ -283,33 +261,152 @@ function showGraph() {
 
 
 
+/*date converting into format Date*/
 
-function table() {
-    myDb.sortByDate();
+/**function count, which shows 3 rows on every click 'more' button*/
+
+var count = (function() {
+    var num = 0;
+    return function() {
+        var first = num;
+        num += 3;
+        for (var i = first; i < num + 3 && i <= myDb.count; ++i) {
+            document.getElementById("myTable").rows[i].style.display = "table-row";
+        }
+    }
+})()
+
+/**function, which hides all rows beside first three rows*/
+var hideOtherRows = function(number) {
+    for (var i = number; i <= myDb.count; ++i) {
+        document.getElementById("myTable").rows[i].style.display = "none";
+    }
+}
+
+/*adds row for new input*/
+function addRow()   
+{
+    document.getElementById("editWindow").style.display="block";
+}
+// hides edit div after canceling or saveing
+function hideDiv()
+{
+        document.getElementById("editWindow").style.display="none";     
+}
+// edits the row
+function editRow(i)
+{
+    addRow();
+    document.getElementById("Market").placeholder=myDb.item[i].name;
+    document.getElementById("Date").placeholder=myDb.item[i].date;
+    document.getElementById("Time").placeholder=myDb.item[i].time;
+    document.getElementById("Price").placeholder=myDb.item[i].money;
+    document.getElementById("Item").placeholder=myDb.item[i].item;
+
+
+}
+
+function table() 
+{
+    showGraph();
+    document.getElementById("editWindow").style.display="none"; 
     var myTable = document.getElementById("myTable");
-    myTable.setAttribute("style", "width:50% ; margin:5% 25% 0%; padding:0%;");
+    // myTable.setAttribute("style", "width:50% ; margin:5% 10% 0%; padding:0%;");
     var header = myTable.createTHead();
     var headerRow = header.insertRow(0);
-    var Head = ["Market", "Date", "Time", "Price"];
-    for (var i = 0; i < Head.length; ++i) {
+     Head = ["Market", "Date", "Time", "Price", "Item"];
+    for (var i = 0; i < Head.length; ++i) 
+    {
         var dataDate = headerRow.insertCell(i);
         dataDate.innerHTML = Head[i];
         dataDate.setAttribute("style", "font-weight: bold;");
 
-    }
-    for (var i = 0; i < myDb.count; i++) {
+    }       
+                            
+    
+            
+    for (var i = 0; i < myDb.count; i++) 
+    {
         tmp = myDb.item[i].getArray();
+    
         var row = document.createElement("tr");
-        for (s in tmp) {
+    row.setAttribute('onclick','editRow('+i+')');
+        for (s in tmp) 
+    {
+    
             var cell = document.createElement("td");
             var cellText = document.createTextNode(tmp[s]);
             cell.appendChild(cellText);
             row.appendChild(cell);
         }
+    
+    row.appendChild(document.createElement("td"));
+    myTable.appendChild(row);
+    }
+     
+     
+    myTable.setAttribute("border", "2");
+    hideOtherRows(3);
+}
+/*function, which filters using dates*/
+function Filter() 
+{
 
-        myTable.appendChild(row);
+    var fromDate=new Date(document.getElementById("firstDate").value);
+
+    var toDate=new Date(document.getElementById("secondDate").value);
+        
+    hideOtherRows(1);
+
+    for (var i = 0; i < myDb.count; ++i) 
+    {
+
+        tmpTime=myDb.item[i].date.value;
+
+        
+
+            if (tmpTime >= fromDate && tmpTime <=toDate) 
+        {
+            alert(tmpTime+' | '+fromDate+' | '+toDate)
+                    document.getElementById("myTable").rows[i+1].style.display = "table-row";
+
+                }   
+
+     }
+
+
+
+}
+
+
+
+/* Usage page*/
+/* function for progress usage page*/
+function progressSteps(idProgress, idCircle, idStep) {
+
+    document.getElementById("thirdStep").style.display = "none";
+    document.getElementById("secondStep").style.display = "none";
+    document.getElementById("firstStep").style.display = "none";
+
+    document.getElementById(idStep).style.display = "block";
+
+
+    document.getElementById("thirdCircle").style.background = "linear-gradient(to top, #0094F7, #007acc)";
+    document.getElementById("secondCircle").style.background = "linear-gradient(to top, #0094F7, #007acc)";
+    document.getElementById("firstCircle").style.background = "linear-gradient(to top, #0094F7, #007acc)";
+    document.getElementById(idCircle).style.background = "#999999";
+
+    document.getElementById("thirdProgress").style.background = "#bfbfbf";
+    document.getElementById("secondProgress").style.background = "#bfbfbf";
+    document.getElementById("firstProgress").style.background = "#bfbfbf";
+
+    switch (idProgress) {
+        case 'thirdProgress':
+            document.getElementById("thirdProgress").style.background = "#007acc";
+        case 'secondProgress':
+            document.getElementById("secondProgress").style.background = "#007acc";
+        case 'firstProgress':
+            document.getElementById("firstProgress").style.background = "#007acc";
     }
 
-    myTable.setAttribute("border", "2");
-    showGraph();
 }

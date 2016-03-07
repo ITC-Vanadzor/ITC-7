@@ -28,6 +28,7 @@ p {
     font-size: 17px;
     font-weight: bold;
     text-decoration: none;
+    min-width:60px;
 }
 .grayButton:hover {
     background: linear-gradient(to top, #cccccc, #bfbfbf);
@@ -117,7 +118,7 @@ li a:hover {
 }
 /*styled  background*/
 
-.styledBg,#editWindow {
+.styledBg  {
     background: linear-gradient(to top, #e8e8e8, #bfbfbf);
     box-shadow: 0 0 10px 3px rgba(128, 128, 128, .55);
     border-radius: 10px;
@@ -233,23 +234,48 @@ li a:hover {
 	margin:0% 6%;
 	min-width:45px;
 }
+/* window, which will show edit or add row*/
 #editWindow{
-	width:20%;
-	padding:0.3% ; 
-	margin:-10% 20%;
+    	box-shadow: 0 0 10px 3px rgba(128, 128, 128, .55);
+    	border-radius: 10px;
+	width:60%;
+	padding:3%;
+	height: 300px;
+	margin:-20% 20% 0%;
+	position:absolute;
 }
 #editWindow input{
-	width:75%;
-	padding:3% 4%;
+	width:55%;
+	padding:2%;
 	font-size:90%;
-	margin:2% 10%;
+	margin-right:4%;
 }
-#editWindow ul,li{
-	background: none;
+
+/*all divs in edit window*/
+#editWindow  div, #editWindow img{
+	margin: 2% 0% 0%;
+	background:none;
+	width: 50%;
+	float:right;
 	padding:0%;
-	margin:0%;
-	border:none;
 }
+#editWindow button{
+	width:29%;
+	margin:8% 0% 2% ;
+	padding:1%;
+	float:left;
+	min-width:60px;
+
+}
+#editWindow label{
+	min-width:50px;
+}
+#editWindow img{
+	margin:4%;
+	width:42%;
+	margin-right:4%;
+}
+
 #filter{
  	width:50%;
 	margin:10% 10% 4% 10%;
@@ -265,7 +291,7 @@ li a:hover {
 #moreImage{
 	margin: 1% 30%;
 	width: 10%;
-	min-width:40px;
+	min-width:60px;
 
 }
 #filter input{
@@ -329,24 +355,28 @@ input[type=date] {
 }
 /*each circle for steps*/
 .Progress button {
-	margin-right:-1%;
-	margin-top:-10%;
 		float:right;
-			color: white;
+		color: white;
     		border: #005c99;
     		background: linear-gradient(to top, #0094F7, #007acc);
     		font-size: 100%;
+		position:absolute;
     		font-weight: bold;
-			text-align:center;
-      	width: 25%;
-			padding:5%;
-      	-webkit-border-radius: 70%;
-      	-moz-border-radius: 70%;
-      	border-radius: 70%;
+		text-align:center;
+		
+      		width: 5%;
+		padding:1%;
+		margin:-2% 15%;
+		min-width: 50px;
+      		-webkit-border-radius: 70%;
+      		-moz-border-radius: 70%;
+      		border-radius: 70%;
     }
 .Progress button:hover {
+	cursor: pointer;  
     background: linear-gradient(to top, #0076C4, #007acc);
 }
+
 .Progress button:active {
     background: linear-gradient(to top, #0064A6, #007acc);
 }
@@ -358,7 +388,7 @@ input[type=date] {
 	margin:0% 3%;
 }
 .usageText{
-	margin: 3% 0% 3% 0%;
+	margin:  10% 0% 3% 0%;
 	width:35%;
 	float:right;
 	font-size:90%;
@@ -384,8 +414,8 @@ input[type=date] {
 /*size of images for usage */
 .usageImageSize{
 	float:left;
-	margin:3% 0% 3%  2%;
-	width: 60%;
+	margin:10% 0% 4%  2%;
+	width: 55%;
 }
 /*end of usage page*/
 

@@ -28,38 +28,28 @@ module.exports.signUp = function(req, res){
                                return;
 		}
          }
-    		log.post.push(req.body);
+    log.post.push(req.body);
     var body = JSON.stringify(log);
     fs.writeFile(logFile, body, function(e, s){
       console.log(e, s, '-----');
     });
- //res.end('------post------');
- //console.log(e, s, '-----');
+ res.render('profile.html');
+
    
   };
 module.exports.signIn=function(req, res){
-   fs.readFile(logFile, function(err, data){
-   	if (err) throw err;           
-   });
-	var obj = require(__dirname+'/log.json');
-	var arr=obj.post;
+	var arr=log.post;
        // checking the correction of input datas
         for (var i=0; i<arr.length;++i)
         {
 		if(arr[i].email===req.body.email && arr[i].password===req.body.password)
 		{
-                        
-			res.render('usage.html');
-                               return;
+                        res.render('usage.html');
+                        return;
 		} 
-		// checking if  password is entered correctly
-		else if(arr[i].email===req.body.email && arr[i].password!==req.body.password)
-		{
-			res.end("Incorrect password");
-		}
         }
 			res.end("no");
-		
+			return;
 };
 
 // puts datas for updating info

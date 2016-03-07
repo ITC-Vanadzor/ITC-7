@@ -7,10 +7,9 @@ var multer = require('multer');
 module.exports = function(server) {
 		  // html renderer
 		 
-		  server.set('views', path.join(__dirname, '../public'))
+		  server.set('views', path.join(__dirname, './public'));
 		  server.set('view engine', 'ejs');
 		  server.engine('html', require('ejs').renderFile);
-
 		  // for rendering static file
 		  server.use(express.static('./public'));
 

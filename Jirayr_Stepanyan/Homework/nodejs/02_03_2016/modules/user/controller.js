@@ -10,14 +10,13 @@ module.exports.get = function(req, res)
 module.exports.signUp = function(req, res)
 {
 	var body = req.body;
-	var signUp = fs.readFileSync('log.json', 'utf8', function(err){});
-	signUp = JSON.parse(signUp);
-	var post = signUp.post;
+	var post = log.post;
 	for (var i = 0; i < post.length; ++i)
 	{
 	    if(body.email == post[i].email && body.password == post[i].password)
 	    {
-		res.end('------You are already signed up.  Please sign in-------');
+			res.end('------You are already signed up.  Please sign in-------');
+	    	return;
 	    }
 	}
 	log.post.push(req.body);
@@ -29,14 +28,12 @@ module.exports.signUp = function(req, res)
 module.exports.signIn = function(req, res)
 {
 	var body = req.body;
-	var signIn = fs.readFileSync('log.json', 'utf8', function(err){});
-	signIn = JSON.parse(signIn);
-	var post = signIn.post;
+	var post = log.post;
 	for (var i = 0; i < post.length; ++i)
 	{
 	    if(body.email == post[i].email && body.password == post[i].password)
 	    {
-		res.render('profile2.html');
+		res.render('../../public/profile2.html');
 		return;
 	    }
 	}

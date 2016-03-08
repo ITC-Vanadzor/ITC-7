@@ -1,7 +1,4 @@
-var fs = require('fs');
-var log = require('./log');
-var logFile = './log.json';
-
+var db = require('./db');
 module.exports.get = function(req, res)
 {
 	res.end('------get------');
@@ -10,34 +7,27 @@ module.exports.get = function(req, res)
 module.exports.signUp = function(req, res)
 {
 	var body = req.body;
-	var post = log.post;
-	for (var i = 0; i < post.length; ++i)
+	db.query("select email from hdm where email = body.email", function(err, success){});
+	if(success)
 	{
-	    if(body.email == post[i].email && body.password == post[i].password)
-	    {
-			res.end('------You are already signed up.  Please sign in-------');
-	    	return;
-	    }
+		res.end('there is a user with this email');
+		return;
 	}
-	log.post.push(req.body);
-	var stringBody = JSON.stringify(log);
-	fs.writeFile(logFile, stringBody, function(e, s){});
-	res.end('--------------Cangratulations you are signed up--------------post-------');
+	db.query('insert into hdm (username, email, password) (body.username, body.email, body.password),', function(err, success){});
+	res.end('-------------cangrotulations yu are signed up--------------');
+	
 }
 
 module.exports.signIn = function(req, res)
 {
 	var body = req.body;
-	var post = log.post;
-	for (var i = 0; i < post.length; ++i)
+	db.query('select email, password from hdm where email = body.email, password = body.password', function(err, success){});
+	if(!err)
 	{
-	    if(body.email == post[i].email && body.password == post[i].password)
-	    {
 		res.render('../../public/profile2.html');
 		return;
-	    }
 	}
-	res.end('------Wrong email or password-----------post--------');
+	res.end('--------------Wrong email or password---------------');
 }
 
 module.exports.put = function(req, res)

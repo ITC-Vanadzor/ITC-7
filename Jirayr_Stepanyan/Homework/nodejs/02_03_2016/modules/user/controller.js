@@ -13,7 +13,7 @@ module.exports.signUp = function(req, res)
 		res.end('there is a user with this email');
 		return;
 	}
-	db.query('insert into hdm (username, email, password) (body.username, body.email, body.password),', function(err, success){});
+	db.query('insert into hdm (username, email, password) values(body.username, body.email, body.password),', function(err, success){});
 	res.end('-------------cangrotulations yu are signed up--------------');
 	
 }

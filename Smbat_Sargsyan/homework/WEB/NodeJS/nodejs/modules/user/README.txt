@@ -1,6 +1,7 @@
 #1 please install mysql
    sudo apt-get install mysql-server;
    sudo apt-get install mysql-client;
+   npm install mysql --save
 
 #2 please press command sudo mysql -p 
                         create database easyBoard;

@@ -5,7 +5,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : 'root',
+    password : 'edgar2410',
     database : 'hdmDb'
 });
 connection.connect();
@@ -28,6 +28,7 @@ var hdmDb = {
   email: email,
   password: password
 };
+connection.query('insert into hdmDb set ?',hdmDb);
     res.end('------post------');
 };
 

@@ -1,13 +1,13 @@
 'use strict';
-var fs = require('fs');
-var log = require(__dirname+'/log');
-var logFile = __dirname+'/log.json';
 
 
 
 //gets data 
-module.exports.get = function(req, res) {
-    res.end('-----index-----');
+module.exports.get =function(req,res){
+    
+    module.exports.db.query("SELECT * from user",function(err, rows, fields){
+            res.json(data);
+	});
 };
 
 // gets datas using id
@@ -16,41 +16,32 @@ module.exports.getId=function(req, res){
 };
 
 //posts data for saving in file
-module.exports.signUp = function(req, res){
-       var obj = require(__dirname+'/log.json');
-	var arr=obj.post;
-    // checking for consisting that email in file
-        for (var i=0; i<arr.length;++i)
-        {
-		if(arr[i].email===req.body.email)
-		{
-			res.end("this email has already consists.Please enter another email");
-                               return;
-		}
-         }
-    log.post.push(req.body);
-    var body = JSON.stringify(log);
-    fs.writeFile(logFile, body, function(e, s){
-      console.log(e, s, '-----');
-    });
- res.render('profile.html');
-
-   
+module.exports.signUp = function(req,res){
+    var user = req.body.username;
+    var Email=req.body.email;
+    var pass = req.body.password;
+    
+   	 exports.module.db.query('INSERT INTO user set username =user, surname = Email, password=pass', function(err, success) {
+        // console.log(err, success);
+	});
   };
+
 module.exports.signIn=function(req, res){
-	var arr=log.post;
-       // checking the correction of input datas
-        for (var i=0; i<arr.length;++i)
-        {
-		if(arr[i].email===req.body.email && arr[i].password===req.body.password)
-		{
-                        res.render('usage.html');
-                        return;
-		} 
-        }
-			res.end("no");
-			return;
-};
+    var email=req.body.email;
+    var password = req.body.password;
+    
+	  exports.module.db.query("SELECT * from user WHERE   email=? and password=? LIMIT 1",[email,password],function(err, rows, fields){
+        	if(rows.length != 0){
+            		data["Data"] = "Successfully logged in..";
+            		res.render('profile.html');
+        	}else{
+            		data["Data"] = "Email or password is incorrect.";
+            		res.json(data);
+        	}
+    });
+ return;   
+  };
+
 
 // puts datas for updating info
 module.exports.put = function(req, res){

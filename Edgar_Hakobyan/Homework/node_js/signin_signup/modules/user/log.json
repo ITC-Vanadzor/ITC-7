@@ -1,1 +1,8 @@
-{"post":[{"wdwd":"wdwdw"},{"wdwd":"wdwdw"},{"wdwd":"wdwdw"},{"wdwd":"wdwdw"},{"wdwd":"wdwdw"},{"wdwd":"wdwdw"},{"wdwd":"wdwdw"},{"wdwd":"wdwdw"},{"wdwd":"wdwdw"},{"name":"Petros","surname":"Petros"},{"name":"Petros","surname":"Petros","id":"1"}],"get":[],"put":[],"delete":[]}
+[
+      {
+        "username": "edgar",
+        "email":"edgar-hakobyan-1994@mail.ru",
+        "password": "edgar"
+      }
+]
+

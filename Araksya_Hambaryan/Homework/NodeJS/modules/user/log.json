@@ -1,9 +1,1 @@
-[
-	  {
-		"username": "araks",
-		"email":"araks@mail.ru",
-		"password": "123456"
-	  } 
-]
-
-
+{"ani@gmail.com":{"username":"Ani","email":"ani@gmail.com","password":"asd123"},"a":{"username":"a","email":"a","password":"a"},"s":{"username":"s","email":"s","password":"s"}}

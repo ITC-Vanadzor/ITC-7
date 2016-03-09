@@ -52,11 +52,11 @@ function signIn() {
 
 }
 /*Database structure */
-function DatabaseItem(name, date, money, item) {
+function DatabaseItem(name, date, money) {
     this.name = name;
     this.date = date;
     this.money = money;
-    this.item="";
+    this.item="item";
     this.getArray = function() {
         var arr = [this.name, this.date.toLocaleDateString(), this.date.toLocaleTimeString(), this.money];
         return arr;
@@ -139,6 +139,7 @@ myDb.addItem("jan", new Date(2016, 2, 1, 10, 41), 5000);
 myDb.addItem("Smile", new Date(2016, 2, 9, 15, 00), 3000);
 myDb.addItem("Star", new Date(2016, 3, 8, 22, 20), 1500);
 
+
 /*date converting into format Date*/
 
 /**function count, which shows 3 rows on every click 'more' button*/
@@ -164,16 +165,25 @@ var hideOtherRows = function(number) {
 /*adds row for new input*/
 function addRow()	
 {
-	document.getElementById("TableBG").style.opacity="0.5";
 	document.getElementById("editWindow").style.display="block";
 }
-	function hideDiv()
-	{
-		document.getElementById("myTable").style.opacity="none";
+// hides edit div after canceling or saveing
+function hideDiv()
+{
 		document.getElementById("editWindow").style.display="none";		
-	}
-	document.body.addEventListener('click', hideDiv(), true); 
+}
+// edits the row
+function editRow(i)
+{
+	addRow();
+	document.getElementById("Market").placeholder=myDb.item[i].name;
+	document.getElementById("Date").placeholder=myDb.item[i].date;
+	document.getElementById("Time").placeholder=myDb.item[i].time;
+	document.getElementById("Price").placeholder=myDb.item[i].money;
+	document.getElementById("Item").placeholder=myDb.item[i].item;
 
+
+}
 
 function table() 
 {
@@ -196,7 +206,9 @@ function table()
     for (var i = 0; i < myDb.count; i++) 
     {
         tmp = myDb.item[i].getArray();
+	
         var row = document.createElement("tr");
+	row.setAttribute('onclick','editRow('+i+')');
         for (s in tmp) 
 	{
 	
@@ -205,6 +217,8 @@ function table()
             cell.appendChild(cellText);
             row.appendChild(cell);
         }
+	
+	row.appendChild(document.createElement("td"));
 	myTable.appendChild(row);
     }
 	 

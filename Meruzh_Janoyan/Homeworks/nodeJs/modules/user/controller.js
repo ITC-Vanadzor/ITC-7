@@ -1,38 +1,36 @@
 'use strict';
-var fs = require('fs');
-var logFile = './log.json';
-
+var myDb = require('./dbInit')
 
 module.exports.get = function(req, res) {
     res.end('-----index-----');
 };
 
 module.exports.signIn = function(req, res) {
-    var data = fs.readFileSync(logFile);
-    var myDb = JSON.parse(data);
-
-    try {
-        if (myDb[req.body.email].password == req.body.password) {
-            res.redirect('/home.html');
+    myDb.query('SELECT * from accounts where \
+    email="' + req.body.email + '" and \
+    password="' + req.body.password + '"', function(err, rows) {
+        if (rows[0]) {
+            res.render('home.html');
+        } else {
+            res.render('wrong.html');
         }
-    } catch (error) {
-        console.log(error);
-    }
-    res.redirect('/wrong.html');
+    });
+
 };
 
 module.exports.signUp = function(req, res) {
-    var data = fs.readFileSync(logFile);
-    var myDb = JSON.parse(data);
-    myDb[req.body.email] = {
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password
-    };
-    fs.writeFile(logFile, JSON.stringify(myDb), function(e, d) {
-        console.log(e, d, '-----');
+    myDb.query('SELECT * from accounts where email="' + req.body.email + '"', function(err, rows) {
+        if (rows[0]) {
+            res.render('wrong.html');
+        } else {
+            myDb.query('INSERT INTO accounts set \
+            email ="' + req.body.email + '", \
+            password="' + req.body.password + '", \
+            username="' + req.body.username + '"', function(err, success) {
+                console.log(err, success);
+                res.render('home.html');
+            });
+        }
     });
 
-
-    res.redirect('/home.html');
 };

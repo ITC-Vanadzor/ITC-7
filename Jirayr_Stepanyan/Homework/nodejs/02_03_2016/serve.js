@@ -1,9 +1,8 @@
 var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
-app = require('./index.js')(app);
-var router = require('./router.js');
-app.use('/', router());
+app = require('./config')(app);
+app = require('./router')(app);
 
 server.listen(8080, 'localhost', function () {
   var host = server.address().address;

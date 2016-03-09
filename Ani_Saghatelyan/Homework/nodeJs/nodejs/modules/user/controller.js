@@ -1,11 +1,14 @@
 'use strict';
-var fs = require('fs');
-var log = require('./log');
-var logFile = './log.json';
+db=require('./db')
+
 
 //gets data 
-module.exports.get = function(req, res) {
-    res.end('-----index-----');
+module.exports.get =function(req,res){
+    
+db.query("SELECT * from user",function(err, rows, fields){
+            res.json(data);
+            res.end('----------get-----');
+	});
 };
 
 // gets datas using id
@@ -14,35 +17,34 @@ module.exports.getId=function(req, res){
 };
 
 //posts data for saving in file
-module.exports.signUp = function(req, res){
-    log.post.push(req.body);
-    var body = JSON.stringify(log);
-    fs.writeFile(logFile, body, function(e, s){
-      console.log(e, s, '-----');
-    });
-  	res.end('------post------');
-console.log(e, s, '-----');
-   
+module.exports.signUp = function(req,res){
+    var user = req.body.username;
+    var Email=req.body.email;
+    var pass = req.body.password;
+    
+   	 db.query('INSERT INTO user set username =user, surname = Email, password=pass', function(err, success) {
+        // console.log(err, success);
+	});
+     res.end('-sign up-------');
   };
+
 module.exports.signIn=function(req, res){
-   fs.readFile(logFile, function(err, data){
-   	if (err) throw err;           
- });
-	var obj = JSON.parse(logFile);
-	var arr=obj.post;
-        for (var i=0; i<arr.length;++i)
-        {
-		if(arr[i].email===req.body.email && arr[i].password===req.body.password)
-		{
-			res.redirect('./statistic.html');
-		}
-		else
-		{
-			throw err;
-		}
-		
-	}
-};
+    var email=req.body.email;
+    var password = req.body.password;
+    
+	 db.query("SELECT * from user WHERE   email=? and password=? LIMIT 1",[email,password],function(err, rows, fields){
+        	if(rows.length != 0){
+            		data["Data"] = "Successfully logged in..";
+            		res.render('profile.html');
+        	}else{
+            		data["Data"] = "Email or password is incorrect.";
+            		res.json(data);
+        	}
+           res.end('--------signIn--------');
+    });
+ return;   
+  };
+
 
 // puts datas for updating info
 module.exports.put = function(req, res){

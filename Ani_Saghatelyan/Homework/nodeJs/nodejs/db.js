@@ -1,3 +1,13 @@
 var server = require('./serve');
 var index = require('./index');
-module.exports = {name:'db'};
+var mySql = require('mysql');
+
+var controller=require('./modules/user/controller');
+var db = mySql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : 'elen041014@',
+  database : 'hdm'
+});
+
+module.exports = {mySql:db};

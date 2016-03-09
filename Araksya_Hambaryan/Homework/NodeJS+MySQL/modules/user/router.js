@@ -6,7 +6,8 @@ var router = express.Router();
 //var log = require('./log');
 //var logFile = './log.json';
 //var  dataBase={};
-var mySql = require('mysql');
+var db = require('../../db');
+
 
 module.exports = function() {
   router.get('/', controller.get);

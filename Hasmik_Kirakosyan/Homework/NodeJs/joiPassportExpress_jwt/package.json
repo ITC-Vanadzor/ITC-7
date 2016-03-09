@@ -13,9 +13,11 @@
     "ejs": "^2.4.1",
     "engine": "^0.1.11",
     "express": "^4.13.4",
+    "joi": "^8.0.4",
     "jsonfile": "^2.2.3",
     "multer": "^1.1.0",
     "mysql": "^2.10.2",
-    "node-mysql": "^0.4.2"
+    "node-mysql": "^0.4.2",
+    "passport-local": "^1.0.0"
   }
 }

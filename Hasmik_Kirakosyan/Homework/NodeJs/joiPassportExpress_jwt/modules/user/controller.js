@@ -1,5 +1,5 @@
 'use strict';
-
+var passport = require('passport');
 var db = require('./db');
 
 module.exports.get = function(req, res) {
@@ -23,7 +23,12 @@ module.exports.signUP = function(req, res) {
 }
 
 module.exports.signIn = function(req, res) {
-	  db.query('SELECT * from usersData where email="'+ req.body.email +'" and password = "' +req.body.password +'"', function(err, rows) {
+			  passport.authenticate('local', { login(), failureRedirect: '/login'})
+
+};
+
+var login =  function() {
+		  db.query('SELECT * from usersData where email="'+ req.body.email +'" and password = "' +req.body.password +'"', function(err, rows) {
 					 if (rows[0]) {
 								res.end("src/profile2.html"); 		
 								return;
@@ -31,5 +36,5 @@ module.exports.signIn = function(req, res) {
 					 else {
 								res.end("No such user!!!");
 					 }
-	});
-};
+		  });
+}

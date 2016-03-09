@@ -1,12 +1,13 @@
 'use strict';
-
+db=require('./db')
 
 
 //gets data 
 module.exports.get =function(req,res){
     
-    module.exports.db.query("SELECT * from user",function(err, rows, fields){
+db.query("SELECT * from user",function(err, rows, fields){
             res.json(data);
+            res.end('----------get-----');
 	});
 };
 
@@ -21,16 +22,17 @@ module.exports.signUp = function(req,res){
     var Email=req.body.email;
     var pass = req.body.password;
     
-   	 exports.module.db.query('INSERT INTO user set username =user, surname = Email, password=pass', function(err, success) {
+   	 db.query('INSERT INTO user set username =user, surname = Email, password=pass', function(err, success) {
         // console.log(err, success);
 	});
+     res.end('-sign up-------');
   };
 
 module.exports.signIn=function(req, res){
     var email=req.body.email;
     var password = req.body.password;
     
-	  exports.module.db.query("SELECT * from user WHERE   email=? and password=? LIMIT 1",[email,password],function(err, rows, fields){
+	 db.query("SELECT * from user WHERE   email=? and password=? LIMIT 1",[email,password],function(err, rows, fields){
         	if(rows.length != 0){
             		data["Data"] = "Successfully logged in..";
             		res.render('profile.html');
@@ -38,6 +40,7 @@ module.exports.signIn=function(req, res){
             		data["Data"] = "Email or password is incorrect.";
             		res.json(data);
         	}
+           res.end('--------signIn--------');
     });
  return;   
   };

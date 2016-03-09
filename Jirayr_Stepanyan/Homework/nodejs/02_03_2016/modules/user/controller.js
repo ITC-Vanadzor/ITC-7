@@ -1,4 +1,4 @@
-var db = require('./db');
+var db = require('./db').mySql;
 module.exports.get = function(req, res)
 {
 	res.end('------get------');
@@ -7,13 +7,14 @@ module.exports.get = function(req, res)
 module.exports.signUp = function(req, res)
 {
 	var body = req.body;
-	db.query("select email from hdm where email = body.email", function(err, success){});
-	if(success)
-	{
-		res.end('there is a user with this email');
-		return;
-	}
-	db.query('insert into hdm (username, email, password) values(body.username, body.email, body.password),', function(err, success){});
+	db.query('select * from hdm where email=' + body.email, function(err, rows){
+		if(rows[0])
+		{
+			res.end('there is a user with this email');
+			return;
+		}
+	});
+	db.query('insert into hdm set username =' + body.username+ ', email ="' + body.email + '",password="' + body.password + '"', function(err, success){});
 	res.end('-------------cangrotulations yu are signed up--------------');
 	
 }
@@ -21,12 +22,13 @@ module.exports.signUp = function(req, res)
 module.exports.signIn = function(req, res)
 {
 	var body = req.body;
-	db.query('select email, password from hdm where email = body.email, password = body.password', function(err, success){});
-	if(!err)
-	{
-		res.render('../../public/profile2.html');
-		return;
-	}
+	db.query('select * from hdm where email =' + body.email + ', and password =' + body.password, function(err, rows){
+		if(rows[0])
+		{
+			res.render('../../public/profile2.html');
+			return;
+		}
+	});
 	res.end('--------------Wrong email or password---------------');
 }
 

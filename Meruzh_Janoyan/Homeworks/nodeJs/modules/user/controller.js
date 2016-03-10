@@ -1,5 +1,6 @@
 'use strict';
-var myDb = require('./dbInit')
+var myDb = require('./dbInit');
+var valid = require('./validation');
 
 module.exports.get = function(req, res) {
     res.end('-----index-----');
@@ -19,6 +20,17 @@ module.exports.signIn = function(req, res) {
 };
 
 module.exports.signUp = function(req, res) {
+    valid.joi.validate(req.body, valid.joiSchema, function (err, value) { 
+    if(err){
+        res.render('wrong.html');
+        return;
+    }
+}); 
+    var jwt = valid.nJwt.create(valid.claims,valid.secretKey);
+    console.log("JWT BODDDDY>>>",jwt);
+    var token = jwt.compact();
+    console.log("TOKEN IS>>>",token);
+
     myDb.query('SELECT * from accounts where email="' + req.body.email + '"', function(err, rows) {
         if (rows[0]) {
             res.render('wrong.html');
@@ -34,3 +46,5 @@ module.exports.signUp = function(req, res) {
     });
 
 };
+
+module.exports.valid=valid;

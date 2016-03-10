@@ -1,4 +1,5 @@
 'use strict';
+var valid = require('../modules/user/validation');
 
 var bodyParser = require('body-parser');
 var express = require('express');

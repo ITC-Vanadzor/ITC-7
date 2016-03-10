@@ -4,6 +4,15 @@ var express = require('express');
 var path = require('path');
 var db = require('../../db');
 
+var Joi = require('joi');
+ 
+var schema = Joi.object().keys({
+    username: Joi.string().alphanum().min(3).max(30).required(),
+    password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/).min(6).max(30),
+    access_token: [Joi.string(), Joi.number()],
+    email: Joi.string().email()
+}).with('email').without('password', 'access_token');
+ 
 
 
 module.exports.get = function(req, res) {
@@ -21,7 +30,12 @@ var email = req.body.email,
     password = req.body.password;
 
 var employee = { email: req.body.email, username: req.body.username, password: req.body.password };
-
+Joi.validate(employee, schema, function (err, value) {
+// err === null -> valid
+if (!err) {
+res.end("validtion error");
+} else { 
+   
     db.query('SELECT * FROM users WHERE email ="'+ email + '"', function(err, rows, fields){
 	if(rows[0]) {
 	   res.end('You already registered');
@@ -34,9 +48,10 @@ var employee = { email: req.body.email, username: req.body.username, password: r
 	      } else {
 	  	res.end('---registration--');
 	  	//res.render('profile.html');
-	      }
+	      };
     	})};
      });
+}});
 };
 
 module.exports.signin = function(req,res) {
@@ -58,3 +73,4 @@ module.exports.put = function(req, res){
 module.exports.delete = function(req, res) {
   	res.end('---delete---');
   }
+

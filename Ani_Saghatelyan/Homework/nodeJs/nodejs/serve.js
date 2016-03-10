@@ -1,14 +1,18 @@
-'use strict';
 
+
+'use strict';
+var util = require('util');
+var eventEmiter = require('events');
 var express = require('express');
 var app = express();
+var db = require('./modules/user/db');
 var server = require('http').createServer(app);
 app = require('./config')(app);
 require('./router/')(app);
 
 
-server.listen(8090, 'localhost', function () {
-  var host = server.address().address;
-  var port = server.address().port;
-  console.log('Example app listening at http://%s:%s', host, port);
+server.listen(8080, 'localhost', function() {
+    var host = server.address().address;
+    var port = server.address().port;
+    console.log('Example app listening at http://%s:%s', host, port);
 });

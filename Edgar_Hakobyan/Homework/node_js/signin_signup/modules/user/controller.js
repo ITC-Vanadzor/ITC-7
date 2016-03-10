@@ -4,6 +4,7 @@ var path = require('path');
 var mysql = require('mysql');
 var connection = require('./dbmysql').mySql;
 var sha256 = require('js-sha256');
+var joi = require('joi');
 module.exports.get = function(req, res) {
     res.end('-----index-----');
 };
@@ -12,27 +13,28 @@ module.exports.id = function(req, res){
   	res.end('---id vareble---' + req.params.id);
 };
 
-
 module.exports.registration = function(req, res){
 	var data = req.body;
-	var valid = validateUserData(data);
-	
-	if (valid) {
-		var test = 'select * from hdmDb where email="' + data.email + '"';
-		console.log(test);
-		connection.query(test, function(err, rows) {
+    var schema = joi.object().keys({
+		username:joi.string().min(6),
+    	password: joi.string().min(6),
+    	email: joi.string().email()
+	});
+	joi.validate({ email: data.email, password: data.password,username:data.username }, schema, function (err, value) {
+		if (err) {
+    		res.end('----validation error----');
+    		return;
+    	}else {
+			var password = transformPasword(data.password);
+			password = sha256(password);
+			var test = 'select * from hdmDb where email="' + data.email + '"';
+			connection.query(test, function(err, rows) {
 			if (rows[0]) {
 	            res.end('You are already signed up');
 	            return;
 	        }else {
-				var password = transformPasword(data.password);
-				password = sha256(password);
-				var hdmDb = {
-					username: req.body.username,
-					email: data.email,
-					password: password
-				};
-				connection.query('insert into hdmDb set ?',hdmDb,function(err,success){
+				var query = 'insert into hdmDb set username = "'+data.username +'", email = "' + data.email + '", password = "' + password + '"';
+				connection.query(query,function(err,rows){
 				if (err) {
 					res.end('can\'t create user');
 				} else {
@@ -40,12 +42,40 @@ module.exports.registration = function(req, res){
 				}
 				});
 			}
-		}); 
-        
-	} else {
-        res.end('validtion error')
-    }
-};
+			});
+		}
+	});
+}		
+
+//module.exports.registration = function(req, res){
+//	var data = req.body;
+//	var valid = validateUserData(data);
+	
+//	if (valid) {
+//		var test = 'select * from hdmDb where email="' + data.email + '"';
+//		console.log(test);
+//		connection.query(test, function(err, rows) {
+//			console.log(rows[0]);
+//			if (rows[0]) {
+//	            res.end('You are already signed up');
+//	            return;
+//	        }else {
+//				var password = transformPasword(data.password);
+//				password = sha256(password);
+//				var query = 'insert into hdmDb set username = "'+data.username +'", email = "' + data.email + '", password = "' + password + '"';
+//				connection.query(query,function(err,rows){
+//				if (err) {
+//					res.end('can\'t create user');
+//				} else {
+//					res.end('user was created');
+//				}
+//				});
+//			}
+//		});     
+//	} else {
+//        res.end('validtion error')
+ //   }
+//};
 
 module.exports.signin = function(req,res) {
 	var data = req.body;

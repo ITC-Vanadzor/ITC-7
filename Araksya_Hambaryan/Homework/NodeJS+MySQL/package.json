@@ -10,10 +10,16 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "async": "^1.5.2",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.15.0",
     "ejs": "^2.4.1",
     "express": "~4.13.4",
+    "express-jwt": "^3.3.0",
+    "joi": "^8.0.4",
     "multer": "^1.1.0",
-    "mysql": "^2.10.2"
+    "mysql": "^2.10.2",
+    "node-uuid": "^1.4.7",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   }
 }

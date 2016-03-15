@@ -3,48 +3,36 @@
    <head>
       <title>Usage Of HDM</title>
       <link rel="stylesheet" href="../css/style.css">
-      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-      <script src="../angularJs/app.js"></script>
-      <script src="../angularJs/controller.js"></script>
+	<script src="../angularJs/angular.js"></script>
+	<script src="../angularJs/app.js"></script>
+	<script src="../angularJs/controller.js"></script>
    </head>
-   <body ng-app="app"  ng-init="progressSteps('One' ,'firstCircle', 'firstStep')" class="webSiteBackground">
- <ul>
-         <a class="active" href="index.html"><img src="../res/icon.png" id="smallogo"></a>
-         <li><a href="#about">About us</a></li>
-         <li><a href="usage.html" style="color: #4d94ff">How to use</a></li>
-         <li><a href="#download">Download</a></li>
-         <div>
-            <a href="signin.html?i=signUpDiv"    class="blueButton menuBarButtonSize" >Sign Up</a>
-            <a href="signin.html"   class="grayButton menuBarButtonSize">Sign In</a>
-         </div>
-      </ul>
-
-
-      <!--Usage div -->
-      <div ng-controller="usageController"  class="styledBg" id="sizeOfUsageBg" class="Progress" >
+   <body ng-include ="menu.html"   class="webSiteBackground">
+     <!--Usage div -->
+      <div  ng-app="app" ng-controller="usageController" class="styledBg" id="sizeOfUsageBg" class="Progress" >
               <div class="Progress">
-                  <div ng-style="firstProgress">
-                     <button ng-style = "firstCircle"  ng-click="progressSteps(One,'firstCircle' , 'firstStep')" >Step 1</button>
+                  <div  ng-style="progress1" >
+                     <button  ng-style="buttonStep1" ng-click="showDiv(1)" >Step 1</button>
                      </div>
-                  <div  ng-style="secondProgress" >
-                        <button  ng-style ="secondCircle"  ng-click="progressSteps(Two, 'secondCircle','secondStep')" >Step 2</button>
+                  <div ng-style="progress2" >
+                        <button ng-style="buttonStep2" ng-click="showDiv(2)">Step 2</button>
                   </div>   
-                  <div  ng-style ="thirdProgress" >
-                        <button  ng-style = "thirdCircle" ng-click="progressSteps(Three, 'thirdCircle', 'thirdStep')">Step 3</button>  
+                  <div  ng-style="progress3" >
+                        <button ng-style="buttonStep3"  ng-click="showDiv(3)"  >Step 3</button>  
                  </div>
             </div>
-      <div id="usageRules">
-         <div   ng-show="One" id="firstStep">
+      <div >
+         <div ng-show="div1">
             <img class="usageImageSize"   src="../res/1step.png" alt="first step"/>
             <p class="usageText"  >It is that text, which will tell us about the  first step to do for using our fascinating application:))))</p>
          </div>
-         <div   ng-hide="Two" id="secondStep">
+         <div  ng-show="div2">
             <img  class="usageImageSize"  src="../res/2step.png" alt="second step"/>   
             <p class="usageText" >It is that text, which will tell us about the  second  step to do for using our fascinating application:))))</p>
          </div>
-         <div  ng-hide="Three" id="thirdStep">
+         <div  ng-show="div3">
             <img  class="usageImageSize"  src="../res/3step.png" alt="third step"/>
-            <p  class="usageText" id="firstTextUsage">It is that text, which will tell us about the  third  step to do for using our fascinating application:))))</p>
+            <p  class="usageText" >It is that text, which will tell us about the  third  step to do for using our fascinating application:))))</p>
          </div>
       </div>
    </body>

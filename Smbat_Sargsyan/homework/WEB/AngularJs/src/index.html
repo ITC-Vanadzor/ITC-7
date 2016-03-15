@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<script src="../libs/angular.js"></script>
+	<script src="../app.js"></script>
+	<script src="../controller.js"></script>
+</head>
+<body  ng-app="myApp" ng-controller="MainCtrl" ng-model="objArray">
+	<div style="width:50px">
+	<input  style="margin:3%" type="text" placeholder = "name" ng-model="name">
+	<input  style="margin:3%" type="text" placeholder = "surname" ng-model="surname">
+	<input  style="margin:3%" type="text" placeholder = "age" ng-model="age">
+	<button  style="margin:5%" type="submit" ng-click="addUser()" >submit</button>
+	</div>
+	<table style="width:50% "  border ="2px solid black" >
+		  <tr ng-repeat = "row in  objArray "  >
+
+			    <td>{{row.name}}</td>	
+			    <td>{{row.surname}}</td>
+			    <td>{{row.age}}</td>
+		</tr>
+	</table>
+
+</body>
+</html>

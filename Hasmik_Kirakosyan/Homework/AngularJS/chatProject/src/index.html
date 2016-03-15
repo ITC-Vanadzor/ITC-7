@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Home page</title>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css">
+		<script src="../libs/angular.js"></script>
+		<script src="../app/controller.js"></script>
+	</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+		  <div id="menubar"> 
+					 <button class="menu" ng-click="changeDivId('registration')"> Registration</button>
+					 <button class="menu" ng-click="changeDivId('chats')">Chats</button>
+					 <button class="menu" ng-click="changeDivId('profile')"> Profile</button>
+		  </div>
+
+ 		  <!-- Change divs using ng-switch -->
+		 <div ng-switch="divId">
+					<div ng-switch-when="registration" ng-show="true" >
+							  <form class="form">
+										 <h2>Registration</h2>
+										 <label>Name :</label>
+										 <input type="text" name="dname">
+										 <label>Email :</label>
+										 <input type="text" name="demail">
+										 <label>Password :</label>
+										 <input type="password" name="password">
+										 <label>Confirm Password :</label>
+										 <input type="password" name="cpassword">
+										 <input type="button" name="register" id="register" value="Register">
+							  </form>
+					</div>
+
+					<!-- Chats div -->
+					<div ng-switch-when="chats" ng-show="true">
+										 <label>User1 :</label>
+											<div ng-include src="'itc7.htm'"></div>
+										 <label>User2 :</label>
+										 <input type="text" name="user2">
+										 <label>Message :</label>
+										 <input type="text" name="message">
+										 <label>User Messages: </label>
+										 <select>
+													<option value="user1">Hasmik</option>
+													<option value="user2">Ani</option>
+													<option value="user3">Smbat</option>
+													<option value="user4">Araksya</option>
+													<option value="user5">Jirayr</option>
+													<option value="user6">Hakob</option>
+													<option value="user7">Edgar</option>
+													<option value="user8">Gevorg</option>
+													<option value="user9">Meruj</option>
+													<option value="user9">Vagharsh</option>
+										 </select>
+
+					</div>
+					<div ng-switch-when="profile" ng-show="true">
+							  <h1>Profile</h1>
+					</div>
+
+		 </div>
+
+
+
+
+
+
+
+
+</body>
+</html>

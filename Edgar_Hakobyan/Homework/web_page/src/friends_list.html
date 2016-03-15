@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 	<head>
 		<title>friends page</title>
 		<link href="../css/style.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
+		<script src='../js/lib/angular.min.js'></script>
 		<div class="main">
 			<header>
 				<a href="#" class="floatL">
@@ -21,35 +22,18 @@
 				</div>
 			</header>
 			<section>
-			<ul>
-			<li>
-				<a href="#"><img src="../resource/anna.png" alt="anna" class="img"/></a>
-				<a href="#" class="name">Anna Meliqyan</a>	
-				<a href="#"><img src="../resource/face.png" alt="face"/></a>
-				<a href="#"><img src="../resource/google1.png" alt="google"/></a>
-			</li>
-			<li>
-				<a href="#"><img src="../resource/aren.png" alt="anna" class="img"/></a>
-				<a href="#"class="name">Aren Aren</a>	
-				<a href="#"><img src="../resource/face.png" alt="face"/></a>
-			</li>
-			<li>
-				<a href="#"><img src="../resource/ashot.png" alt="anna" class="img"/></a>
-				<a href="#"class="name">Ashot Avetyan</a>	
-				<a href="#"><img src="../resource/face.png" alt="face"/></a>
-			</li>
-			<li>
-				<a href="#"><img src="../resource/mariam.png" alt="anna" class="img"/></a>
-				<a href="#"class="name">Mariam Avetyan</a>	
-				<a href="#"><img src="../resource/google1.png" alt="google"/></a>
-			</li>
-			<li>
-				<a href="#"><img src="../resource/sargis.png" alt="anna" class="img"/></a>
-				<a href="#"><p class="name">Sargis Sargsyan</p></a>	
-				<a href="#"><img src="../resource/google1.png" alt="google"/></a>
-			</li>
+			<ul ng-controller='friendsController'>
+				<li ng-repeat='friend in friends'>
+					<a href="#"><img ng-src="{{friend.image}}" class="img"/></a>
+					<a href="#" class="name">{{friend.name}}</a>
+					<a href="#"><img ng-src="{{friend.icon}}"/></a>
+				</li>
 			</ul>
 			</section>
 		</div>
+		<script>
+			angular.module('myApp',[]);
+		</script>
+		<script src='../js/controller/friendsController.js'></script>
 	</body>
 </html>

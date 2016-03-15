@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Easy Board</title>
+		<link href="css/style3.css" rel="stylesheet" type="text/css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+		<script src="app.js"></script>
+		<script src="controller.js"></script>	
+  	</head>
+	<body>
+		<div class ="phone" ng-app="myApp" ng-controller="formCtrl">
+	                <div class="phone-content">
+				<input type="name"  placeholder="Name" ng-model="user.firstName">
+                            	<input type="surname"  placeholder="Surname" ng-model="user.lastName">
+                            	<input type="email"  placeholder="Email" ng-model="user.email">
+                            	<input type="password"  placeholder="Password" ng-model="user.Password">
+                                <a href="Chats.html">
+			        <button class="but2" ng-click="registration()">
+                                   <span>Registration</span>
+			        </button>
+			    </a> 
+	                </div> 
+        	</div>
+	<body/>	
+</html>

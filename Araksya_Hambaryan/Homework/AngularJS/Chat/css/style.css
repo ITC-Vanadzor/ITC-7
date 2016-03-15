@@ -1,0 +1,58 @@
+.border {
+	margin:0 auto;
+	border-radius:2px;
+        border: 5px solid rebeccapurple;       
+        max-width: 500px;
+	height:500px;                   
+        width:80%; 
+	background-image: linear-gradient(to bottom,#B6E4FC,white);
+}
+
+.titleApp {
+	margin: 0 auto;
+	color: #1590AF;
+	font-size: 16px;
+	font-weight: bold;
+        font-family: arial;
+	text-align:'center';
+	margin-left: 40%;
+}
+
+.registration {
+	margin-top:40%;
+	margin-left:8%;
+}
+
+.inputStyle {
+	background-color: #3CBC8D;
+    	color: white;
+	border: 2px solid blue;
+    	border-radius: 4px;
+	width: 175px;
+    	margin-left: 25%;
+}
+
+.buttonStyle {
+	background-color: #3CBDB4;
+	border: 2px solid blue;
+    	border-radius: 5px;
+	margin-left: 35%;
+    	margin-top: 5%;
+}
+.select1 {
+	background-color:#3CBDB4;
+	margin:10%;
+}
+
+.select2 {
+	background-color:#3CBDB4;
+	margin:10%;
+}
+
+.sendButton {
+	background-color:#3CBDB4;
+	margin:5%;
+}
+.inputMessage {
+	margin-left:25%;
+}

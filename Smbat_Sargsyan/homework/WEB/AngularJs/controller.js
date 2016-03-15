@@ -2,7 +2,9 @@ var app = angular.module("myApp", []);
 
 app.controller('MainCtrl', function($scope) {
  
-
+		$scope.changeDivId = function(param) {
+					 $scope.divId = param;
+		  }	
 		$scope.objArray = [];
 		$scope.addUser = function() {
 		$scope.objArray = $scope.objArray.concat([
@@ -16,4 +18,5 @@ app.controller('MainCtrl', function($scope) {
 		for(x in $scope.objArray) {
 			$scope.usersArray[x]=$scope.objArray[x].name;
 		}
+		//console.log($scope.usersArray[0]);
 		});

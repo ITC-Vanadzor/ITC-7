@@ -6,7 +6,9 @@
 	<script src="../controller.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
-<body ng-app="myApp" ng-controller="MainCtrl" ng-model="users">
+<body ng-app="myApp" ng-controller="MainCtrl" >
+<div ng-switch="divId">
+	<div class = "registr" ng-switch-when="registration" ng-show="true">
 	<div class="border">
 	<h2 class="titleApp">Create Account</h2>
 	<div class="registration">
@@ -16,9 +18,31 @@
 		<input type="number" placeholder="age" ng-model="age">
 		<input type="text" placeholder="password" ng-model="password">
 	     </div>
-		<a href = "chats.html" class="buttonStyle" ng-click="addUser()" >Registration</a>
+		<button class="buttonStyle" ng-click="addUser()" ng-click = "changeDivId('registration')" >Registration</button>
 	</div>
 	</div>
+	</div>
+	<div class = "chat" ng-switch-when="chatt" ng-show="true">
+		 <h2 class="titleApp">Chats</h2>
+        <div class="select1">
+        <select>
+                <option ng-repeat="x in usersArray" ng-click="ChooseUser()">
+                {{x}}
+                </option>
+        </select>
+        </div>
+        <div class="select2">
+        <select>
+                <option ng-repeat="x in usersArray" ng-click="ChooseUser()">
+                {{x}}
+                </option>
+        </select>
+        </div>
+
+        <input class="inputMessage"type="text" placeholder="your message" ng-model="message">
+        <button class="sendButton" ng-click = "changeDivId('chatt')">Send</button>
+	</div>
+</div>
 </body>
 </html>
 

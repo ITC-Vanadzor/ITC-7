@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EASY BOARD /Page 4</title>
+    <link rel="stylesheet" href="../css/Style_Easy_Board.css">
+    <script src = "../libs/angular.min.js"></script>
+    <script src = "../libs/angular-sanitize.min.js"></script>
+    <script src = "../scripts/app.js"></script>
+    <script src = "../scripts/controllers/lockPattern.js"></script>
+</head>
+
+<body ng-app = "appEasyBoard">
+    <div id="phone">
+	<p>EASY BOARD</p> 
+	<svg ng-controller = "lockPattern"  ng-bind-html-unsafe = "{myHTML}">
+
+	</svg>
+    </div>
+</body>
+</html>

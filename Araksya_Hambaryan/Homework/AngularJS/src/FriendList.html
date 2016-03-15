@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EASY BOARD /Page 5</title>
+    <link rel="stylesheet" href="../css/page5.css">
+    <script src = "../libs/angular.min.js"></script>
+    <script src = "../scripts/app.js"></script>
+    <script src = "../scripts/controllers/friendsList.js"></script>
+</head>
+
+<body id="background" ng-app = "appEasyBoard" ng-controller = "friendsList">
+    <div id="phone">
+	<div class="header">
+	     <ul class="menuBar">
+		  <li>
+		    <img src="../resources/menu.png" alt="menu" class="header-left" />
+		  </li>
+		  <li ng-repeat = "tab in tabs">
+		     <a href="#" class="menuTab">
+			{{tab}}
+		     </a>
+		  </li>
+	    </ul>
+	    <input type="search" placeholder="Search Friends" />
+	</div>
+	<ul class="friendsList" >
+	    <li class="friendInfo" ng-repeat = "user in data">
+		<img class="AnnaImage" src={{user.image}} alt={{user.name}} />
+		<h2> 
+		    {{user.name}}
+		    <span class="letterLeft letterG" ng-if = "user.google">
+			g+		   
+		    </span>
+		    <span class="letterRight" ng-if = "user.facebook">
+			f
+		    </span> 
+		</h2>
+	    </li>
+	</ul>
+    </div>
+</body>
+</html>

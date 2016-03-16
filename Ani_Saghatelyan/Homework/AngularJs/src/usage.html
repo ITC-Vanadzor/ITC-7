@@ -11,26 +11,26 @@
      <!--Usage div -->
       <div  ng-app="app" ng-controller="usageController" class="styledBg" id="sizeOfUsageBg" class="Progress" >
               <div class="Progress">
-                  <div  ng-style="progress1" >
-                     <button  ng-style="buttonStep1" ng-click="showDiv(1)" >Step 1</button>
+                  <div  ng-style="progress[0]" >
+                     <button  ng-style="buttonStep[0]" ng-click="showDiv(0)" >Step 1</button>
                      </div>
-                  <div ng-style="progress2" >
-                        <button ng-style="buttonStep2" ng-click="showDiv(2)">Step 2</button>
+                  <div ng-style="progress[1]" >
+                        <button ng-style="buttonStep[1]" ng-click="showDiv(1)">Step 2</button>
                   </div>   
-                  <div  ng-style="progress3" >
-                        <button ng-style="buttonStep3"  ng-click="showDiv(3)"  >Step 3</button>  
+                  <div  ng-style="progress[2]" >
+                        <button ng-style="buttonStep[2]"  ng-click="showDiv(2)"  >Step 3</button>  
                  </div>
             </div>
       <div >
-         <div ng-show="div1">
+         <div ng-show="div[0]">
             <img class="usageImageSize"   src="../res/1step.png" alt="first step"/>
             <p class="usageText"  >It is that text, which will tell us about the  first step to do for using our fascinating application:))))</p>
          </div>
-         <div  ng-show="div2">
+         <div  ng-show="div[1]">
             <img  class="usageImageSize"  src="../res/2step.png" alt="second step"/>   
             <p class="usageText" >It is that text, which will tell us about the  second  step to do for using our fascinating application:))))</p>
          </div>
-         <div  ng-show="div3">
+         <div  ng-show="div[2]">
             <img  class="usageImageSize"  src="../res/3step.png" alt="third step"/>
             <p  class="usageText" >It is that text, which will tell us about the  third  step to do for using our fascinating application:))))</p>
          </div>

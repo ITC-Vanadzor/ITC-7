@@ -193,7 +193,6 @@ display: none;
 }
 /*______________________ANI_______________________*/
 /* statistic  page*/
-/* statistic  page*/
 /* it is for statistic pages styling dates*/
 /*button for saving added datas for new row*/
 #saveButtonAdd{
@@ -205,12 +204,10 @@ display: none;
 }
 /* window, which will show edit or add row*/
 #editWindow{
-	position: fixed;
-	margin-left: 20%;
+	position: absolute;
+	margin:-40% 20% 0%;
 	width:60%;
-	min-width: 500px;
 	padding:3%;
-	z-index: 10001;
 
 	
 }
@@ -239,10 +236,6 @@ display: none;
 }
 #editWindow label{
 	min-width:50px;
-	color: #0094F7;
-}
-#editWindow p{
-	margin-top: 0;
 }
 #editWindow img{
 	margin:4%;
@@ -250,39 +243,14 @@ display: none;
 	margin-right:4%;
 }
 
-
-
-
-#editRowInputs div{
-	width: 100%;
-}
-
-#editRowInputs input{
-	float: right;
-	margin-top: 0;
-}
-#editRowInputs button{
-	float: left;
-	margin-top: 30px;
-	margin-left: 10%;
-}
-#editRowInputs label{
-	vertical-align: -moz-middle-with-baseline;
-}
-
-
 .dist{
  	width:50%;
  	margin-top: 3%;
 }
-.dist input{
-	width:30%;
-	margin-top: 0;
-}
 #filter button{
 	float:right;
-	width:25%;
-	padding:9px;
+	width:20%;
+	padding:1.4%;
 	font-size: 100%;
 	
 }
@@ -362,10 +330,9 @@ input[type=date] {
 		position:absolute;
     		font-weight: bold;
 		text-align:center;
-		
       		width: 5%;
 		padding:1%;
-		margin:-2% 13%;
+		margin:-1.5% 13%;
 		min-width: 50px;
       		-webkit-border-radius: 70%;
       		-moz-border-radius: 70%;
@@ -413,7 +380,7 @@ input[type=date] {
 /*size of images for usage */
 .usageImageSize{
 	float:left;
-	margin:10% 0% 4%  2%;
+	margin:5% 0% 4%  2%;
 	width: 55%;
 }
 /*end of usage page*/
@@ -423,9 +390,6 @@ input[type=date] {
 	margin-left: 30%;
 	/*width: 50%;*/
 }
-
-
-
 
 
 
@@ -461,7 +425,7 @@ input[type=date] {
 }
 
 .profileInputs{
-	width: 70%;
+	width: 60%;
 	float: right;
 	margin-right:9%;
 }
@@ -480,4 +444,4 @@ input[type=date] {
 }
 .profileLabelsTop1{
 	margin: 3.8%;
-} 
+}

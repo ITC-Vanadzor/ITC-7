@@ -1,5 +1,14 @@
-	var app=angular.module("app",[]);
 	app.controller('usageController', function($scope) {
+
+	//array for saving 3 versions  of show progress
+	$scope.progressArray=[{progress:"progress[0]", buttonStep:"buttonStep[0]",  showDiv: 0, Step:"Step 1"},
+			       {progress:"progress[1]", buttonStep:"buttonStep[1]", showDiv: 1, Step:"Step 2"},
+			       {progress:"progress[2]", buttonStep:"buttonStep[2]", showDiv: 2, Step:"Step 3"}];
+	//array for saving 3 versions of show divs
+	$scope.showArray=[ {div:"div[0]", text:"It is that text, which will tell us about the  first step to do for using our fascinating application:))))", src: "../res/1step.png"},
+			   {div:"div[1]", text:"It is that text, which will tell us about the  second step to do for using our fascinating application:))))", src: "../res/2step.png"}, 
+			   {div:"div[2]", text:"It is that text, which will tell us about the  third step to do for using our fascinating application:))))", src: "../res/3step.png"},];
+	
 	// function, which dynamicly  show steps	
 	$scope.showDiv=function(num){
 		var colorProgress={"background":"#007acc"};
@@ -22,9 +31,5 @@
 		
   }
 
-	$scope.progressArray=[[{progress:"progress[0]", buttonStep:"buttonStep[0]",showDiv:"showDiv[0]"},[{progress:"progress[1]", buttonStep:"buttonStep[1]",showDiv:"showDiv[2]"},{progress:"progress[2]", buttonStep:"buttonStep[1]",showDiv:"showDiv[2]"},]
-	$scope.showArray=[ {div:"div[0]", text:"It is that text, which will tell us about the  first step to do for using our fascinating application:))))", src: "../res/1step.png"},
-			   {div:"div[1]", text:"It is that text, which will tell us about the  second step to do for using our fascinating application:))))", src: "../res/2step.png"}, 
-			   {div:"div[2]", text:"It is that text, which will tell us about the  third step to do for using our fascinating application:))))", src: "../res/3step.png"},];
-	$scope.showDiv(1);
+	$scope.showDiv(0);
 });

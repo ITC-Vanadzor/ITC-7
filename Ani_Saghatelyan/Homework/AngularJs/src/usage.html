@@ -7,20 +7,24 @@
 	<script src="../angularJs/app.js"></script>
 	<script src="../angularJs/controller.js"></script>
    </head>
-   <body ng-include ="menu.html"   class="webSiteBackground">
+   <body  class="webSiteBackground">
+	<ul>
+         <a class="active" href="index.html"><img src="../res/icon.png" id="smallogo"></a>
+         <li><a href="#about">About us</a></li>
+         <li><a href="usage.html" style="color: #4d94ff">How to use</a></li>
+         <li><a href="#download">Download</a></li>
+         <div>
+            <a href="signin.html?i=signUpDiv"    class="blueButton menuBarButtonSize" >Sign Up</a>
+            <a href="signin.html"   class="grayButton menuBarButtonSize">Sign In</a>
+         </div>
+      </ul>
      <!--Usage div -->
       <div  ng-app="app" ng-controller="usageController" class="styledBg" id="sizeOfUsageBg" class="Progress" >
-              <div class="Progress" ng-repeat ="prog in progressArray">
-                  <div  ng-style="progress[0]" >
-                     <button  ng-style="buttonStep[0]" ng-click="showDiv(0)" >Step 1</button>
+              <div class="Progress" >
+                  <div  ng-repeat ="prog in progressArray" ng-style="{{prog.progress}}" >
+                     <button  ng-style="{{prog.buttonStep}}" ng-click="showDiv(prog.showDiv)" >{{prog.Step}}</button>
                      </div>
-                  <div ng-style="progress[1]" >
-                        <button ng-style="buttonStep[1]" ng-click="showDiv(1)">Step 2</button>
-                  </div>   
-                  <div  ng-style="progress[2]" >
-                        <button ng-style="buttonStep[2]"  ng-click="showDiv(2)"  >Step 3</button>  
-                 </div>
-            </div>
+                   </div>
       <div ng-repeat ="show in showArray" >
          <div ng-show="{{show.div}}">
             <img class="usageImageSize"  ng-src = "{{show.src}}" alt="step"/>

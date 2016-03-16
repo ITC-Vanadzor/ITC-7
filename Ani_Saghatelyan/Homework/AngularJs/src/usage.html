@@ -3,14 +3,14 @@
    <head>
       <title>Usage Of HDM</title>
       <link rel="stylesheet" href="../css/style.css">
-	<script src="../angularJs/angular.js"></script>
+	<script src="../libs/angular.js"></script>
 	<script src="../angularJs/app.js"></script>
 	<script src="../angularJs/controller.js"></script>
    </head>
    <body ng-include ="menu.html"   class="webSiteBackground">
      <!--Usage div -->
       <div  ng-app="app" ng-controller="usageController" class="styledBg" id="sizeOfUsageBg" class="Progress" >
-              <div class="Progress">
+              <div class="Progress" ng-repeat ="prog in progressArray">
                   <div  ng-style="progress[0]" >
                      <button  ng-style="buttonStep[0]" ng-click="showDiv(0)" >Step 1</button>
                      </div>
@@ -21,18 +21,10 @@
                         <button ng-style="buttonStep[2]"  ng-click="showDiv(2)"  >Step 3</button>  
                  </div>
             </div>
-      <div >
-         <div ng-show="div[0]">
-            <img class="usageImageSize"   src="../res/1step.png" alt="first step"/>
-            <p class="usageText"  >It is that text, which will tell us about the  first step to do for using our fascinating application:))))</p>
-         </div>
-         <div  ng-show="div[1]">
-            <img  class="usageImageSize"  src="../res/2step.png" alt="second step"/>   
-            <p class="usageText" >It is that text, which will tell us about the  second  step to do for using our fascinating application:))))</p>
-         </div>
-         <div  ng-show="div[2]">
-            <img  class="usageImageSize"  src="../res/3step.png" alt="third step"/>
-            <p  class="usageText" >It is that text, which will tell us about the  third  step to do for using our fascinating application:))))</p>
+      <div ng-repeat ="show in showArray" >
+         <div ng-show="{{show.div}}">
+            <img class="usageImageSize"  ng-src = "{{show.src}}" alt="step"/>
+            <p class="usageText"  >{{show.text}}</p>
          </div>
       </div>
    </body>

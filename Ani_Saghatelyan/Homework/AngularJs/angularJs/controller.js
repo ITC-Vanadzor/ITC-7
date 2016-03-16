@@ -1,45 +1,30 @@
 	var app=angular.module("app",[]);
 	app.controller('usageController', function($scope) {
-
+	// function, which dynamicly  show steps	
 	$scope.showDiv=function(num){
-		   $scope.div=[false,false,false];
-		   $scope.buttonStep=[{"background":"linear-gradient(to top, #0094F7, #007acc)"},
-		   				  {"background":"linear-gradient(to top, #0094F7, #007acc)"},
-		   				  {"background":"linear-gradient(to top, #0094F7, #007acc)"}];
-		   $scope.progress=[{"background":"#bfbfbf"},{"background":"#bfbfbf"},{"background":"#bfbfbf"}];
-
+		var colorProgress={"background":"#007acc"};
+		var blueButton={"background":"linear-gradient(to top, #0094F7, #007acc)"};
+		var grayProgress={"background":"#bfbfbf"};
+		var hideDiv=false;
+		// at first hides all divs,colors steps blue,progress gray
+		   $scope.div=[hideDiv,hideDiv,hideDiv];
+		   $scope.buttonStep=[blueButton,blueButton,blueButton];
+		   $scope.progress=[grayProgress,grayProgress,grayProgress];
+	       // changes the  color of step gray and shows div		
 		   $scope.div[num]=true;
 		   $scope.buttonStep[num]={"background":"#999999"};
-		 
-			// $scope.div1=false;
- 		// 	$scope.div2=false;
-			// $scope.div3=false;
-			// $scope.buttonStep1={"background":"linear-gradient(to top, #0094F7, #007acc)"};
-			// $scope.buttonStep2={"background":"linear-gradient(to top, #0094F7, #007acc)"};
-			// $scope.buttonStep3={"background":"linear-gradient(to top, #0094F7, #007acc)"};
-			// $scope.progress1={"background":"#bfbfbf"};
-			// $scope.progress2={"background":"#bfbfbf"};
-			// $scope.progress3={"background":"#bfbfbf"};
-	// switch(num){
-	// 	case 1: 
-	// 		$scope.div1=true;
-	// 		$scope.buttonStep1={"background":"#999999"};
-	// 		break;
-	// 	case 2:
- //      		        $scope.div2=true;
-	// 		$scope.buttonStep2={"background":"#999999"};
-	// 		break;
-	// 	case 3: 
-	// 		$scope.div3=true;
-	// 		$scope.buttonStep3={"background":"#999999"};
-	// 		break;
-	// }
+		// for correspond step shows progress
 	switch(num){
-		case 2: $scope.progress[2]={"background":"#007acc"};
-		case 1: $scope.progress[1]={"background":"#007acc"};
-		case 0: $scope.progress[0]={"background":"#007acc"};
+		case 2: $scope.progress[2]=colorProgress;
+		case 1: $scope.progress[1]=colorProgress;
+		case 0: $scope.progress[0]=colorProgress;
 	}
 		
   }
+
+	$scope.progressArray=[[{progress:"progress[0]", buttonStep:"buttonStep[0]",showDiv:"showDiv[0]"},[{progress:"progress[1]", buttonStep:"buttonStep[1]",showDiv:"showDiv[2]"},{progress:"progress[2]", buttonStep:"buttonStep[1]",showDiv:"showDiv[2]"},]
+	$scope.showArray=[ {div:"div[0]", text:"It is that text, which will tell us about the  first step to do for using our fascinating application:))))", src: "../res/1step.png"},
+			   {div:"div[1]", text:"It is that text, which will tell us about the  second step to do for using our fascinating application:))))", src: "../res/2step.png"}, 
+			   {div:"div[2]", text:"It is that text, which will tell us about the  third step to do for using our fascinating application:))))", src: "../res/3step.png"},];
 	$scope.showDiv(1);
 });

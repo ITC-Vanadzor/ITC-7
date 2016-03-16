@@ -209,62 +209,6 @@ function showGraph() {
 }
 
 
-/*date converting into format Date*/
-
-/**function count, which shows 3 rows on every click 'more' button*/
-
-var count = (function() {
-    var num = 0;
-    return function() {
-        var first = num;
-        num += 3;
-        for (var i = first; i < num + 3 && i <= myDb.count; ++i) {
-            document.getElementById("myTable").rows[i].style.display = "table-row";
-        }
-    }
-})()
-
-/**function, which hides all rows beside first three rows*/
-var hideOtherRows = function(number) {
-    for (var i = number; i <= myDb.count; ++i) {
-        document.getElementById("myTable").rows[i].style.display = "none";
-    }
-}
-
-/*adds row for new input*/
-function addRow()   
-{
-    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if(scrollTop>0){
-		scrollTop=(window.screen.height/2)-300+(scrollTop/16);
-	}
-    else{
-		scrollTop=(window.screen.height/2)-300;
-	}
-    document.getElementById("editWindow").style.top=(scrollTop)+"px";
-    document.getElementById("hellBg").style.display="block";
-    document.getElementById("editWindow").style.display="block";
-
-}
-// hides edit div after canceling or saveing
-function hideDiv()
-{
-    document.getElementById("hellBg").style.display="none";
-    document.getElementById("editWindow").style.display="none";     
-}
-// edits the row
-function editRow(i)
-{
-    addRow();
-    document.getElementById("Market").value=myDb.item[i].name;
-    document.getElementById("Date").value=myDb.item[i].date.toLocaleDateString();
-    document.getElementById("Time").value=myDb.item[i].date.toLocaleTimeString();
-    document.getElementById("Price").value=myDb.item[i].money;
-    document.getElementById("Item").value=myDb.item[i].item;
-
-
-}
-
 function table() 
 {
     showGraph();
@@ -282,29 +226,7 @@ function table()
     }    
                             
     
-            
-    // for (var i = 0; i < myDb.count; i++) 
-    // {
-    //     tmp = myDb.item[i].getArray();
     
-    //     var row = document.createElement("tr");
-    // row.setAttribute('onclick','editRow('+i+')');
-    //     for (s in tmp) 
-    // {
-    
-    //         var cell = document.createElement("td");
-    //         var cellText = document.createTextNode(tmp[s]);
-    //         cell.appendChild(cellText);
-    //         row.appendChild(cell);
-    //     }
-    
-    // row.appendChild(document.createElement("td"));
-    // myTable.appendChild(row);
-    // }
-     
-     
-    // myTable.setAttribute("border", "2");
-    // hideOtherRows(3);
 }
 
 

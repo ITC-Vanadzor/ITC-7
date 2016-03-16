@@ -1,22 +1,17 @@
-var app = angular.module("myApp", []);
+//var app = angular.module("myApp", []);
 
-app.controller('MainCtrl', function($scope) {
+app.controller('MainCtrl', function($scope,Service) {
  
-		$scope.changeDivId = function(param) {
-					 $scope.divId = param;
-		  }	
-		$scope.objArray = [];
+
+		$scope.user = [];
+		console.log("registr");
+		$scope.inputFields =[{user:'name'},{user:'email'},{user:'age'},{user:'password'}];
 		$scope.addUser = function() {
-		$scope.objArray = $scope.objArray.concat([
-			{name : $scope.name, email: $scope.email, age: $scope.age, password: $scope.password }
+		Service.objArray.push([
+			{name : Service.name, email: Service.email, age: Service.age, password: Service.password }
 
 			]);
-		alert($scope.objArray[0].name);
-		console.log($scope.objArray[0]);
+		alert(Service.objArray[0].name);
+		console.log(Service.objArray[0]);
 		}
-		$scope.usersArray=[];
-		for(x in $scope.objArray) {
-			$scope.usersArray[x]=$scope.objArray[x].name;
-		}
-		//console.log($scope.usersArray[0]);
-		});
+});

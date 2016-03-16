@@ -1,7 +1,9 @@
-var app = angular.module("myApp", []);
+//var app = angular.module("myApp", []);
 
-app.controller('ChatsCtrl', function($scope,$rootScope) {
-	console.log($rootScope.user);
+app.controller('ChatsCtrl', function(Service) {
+	console.log("Chat");
+        //Service.showUsers();
+        console.log(Service.usersArray[0]);
 	
 });
 

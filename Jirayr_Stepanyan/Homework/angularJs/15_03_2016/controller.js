@@ -1,23 +1,12 @@
-myApp.controller('formCtrl', function($scope) {
+myApp.controller('formCtrl', function($scope, factory) {
 
-  $scope.data = [];
-  $scope.user = '';
-$scope.registration =function() 
+$scope.signUp =function() 
 {
-	for (var x in $scope.data)
-	{
-		alert('--------------------');
-		if(x == $scope.user)
-		{
-			alert('You are already signed up');
-		}
-		else
-		{
-			$scope.data.push($scope.user);
-  			$scope.user = '';
-  		}
-  	}
+	factory.registration();
 }
-
+$scope.showUsers = function()
+{
+	factory.show();
+}
 
 });

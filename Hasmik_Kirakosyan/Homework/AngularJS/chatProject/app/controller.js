@@ -1,3 +1,5 @@
-app.controller('myCtrl',function ($scope) {
+app.controller('myCtrl',function ($scope) {	
+		  
+		  $scope.selection = {}
 
 });

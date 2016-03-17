@@ -1,5 +1,6 @@
 var app = angular.module("myApp", []); 
 
+//users service
 app.service("users", function() {
 		  this.usersArr = [];
 
@@ -16,4 +17,14 @@ app.service("users", function() {
 					 }
 		  }
 });
+
+
+//menubar directive
+app.directive("menu", function() {
+	return {
+		restrict: 'E',
+		templete: '<button id="menubar">{{menuname}}</button>',
+	}
+});
+
 

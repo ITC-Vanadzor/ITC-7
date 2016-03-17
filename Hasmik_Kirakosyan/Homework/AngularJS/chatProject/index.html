@@ -6,9 +6,16 @@
 		<script src="libs/angular.js"></script>
 		<script src="app/app.js"></script>
 		<script src="app/controller.js"></script>
+		<script src="app/regController.js"></script>
+		<script src="app/chatController.js"></script>
+		<script src="app/profileController.js"></script>
 	</head>
 
-<body ng-app="myApp" ng-controller="myCtrl">
+	<body ng-app="myApp" ng-controller="myCtrl" ng-model="reg" ng-model="chat" ng-model="profile">
 	<div ng-include="'/chatProject/src/menubar.html'"></div>
+
+	<div ng-show="reg" ng-include="'/chatProject/src/register.html'"></div>
+	<div ng-show="chat" ng-include="'/chatProject/src/chats.html'"></div>
+	<div ng-show="profile" ng-include="'/chatProject/src/profile.html'"></div>
 </body>
 </html>

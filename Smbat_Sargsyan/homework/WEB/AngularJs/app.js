@@ -1,4 +1,4 @@
-var app = angular.module('myApp', []);
+var app = angular.module('myApp', ['ngRoute']);
 
 app.service('Service', function() {
    this.objArray=[];
@@ -10,3 +10,25 @@ app.service('Service', function() {
    }
   
 });
+
+app.config(['$routeProvider', function($routeProvider) {
+            $routeProvider.
+            
+            when('/chats', {
+               templateUrl: 'chats.html',
+               controller: 'ChatsCtrl'
+            }).
+            
+	    when('/registration', {
+               templateUrl: 'registration.html',
+               controller: 'MainCtrl'
+            }).
+	    when('/profile', {
+               templateUrl: 'profile.html',
+               controller: 'ProfileCtrl'
+            }).
+
+            otherwise({
+               redirectTo: '/registration'
+            });
+         }]);

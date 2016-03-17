@@ -1,30 +1,24 @@
-<html>
-<head>
-	<title>Chats</title>
-	<script src="../libs/angular.js"></script>
-	<script src="../app.js"></script>
-	<script src="../chat_controller.js"></script>
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
-</head>
-<body ng-app="myApp" ng-controller="ChatsCtrl" ng-model="chats" class="border">
+
+	
+<div class="border" >
 	<h2 class="titleApp">Chats</h2>
 	<div class="select1">
 	<select>
-		<option ng-repeat="x in usersArray" ng-click="ShowUsers()">
-		{{x}}
+		<option ng-repeat="x in array" ng-click="ShowUsers()">
+		{{x.name}}
 		</option>
 	</select>
 	</div>
 	<div class="select2">
 	<select>
-                <option ng-repeat="x in usersArray" ng-click="ShowUsers()">
-                {{x}}
+                <option ng-repeat="x in array" ng-click="ShowUsers()">
+                {{x.name}}
                 </option>
         </select>
 	</div>
 	
 	<input class="inputMessage"type="text" placeholder="your message" ng-model="message">
-	<button class="sendButton">Send</button>
-</body>
-</html>
+	<a href = "#profile"><button class="sendButton">Send</button> </a>
+</div>
+
 

@@ -4,7 +4,7 @@
 	<h2 class="titleApp">Chats</h2>
 	<div class="select1">
 	<select>
-		<option ng-repeat="x in array" ng-click="ShowUsers()">
+		<option ng-repeat="x in array" ng-click="ShowUsers()" ng-model="user1">
 		{{x.name}}
 		</option>
 	</select>
@@ -18,7 +18,7 @@
 	</div>
 	
 	<input class="inputMessage"type="text" placeholder="your message" ng-model="message">
-	<a href = "#profile"><button class="sendButton">Send</button> </a>
+	<a href = "#profile"><button class="sendButton" ng-click="SendMessage">Send</button></a>
 </div>
 
 

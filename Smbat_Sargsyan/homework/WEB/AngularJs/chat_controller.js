@@ -10,6 +10,8 @@ app.controller('ChatsCtrl', function($scope,Service) {
 			Service.usersArray[x]=Service.objArray[x].name;
 		}
 	};
-	
+	$scope.SendMessage = function() {
+		Service.ChatList.push([{name: $scope.user1, message: $scope.message}]);
+	}
 });
 

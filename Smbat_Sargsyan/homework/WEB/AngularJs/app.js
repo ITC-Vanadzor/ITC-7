@@ -2,6 +2,7 @@ var app = angular.module('myApp', ['ngRoute']);
 
 app.service('Service', function() {
    this.objArray=[];
+   this.ChatList={};
    this.usersArray=[];
    this.showUsers = function() {
   	for(x in Service.objArray) {

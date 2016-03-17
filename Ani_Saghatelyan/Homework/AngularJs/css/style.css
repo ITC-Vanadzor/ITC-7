@@ -115,6 +115,11 @@ background: linear-gradient(to top, #e8e8e8, #bfbfbf);
 box-shadow: 0 0 10px 3px rgba(128, 128, 128, .55);
 border-radius: 10px;
 }
+a {
+   text-decoration: none;
+   color: #5FA5FF;
+
+}
 /* size of login Bg*/
 .loginBgSize {
 width: 30%;

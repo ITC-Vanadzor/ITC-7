@@ -70,42 +70,6 @@
 
 	app.controller('signInController', function($scope) {
 
-	    $scope.signIn = function(divNumber) {
-	        // 0=signIn, 1=signUp, 2=forgotPassword,3=newPassword
-	        $scope.div = [false, false, false, false];
-	        if (typeof divNumber === 'undefined') {
-	            var divId = location.href.match('[?]..(.+?)$');
-	            if (divId) {
-	                divId = divId[1];
-
-	                switch (divId) {
-	                    case 'signUpDiv':
-	                        document.title = "Create account";
-	                        divNumber = 1;
-	                        break;
-	                    case 'forgotPassDiv':
-	                        document.title = "Forgot password";
-	                        divNumber = 2;
-	                        break;
-	                    default:
-	                        document.title = "Sign In to HDM";
-	                        divId = 'signInDiv';
-	                        divNumber = 0;
-
-	                }
-
-	            } else {
-	                document.title = "Sign In to HDM";
-	                divId = 'signInDiv';
-	                divNumber = 0;
-	            }
-
-	        }
-	        $scope.div[divNumber] = true;
-	    }
-	    $scope.signIn();
-
-
 
 	    //array for create acclount inputs
 	    $scope.createArray = [{

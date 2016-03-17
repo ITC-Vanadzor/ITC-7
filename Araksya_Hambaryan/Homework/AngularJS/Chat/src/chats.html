@@ -1,4 +1,5 @@
 <div> 
+<form>
     From user: <select class = "fromUser" ng-model="chat.fromUser" ng-options="user.name for user in allUsers">
     </select>
 
@@ -8,9 +9,9 @@
     
     To user: <select class = "toUser"  ng-model="chat.toUser" ng-options="user.name for user in allUsers">
     </select>
+</form>
 
-
-<button class="sendbutton" ng-click="sendMessage"> Send message</button><br>
+<button ng-click="sendMessage()"> Send message</button><br>
 <button ng-click="sendMessage"> veiw messages</button><br>
 
 <table>

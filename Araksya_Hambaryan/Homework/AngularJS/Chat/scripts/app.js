@@ -10,3 +10,25 @@ myApp.service('data', function() {
 	};
     
 });
+
+myApp.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.
+        when('/', {
+            templateUrl: 'registration.html',
+            controller: 'formCtrl'
+        }).
+
+        when('/chats', {
+            templateUrl: 'chats.html',
+            controller: 'chatCtrl'
+        }).
+
+        when('/profile', {
+            templateUrl: 'profile.html',
+            controller: 'profileCtrl'
+        }).
+        otherwise({
+            redirectTo: '/'
+        });
+]);
+

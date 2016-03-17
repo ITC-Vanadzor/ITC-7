@@ -5,6 +5,7 @@
     <title>Registraion</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="libs/angular.js"></script>
+    <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/controller.js"></script>
     <script src="scripts/chatController.js"></script>
@@ -15,11 +16,7 @@
     <div class = "header">
     Basic   chat
     </div>
-    <div class = "area" ng-switch on = "page">
-	<div ng-switch-when = "reg" ng-include="'regitration.html'" ></div>
-	<div ng-switch-when = "chat" ng-include src="'chats.html'" ></div>
-	<div ng-switch-when = "profile" ng-include="'profile.html'" ></div>
-	
+    <div class = "area" ng-view>
 	</div>
 
     

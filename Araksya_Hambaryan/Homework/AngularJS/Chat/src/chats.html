@@ -1,17 +1,18 @@
 <div> 
-From user: <select>
-<option ng-repeat = "user in data.users"> {{user.firstname}}</option>
-</select><br>
+    From user: <select class = "fromUser" ng-model="chat.fromUser" ng-options="user.name for user in allUsers">
+    </select>
 
-To user: <select >
-<option ng-repeat = "user in data.users"> {{user.firstname}}</option>
-</select><br>
 
-text Message : <textarea>
-</textarea>
-</div>
-<div>
-<button> veiw messages</button>
+    Text Message : <textarea ng-model="chat.message">
+    </textarea> <br>
+    
+    To user: <select class = "toUser"  ng-model="chat.toUser" ng-options="user.name for user in allUsers">
+    </select>
+
+
+<button class="sendbutton" ng-click="sendMessage"> Send message</button><br>
+<button ng-click="sendMessage"> veiw messages</button><br>
+
 <table>
 <tr ng-repeat = "chat in chat">
 <th>From User</th>
@@ -24,3 +25,4 @@ text Message : <textarea>
 <td>{{chat.textMessage}}</td>
 </tr>
 </table>
+</div>

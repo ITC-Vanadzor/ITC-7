@@ -27,11 +27,44 @@ input {
  margin:1% 0%; 
 }
 
-button {
+a {
+    border:1px solid #dddddd;
     padding:1% 8%;
     margin-top:2%;
     background: #4C8485;
     color:#FFF;
     border-radius:10px;
     font-size:19px;
+}
+
+button {
+    border:1px solid #dddddd;
+    padding:1% 6%;
+    margin-top:2%;
+    background: #4C8485;
+    color:#FFF;
+    border-radius:10px;
+    font-size:19px;
+}
+
+.sendbutton{
+    margin-left:14%;
+}
+.fromUser {
+    margin-left:4%;
+    margin-right: 4%;
+}
+
+.toUser {
+    margin-left:6%;
+    margin-right:4%;
+    margin-top:2%;
+}
+
+textarea {
+    margin-top: 2%;
+    margin-left: 2%;
+    padding: 0% 5%;
+    resize: none;
+    vertical-align: inherit;
 }

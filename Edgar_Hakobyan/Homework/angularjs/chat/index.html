@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Chat</title>
+        <script src="js/lib/angular.min.js"></script>
+        <script src="js/controllers/app.js"></script>
+        <script src='js/controllers/controller.js'></script>
+        <script src='js/controllers/registerController.js'></script>
+        <script src='js/controllers/chatController.js'></script>
+    </head>
+    <body ng-app="myApp">
+    <div ng-controller="controller">
+        <div ng-repeat="button in modes">
+            <label>
+                <input type="radio" ng-model="data.mode" value="{{button.value}}" name="modes"/>
+                {{button.value}}
+            </label>
+        </div>
+        <div ng-include="setPage()"></div>
+
+    </div>
+    </body>
+</html>

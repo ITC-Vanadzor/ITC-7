@@ -4,15 +4,14 @@
 					 <title>Chats</title>
 					 <link rel="stylesheet" type="text/css" href="/chatProject/css/styles.css">
 					 <script src="/chatProject/libs/angular.js"></script>
-					 <script src="/chatProject/app/app.js"></script>
 					 <script src="/chatProject/app/chatController.js"></script>
 		  </head>
-
-
-		  <body ng-app="myApp">
-					 <div ng-include="'/chatProject/index.html'"></div>	
+		  <body>
+					 <div ng-include="'/chatProject/src/menubar.html'"></div>
 					 <div ng-controller="chatCntrl">
-
+								<div>
+										  <p ng-repeat="x in usersList">{{x.name}}</p>
+								</div>
 								<span>User1 :</span>
 									<select>
 											  <option ng-repeat="x in usersList" value="">{{x.name}}</option>
@@ -28,8 +27,7 @@
 										  <option ng-repeat="x in usersList" >{{x.name}}</option>
 								</select>
 
-
+				
 					 </div>
-
 		  </body>
 </html>

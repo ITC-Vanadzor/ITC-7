@@ -234,6 +234,13 @@ display: none;
 	margin: 2%;
 }
 
+.canvasBg{
+	width:60%; 
+	height: 10%; 
+	margin: auto; 
+	margin-top: 5%; 
+	padding: 1%;
+}
 
 #editWindow button{
 	width:29%;

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Registraion</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="lib/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controller.js"></script>
+    <script src="scripts/chatController.js"></script>
+    <script src="scripts/profileController.js"></script>
+</head>
+
+<body ng-app="myApp" ng-init = "page = 'reg'">
+    <div class = "header">
+    Basic   chat
+    </div>
+    <div class = "area" ng-switch on = "page">
+	<div ng-switch-when = "reg" ng-controller = {{pages.reg.ctrl}} ng-include = '{{pages.reg.url}}' ></div>
+	<div ng-switch-when = "chat" ng-controller = '{{pages.chat.ctrl}}' ng-include = '{{pages.chat.url}}' ></div>
+	<div ng-switch-when = "reg" ng-controller = '{{pages.profile.ctrl}}' ng-include = '{{pages.profile.url}}' ></div>
+	
+	</div>
+
+    
+ 
+
+
+</body>
+</html>
+

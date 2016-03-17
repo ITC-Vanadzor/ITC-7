@@ -1,19 +1,4 @@
-<html>
-<head>
-        <title>Profile</title>
-        <script src="../libs/angular.js"></script>
-        <script src="../app.js"></script>
-        <script src="../controller.js"></script>
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
-</head>
-<body ng-app="myApp" ng-controller="MainCtrl" ng-model="users" class="border">
-	<h2 class="titleApp">Profile</h2>
-	<div class="select1">
-	<select>
-		<option ng-repeat="x in users.name" ng-click="ShowUserMessage()">
-		{{x}}
-		</option>
-	</select>
-	</div>
-</body>
-</html>
+<img src="profile_image.png"/>
+First Name: <p>{{users.user.firstName}}</p><br>
+Last Name: <p>{{users.user.LastName}}</p><br>
+Email: <p>{{users.user.email}}</p><br>

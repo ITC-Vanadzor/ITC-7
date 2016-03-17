@@ -28,7 +28,7 @@ app.config(['$routeProvider', '$locationProvider',
 								})
 
 								.when('/chat', {
-										  templateUrl: '/chatProject/src/chat.html',
+										  templateUrl: '/chatProject/src/chats.html',
 										  controller: 'chatCntrl',
 								})
 								.when('/profile', {

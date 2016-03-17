@@ -1,5 +1,7 @@
-
 app.controller("chatCntrl", function($scope, users) {
 	$scope.usersList = users.usersArr;
-	console.log(users.usersArr[0]);
+
+	$scope.showSelectedValue = function(mySelect) {
+		console.log(mySelect);
+	};
 });

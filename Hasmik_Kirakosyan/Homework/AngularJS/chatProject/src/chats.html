@@ -9,24 +9,18 @@
 		  </head>
 		  <body>
 					 <div>
-								<div>
-										  <p ng-repeat="x in usersList">{{x.name}}</p>
-								</div>
 								<span>User1 :</span>
-									<select>
-											  <option ng-repeat="x in usersList" value="">{{x.name}}</option>
-									</select>
-									<span>User2 :</span>
-								<select>
-										  <option ng-repeat="x in usersList" value="">{{x.name}}</option>
-								</select>
+									<select ng-model="fromUser" ng-options="item as item.name for item in usersList">
+								<span>User2 :</span>
+									<select ng-model="toUser" ng-options="item as item.name for item in usersList">
 								<span>Message :</span>
-								<input type="text" name="message">
+									<input type="text" name="message">
+								
+									<button>Send</button>
 								<label>User Messages: </label>
-								<select>
-										  <option ng-repeat="x in usersList" >{{x.name}}</option>
+									<select ng-model="selectedItem" ng-options="item as item.name for item in usersList">
 								</select>
-
+								<p>{{selectedItem.name}}</p>
 				
 					 </div>
 		  </body>

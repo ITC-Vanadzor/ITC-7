@@ -1,0 +1,34 @@
+
+________NODEJS NPM______________________________
+
+wget -qO- https://deb.nodesource.com/setup_4.x | sudo bash -
+
+sudo apt-get install --yes nodejs
+
+________MYSQL SERVER,CLIENT______________________________
+
+sudo apt-get install mysql-server
+sudo apt-get install mysql-client
+sudo service mysql restart
+
+________MYSQL CREATE DB______________________________
+
+mysql -u root -p
+
+mysql>create database dbname;
+
+________RUN PROJECT ______________________________
+[1. cp   proj    /home/proj] if not exict
+2. cd /home/proj
+3. npm install
+4. node serve.js
+
+
+
+
+
+
+
+
+
+

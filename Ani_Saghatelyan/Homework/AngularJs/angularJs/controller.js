@@ -33,3 +33,26 @@
 
 	$scope.showDiv(0);
 });
+
+app.controller('signInController', function($scope){
+
+		$scope.signIn=function(divNumber){
+			// 0=signIn, 1=signUp, 2=forgotPassword,3=newPassword
+			$scope.div=[false,false,false,false];
+			$scope.div[divNumber]=true;
+}
+$scope.signIn(0);
+
+
+
+//array for create acclount inputs
+   $scope.createArray=[{name:"name", place:"Username", text:" This will be your username-you can enter your organization's username next.",type:"text"},
+			{name:"email", place:"Email", text:" You will occasionally receive  account related email. We promise not to share you email with anyone.", type:"text"},
+			{name:"password", place:"Password", text:" Use at least one lowercase letter, one numeral and seven characters" ,type:"password"}			
+];
+
+//array for input profile datas
+$scope.profileInputArray=[{name:"password" ,text:"Old Password"},{name:"newpass", text:"New Password"},{name:"repass",text:"Repeat Password"}];
+});
+
+

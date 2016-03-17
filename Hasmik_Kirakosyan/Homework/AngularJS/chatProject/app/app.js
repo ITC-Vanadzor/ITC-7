@@ -1,4 +1,4 @@
-var app = angular.module("myApp", []); 
+var app = angular.module("myApp", ['ngRoute']); 
 
 //users service
 app.service("users", function() {
@@ -19,12 +19,22 @@ app.service("users", function() {
 });
 
 
-//menubar directive
-app.directive("menu", function() {
-	return {
-		restrict: 'E',
-		templete: '<button id="menubar">{{menuname}}</button>',
-	}
-});
+app.config(['$routeProvider', '$locationProvider',
+					 function($routeProvider, $locationProvider) {
+								$routeProvider
+								.when('/registration', {
+													 templateUrl: '/chatProject/src/register.html',
+													 controller: 'regCntrl',
+								})
 
+								.when('/chat', {
+										  templateUrl: '/chatProject/src/chat.html',
+										  controller: 'chatCntrl',
+								})
+								.when('/profile', {
+										  templateUrl: '/chatProject/src/profile.html',
+										  controller: 'profileCntrl',
+								});
+
+}]);
 

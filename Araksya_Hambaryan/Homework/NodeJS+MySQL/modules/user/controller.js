@@ -25,33 +25,33 @@ module.exports.id = function(req, res){
 
 
 module.exports.registration = function(req, res){
-var email = req.body.email,
-    username = req.body.username,
-    password = req.body.password;
+	var email = req.body.email,
+	    username = req.body.username,
+	    password = req.body.password;
 
-var employee = { email: req.body.email, username: req.body.username, password: req.body.password };
-Joi.validate(employee, schema, function (err, value) {
-// err === null -> valid
-if (!err) {
-res.end("validtion error");
-} else { 
-   
-    db.query('SELECT * FROM users WHERE email ="'+ email + '"', function(err, rows, fields){
-	if(rows[0]) {
-	   res.end('You already registered');
-	   //res.render('index.html');
-	} else {
-           db.query('INSERT INTO users SET ?', employee, function(err,success){
-              if(err) {
-	  	res.end('--------error');
-	  	//res.render('index.html');
-	      } else {
-	  	res.end('---registration--');
-	  	//res.render('profile.html');
-	      };
-    	})};
-     });
-}});
+	var employee = { email: req.body.email, username: req.body.username, password: req.body.password };
+	Joi.validate(employee, schema, function (err, value) {
+	// err === null -> valid
+	if (!err) {
+	res.end("validtion error");
+	} else { 
+	   
+	    db.query('SELECT * FROM users WHERE email ="'+ email + '"', function(err, rows, fields){
+		if(rows[0]) {
+		   res.end('You already registered');
+		   //res.render('index.html');
+		} else {
+		   db.query('INSERT INTO users SET ?', employee, function(err,success){
+		      if(err) {
+		  	res.end('--------error');
+		  	//res.render('index.html');
+		      } else {
+		  	res.end('---registration--');
+		  	//res.render('profile.html');
+		      };
+	    	})};
+	     });
+	}});
 };
 
 module.exports.signin = function(req,res) {

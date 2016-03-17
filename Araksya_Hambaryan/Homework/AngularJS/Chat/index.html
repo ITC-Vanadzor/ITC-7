@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <title>Registraion</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="lib/angular.min.js"></script>
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controller.js"></script>
-    <script src="scripts/chatController.js"></script>
-    <script src="scripts/profileController.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+    <script src="controller.js"></script>
+    <script src="chatController.js"></script>
+    <script src="profileController.js"></script>
 </head>
 
 <body ng-app="myApp" ng-init = "page = 'reg'">
@@ -16,9 +16,9 @@
     Basic   chat
     </div>
     <div class = "area" ng-switch on = "page">
-	<div ng-switch-when = "reg" ng-controller = {{pages.reg.ctrl}} ng-include = '{{pages.reg.url}}' ></div>
-	<div ng-switch-when = "chat" ng-controller = '{{pages.chat.ctrl}}' ng-include = '{{pages.chat.url}}' ></div>
-	<div ng-switch-when = "reg" ng-controller = '{{pages.profile.ctrl}}' ng-include = '{{pages.profile.url}}' ></div>
+	<div ng-switch-when = "reg" ng-include="'regitration.html'" ></div>
+	<div ng-switch-when = "chat" ng-include src="'chats.html'" ></div>
+	<div ng-switch-when = "profile" ng-include="'profile.html'" ></div>
 	
 	</div>
 

@@ -1,4 +1,4 @@
-var app = angular.module("myApp", ['ngRoute']); 
+var app = angular.module("myApp", ['ngRoute', 'ngStorage']); 
 
 //users service
 app.service("users", function() {

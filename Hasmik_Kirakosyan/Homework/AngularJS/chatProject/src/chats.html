@@ -10,18 +10,24 @@
 		  <body>
 					 <div>
 								<span>User1 :</span>
-									<select ng-model="fromUser" ng-options="item as item.name for item in usersList">
+								<select ng-model="fromUser" ng-options="item as item.name for item in usersList"></select>
 								<span>User2 :</span>
-									<select ng-model="toUser" ng-options="item as item.name for item in usersList">
+								<select ng-model="toUser" ng-options="item as item.name for item in usersList"></select>
 								<span>Message :</span>
-									<input type="text" name="message">
+									<input ng-model="message" type="text" name="message">
 								
-									<button>Send</button>
+									<button ng-click="sendMessage(message)">Send</button>
+								
+									
 								<label>User Messages: </label>
-									<select ng-model="selectedItem" ng-options="item as item.name for item in usersList">
-								</select>
-								<p>{{selectedItem.name}}</p>
-				
+									<select ng-model="selectedItem" ng-options="item as item.name for item in usersList"></select>
+								<button ng-click="check=true">Show Messages</button>
+								<ul ng-show="check"> 
+												        <li ng-repeat="m in usersMessages | filter: selectedItem.name" >
+																	 From : {{ m.from }} To : {{ m.to }}  Sent message : {{ m.message }} 
+														  </li>
+							   </ul>
 					 </div>
+
 		  </body>
 </html>

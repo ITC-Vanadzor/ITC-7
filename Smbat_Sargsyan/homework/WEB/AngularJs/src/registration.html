@@ -1,21 +1,14 @@
-<html>
-<head>
-	<title>Registration</title>
-	<script src="../libs/angular.js"></script>
-	<script src="../app.js"></script>
-	<script src="../controller.js"></script>
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
-</head>
-<body ng-app="myApp" ng-controller="MainCtrl" ng-model="users">
+     
 	<div class="border">
 	<h2 class="titleApp">Create Account</h2>
 	<div class="registration">
-	     <div class="inputStyle" ng-repeat="i in inputFields">
-		<input type="text" placeholder="i.user" ng-model="i.user">
+	     <div class="inputStyle">
+	       	 <input type="text" placeholder="name" ng-model="user.name" />
+		 <input type="text" placeholder="email" ng-model="user.email"/ >
+		 <input type="number" placeholder="age" ng-model="user.age" />
+		 <input type="text" placeholder="password" ng-model="user.password" />
 	     </div>
-		<a href = "chats.html" class="buttonStyle" ng-click="addUser()" >Registration</a>
+		<a href = "#chats" class="buttonStyle" ng-click="addUser()" >Registration</a>
 	</div>
 	</div>
-</body>
-</html>
 

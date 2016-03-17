@@ -1,19 +1,29 @@
-<html>
-<head>
-        <title>Profile</title>
-        <script src="../libs/angular.js"></script>
-        <script src="../app.js"></script>
-        <script src="../profile_controller.js"></script>
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
-</head>
-<body ng-app="myApp" ng-controller="ProfileCtrl"  class="border">
+<div  class="border">
 	<h2 class="titleApp">Profile</h2>
 	<div class="select1">
 	<select>
-		<option ng-repeat="x in users.name" ng-click="ShowUserMessage()">
+		<option ng-repeat="x in users.name" ng-model="x" ng-change="ShowUserMessage(x)">
 		{{x}}
 		</option>
 	</select>
+	<img src="../res/profile.jpg"></img>
+	<button ng-click="ViewChats">ViewChats</button>
+	<div ng-if="x">
+		<table >
+		<thead>
+		<tr>
+			<th>name</th>
+			<th>message</th>
+		</tr>	
+		</thead>
+		<tbody>
+		<tr ng-repeat="sms in ChatList">
+			<td>{{user.name}}</td>
+			<td>{{user.message}}</td>
+		</tr>
+		</tbody>
+	</table>	
+
 	</div>
-</body>
-</html>
+	</div>
+</div>

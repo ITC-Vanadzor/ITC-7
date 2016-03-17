@@ -14,17 +14,17 @@ myApp.service('data', function() {
 myApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
         when('/', {
-            templateUrl: 'registration.html',
+            templateUrl: '../src/registration.html',
             controller: 'formCtrl'
         }).
 
         when('/chats', {
-            templateUrl: 'chats.html',
+            templateUrl: '../src/chats.html',
             controller: 'chatCtrl'
         }).
 
         when('/profile', {
-            templateUrl: 'profile.html',
+            templateUrl: '../src/profile.html',
             controller: 'profileCtrl'
         }).
         otherwise({

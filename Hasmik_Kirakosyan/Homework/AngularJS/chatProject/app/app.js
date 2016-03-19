@@ -6,8 +6,7 @@ app.service("users", function() {
 
 		  this.put = function (name, email, password) {
 					 this.usersArr.push({name: name, email: email, password: password});
-					 //console.log(this.usersArr[0]);
-		  }
+		 }
 
 		  this.get = function(name) {
 					 for (x in this.usersArr) {

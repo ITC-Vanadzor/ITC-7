@@ -1,3 +1,27 @@
+/*Profile img */
+
+function previewFile(){
+                   var preview = document.getElementById('pict'); //query -i @ntraci anun@ 'img' a
+                   var file    = document.querySelector('input[type=file]').files[0]; //nuyn bann @stegh
+                   var reader  = new FileReader();
+                   reader.onloadend = function () {
+                     preview.src = reader.result;
+                   }
+                   if (file) {
+                   reader.readAsDataURL(file); //tvyalner@ kkarda vorpes URL
+                 } 
+                 else {
+         
+                   preview.src = "../res/profile.png";
+                 }
+               }                              
+         
+         
+               function browsFile(){
+                 document.getElementById('brs').click();
+               }
+             
+
 function showDiv(divId) {
 
     document.getElementById("forgotPassDiv").style.display = "none";

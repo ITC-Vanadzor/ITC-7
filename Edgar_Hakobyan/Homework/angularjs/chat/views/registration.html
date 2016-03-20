@@ -1,8 +1,17 @@
 <div ng-controller="registerController">
-    <div>
-        <input type="text" placeholder="name" ng-model="Name">
-        <input type="text" placeholder="surname" ng-model="Surname">
-        <input type="text" placeholder="email" ng-model="Email">
-        <button ng-click="register()">registration</button>
+    <div class="reg">
+        <div class="reg_line">
+            <input type="text" placeholder="name" ng-model="Name">
+        </div>
+        <div class="reg_line">
+            <input type="text" placeholder="surname" ng-model="Surname">
+        </div>
+        <div class="reg_line">
+            <input type="text" placeholder="email" ng-model="Email">
+        </div>
+        <div class="reg_line">
+            <input type="password" placeholder="password" ng-model="Password">
+        </div>
+        <button ng-click="register()" class="reg_line">registration</button>
     </div>
 </div>

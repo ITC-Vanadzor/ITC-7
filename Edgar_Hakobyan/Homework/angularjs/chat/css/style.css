@@ -2,5 +2,11 @@ body{
     background-color:#bbe5fc;
 }
 .main{
-	margin:auto;
+    margin:auto;
+}
+.reg{
+    margin:auto 30%;
+}
+.reg_line{
+    margin-top:5%;
 }

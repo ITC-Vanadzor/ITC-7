@@ -16,7 +16,8 @@ myApp.service('data', function() {
 	}];	
 	
     this.chats = [];
-    
+    this.signedInAs="";
+    this.profileUser="";
 });
 
 myApp.config(['$routeProvider', function($routeProvider) {
@@ -39,3 +40,4 @@ myApp.config(['$routeProvider', function($routeProvider) {
 	    redirectTo: '/'
 	});
 }]);
+

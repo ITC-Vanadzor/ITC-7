@@ -1,6 +1,26 @@
-<div ng-controller = "profileCtrl">
+
 <img src="profile_image.png"/>
-First Name: <p>{{users.user.firstName}}</p><br>
-Last Name: <p>{{users.user.LastName}}</p><br>
-Email: <p>{{users.user.email}}</p><br>
+<div class="profileData">
+ 	<p>Name: <span>{{profileUserData.name}}</span></p>
+ 	<p>First Name: <span>{{profileUserData.firstName}}</span></p>
+ 	<p>Last Name: <span>{{profileUserData.lastName}}</span></p>
+	<p>Email: <span>{{profileUserData.email}}</span></p>
+	
+ 	<button class = "chatButton" ng-click="back()"> Back</button>
+	<button class = "chatButton" ng-click="logout()"> Logout</button>
+ 	
+ 	<table>
+		<tr >
+			<th>From User</th>
+			<th>To User</th>	
+			<th>Message</th>
+			<th>Date</th>
+		</tr>
+		<tr ng-repeat = "chat in tmpChat">
+			<td> {{chat.fromUser}}</td>
+			<td> {{chat.toUser}}</td>    
+			<td>{{chat.message}}</td>
+			<td>{{chat.currentDate | date:'HH:mm:ss dd, MMMM yyyy'}}</td>
+		</tr>
+	</table>
 </div>

@@ -1,29 +1,30 @@
-<div> 
-<form>
-    From user: <select class = "fromUser" ng-model="chat.fromUser" ng-options="user.name for user in allUsers">
-    </select>
-
-
+<div>
+<form> 
+    <label>From user:  <span> {{signedInAs}} </span></label>
+  
     Text Message : <textarea ng-model="chat.message">
     </textarea> <br>
     
-    To user: <select class = "toUser"  ng-model="chat.toUser" ng-options="user.name for user in allUsers">
+    To user: <select  ng-model="tmpSelectUser" ng-options="user.name for user in allUsers">
     </select>
-</form>
 
-<button ng-click="sendMessage()"> Send message</button><br>
-<button ng-click="sendMessage"> veiw messages</button><br>
+</form>
+<button class = "chatButton" ng-click="sendMessage()"> Send message</button>
+<button class = "chatButton" ng-click="logout()"> Logout</button><br>
+All messages:
 
 <table>
-<tr ng-repeat = "chat in chat">
-<th>From User</th>
-<th>To User</th>	
-<th>Message</th>
-</tr>
-<tr>
-<td>{{chat.fromUser}}</td>
-<td>{{chat.toUser}}</td>	    
-<td>{{chat.textMessage}}</td>
-</tr>
+	<tr >
+		<th>From User</th>
+		<th>To User</th>	
+		<th>Message</th>
+		<th>Date</th>
+	</tr>
+	<tr ng-repeat = "chat in tmpChat">
+		<td><a ng-click="choiceUser(chat.fromUser)"> {{chat.fromUser}} </a></td>
+		<td><a ng-click="choiceUser(chat.toUser)"> {{chat.toUser}} </a></td>    
+		<td>{{chat.message}}</td>
+		<td>{{chat.currentDate | date:'HH:mm:ss dd, MMMM yyyy'}}</td>
+	</tr>
 </table>
 </div>

@@ -1,8 +1,12 @@
 <div ng-controller="profileController">
     <h2>profile</h2>
-        <div>
-            <input type="text" placeholder="name">
-            <input type="text" placeholder="surname">
-            <button ng-click="profile()">myprofile</button>
+        <div class="reg">
+            <select ng-model="profile">
+                <option ng-repeat="y in profileModel">{{y}}</option>
+            </select>
+            <div class="reg_line">
+                <input type="password" placeholder="password" ng-model="profilePassword">
+            </div>
+            <button ng-click="profileClick()" class="reg_line">myprofile</button>
         </div>
 </div>

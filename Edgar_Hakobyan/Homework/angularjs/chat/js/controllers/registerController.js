@@ -8,7 +8,7 @@ myApp.controller('registerController',function($scope,dataService){
             }
         }
         if(x == 0){
-            dataService.users.push({'name':$scope.Name,'surname':$scope.Surname,'email':$scope.Email,'message':[]});
+            dataService.users.push({'name':$scope.Name,'surname':$scope.Surname,'email':$scope.Email,'password':$scope.Password,'message':[]});
             alert("you are registered");
             console.log(dataService.users);
         }else{

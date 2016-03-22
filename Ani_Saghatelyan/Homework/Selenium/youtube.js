@@ -2,7 +2,9 @@ var webdriver = require('selenium-webdriver'),
 		By = webdriver.By,
    		until = webdriver.until;
 	
-var driver = new webdriver.Builder().forBrowser('firefox').build();
+var driver = new webdriver.Builder()
+	.forBrowser('firefox')
+	.build();
 
 var signIn=function(driver){
 	driver.findElement(By.className("yt-uix-button yt-uix-button-size-default yt-uix-button-primary")).click();
@@ -16,7 +18,7 @@ var signIn=function(driver){
 	driver.sleep(6000);
 }
 
-var  searchVideo=function(driver){
+var searchVideo=function(driver){
 	driver.findElement(By.id("signIn")).click();
 	driver.manage().timeouts().pageLoadTimeout(9000);
 	driver.sleep(6000);
@@ -30,14 +32,15 @@ var  searchVideo=function(driver){
 	driver.sleep(8000);
 	//click to the last video
 	//here can't click on link
-	driver.findElement(By.xpath('//*[@id="item-section-936600"]/li[20]/div/div/div[2]/h3/a')).click();
-	driver.sleep(8000);
-	//click to share button
-	driver.findElement(By.className('yt-uix-button yt-uix-button-size-default yt-uix-button-opacity yt-uix-button-has-icon no-icon-markup pause-resume-autoplay action-panel-trigger action-panel-trigger-share yt-uix-tooltip')).click();
-	// saves link to send via email
-	
+	driver.findElement(By.css('#results .item-section li:last-child .yt-lockup')).click();
 	driver.sleep(6000);
-          return driver.findElement(By.name('share-url')).getAttribute("value");
+	//click to share button
+	driver.findElement(By.css('#watch8-secondary-actions > button')).click();
+	// saves link to send via email
+	//checkbox
+	driver.findElement(By.css('[type=checkbox]')).click();
+	driver.sleep(6000);
+    return driver.findElement(By.name('share-url')).getAttribute("value");
 }
 
 var sendEmail=function(driver){
@@ -55,8 +58,8 @@ var sendEmail=function(driver){
 driver.get('https://www.youtube.com/');
 signIn(driver);
 var link=searchVideo(driver);
-driver.get('https://mail.google.com/');
-signIn(driver);
-sendEmail(driver);
+//driver.get('https://mail.google.com/');
+//signIn(driver);
+//sendEmail(driver);
 driver.sleep(10000);
 driver.quit();

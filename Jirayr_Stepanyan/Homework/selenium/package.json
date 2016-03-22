@@ -1,0 +1,18 @@
+{
+  "name": "selenium",
+  "version": "1.0.0",
+  "description": "a",
+  "main": "youtube.js",
+  "scripts": {
+    "test": "a"
+  },
+  "repository": {
+    "type": "git",
+    "url": "repo"
+  },
+  "keywords": [
+    "a"
+  ],
+  "author": "a",
+  "license": "BSD-2-Clause"
+}

@@ -3,7 +3,7 @@ var db = mySql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'student',
-    database: 'easyBoard'
+    database: 'itc7'
 });
 
 db.query('CREATE TABLE IF NOT EXISTS accounts(\

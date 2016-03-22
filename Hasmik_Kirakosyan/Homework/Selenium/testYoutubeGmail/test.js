@@ -1,30 +1,50 @@
 var webdriver = require('selenium-webdriver');
 
+var By = webdriver.By, 
+	 until = webdriver.until;
 var driver = new webdriver.Builder()
-		    // The "9515" is the port opened by chrome driver.
-		    .usingServer('http://localhost:9515')
-				  .forBrowser('firefox')
-				    .build();
+		  .forBrowser('chrome')
+		  .build();
 
-					 // open youtube.com
-					 driver.get('http://www.youtube.com');
+		  // open youtube.com
 
-					 // search "sia" 
-					 driver.findElement(webdriver.By.id('masthead-search-term')).sendKeys('beatles');
-					 driver.findElement(webdriver.By.id('search-btn')).click();
-					 driver.sleep(4000);
-					 
-					 // scroll down
-					 driver.executeScript("window.scrollBy(0,2500)", "");
-					 
-					 //open last video
-					 driver.findElement(webdriver.By.css('#section-list-987868: nth-child(2): last-child: nth-child(1): nth-child(1) > h3 > a')).click();
-					 driver.sleep(4000);
+		  // sign in
+		  driver.get("http://www.youtube.com");
+		  driver.findElement(By.css('#yt-masthead-signin button')).click();
 
-					 driver.wait(function() {
-								 return driver.getTitle().then(function(title) {
-											   return title === 'webdriver - Google Search';
-												 });
-					 }, 4000);
+		  driver.wait(until.elementLocated(By.id("Email")), 5*1000).then(function(elm){elm.sendKeys("itc7vanadzor@gmail.com")});
+		  driver.findElement(By.id("next")).click();
+		  driver.sleep(2000);
+		  driver.findElement(By.id("Passwd")).sendKeys("instigate");
+		  driver.findElement(By.name("PersistentCookie")).click();
+		  driver.sleep(2000);
+		  driver.findElement(By.id("signIn")).click();
 
-driver.quit();
+		  driver.get('http://www.youtube.com');
+		
+		  // search "beatles" 
+		  driver.findElement(By.id('masthead-search-term')).sendKeys('beatles');
+		  driver.findElement(By.id('search-btn')).click();
+		  driver.sleep(4000);
+
+		  // scroll down
+		  driver.executeScript("window.scrollTo(0, document.body.scrollHeight)", "");
+
+		  //open the last video
+		  driver.findElement(By.css('#results .item-section li:last-child .yt-lockup')).click();
+		  driver.sleep(4000);
+
+		  //copy share link
+		  driver.findElement(By.css('#watch8-secondary-actions > button')).click();
+		  driver.wait(until.elementLocated(By.css('#watch-actions-share-panel .share-panel-start-at-container label .yt-uix-form-input-checkbox-element')), 5*1000).then(function(elm){elm.click()}); 
+		  
+		  //var url = driver.findElement(By.name('share_url')).getAttribute("value");
+		 
+		  // go to gmail.com and write a mail 
+		  driver.navigate().to('https://www.gmail.com');
+		driver.sleep(4000);
+		  //driver.wait(until.elementLocated(By.linkText("НАПИСАТЬ"))).then(function(elm) {elm.click()});
+		  //driver.findElement(By.name("to")).sendKeys("itc7vanadzor@gmail.com");
+		  //driver.findElement(By.name("subjectbox")).sendKeys("testMail");
+		  //driver.findElement(By.css("[aria-label='Тело письма']")).sendKeys(url);
+		  driver.quit();

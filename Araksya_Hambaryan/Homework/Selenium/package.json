@@ -1,0 +1,17 @@
+{
+  "name": "forselenium",
+  "version": "0.1.0",
+  "description": "for selenium",
+  "main": "youtube.js",
+  "dependencies": {
+    "chromedriver": "^2.21.2",
+    "selenium-webdriver": "^2.53.1",
+    "shortid": "^2.2.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

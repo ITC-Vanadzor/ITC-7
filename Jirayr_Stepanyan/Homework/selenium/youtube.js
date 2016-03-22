@@ -2,6 +2,8 @@ var wd = require('selenium-webdriver');
 
 var URL = 'http://www.youtube.com';
 
+By = wd.By;
+
 var client = new wd.Builder()
    .usingServer()
    .withCapabilities({ browserName: 'firefox' })
@@ -11,8 +13,10 @@ client.get(URL).then(function() {
     client.findElement({ css: '.yt-uix-button-primary' }).click();
     client.findElement({ name: 'Email' }).sendKeys('itc7vanadzor@gmail.com');
     client.findElement({ id: 'next' }).click();
+    client.wait(client.isElementPresent(By.css('#Passwd')), 10000);
     client.findElement({ id: 'Passwd' }).sendKeys('instigate');
-    client.findElement({ name: 'signIn' }).click();
+    client.wait(client.isElementPresent(By.css('#signIn')), 5000);
+    client.findElement({ id: 'signIn' }).click();
     client.findElement({ id: 'masthead-search-term' }).sendKeys('football freestyle');
     client.findElement({ id: 'search-btn' }).click();
     client.findElement({ css: '.yt-thumb-simple' }).click();

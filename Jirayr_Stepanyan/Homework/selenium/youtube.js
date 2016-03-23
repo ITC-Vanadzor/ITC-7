@@ -28,11 +28,11 @@ client.get(URL);
     	client.findElement({ id: 'search-btn' }).click();
     	client.wait(client.isElementPresent(By.css('.yt-lockup-content .yt-lockup-title')), 10000);
     	client.findElement({ css: '.yt-lockup-content .yt-lockup-title' }).click();
-   	client.wait(client.isElementPresent(By.css('.yt-uix-button .yt-uix-button-size-default .yt-uix-button-opacity .yt-uix-button-has-icon .no-icon-markup .pause-resume-autoplay .action-panel-trigger .action-panel-trigger-share   .yt-uix-tooltip .yt-uix-button-toggled')), 10000);
+   	/*client.wait(client.isElementPresent(By.css('.yt-uix-button .yt-uix-button-size-default .yt-uix-button-opacity .yt-uix-button-has-icon .no-icon-markup .pause-resume-autoplay .action-panel-trigger .action-panel-trigger-share   .yt-uix-tooltip .yt-uix-button-toggled')), 10000);
     	client.findElement({ css: '.yt-uix-button .yt-uix-button-size-default .yt-uix-button-opacity .yt-uix-button-has-icon .no-icon-markup .pause-resume-autoplay .action-panel-trigger .action-panel-trigger-share   .yt-uix-tooltip .yt-uix-button-toggled' }).click();
     	client.wait(client.isElementPresent(By.css('.share-panel-url-container .share-panel-url-input-container .yt-uix-form-input-text')), 10000);
     	client.findElement({ css: '.share-panel-url-container .share-panel-url-input-container .yt-uix-form-input-text' }).click();
-	client.sleep(10000);
+	*/client.sleep(10000);
 
     	client.get(URL_G);
 	client.sleep(10000);	

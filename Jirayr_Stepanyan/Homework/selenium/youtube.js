@@ -1,6 +1,7 @@
 var wd = require('selenium-webdriver');
 
 var URL = 'http://www.youtube.com';
+var URL_G = 'http://www.gmail.com';
 
 By = wd.By;
 
@@ -9,27 +10,30 @@ var client = new wd.Builder()
    .withCapabilities({ browserName: 'firefox' })
    .build();
 
-client.get(URL).then(function() {
+client.get(URL);
+    
     client.findElement({ css: '.yt-uix-button-primary' }).click();
     client.findElement({ name: 'Email' }).sendKeys('itc7vanadzor@gmail.com');
     client.findElement({ id: 'next' }).click();
-    client.wait(client.isElementPresent(By.css('#Passwd')), 10000);
     client.findElement({ id: 'Passwd' }).sendKeys('instigate');
-    client.wait(client.isElementPresent(By.css('#signIn')), 5000);
     client.findElement({ id: 'signIn' }).click();
-    client.findElement({ id: 'masthead-search-term' }).sendKeys('football freestyle');
+    /*client.findElement({ id: 'masthead-search-term' }).sendKeys('football freestyle'); 
+    client.wait(client.isElementPresent(By.id('search-btn')), 10000);
     client.findElement({ id: 'search-btn' }).click();
-    client.findElement({ css: '.yt-thumb-simple' }).click();
-    client.findElement({ css: '.share-panel-start-at' }).click();
-	client.get('http://www.gmail.com').then(function() {
-		
-		client.findElement({ id: 'choose-account-0' }).click();
-		client.findElement({ id: 'Passwd' }).sendKeys('margarita1995');
-		client.findElement({ id: 'signIn' }).click();
+    client.wait(client.isElementPresent(By.css('.yt-lockup-content .yt-lockup-title')), 10000);
+    client.findElement({ css: '.yt-lockup-content .yt-lockup-title' }).click();*/
+    
+    client.sleep(10000);
+    client.get(URL_G);
+	client.sleep(10000);
+	client.wait(client.isElementPresent(By.css('.z0 .T-I')), 20000);
+	client.findElement({ css: '.z0 .T-I' }).click();
+	client.wait(client.isElementPresent(By.id(':by')), 10000);
+	client.findElement({ id: ':by' }).sendKeys('jiro-19944@mail.ru');
+	//client.findElement({ id: 'signIn' }).click();
 	
-	});
 	
 
 
     client.quit();
-});
+

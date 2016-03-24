@@ -36,16 +36,17 @@ driver.sleep(4000);
 driver.findElement(By.css('#watch8-secondary-actions > button')).click();
 driver.wait(until.elementLocated(By.css('#watch-actions-share-panel .share-panel-start-at-container label .yt-uix-form-input-checkbox-element')), 5*1000).then(function(elm){elm.click()}); 
 		  
-driver.sleep(4000);
-		  var url = driver.findElement(By.name('share_url')).getAttribute("value");
+var url = driver.findElement(By.name('share_url')).getAttribute("value");
 		 
 // go to gmail.com and write a mail 
 driver.navigate().to('https://www.gmail.com');
-drive.sleep(3000);
-//driver.wait(until.elementLocated(By.linkText("НАПИСАТЬ"))).then(function(elm) {elm.click()});
-//driver.findElement(By.name("to")).sendKeys("itc7vanadzor@gmail.com");
-//driver.findElement(By.name("subjectbox")).sendKeys("testMail");
-//driver.findElement(By.css("[aria-label='Тело письма']")).sendKeys(url);
+driver.sleep(3000);
+driver.wait(until.elementLocated(By.className("T-I J-J5-Ji T-I-KE L3"))).then(function(elm) {elm.click()});
+driver.wait(until.elementLocated(By.name("to")), 10000).sendKeys("itc7vanadzor@gmail.com");
+driver.findElement(By.name("subjectbox")).sendKeys("testMail");
+driver.findElement(By.className("Am Al editable LW-avf")).sendKeys(url);
+driver.wait(until.elementLocated(By.className("T-I J-J5-Ji aoO T-I-atl L3"))).click();
+
 
 driver.quit();
 

@@ -1,0 +1,22 @@
+Started by user [8mha:AAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzOEgYu/dLi1CL9vNKcHACFIKlWvwAAAA==[0manonymous
+Building in workspace /var/lib/jenkins/jobs/runServer/workspace
+[workspace] $ /bin/sh -xe /tmp/hudson8211488136054399079.sh
++ node /home/hasmik/ITC-7/nodejs_04.03.16/serve.js
+-------result [ '---FILENUMBER---0',
+  '---FILENUMBER---1',
+  '---FILENUMBER---2',
+  '---FILENUMBER---3',
+  '---FILENUMBER---4',
+  '---FILENUMBER---5',
+  '---FILENUMBER---6' ]
+{ [Error: listen EACCES 127.0.0.1:80]
+  code: 'EACCES',
+  errno: 'EACCES',
+  syscall: 'listen',
+  address: '127.0.0.1',
+  port: 80 } '---error----'
+error------80-----port
+Example app listening at http://127.0.0.1:9090
+Build was aborted
+Aborted by [8mha:AAAAmx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzOEgZ+/dLi1CL9xLz8vMrc/NJiAJjzDjjEAAAA[0manonymous
+Finished: ABORTED

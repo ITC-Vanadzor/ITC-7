@@ -1,0 +1,15 @@
+Started by user [8mha:AAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzOEgYu/dLi1CL9vNKcHACFIKlWvwAAAA==[0manonymous
+Building in workspace /var/lib/jenkins/jobs/c++/workspace
+[workspace] $ /bin/sh -xe /tmp/hudson2334600727186307860.sh
++ export DISPLAY=:0
++ cp /home/hasmik/ITC-7/Hasmik_Kirakosyan/Homework/C++/04.11/Search.cpp .
++ g++ Search.cpp -o search
++ ./search
+Please, input 7 double elements of the second array 
+ Array size : 7
+
+ First element index that is equal 6.0 is 8
+
+Array of ints  1 8 20 6
+ Array size : 4
+First element index that is more than 7 is : 2Finished: SUCCESS

@@ -1,0 +1,7 @@
+Started by user [8mha:AAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzOEgYu/dLi1CL9vNKcHACFIKlWvwAAAA==[0manonymous
+Building in workspace /var/lib/jenkins/jobs/c++/workspace
+[workspace] $ /bin/sh -xe /tmp/hudson4015541674915432853.sh
++ export DISPLAY=:0
++ cp /home/hasmik/ITC-7/Hasmik_Kirakosyan/Homework/C++/04.11/Search.cpp .
++ g++ Search.cpp
+Finished: SUCCESS

@@ -1,0 +1,9 @@
+Started by user [8mha:AAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzOEgYu/dLi1CL9vNKcHACFIKlWvwAAAA==[0manonymous
+Building in workspace /var/lib/jenkins/jobs/summaryITC/workspace
+[workspace] $ /bin/sh -xe /tmp/hudson3249405140525620506.sh
++ export DISPLAY=0
++ cp -r /home/hasmik/ITC-7/Hasmik_Kirakosyan/Homework/sphinxAndSingleton/summaryDoc .
++ cd summaryDoc/_build/html
+[htmlpublisher] Archiving HTML reports...
+[htmlpublisher] Archiving at PROJECT level /var/lib/jenkins/jobs/summaryITC/workspace/summaryDoc/_build/html to /var/lib/jenkins/jobs/summaryITC/htmlreports/HTML_Report
+Finished: SUCCESS

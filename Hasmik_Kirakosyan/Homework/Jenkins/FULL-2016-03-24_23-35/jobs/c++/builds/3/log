@@ -1,0 +1,7 @@
+Started by user [8mha:AAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzOEgYu/dLi1CL9vNKcHACFIKlWvwAAAA==[0manonymous
+Building in workspace /var/lib/jenkins/jobs/c++/workspace
+[workspace] $ /bin/sh -xe /tmp/hudson3398317706456269717.sh
++ sudo cp /home/hasmik/ITC-7/Hasmik_Kirakosyan/Homework/C++/04.11/Search.cpp .
+sudo: no tty present and no askpass program specified
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE

@@ -1,0 +1,51 @@
+<!-- <ul>
+     <a class="active" href="index.html"><img src="../res/icon.png" id="smallogo"></a>
+     <li><a href="#about">About us</a></li>
+     <li><a href="usage.html">How to use</a></li>
+     <li><a href="#download">Download</a></li>
+     <div>
+            <a href="/index.html"    class="blueButton menuBarButtonSize" >Log Out</a>
+            <a href="/src/profile.html"   class="grayButton menuBarButtonSize">Profile</a>
+     </div>
+</ul>
+
+ -->
+
+ <div  class="toolbardemoBasicUsage" ng-app="myApp">
+
+    <md-toolbar class="toolbarBg">
+      <div class="md-toolbar-tools toolbarBg">
+        <a ng-href="{{homeUrl}}" class="icon" ><img src="../../res/icon.png"></a>
+        <md-button ng-disabled="aboutDisabled" ng-href="{{aboutUrl}}"> About Us </md-button>
+        <md-button ng-disabled="usageDisabled" ng-href="{{usageUrl}}"> How to Use </md-button>
+        <md-button ng-disabled="downloadDisabled" ng-href="{{downloadUrl}}"> Download </md-button>
+        <span flex=""></span>
+        <div ng-show="tbBt">
+        <md-button ng-click="tbBt=false" class="md-raised bButton">Sign Up</md-button>
+        <md-button class="md-raised gButton">Sign In</md-button>    
+        </div>
+
+
+
+                 <md-menu-bar  ng-show="pfBt">
+          <md-menu md-position-mode="target-right target">
+          
+                     <md-list>
+           <md-list-item  ><img class="md-avatar" ng-click="$mdOpenMenu()" ng-src="../../res/profile.png"></md-list-item>
+        </md-list>
+         
+            <md-menu-content>
+              <md-menu-item>
+                <md-button>Profile Settings </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button>Log Out </md-button>
+              </md-menu-item>              
+            </md-menu-content>
+          </md-menu>
+        </md-menu-bar>  
+
+
+
+      </div>
+    </md-toolbar>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>HDM User Profile</title>
+      <link rel="stylesheet" href="../css/style.css">
+      <script src="../js/script.js" type="text/javascript"></script>
+      <script src="../js/lib/Chart.js"></script>
+      <script src="../js/lib/angular.min.js"></script>
+      <script src = "../js/lib/angular-route.min.js"></script>
+      <link rel="stylesheet" href="../js/lib/md/css/angular-material.css">
+      <link rel="stylesheet" href="../js/lib/md/css/docs.css">
+      <link rel="stylesheet" href="../js/lib/md/css/noname.css">
+      <script src="../js/lib/md/js/angular.js"></script>
+      <script src="../js/lib/md/js/angular-animate.min.js"></script>
+      <script src="../js/lib/md/js/angular-route.min.js"></script>
+      <script src="../js/lib/md/js/angular-aria.min.js"></script>
+      <script src="../js/lib/md/js/angular-messages.min.js"></script>
+      <script src="../js/lib/md/js/svg-assets-cache.js"></script>
+      <script src="../js/lib/md/js/angular-material.js"></script>
+      <script src="../js/app.js"></script>
+      <script src="../js/controller.js"></script>
+      <script src="../js/script.js"></script>
+   </head>
+   <body   class="webSiteBackground" ng-controller="myCtrl"  onload="previewFile()"  >
+      <ul>
+         <a class="active" href="index.html"><img src="../res/icon.png" id="smallogo"></a>
+         <li><a href="statistic.html">Home</a></li>
+         <li><a href="#about">About us</a></li>
+         <li><a href="usage.html">How to use</a></li>
+         <li><a href="#download">Download</a></li>
+         <div>
+            <a href="signin.html?i=signUpDiv"    class="blueButton menuBarButtonSize" >Sign out</a>
+         </div>
+      </ul>
+      <div class="profileImg" onclick="browsFile()"><img width="200" id="pict"  src="" style="cursor:pointer"><input id="brs" type="file" onchange="previewFile()" style="opacity: 0;"  ></div>
+      <div class="profileDivSize">
+         <div class="profileDivSize1 styledBg">
+            <p class="headStyle">Profile</p>
+            <div class="profileInputs">
+               <input type="text" name="name"    ng-model="name.text" class="lightInput profileInputSize" >
+               <input type="text" name="surname" ng-model="surname.text" class="lightInput profileInputSize">
+               <input type="text" name="email"   ng-model="email.text" class="lightInput profileInputSize"  >
+               <input type="text" name="date"    ng-model="date.text" placeholder="dd.mm.yyyy" class="lightInput profileInputSize">
+            </div>
+            <div class="profileLabels">
+               <p class="profileLabelsTop1">Name</p>
+               <p class="profileLabelsTop1">Surname</p>
+               <p class="profileLabelsTop1">Email</p>
+               <p class="profileLabelsTop1">Birthday</p>
+            </div>
+            <button class="blueButton profileButtonSize" >Update profile</button>
+         </div>
+         <div class="profileDivSize1 styledBg">
+            <p class="headStyle">Account settings</p>
+            <div class="profileInputs">
+               <input type="password" name="password"  class="lightInput profileInputSize" ng-model="password"  ng-minlength="6" required >
+               <input type="password" name="newpass"  class="lightInput profileInputSize"  ng-model="password"  ng-minlength="6" required >
+               <input type="password" name="repass"  class="lightInput profileInputSize"  ng-model="password"  ng-minlength="6" required >
+            </div>
+            <div class="profileLabels">
+               <p class="profileLabelsTop1">Password</p>
+               <p class="profileLabelsTop1">New Password</p>
+               <p class="profileLabelsTop1">Repeat Password</p>
+            </div>
+            <button class="blueButton profileButtonSize" >Change password</button>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,48 @@
+//easyBoard database
+
+
+CREATE DATABASE easyBoard;
+
+CREATE TABLE  network (
+	id INT(30) NOT NULL auto_increment,
+	service_name VARCHAR(50) NOT NULL,
+	PRIMARY KEY(id));
+
+CREATE TABLE  services (
+	id INT(30) NOT NULL auto_increment,
+	service_id INT(30) NOT NULL,
+	user int(30) NOT NULL,
+	id_in_service varchar(250) NOT NULL,
+	PRIMARY KEY (id)
+	FOREIGN KEY (service_id) references network (id));
+	FOREIGN KEY (user) references users (id));
+
+CREATE TABLE  users (
+	id INT(30) NOT NULL auto_increment,
+	first_name varchar(30) NOT NULL,
+	last_name varchar(30) NOT NULL,
+	image varchar(250) NOT NULL,
+	PRIMARY KEY (id));
+	
+CREATE TABLE  messages (
+	id INT(30) NOT NULL auto_increment,
+	from_user varchar(250) NOT NULL,
+	to_chat varchar(250) NOT NULL,
+	text_message varchar(250) NOT NULL,
+	date DateTime NOT NULL,
+	FOREIGN KEY (to_chat) references chats (chat_id),
+	FOREIGN KEY (from_user) references users (id));
+
+CREATE TABLE  chats (
+	chat_id INT(30) NOT NULL auto_increment,
+	creator_id int(250) NOT NULL,
+	PRIMARY KEY (chat_id)
+	FOREIGN KEY (creator_id) references users (id));
+
+CREATE TABLE  conversations (
+	id INT(30) NOT NULL auto_increment,
+	chat_id varchar(250) NOT NULL,
+	member int(250) NOT NULL,	
+	PRIMARY KEY (id)
+	FOREIGN KEY (member) references users (id),
+	FOREIGN KEY (chat_id) references chats (chat_id));

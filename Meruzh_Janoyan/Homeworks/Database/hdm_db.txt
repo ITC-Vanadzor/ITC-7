@@ -1,0 +1,43 @@
+//hdm database
+
+
+CREATE DATABASE hdm;
+
+CREATE TABLE  user(
+	id INT NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	username VARCHAR(20) NOT NULL,
+	password VARCHAR(256) NOT NULL,
+	PRIMARY KEY(id));
+
+CREATE TABLE  check(
+	id INT NOT NULL,
+	market INT NOT NULL,
+	date DATE NOT NULL,
+	sum DECIMAL NOT NULL,
+	comment TEXT DEFAULT NULL,
+	photo VARCHAR(20) NOT NULL,
+	user_id INT NOT NULL,
+	FOREIGN KEY (user_id) REFERENCES user(id),
+	FOREIGN KEY (market) REFERENCES market(id),
+	PRIMARY KEY(id));
+
+CREATE TABLE  profile(
+	user_id INT NOT NULL,
+	option_id INT NOT NULL,
+	option_value  VARCHAR(20) NOT NULL,
+	FOREIGN KEY (user_id) REFERENCES user(id),
+	FOREIGN KEY (option_id) REFERENCES optionaly(option_id));
+
+
+CREATE TABLE  optionaly(
+	option_id INT NOT NULL,
+	option_name VARCHAR(30) NOT NULL,
+	PRIMARY KEY(id));
+
+CREATE TABLE  market(
+	id INT NOT NULL,
+	market VARCHAR(35) NOT NULL,
+	PRIMARY KEY(id));
+
+

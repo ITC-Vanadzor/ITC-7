@@ -1,0 +1,295 @@
+-- MySQL dump 10.13  Distrib 5.5.47, for debian-linux-gnu (i686)
+--
+-- Host: localhost    Database: EasyBoard
+-- ------------------------------------------------------
+-- Server version	5.5.47-0ubuntu0.14.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES cp1251 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `chats`
+--
+
+DROP TABLE IF EXISTS `chats`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `chats` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `chat_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `creator_id` (`creator_id`),
+  CONSTRAINT `chats_ibfk_1` FOREIGN KEY (`creator_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `chats`
+--
+
+LOCK TABLES `chats` WRITE;
+/*!40000 ALTER TABLE `chats` DISABLE KEYS */;
+INSERT INTO `chats` VALUES (1,'555565214852224f465',2),(2,'985565222145215f112',3),(3,'555565214852224f658',2),(4,'542987154452222g115',1);
+/*!40000 ALTER TABLE `chats` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `converstations`
+--
+
+DROP TABLE IF EXISTS `converstations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `converstations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `chat_id` int(11) NOT NULL,
+  `member` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `member` (`member`),
+  KEY `chat_id` (`chat_id`),
+  CONSTRAINT `converstations_ibfk_1` FOREIGN KEY (`member`) REFERENCES `users` (`id`),
+  CONSTRAINT `converstations_ibfk_2` FOREIGN KEY (`chat_id`) REFERENCES `chats` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `converstations`
+--
+
+LOCK TABLES `converstations` WRITE;
+/*!40000 ALTER TABLE `converstations` DISABLE KEYS */;
+INSERT INTO `converstations` VALUES (12,1,2),(13,1,1),(14,2,3),(15,2,1),(16,3,2),(17,3,1),(18,3,4),(19,3,5),(20,4,1),(21,4,3),(22,4,5);
+/*!40000 ALTER TABLE `converstations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary table structure for view `friendslist`
+--
+
+DROP TABLE IF EXISTS `friendslist`;
+/*!50001 DROP VIEW IF EXISTS `friendslist`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `friendslist` (
+  `first_name` tinyint NOT NULL,
+  `last_name` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary table structure for view `friendslist_fb`
+--
+
+DROP TABLE IF EXISTS `friendslist_fb`;
+/*!50001 DROP VIEW IF EXISTS `friendslist_fb`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `friendslist_fb` (
+  `first_name` tinyint NOT NULL,
+  `last_name` tinyint NOT NULL,
+  `service` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary table structure for view `friendslist_google`
+--
+
+DROP TABLE IF EXISTS `friendslist_google`;
+/*!50001 DROP VIEW IF EXISTS `friendslist_google`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `friendslist_google` (
+  `first_name` tinyint NOT NULL,
+  `last_name` tinyint NOT NULL,
+  `service` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `messages`
+--
+
+DROP TABLE IF EXISTS `messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `messages` (
+  `message_id` int(11) NOT NULL,
+  `from_user` int(11) NOT NULL,
+  `to_chat` int(11) NOT NULL,
+  `text_message` blob NOT NULL,
+  `time` datetime NOT NULL,
+  PRIMARY KEY (`message_id`,`to_chat`),
+  KEY `from_user` (`from_user`),
+  KEY `to_chat` (`to_chat`),
+  CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`from_user`) REFERENCES `users` (`id`),
+  CONSTRAINT `messages_ibfk_2` FOREIGN KEY (`to_chat`) REFERENCES `chats` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `messages`
+--
+
+LOCK TABLES `messages` WRITE;
+/*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+INSERT INTO `messages` VALUES (0,2,1,'barev','2016-04-05 00:12:00'),(0,2,3,'vonc enq?:))))','2016-04-05 00:15:00'),(0,3,4,'alooooooooo','2016-04-05 00:16:55'),(2,4,3,'hianali!!!)','2016-04-05 00:15:55');
+/*!40000 ALTER TABLE `messages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `network`
+--
+
+DROP TABLE IF EXISTS `network`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `network` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `service` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `network`
+--
+
+LOCK TABLES `network` WRITE;
+/*!40000 ALTER TABLE `network` DISABLE KEYS */;
+INSERT INTO `network` VALUES (1,'facebook'),(2,'google');
+/*!40000 ALTER TABLE `network` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sevices`
+--
+
+DROP TABLE IF EXISTS `sevices`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sevices` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `service_name` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `id_in_service` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `service_name` (`service_name`),
+  KEY `user` (`user`),
+  CONSTRAINT `sevices_ibfk_1` FOREIGN KEY (`service_name`) REFERENCES `network` (`id`),
+  CONSTRAINT `sevices_ibfk_2` FOREIGN KEY (`user`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sevices`
+--
+
+LOCK TABLES `sevices` WRITE;
+/*!40000 ALTER TABLE `sevices` DISABLE KEYS */;
+INSERT INTO `sevices` VALUES (7,1,1,'102547892458924'),(8,2,1,'542987154452222'),(9,1,2,'555565214852224'),(10,1,3,'985565222145215'),(11,2,4,'655587555422214'),(12,2,5,'888744447854785');
+/*!40000 ALTER TABLE `sevices` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `last_name` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Ani','Meliqyan','https://raw.githubusercontent.com/ITC-Vanadzor/ITC-7/master/Araksya_Hambaryan/Homework/Web/Resources/images.jpg'),(2,'Aren','Aren','https://raw.githubusercontent.com/ITC-Vanadzor/ITC-7/master/Araksya_Hambaryan/Homework/Web/Resources/ArenAren.jpg'),(3,'Ashot','Avetyan','https://raw.githubusercontent.com/ITC-Vanadzor/ITC-7/master/Araksya_Hambaryan/Homework/Web/Resources/Ashot.jpg'),(4,'Mariam','Avetyan','https://raw.githubusercontent.com/ITC-Vanadzor/ITC-7/master/Araksya_Hambaryan/Homework/Web/Resources/Mariam.jpg'),(5,'Sargis','Sargsyan','https://raw.githubusercontent.com/ITC-Vanadzor/ITC-7/master/Araksya_Hambaryan/Homework/Web/Resources/Sargis.jpg');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Final view structure for view `friendslist`
+--
+
+/*!50001 DROP TABLE IF EXISTS `friendslist`*/;
+/*!50001 DROP VIEW IF EXISTS `friendslist`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `friendslist` AS select `users`.`first_name` AS `first_name`,`users`.`last_name` AS `last_name` from `users` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `friendslist_fb`
+--
+
+/*!50001 DROP TABLE IF EXISTS `friendslist_fb`*/;
+/*!50001 DROP VIEW IF EXISTS `friendslist_fb`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `friendslist_fb` AS select `users`.`first_name` AS `first_name`,`users`.`last_name` AS `last_name`,`network`.`service` AS `service` from ((`users` join `sevices`) join `network`) where ((`sevices`.`user` = `users`.`id`) and (`sevices`.`service_name` = 1) and (`sevices`.`service_name` = `network`.`id`)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `friendslist_google`
+--
+
+/*!50001 DROP TABLE IF EXISTS `friendslist_google`*/;
+/*!50001 DROP VIEW IF EXISTS `friendslist_google`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `friendslist_google` AS select `users`.`first_name` AS `first_name`,`users`.`last_name` AS `last_name`,`network`.`service` AS `service` from ((`users` join `sevices`) join `network`) where ((`sevices`.`user` = `users`.`id`) and (`sevices`.`service_name` = 2) and (`sevices`.`service_name` = `network`.`id`)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2016-04-06  2:07:34

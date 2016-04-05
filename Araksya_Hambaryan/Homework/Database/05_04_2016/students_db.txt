@@ -1,0 +1,293 @@
+-- MySQL dump 10.13  Distrib 5.5.47, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: student
+-- ------------------------------------------------------
+-- Server version	5.5.47-0ubuntu0.14.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES cp1251 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Temporary table structure for view `family`
+--
+
+DROP TABLE IF EXISTS `family`;
+/*!50001 DROP VIEW IF EXISTS `family`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `family` (
+  `student_name` tinyint NOT NULL,
+  `student_surname` tinyint NOT NULL,
+  `age` tinyint NOT NULL,
+  `parent_name` tinyint NOT NULL,
+  `parent_surname` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `marks`
+--
+
+DROP TABLE IF EXISTS `marks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `marks` (
+  `id` int(50) NOT NULL AUTO_INCREMENT,
+  `student` int(50) NOT NULL,
+  `subject` int(50) NOT NULL,
+  `mark` int(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `student` (`student`),
+  KEY `subject` (`subject`),
+  CONSTRAINT `marks_ibfk_1` FOREIGN KEY (`student`) REFERENCES `student` (`id`),
+  CONSTRAINT `marks_ibfk_2` FOREIGN KEY (`subject`) REFERENCES `subjects` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `marks`
+--
+
+LOCK TABLES `marks` WRITE;
+/*!40000 ALTER TABLE `marks` DISABLE KEYS */;
+INSERT INTO `marks` VALUES (1,1,1,9),(2,1,2,8),(3,1,3,4),(4,1,4,7),(5,2,1,9),(6,2,2,8),(7,2,3,8),(8,2,4,10),(9,3,1,5),(10,3,2,3),(11,3,3,6),(12,3,4,6),(13,4,1,10),(14,4,2,10),(15,4,3,10),(16,4,4,8),(17,5,1,10),(18,5,2,10),(19,5,3,10),(20,5,4,10);
+/*!40000 ALTER TABLE `marks` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `parent`
+--
+
+DROP TABLE IF EXISTS `parent`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parent` (
+  `id` int(50) NOT NULL AUTO_INCREMENT,
+  `parent` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parent`
+--
+
+LOCK TABLES `parent` WRITE;
+/*!40000 ALTER TABLE `parent` DISABLE KEYS */;
+INSERT INTO `parent` VALUES (1,'mamy'),(2,'daddy');
+/*!40000 ALTER TABLE `parent` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `parent_child`
+--
+
+DROP TABLE IF EXISTS `parent_child`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parent_child` (
+  `id` int(50) NOT NULL AUTO_INCREMENT,
+  `child` int(50) NOT NULL,
+  `parent` int(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `child` (`child`),
+  KEY `parent` (`parent`),
+  CONSTRAINT `parent_child_ibfk_1` FOREIGN KEY (`child`) REFERENCES `student` (`id`),
+  CONSTRAINT `parent_child_ibfk_2` FOREIGN KEY (`parent`) REFERENCES `parents` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parent_child`
+--
+
+LOCK TABLES `parent_child` WRITE;
+/*!40000 ALTER TABLE `parent_child` DISABLE KEYS */;
+INSERT INTO `parent_child` VALUES (1,1,1),(2,2,2),(3,3,3),(4,4,2),(5,5,2);
+/*!40000 ALTER TABLE `parent_child` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `parents`
+--
+
+DROP TABLE IF EXISTS `parents`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parents` (
+  `id` int(50) NOT NULL AUTO_INCREMENT,
+  `parent_name` varchar(50) DEFAULT NULL,
+  `parent_surname` varchar(50) DEFAULT NULL,
+  `parent_id` int(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `parent_id` (`parent_id`),
+  CONSTRAINT `parents_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `parent` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parents`
+--
+
+LOCK TABLES `parents` WRITE;
+/*!40000 ALTER TABLE `parents` DISABLE KEYS */;
+INSERT INTO `parents` VALUES (1,'Meruj','Janoyan',2),(2,'Smbat','Sargsyan',1),(3,'Hakob','Torosyan',2);
+/*!40000 ALTER TABLE `parents` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student`
+--
+
+DROP TABLE IF EXISTS `student`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `student` (
+  `id` int(50) NOT NULL AUTO_INCREMENT,
+  `student_name` varchar(50) DEFAULT NULL,
+  `student_surname` varchar(50) DEFAULT NULL,
+  `age` int(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student`
+--
+
+LOCK TABLES `student` WRITE;
+/*!40000 ALTER TABLE `student` DISABLE KEYS */;
+INSERT INTO `student` VALUES (1,'Arturik','Janoyan',12),(2,'Chgitem','Sargsyan',15),(3,'Jiro','Torosyan',16),(4,'Bavakan','Sargsyan',13),(5,'Ani','Sargsyan',10);
+/*!40000 ALTER TABLE `student` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `subjects`
+--
+
+DROP TABLE IF EXISTS `subjects`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `subjects` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject_name` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `subjects`
+--
+
+LOCK TABLES `subjects` WRITE;
+/*!40000 ALTER TABLE `subjects` DISABLE KEYS */;
+INSERT INTO `subjects` VALUES (1,'math'),(2,'physic'),(3,'history'),(4,'russian');
+/*!40000 ALTER TABLE `subjects` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary table structure for view `temp`
+--
+
+DROP TABLE IF EXISTS `temp`;
+/*!50001 DROP VIEW IF EXISTS `temp`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `temp` (
+  `student_name` tinyint NOT NULL,
+  `student_surname` tinyint NOT NULL,
+  `subject_name` tinyint NOT NULL,
+  `mark` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary table structure for view `temp2`
+--
+
+DROP TABLE IF EXISTS `temp2`;
+/*!50001 DROP VIEW IF EXISTS `temp2`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `temp2` (
+  `student_name` tinyint NOT NULL,
+  `student_surname` tinyint NOT NULL,
+  `avg(mark)` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Final view structure for view `family`
+--
+
+/*!50001 DROP TABLE IF EXISTS `family`*/;
+/*!50001 DROP VIEW IF EXISTS `family`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `family` AS select `student`.`student_name` AS `student_name`,`student`.`student_surname` AS `student_surname`,`student`.`age` AS `age`,`parents`.`parent_name` AS `parent_name`,`parents`.`parent_surname` AS `parent_surname` from ((`parent_child` join `student`) join `parents`) where ((`parent_child`.`child` = `student`.`id`) and (`parent_child`.`parent` = `parents`.`id`)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `temp`
+--
+
+/*!50001 DROP TABLE IF EXISTS `temp`*/;
+/*!50001 DROP VIEW IF EXISTS `temp`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `temp` AS select `student`.`student_name` AS `student_name`,`student`.`student_surname` AS `student_surname`,`subjects`.`subject_name` AS `subject_name`,`marks`.`mark` AS `mark` from ((`subjects` join `student`) join `marks`) where ((`marks`.`student` = `student`.`id`) and (`marks`.`subject` = `subjects`.`id`)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `temp2`
+--
+
+/*!50001 DROP TABLE IF EXISTS `temp2`*/;
+/*!50001 DROP VIEW IF EXISTS `temp2`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `temp2` AS select `student`.`student_name` AS `student_name`,`student`.`student_surname` AS `student_surname`,avg(`marks`.`mark`) AS `avg(mark)` from (`student` join `marks`) where (`marks`.`student` = `student`.`id`) group by `student`.`student_name` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2016-04-05 18:05:11

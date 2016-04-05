@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 5.5.47, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.47, for debian-linux-gnu (i686)
 --
--- Host: localhost    Database: student
+-- Host: localhost    Database: students
 -- ------------------------------------------------------
 -- Server version	5.5.47-0ubuntu0.14.04.1
 
@@ -14,6 +14,36 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Temporary table structure for view `avg_marks`
+--
+
+DROP TABLE IF EXISTS `avg_marks`;
+/*!50001 DROP VIEW IF EXISTS `avg_marks`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `avg_marks` (
+  `student_name` tinyint NOT NULL,
+  `student_surname` tinyint NOT NULL,
+  `avg_mark` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary table structure for view `excellence`
+--
+
+DROP TABLE IF EXISTS `excellence`;
+/*!50001 DROP VIEW IF EXISTS `excellence`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `excellence` (
+  `student_name` tinyint NOT NULL,
+  `student_surname` tinyint NOT NULL,
+  `max(avg_mark)` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Temporary table structure for view `family`
@@ -40,16 +70,16 @@ DROP TABLE IF EXISTS `marks`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `marks` (
-  `id` int(50) NOT NULL AUTO_INCREMENT,
+  `marks_id` int(50) NOT NULL,
   `student` int(50) NOT NULL,
   `subject` int(50) NOT NULL,
   `mark` int(50) NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`marks_id`),
   KEY `student` (`student`),
   KEY `subject` (`subject`),
   CONSTRAINT `marks_ibfk_1` FOREIGN KEY (`student`) REFERENCES `student` (`id`),
   CONSTRAINT `marks_ibfk_2` FOREIGN KEY (`subject`) REFERENCES `subjects` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -194,35 +224,42 @@ INSERT INTO `subjects` VALUES (1,'math'),(2,'physic'),(3,'history'),(4,'russian'
 UNLOCK TABLES;
 
 --
--- Temporary table structure for view `temp`
+-- Final view structure for view `avg_marks`
 --
 
-DROP TABLE IF EXISTS `temp`;
-/*!50001 DROP VIEW IF EXISTS `temp`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE TABLE `temp` (
-  `student_name` tinyint NOT NULL,
-  `student_surname` tinyint NOT NULL,
-  `subject_name` tinyint NOT NULL,
-  `mark` tinyint NOT NULL
-) ENGINE=MyISAM */;
-SET character_set_client = @saved_cs_client;
+/*!50001 DROP TABLE IF EXISTS `avg_marks`*/;
+/*!50001 DROP VIEW IF EXISTS `avg_marks`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `avg_marks` AS select `student`.`student_name` AS `student_name`,`student`.`student_surname` AS `student_surname`,avg(`marks`.`mark`) AS `avg_mark` from (`student` join `marks`) where (`marks`.`student` = `student`.`id`) group by `student`.`student_name` order by avg(`marks`.`mark`) desc */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
--- Temporary table structure for view `temp2`
+-- Final view structure for view `excellence`
 --
 
-DROP TABLE IF EXISTS `temp2`;
-/*!50001 DROP VIEW IF EXISTS `temp2`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE TABLE `temp2` (
-  `student_name` tinyint NOT NULL,
-  `student_surname` tinyint NOT NULL,
-  `avg(mark)` tinyint NOT NULL
-) ENGINE=MyISAM */;
-SET character_set_client = @saved_cs_client;
+/*!50001 DROP TABLE IF EXISTS `excellence`*/;
+/*!50001 DROP VIEW IF EXISTS `excellence`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `excellence` AS select `avg_marks`.`student_name` AS `student_name`,`avg_marks`.`student_surname` AS `student_surname`,max(`avg_marks`.`avg_mark`) AS `max(avg_mark)` from `avg_marks` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
 -- Final view structure for view `family`
@@ -242,44 +279,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `temp`
---
-
-/*!50001 DROP TABLE IF EXISTS `temp`*/;
-/*!50001 DROP VIEW IF EXISTS `temp`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8 */;
-/*!50001 SET character_set_results     = utf8 */;
-/*!50001 SET collation_connection      = utf8_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `temp` AS select `student`.`student_name` AS `student_name`,`student`.`student_surname` AS `student_surname`,`subjects`.`subject_name` AS `subject_name`,`marks`.`mark` AS `mark` from ((`subjects` join `student`) join `marks`) where ((`marks`.`student` = `student`.`id`) and (`marks`.`subject` = `subjects`.`id`)) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `temp2`
---
-
-/*!50001 DROP TABLE IF EXISTS `temp2`*/;
-/*!50001 DROP VIEW IF EXISTS `temp2`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8 */;
-/*!50001 SET character_set_results     = utf8 */;
-/*!50001 SET collation_connection      = utf8_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `temp2` AS select `student`.`student_name` AS `student_name`,`student`.`student_surname` AS `student_surname`,avg(`marks`.`mark`) AS `avg(mark)` from (`student` join `marks`) where (`marks`.`student` = `student`.`id`) group by `student`.`student_name` */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -290,4 +289,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-05 18:05:11
+-- Dump completed on 2016-04-06  0:16:58

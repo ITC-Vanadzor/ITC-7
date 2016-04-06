@@ -1,0 +1,27 @@
+CREATE DATABASE worker;
+
+CREATE TABLE person(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(20) NOT NULL,
+surname  VARCHAR(20) NOT NULL);
+
+CREATE TABLE level(
+id INT NOT NULL PRIMARY KEY,
+name VARCHAR(20) NOT NULL,
+start_value INT NOT NULL,
+end_value INT NOT NULL);
+
+CREATE TABLE salary(
+person_id INT NOT NULL UNIQUE,
+level_id INT NOT NULL ,
+salary INT NOT NULL,
+FOREIGN KEY(person_id) REFERENCES person(id),
+FOREIGN KEY(level_id) REFERENCES level(id)
+);
+
+
+CREATE TRIGGER update_salary 
+BEFORE INSERT ON salary  
+FOR EACH ROW  SET NEW.level_id=(SELECT id FROM level WHERE NEW.salary>start_value  AND NEW.salary<end_value);
+
+

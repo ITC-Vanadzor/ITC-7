@@ -88,7 +88,7 @@ CREATE TABLE `worker_currency` (
 
 LOCK TABLES `worker_currency` WRITE;
 /*!40000 ALTER TABLE `worker_currency` DISABLE KEYS */;
-INSERT INTO `worker_currency` VALUES (1,2,301),(2,3,10),(3,5,130),(4,4,80),(5,1,90);
+INSERT INTO `worker_currency` VALUES (1,2,80),(2,3,80),(3,5,130),(4,4,20),(5,1,90);
 /*!40000 ALTER TABLE `worker_currency` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -100,7 +100,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER change_currency BEFORE UPDATE ON worker_currency  FOR EACH ROW SET NEW.currency = NEW.currency +1 */;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER testtest AFTER UPDATE ON worker_currency FOR EACH ROW  UPDATE worker_position  SET worker_position.position_id = (SELECT position_id from positions where NEW.currency BETWEEN positions.min_salary AND positions.max_salary) WHERE worker_position.worker_id = NEW.worker_id */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -132,7 +132,7 @@ CREATE TABLE `worker_position` (
 
 LOCK TABLES `worker_position` WRITE;
 /*!40000 ALTER TABLE `worker_position` DISABLE KEYS */;
-INSERT INTO `worker_position` VALUES (1,3,1),(2,1,2),(3,4,2),(4,5,3),(5,2,3);
+INSERT INTO `worker_position` VALUES (1,3,2),(2,1,3),(3,4,1),(4,5,3),(5,2,2);
 /*!40000 ALTER TABLE `worker_position` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -145,4 +145,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-06 22:41:45
+-- Dump completed on 2016-04-07  2:32:21

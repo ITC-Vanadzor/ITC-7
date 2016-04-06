@@ -34,7 +34,7 @@ CREATE TABLE `digit` (
   KEY `subject_id` (`subject_id`),
   CONSTRAINT `digit_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`),
   CONSTRAINT `digit_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `subject` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,6 +43,7 @@ CREATE TABLE `digit` (
 
 LOCK TABLES `digit` WRITE;
 /*!40000 ALTER TABLE `digit` DISABLE KEYS */;
+INSERT INTO `digit` VALUES (1,2,1,5,7,6),(2,1,1,8,6,7);
 /*!40000 ALTER TABLE `digit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,7 +63,7 @@ CREATE TABLE `family` (
   KEY `parent_id` (`parent_id`),
   CONSTRAINT `family_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `parents` (`id`),
   CONSTRAINT `family_ibfk_2` FOREIGN KEY (`parent_id`) REFERENCES `students` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,6 +72,7 @@ CREATE TABLE `family` (
 
 LOCK TABLES `family` WRITE;
 /*!40000 ALTER TABLE `family` DISABLE KEYS */;
+INSERT INTO `family` VALUES (1,2,1),(2,1,1);
 /*!40000 ALTER TABLE `family` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,7 +88,7 @@ CREATE TABLE `parents` (
   `name` varchar(10) DEFAULT NULL,
   `surname` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,6 +97,7 @@ CREATE TABLE `parents` (
 
 LOCK TABLES `parents` WRITE;
 /*!40000 ALTER TABLE `parents` DISABLE KEYS */;
+INSERT INTO `parents` VALUES (1,'roman','saghatelya'),(2,'vazgen','catinyan');
 /*!40000 ALTER TABLE `parents` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,4 +159,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-05 23:13:09
+-- Dump completed on 2016-04-06 12:50:38

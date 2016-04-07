@@ -39,7 +39,7 @@ CREATE TABLE `empolyee_salary` (
 
 LOCK TABLES `empolyee_salary` WRITE;
 /*!40000 ALTER TABLE `empolyee_salary` DISABLE KEYS */;
-INSERT INTO `empolyee_salary` VALUES (1,'roman',80000,1),(2,'hamo',330000,3),(3,'jiro',370000,2),(4,'saqo',350000,1);
+INSERT INTO `empolyee_salary` VALUES (1,'roman',250000,1),(2,'hamo',330000,3),(3,'jiro',370000,3),(4,'saqo',80000,3);
 /*!40000 ALTER TABLE `empolyee_salary` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -51,7 +51,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger update_position after update on empolyee_salary for each row call position_level(350000) */;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER update_position AFTER UPDATE ON empolyee_salary FOR EACH ROW BEGIN IF(NEW.salary <> OLD.salary) THEN CALL position_level(NEW.salary); END IF; END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -81,7 +81,7 @@ CREATE TABLE `position_level` (
 
 LOCK TABLES `position_level` WRITE;
 /*!40000 ALTER TABLE `position_level` DISABLE KEYS */;
-INSERT INTO `position_level` VALUES (1,3,1),(2,2,2),(3,3,3);
+INSERT INTO `position_level` VALUES (1,2,2),(2,2,2),(3,1,1);
 /*!40000 ALTER TABLE `position_level` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,4 +119,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-07 13:20:17
+-- Dump completed on 2016-04-07 22:44:38

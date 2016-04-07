@@ -78,6 +78,37 @@ INSERT INTO `fields` VALUES (1,'name'),(2,'surname'),(3,'birthday'),(4,'img');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `receipt`
+--
+
+DROP TABLE IF EXISTS `receipt`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `receipt` (
+  `r_id` int(11) NOT NULL AUTO_INCREMENT,
+  `market` varchar(50) NOT NULL,
+  `sum` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `comment` text NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `u_id` int(11) NOT NULL,
+  PRIMARY KEY (`r_id`),
+  KEY `u_id` (`u_id`),
+  CONSTRAINT `receipt_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `receipt`
+--
+
+LOCK TABLES `receipt` WRITE;
+/*!40000 ALTER TABLE `receipt` DISABLE KEYS */;
+INSERT INTO `receipt` VALUES (1,'plaza1',1000,'0000-00-00','normal','',1),(2,'plaza1',1000,'2016-04-01','thank','',4),(3,'plaza5',3000,'2016-04-01','ejhan','',2);
+/*!40000 ALTER TABLE `receipt` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Temporary table structure for view `test2`
 --
 
@@ -184,4 +215,4 @@ USE `Users`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-07 11:50:01
+-- Dump completed on 2016-04-07 13:02:20

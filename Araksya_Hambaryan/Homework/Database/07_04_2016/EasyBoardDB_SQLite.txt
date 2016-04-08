@@ -1,0 +1,39 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE users (
+id_users integer NOT NULL PRIMARY KEY autoincrement,
+first_name text NOT NULL,
+last_name text NOT NULL,
+image text NOT NULL);
+CREATE TABLE network (
+id_network integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+service_name text NOT NULL);
+CREATE TABLE services (
+id_services integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+service_name integer NOT NULL,
+user integer NOT NULL,
+id_in_service text NOT NULL,
+FOREIGN KEY (service_name) REFERENCES network(id_network),
+FOREIGN KEY (user) REFERENCES users(id_users));
+CREATE TABLE chats (
+id_chats integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+chat_id text NOT NULL,
+creator_id integer NOT NULL,
+FOREIGN KEY (creator_id) REFERENCES users(id_users));
+CREATE TABLE converstations (
+id_converstations integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+chat_id integer NOT NULL,
+member integer NOT NULL,
+FOREIGN KEY (member) REFERENCES users(id_users),
+FOREIGN KEY (chat_id) REFERENCES chats(id_chats)
+);
+CREATE TABLE messages (
+id_message integer NOT NULL PRIMARY KEY,
+from_user integer NOT NULL,
+to_chat integer NOT NULL,
+text_message blob NOT NULL,
+time text NOT NULL,
+FOREIGN KEY (from_user) REFERENCES users(id_users),
+FOREIGN KEY (to_chat) REFERENCES chats(id_chats)
+);
+COMMIT;

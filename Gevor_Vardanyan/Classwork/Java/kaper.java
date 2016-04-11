@@ -43,7 +43,7 @@ System.out.print(arr[1]);
 System.out.print(arr[2]);
 System.out.print(arr[3]);
 
- Arrays.sort(arr,);
+ Arrays.sort(arr);
 
  System.out.print(arr[0]);
 System.out.print(arr[1]);

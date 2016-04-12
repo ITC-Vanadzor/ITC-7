@@ -1,64 +1,42 @@
 import java.util.*;
-import java.lang.*;
 import java.io.*;
 
-class Kaper
+public class kaprekar
 {
-	public static void main (String[] args) throws java.lang.Exception
-	{
+	public static void main (String[] args) 
+	 throws java.lang.Exception {
 		BufferedReader in = new BufferedReader(
 	    new InputStreamReader(System.in));
 	    
-		System.out.print("Input First Number: ");
-		int first = Integer.parseInt(in.readLine());
-		System.out.println("First: "+first);
+		System.out.print("Input Number  :  ");
+		int num = Integer.parseInt(in.readLine());
 
-		System.out.print("Input Second Number: ");
-		int second = Integer.parseInt(in.readLine());
-		System.out.println("Second: "+second);
+		String temp = Integer.toString(num);
+		List<Integer> digitsBig = new ArrayList<Integer>();		
+		for (int i = 0; i < temp.length(); ++i){
+			digitsBig.add(temp.charAt(i) - '0');
+		}
+		List<Integer> digitsSmall= new ArrayList<Integer>(digitsBig);
 
-		System.out.println(parseAndSort(first));
+		Collections.sort(digitsSmall);
+		Collections.sort(digitsBig,Collections.reverseOrder());
+		int directOrder = parser(digitsBig);
+		int reverseOrder = parser(digitsSmall);
+		System.out.println("Direct Order  :  "+directOrder);
+		System.out.println("Reverse Order :  "+reverseOrder);
+		System.out.println("Result: "+(directOrder-reverseOrder));
+
 
 	}
 
-public static String parseAndSort(int number){
-
-int[] arr=stringToIntArray("8275");
-System.out.print(arr[0]);
-System.out.print(arr[1]);
-System.out.print(arr[2]);
-System.out.print(arr[3]);
-
- Arrays.sort(arr);
- 		System.out.println("");
-		System.out.println("Sort ");
-System.out.print(arr[0]);
-System.out.print(arr[1]);
-System.out.print(arr[2]);
-System.out.print(arr[3]);
-
-
-		return "y/n";
+	public static int parser(List<Integer> x){
+		int len=x.size();
+		int ladder=1;
+		int res=0;
+		for(int i=len-1; i>=0; --i) {
+			res+=ladder*x.get(i);
+			ladder*=10;
+		}
+		return res;
 	}
-
-	public static int[] stringToIntArray(String s){
-		
- 	int[] intArray=new int[s.length()];
-  	int i = 0;
-	int strLength = s.length();
-
-    for(i=0;i<strLength;++i) {
-      if (!Character.isDigit(s.charAt(i))) {
-        System.out.println("Contains an invalid digit");
-        break;
-      }
-      intArray[i] = Integer.parseInt(String.valueOf(s.charAt(i)));
-    }
-    return "";
-  }
- 
-
-
-
-
 }

@@ -42,18 +42,16 @@ int main()
 {
 
  
-   for(int k=0; k<N; ++k){
-      for(int p=0; p<N; ++p){
-   	 Array[k][p]=1;
-        }
-      
-    }
- //  Array[0][0]=1;
- //  Array[1][1]=1;
-  // Array[1][0]=1;
-  // Array[2][3]=1;
- //  Array[3][0]=1;
-  // Array[3][1]=1;
+int i, j;
+ for (i = 0; i < N; ++i)  {
+     for (j = 0; j < N; ++j) {
+         
+        std::cout<<" Array["<<i<<"],["<<j<<"] = ";
+        std::cin>>Array[i][j];
+     }
+     std::cout<<"\n";
+  }
+ 
 
 int quantity=0;     
 

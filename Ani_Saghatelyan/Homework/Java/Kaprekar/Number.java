@@ -1,12 +1,18 @@
 import java.util.ArrayList;
 import java.util.Collections;
-public class Number {
+class Number {
 	private int number;
 	private ArrayList<Integer> array = new ArrayList<Integer>();
 	public Number(int number) {
 		this.number = number;
 		this.toDigits();
 	}
+    public int size()
+    {
+    	return array.size();
+
+    }
+
 	public void toDigits() {
 		int temp = number;
                 while(temp > 0 ) {
@@ -30,19 +36,10 @@ public class Number {
 		}
 		return max;
 	}
-	public String Diff() {
+	public int Diff() {
 		int diff = this.maxNum() - this.minNum();
-		int count = 0;
-		int tmp = diff;
-		while(tmp > 0) {
-			tmp = tmp/10;
-			count++;		
-		}
-		String Kx = "";
-		for(int j=0;j < array.size()-count;++j) {
-			Kx = Kx+"0";	
-		}
-		return Kx+diff;
+		 
+		return diff;
 	}
 }
 

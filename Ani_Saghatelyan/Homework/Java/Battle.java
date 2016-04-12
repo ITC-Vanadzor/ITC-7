@@ -7,47 +7,42 @@ class Battle
  		static  int jmin=0;
  		static  int Area=0;
  		static int N=4;
- 		//public static int[][] a = new int[5][5];
  		public static int[][] Array = new int[N][N];
 
 		static  void Determine( int i, int j)
 		{
        
-          Array[i][j]=2;
-          Area++;
+	          Array[i][j]=2;
+       	          Area++;
           
           
-             if(j<N && Array[i][j+1]==1)
-             {
-                   jmax++;
+		     if(j<N && Array[i][j+1]==1)
+        	     {
+                	   jmax++;
       		 	   Determine(i, j+1);
-              }     
-              if(j>0 && Array[i][j-1]==1)
-              {
-                  jmin--;
-                  Determine(i, j-1); 
-               } 
+              	     }     
+              	    if(j>0 && Array[i][j-1]==1)
+              	    {
+                  	   jmin--;
+                  	   Determine(i, j-1); 
+               	    } 
              
-                if(i<N && Array[i+1][j]==1)
-                {
-                  imax++;
-                  Determine(i+1, j);
-                 }
+                   if(i<N && Array[i+1][j]==1)
+                   {
+                  	imax++;
+                  	Determine(i+1, j);
+                   }
            
-                if(i>0 && Array[i-1][j]==1)
-                {
+                   if(i>0 && Array[i-1][j]==1)
+                   {
                         imin--;
                         Determine(i-1,j);
-                }
+                   }
 				
-        }
-
-	public static void main(String [] args)
+               }
+	public static void enterValue()
 	{
-
- 
-
-        int i, j;
+		int i, j;
  		for (i = 0; i < N; ++i)  
  		{
  			Scanner reader = new Scanner(System.in);
@@ -55,12 +50,18 @@ class Battle
      			{
                  	
 					System.out.print("Array["+i+"],["+j+"] = ");
-        			Array[i][j]= reader.nextInt();
+        				Array[i][j]= reader.nextInt();
      			}
      
   		}
  
-        int quantity=0;     
+
+	}
+
+	public static void main(String [] args)
+	{
+		enterValue();
+	        int quantity=0;     
 		for(int q=0; q<N; ++q)
 		{
         	 for( int t=0; t<N; ++t)
@@ -68,18 +69,15 @@ class Battle
                     if(Array[q][t]!=0)
                     {
                         imax=q;
-		        		imin=t;
+	       		imin=t;
                         Area=0;
                         jmax=t;
-						jmin=t;
+			jmin=t;
                         
                         Determine(q,t);
                         int AreaIJ=(imax-imin+1)*(jmax-jmin+1);
-         		
-   						System.out.print("AREAIJ  " + AreaIJ);
-   						System.out.print("");
-                        System.out.print("Area  " + Area);
-                        System.out.print("");
+         		System.out.println("AREAIJ  " + AreaIJ);
+                        System.out.println("Area  " + Area);
                         if( Area==AreaIJ  )
                         {
                             quantity++;

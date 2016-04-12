@@ -7,6 +7,7 @@ class Kaprekar {
 		Number tiv = new Number(n);
 		System.out.println("Min number is  "+ tiv.minNum());
 		System.out.println("Max number is  " + tiv.maxNum());
-		System.out.println("Kaprekar number is " + tiv.Diff());
+		String format = "%0"+tiv.size()+"%n";
+		System.out.printf(format,  tiv.Diff());
 	}
 }

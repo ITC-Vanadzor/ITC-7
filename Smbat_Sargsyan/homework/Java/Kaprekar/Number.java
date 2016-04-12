@@ -30,19 +30,10 @@ class Number {
 		}
 		return max;
 	}
-	public StringBuffer Diff() {
+	public void Diff() {
 		int diff = this.maxNum() - this.minNum();
-		int count = 0;
-		int tmp = diff;
-		while(tmp > 0) {
-			tmp = tmp/10;
-			count++;		
-		}
-		StringBuffer Kx  = new StringBuffer(array.size());
-		for(int j=0;j < array.size()-count;++j) {
-			Kx.append("0");
-		}
-		return Kx.append(diff);
+		String printFormat = "%0" + array.size() + "d\n";
+ 		System.out.printf(printFormat, diff);
 	}
 }
 

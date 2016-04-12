@@ -12,10 +12,10 @@ class Battle {
 			}
 		} 
 		in.close();
-		System.out.println("Count of sheeps: " + getCount(desk,size));
+		System.out.println("Count of ships: " + getCount(desk,size));
 	}
 	private static int getCount(int[][] desk, int size) {
-		int sheepCount = 0;
+		int shipCount = 0;
 		for(int i = 0; i < size; i++) {
 			for(int j = 0; j < size; j++) {
 				if(desk[i][j] == 1) {
@@ -32,11 +32,11 @@ class Battle {
 							desk[k][c] = 2;
 						}
 					}
-					sheepCount++;
+					shipCount++;
 				}
 			}
 		}
-		return sheepCount;
+		return shipCount;
 	}
 
 

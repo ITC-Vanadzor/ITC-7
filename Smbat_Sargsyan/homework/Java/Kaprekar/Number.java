@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
-public class Number {
+class Number {
 	private int number;
 	private ArrayList<Integer> array = new ArrayList<Integer>();
 	public Number(int number) {
@@ -30,7 +30,7 @@ public class Number {
 		}
 		return max;
 	}
-	public String Diff() {
+	public StringBuffer Diff() {
 		int diff = this.maxNum() - this.minNum();
 		int count = 0;
 		int tmp = diff;
@@ -38,11 +38,11 @@ public class Number {
 			tmp = tmp/10;
 			count++;		
 		}
-		String Kx = "";
+		StringBuffer Kx  = new StringBuffer(array.size());
 		for(int j=0;j < array.size()-count;++j) {
-			Kx = Kx+"0";	
+			Kx.append("0");
 		}
-		return Kx+diff;
+		return Kx.append(diff);
 	}
 }
 

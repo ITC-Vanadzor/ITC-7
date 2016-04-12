@@ -4,9 +4,9 @@ import java.util.Scanner;
 class battle 
 {
 	public static int[][] qartez = {
-		{1, 0, 0, 0},
-		{0, 0, 0, 0},
-		{0, 0, 0, 0},
+		{1, 1, 1, 0},
+		{0, 0, 1, 0},
+		{0, 1, 1, 0},
 		{0, 0, 0, 0}
 	};
 	public static int meker;
@@ -16,14 +16,6 @@ class battle
 
     public static void main(String[] args) 
     {
-    	/*Scanner in= new Scanner(System.in);
- 		  for (int i = 0; i < 4; ++i)  {
- 					 for (int j = 0; j < 4; ++j) {
- 
- 								System.out.println(" qartez["+i+"],["+j+"] = ");
- 								qartez[i][j] = in.nextInt();;
- 					 }
- 		  }*/
     	int naver = 0;
     	for(int i = 0; i < 4; ++i)
     	{
@@ -49,7 +41,7 @@ class battle
     {
     	++meker;
     	qartez[i][j] = 2;
-    	if(qartez[i][j + 1] == 1 && j + 1 < 4)
+    	if(j + 1 < 4 && qartez[i][j + 1] == 1)
     	{
     		if(j >= j_max)
     		{
@@ -57,7 +49,7 @@ class battle
     		}
     		stugum(qartez, i, j + 1);
     	}
-    	if(qartez[i + 1][j] == 1 && i + 1 < 4)
+    	if(i + 1 < 4 && qartez[i + 1][j] == 1)
 		{
 			if(i >= i_max)
 			{
@@ -65,7 +57,7 @@ class battle
 			}
 			stugum(qartez, i + 1, j);
 		}
-		if(qartez[i][j - 1] == 1 && j - 1 >= 0)
+		if(j - 1 >= 0 && qartez[i][j - 1] == 1)
 		{
 			if(j_min <= j)
 			{
@@ -73,7 +65,7 @@ class battle
 			}
 			stugum(qartez, i, j - 1);
 		}
-		if(qartez[i - 1][j] == 1 && i - 1 >= 0)
+		if(i - 1 >= 0 && qartez[i - 1][j] == 1)
 		{
 			stugum(qartez, i - 1, j);
 		}

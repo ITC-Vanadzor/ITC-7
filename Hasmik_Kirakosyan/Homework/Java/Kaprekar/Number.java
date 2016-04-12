@@ -30,19 +30,13 @@ public class Number {
 		}
 		return max;
 	}
-	public String Diff() {
-		int diff = this.maxNum() - this.minNum();
-		int count = 0;
-		int tmp = diff;
-		while(tmp > 0) {
-			tmp = tmp/10;
-			count++;		
-		}
-		String Kx = "";
-		for(int j=0;j < array.size()-count;++j) {
-			Kx = Kx+"0";	
-		}
-		return Kx+diff;
+	
+	public int count() {
+			  return array.size();
+	}
+	public int Diff() {
+		int diff = this.maxNum() - this.minNum();	
+		return diff;
 	}
 }
 

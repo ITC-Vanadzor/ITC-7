@@ -1,18 +1,20 @@
 import java.util.Scanner;
 
 public class Board {
-		  public int[][] a = new int[5][5];
+		  public int[][] a;
 		  private int result = 0;
 		  private int count = 0, bufForCount;
 		  private int area, bufForArea;
 		  private int height, width, top, buttom, left, right ;
 		  private int jmax, imax, imin, jmin;
 
+		  public Board(int sizeOfBoard) {
+					 a = new int[sizeOfBoard][sizeOfBoard];
+		  }
 		  void inputBoardUnits(int n) {
-					 int j;
 					 Scanner in= new Scanner(System.in);
 					 for (int i = 0; i < n; ++i)  {
-								for (j = 0; j < n; ++j) {
+								for (int j = 0; j < n; ++j) {
 										  System.out.print("\n a["+i+"],["+j+"] = ");
 										  a[i][j] = in.nextInt();;
 								}
@@ -21,9 +23,9 @@ public class Board {
 		  private void setAroundUnits (int i, int j) {
 					 //check buttom, top, left, right
 					 top    = (i <= 0)? 0:a[i-1][j];
-					 buttom = (i >= 4)? 0:a[i+1][j];
+					 buttom = (i >= a.length-1)? 0:a[i+1][j];
 					 left    = (j <= 0)? 0:a[i][j-1];
-					 right   = (j >= 4)? 0:a[i][j+1];
+					 right   = (j >= a.length-1)? 0:a[i][j+1];
 		  } 
 
 		  private void setMaxij(int i,int j) {
@@ -41,9 +43,9 @@ public class Board {
 
 		  private void countArea () {
 					 //count area
-					 width = (jmax - jmin)+1;
-					 height= (imax - imin)+1; 
-					 area  = width * height;
+					 width  = (jmax - jmin)+1;
+					 height = (imax - imin)+1; 
+					 area   = width * height;
 
 		  }
 
@@ -89,7 +91,9 @@ public class Board {
 										  area  = 0;
 										  int bufImax = imax;
 										  int bufJmax = jmax;
-										  clearMaxij();	  
+										  clearMaxij();
+									     System.out.println("bufForCount : "+bufForCount);
+									     System.out.println("bufForArea  : "+bufForArea);	  
 										  if (bufForCount == bufForArea) {
 													 result++;                                                                                                              								 return;
 										  }
@@ -102,9 +106,8 @@ public class Board {
 		  }
 
 		  public void checkUnits() {
-					 int j;
-					 for (int i = 0; i < 5; ++i) 
-								for (j = 0; j < 5; ++j) {
+					 for (int i = 0; i < a.length; ++i) 
+								for (int j = 0; j < a.length; ++j) {
 										  if (a[i][j] == 1) {
 													 check (a, i, j);   
 										  }

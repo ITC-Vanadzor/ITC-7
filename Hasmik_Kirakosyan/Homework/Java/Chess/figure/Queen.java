@@ -1,6 +1,7 @@
 /* File name : Queen.java */
-
-public class Queen extends SetCoordinates implements Piece{
+package Chess.figure;
+import 
+public class Queen extends figure implements Piece{
 		public boolean step (String pos1, String pos2) {
 		changeToInts(pos1, pos2);
 		return ( ((i1-i2) != 0 && (j1-j2) == 0)   ||

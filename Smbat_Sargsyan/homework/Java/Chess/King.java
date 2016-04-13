@@ -1,10 +1,8 @@
-package chess.figure;
-
-import chess.Position;
-public class King implements ChessInterface {
+class King extends Figure implements ChessInterface {
         public Position start;
         public Position finish;
-        public boolean step(Position start,Position finish) {
+	public String color;
+        public boolean step(Position start,Position finish,Border chessBorder) {
                         if(((this.start.i == this.finish.i) && (Math.abs(this.start.j - this.finish.j) == 1)) || ((this.start.j == this.finish.j) && (Math.abs(this.start.i - this.finish.i) == 1)) ||((Math.abs(this.start.i - this.finish.i) == Math.abs(this.start.j - this.finish.j) && (Math.abs(this.start.i - this.finish.i) == 1)))) {
                                 return true;
                 }
@@ -14,6 +12,11 @@ public class King implements ChessInterface {
                 this.start = start;
                 this.finish =finish;
         }
+	public King(String color,Position start) {
+                this.start = start;
+		this.color = color;
+        }
+
 
 }
 

@@ -1,6 +1,4 @@
-package chess;
-
-public class Position {
+class Position {
 	public int i;
 	public int j;
 	public Position(int i,int j) {

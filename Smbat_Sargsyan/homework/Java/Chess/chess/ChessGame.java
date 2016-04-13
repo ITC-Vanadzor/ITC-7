@@ -1,3 +1,7 @@
+package chess;
+
+import chess.figure.*;
+
 class ChessGame {
 	public static void main(String [] args) {
 		int l = 2; int h = 2;

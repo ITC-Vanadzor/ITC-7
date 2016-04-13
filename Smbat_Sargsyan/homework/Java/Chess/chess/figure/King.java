@@ -1,4 +1,7 @@
-class King implements ChessInterface {
+package chess.figure;
+
+import chess.Position;
+public class King implements ChessInterface {
         public Position start;
         public Position finish;
         public boolean step(Position start,Position finish) {

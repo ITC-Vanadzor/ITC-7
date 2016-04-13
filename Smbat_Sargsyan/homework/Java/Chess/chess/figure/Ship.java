@@ -1,4 +1,6 @@
-class Ship implements ChessInterface {
+package chess.figure;
+import chess.Position;
+public class Ship implements ChessInterface {
 	public Position start;
 	public Position finish;
 	public boolean step(Position start,Position finish) {

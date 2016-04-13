@@ -1,4 +1,8 @@
-class Horse implements ChessInterface {
+package chess.figure;
+
+import chess.Position;
+
+public class Horse implements ChessInterface {
         public Position start;
         public Position finish;
         public boolean step(Position start,Position finish) {

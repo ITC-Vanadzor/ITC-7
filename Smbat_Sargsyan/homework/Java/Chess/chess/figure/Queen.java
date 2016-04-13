@@ -1,5 +1,7 @@
+package chess.figure;
 import java.lang.Math;
-class Queen implements ChessInterface {
+import chess.Position;
+public class Queen implements ChessInterface {
 	public Position start;
         public Position finish;
         public boolean step(Position start,Position finish) {

@@ -6,10 +6,10 @@ class Kaprekar {
 		Scanner scaner = new Scanner(System.in);
 		number = scaner.nextInt();
 		int temp = number;
-                int length = 0;
-                while(temp != 0){
-                        temp = temp/10;
-                        ++length;
+		int length = 0;
+		while(temp != 0){
+		temp = temp/10;
+		++length;
                 }
 		int[] array = new int[length];
 		array = getArray(number,length);
@@ -38,7 +38,6 @@ class Kaprekar {
 				}
 			}		
 		}	
-	
 	} 
 
 	private static String diffValues(int[] array){

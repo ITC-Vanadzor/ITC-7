@@ -12,7 +12,7 @@ public class kaprekar
 		int num = Integer.parseInt(in.readLine());
 
 		String temp = Integer.toString(num);
-		List<Integer> digitsBig = new ArrayList<Integer>();		
+		ArrayList<Integer> digitsBig = new ArrayList<Integer>();		
 		for (int i = 0; i < temp.length(); ++i){
 			digitsBig.add(temp.charAt(i) - '0');
 		}

@@ -3,7 +3,7 @@ class Field {
 	public int [][] a;
 	public  Field(int N){
 		this.N = N;
-		this.initializacion();
+		initializacion();
 	}
 	public void initializacion(){
                	this.a = new int[this.N][this.N];

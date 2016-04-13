@@ -1,5 +1,6 @@
 /* Filename : ChessSteps */
-
+package Chess;
+import Chess.figure.*;
 
 public class ChessSteps {
 

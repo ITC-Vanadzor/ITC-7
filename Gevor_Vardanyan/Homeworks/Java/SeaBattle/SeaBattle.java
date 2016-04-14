@@ -91,6 +91,5 @@ class SeaBattle{
 			}
 			return true;
 		}
-
 }
 

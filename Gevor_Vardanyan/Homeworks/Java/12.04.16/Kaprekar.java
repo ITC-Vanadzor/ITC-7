@@ -13,6 +13,7 @@ class Kaprekar
 		int first = in.nextInt();
 
 		String temp = Integer.toString(first);
+// Based on Areg's notes the previous version was more correct. My bad :))
 		ArrayList<Integer> digits = new ArrayList<Integer>();		
 		for (int i = 0; i < temp.length(); i++){
 			digits.add(temp.charAt(i) - '0');
@@ -29,6 +30,8 @@ class Kaprekar
 
 
 	}
+//In case if this function should be used as utility it is preferable to declare it in a separate class.
+// However in scope of this task it can be defined as private.
 
 	public static int toInt(ArrayList<Integer> x){
 		int len=x.size();

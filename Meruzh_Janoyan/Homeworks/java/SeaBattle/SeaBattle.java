@@ -10,6 +10,8 @@ class SeaBattle{
 		Scanner in = new Scanner(System.in);
 	    
 		System.out.print("N: ");
+//The function should not be declared the function as public.
+//Also the usage of this is not preferable either. You can see details in "Joshua_Bloch_-_Effective_Java_2nd_Edition" book.
 		this.n =  in.nextInt();
 		
 		System.out.print("M: ");
@@ -65,6 +67,7 @@ class SeaBattle{
 		return counter;
 	}	
 
+// public -> private
 	public  int detect(int n1,int m1,int n2,int m2){
 		
 		if(!miniDetect(n1,m1,n2,m2)) return 0;

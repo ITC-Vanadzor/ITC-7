@@ -63,7 +63,9 @@ class SeaBattle{
 			}
 		}
 		return counter;
-	}	
+	}
+
+// public -> private	
 
 	public  int detect(int n1,int m1,int n2,int m2){
 		

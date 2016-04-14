@@ -3,15 +3,25 @@
 package Chess.figure;
 
 public class figure {
-	protected int posRow, posCol;
-   protected int	i2, j2;
+    protected int posRow;
+    protected int posCol;
+    protected int i2;
+    protected int j2;
+    protected Piece[][] board;
 
-	public figure (String curPos) {
-			  posRow = Character.getNumericValue(curPos.charAt(0)) - 10;
-           posCol = Character.getNumericValue(curPos.charAt(1)) - 1;				
-	}
-	public void changeToInts(String pos2) {
-		i2 = Character.getNumericValue(pos2.charAt(1))-1;	
-		j2 = Character.getNumericValue(pos2.charAt(0))-10;					  			  
-	};
+    public figure (String curPos) {
+        posRow = Character.getNumericValue(curPos.charAt(0)) - 10;
+        posCol = Character.getNumericValue(curPos.charAt(1)) - 1;				
+    }
+    public void changeToInts(String pos2) {
+        i2 = Character.getNumericValue(pos2.charAt(1))-1;	
+        j2 = Character.getNumericValue(pos2.charAt(0))-10;					  			  
+    };
+
+    protected void changePos (int newCol, int newRow) {
+        board[newCol][newRow] = board[posCol][posRow];
+        board[posCol][posRow]=null;
+        posCol = newCol;
+        posRow = newRow;
+    }
 }

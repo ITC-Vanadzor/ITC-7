@@ -7,13 +7,24 @@ class Chess {
 	public static void main(String [] args) {
 		
 		Position pos=new Position();
-		Piece king=new King();
+		Piece queen=new Queen();
+		Piece rook=new Rook();
+		Piece knight=new Knight();
+
+		pos.setPosition('a',1);
+		Board.set(pos,queen);
 
 		pos.setPosition('a',2);
-		Board.set(pos,king);
+		Board.set(pos,rook);
 
-		pos.setPosition('b',1);
-		System.out.println("King step:"+king.step(pos));
+		pos.setPosition('a',3);
+		Board.set(pos,knight);
+
+		knight.setColour(true);
+
+
+		System.out.println("Rook step:"+rook.step(pos));
+		
 
 	}
 }

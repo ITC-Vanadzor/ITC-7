@@ -5,4 +5,7 @@ public interface Piece{
 	boolean step(Position to);
 	int getRow();
 	char getColumn();
+	Position getPosition();
+	void setColour(boolean colour);
+	boolean getColour();
 }

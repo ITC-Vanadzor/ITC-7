@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
-
+//Please keep the coding style mentioned during the lesson battle -> Battle
 public class battle
 {
+// The rules of the incapsulation are not kept
 	public static int[][] qartez = {
 		{0, 1, 1, 0},
 		{0, 1, 1, 0},
@@ -18,6 +19,7 @@ public class battle
     {
         BattleStugum battleStugum = new BattleStugum();
     	int naver = 0;
+// Please provide an opportunity to input the qartez and also avoid the usage of har coded values such as 4 ...
     	for(int i = 0; i < 4; ++i)
     	{
     		for(int j = 0; j < 4; ++j)
@@ -37,4 +39,4 @@ public class battle
     	}
     	System.out.print("naveri qanak@ = " + naver);
     }
-}
+}:

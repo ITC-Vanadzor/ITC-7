@@ -1,5 +1,8 @@
+// BattleStugum should not extend battle , Why ?
+
 public class BattleStugum extends battle
 {
+//The stugum function should be changed. Let's discuss it during the lesson
 	public void stugum(int qartez[][], int i, int j)
     {
     	++meker;

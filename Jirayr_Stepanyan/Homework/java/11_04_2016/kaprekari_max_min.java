@@ -14,6 +14,9 @@ public class Number
 		    }
 		}
 
+// This is an redundant function. The function declared above can return min and max numbers and solve the task.
+// In case if this function cover the case related to the adding '0'. The solution of that case has been discussed during the lesson.
+
 		public void validation(Vector<Integer> n, int m)
 		{
 		    int tmp = m;

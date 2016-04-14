@@ -1,10 +1,10 @@
 import java.util.Vector;
 import java.lang.Math;
 import java.util.Scanner;
-
+// Please keep the coding style mentioned during the lesson
 class kaprekar 
 {
-    
+    // The rules of the incapsulation are not kept
     public static int min = 0;
     public static int max = 0;
     public static void main(String[] args) 

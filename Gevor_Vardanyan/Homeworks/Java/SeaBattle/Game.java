@@ -1,6 +1,5 @@
 //sea battle
 
-
 class Game{
 	public static void main (String[] args){
 		

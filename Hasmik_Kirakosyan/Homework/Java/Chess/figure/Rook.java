@@ -1,31 +1,41 @@
 /* File name : Rook.java */
+
 package Chess.figure;
 
 public class Rook extends figure implements Piece {
 		  private Piece [][] board;
-
-		  public Rook(Piece[][] board1) {
+	
+		  public Rook(Piece[][] board1, String initPos) {
+					 super(initPos);
 					 board = board1;
 		  }
 
-		  public boolean step (String pos1, String pos2) {
-					 changeToInts(pos1, pos2);
-					 if ( ((i1-i2) != 0 && (j1-j2) == 0)  ||
-										  ((j1-j2) != 0 && (i1-i2) == 0) 
+		  public boolean step (String pos2) {
+					 changeToInts(pos2);
+					 if ( ((posCol-i2) != 0 && (posRow-j2) == 0)  ||
+										  ((posRow-j2) != 0 && (posCol-i2) == 0) 
 						 ) {
 								int delta;
-								if ((i1 < i2) || (j1 < j2)) { 
+								if ((posCol < i2) || (posRow < j2)) { 
 										  delta = 1;			
 								}
 								else delta = -1;
-								for (int i = i1, j = 0; i < i2; i+=delta) {
+								for (int i = posCol+delta, j = posRow; i < i2+1; i+=delta) {
 										  if (board[i][j]!=null) return false;
 								}
-								for (int j = j1, i = i1-1; j < j2+1; j+=delta) {
+								for (int j = posRow+delta, i = posCol; j < j2+1; j+=delta) {
 										  if (board[i][j]!=null) return false;
-								} 
+								}
+							   	
+								posRow = j2;
+								posCol = i2;
+								
 								return true;
 						 }
 					 else return false;		
 		  }
+		  public void getPositions() {
+					 System.out.println("Rook position : " +posRow+", "+posCol);
+		  }
+
 }

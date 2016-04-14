@@ -1,5 +1,6 @@
 package Chess.figure;
 
 public interface Piece  {
-	public boolean step (String pos1, String pos2); 
+	public boolean step ( String pos2); 
+	public void getPositions();
 }

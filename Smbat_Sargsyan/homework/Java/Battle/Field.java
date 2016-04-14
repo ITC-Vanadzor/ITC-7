@@ -1,14 +1,14 @@
 class Field {
-	public int N;
-	public int [][] a;
+	public static int N;
+	public static int [][] a;
 	public  Field(int N){
 		this.N = N;
 		initializacion();
 	}
-	public void initializacion(){
-               	this.a = new int[this.N][this.N];
-               	for(int k = 0;k < this.N; k++) {
-                       	for(int f = 0;f < this.N;f++) {
+	public static void initializacion(){
+               	a = new int[N][N];
+               	for(int k = 0;k < N; k++) {
+                       	for(int f = 0;f < N;f++) {
                                	a[k][f] = 0;
                        	}
                	}

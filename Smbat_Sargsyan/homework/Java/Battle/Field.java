@@ -1,4 +1,6 @@
 class Field {
+//The rules of the incapsulation are not kept
+// N->n :)
 	public int N;
 	public int [][] a;
 	public  Field(int N){

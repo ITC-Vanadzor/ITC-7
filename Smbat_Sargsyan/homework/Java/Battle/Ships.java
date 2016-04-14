@@ -30,7 +30,8 @@ class Ships {
                 	j=0;
                 }
 		return count;
-	}
+}
+// The name of the function does not describe its functionality
 		public void print(Field field) {
 			for(int g = 0;g < field.N;g++) {
                         	System.out.println();

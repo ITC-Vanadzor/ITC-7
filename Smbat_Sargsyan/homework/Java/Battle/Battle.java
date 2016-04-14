@@ -8,6 +8,7 @@ class Battle {
 		ship.print(field);
 		
 	}
+// public - > private. It is more preferable to move this function under Field class.
 	public static void makeShips(Field field) {
 		field.a[1][2] = 1;
                 field.a[1][3] = 1;

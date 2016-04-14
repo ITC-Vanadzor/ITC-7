@@ -13,6 +13,8 @@ public class Position{
 	public Position(){
 		this.testRow = new Range(1, 8);
 		this.testColumn=new Range('a','f');
+		this.row=0;
+		this.column=0;
 	}
 
 	public boolean setPosition(char c,int r){
@@ -21,15 +23,17 @@ public class Position{
 			this.column=c;
 			return true;
 		}
-		this.row=1;
-		this.column='a';
+		this.row=0;
+		this.column=0;
 		return false;
 	}
-
 	public int getRow(){ 
 		return this.row;
 	}
 	public char getColumn(){ 
 		return this.column;
+	}
+	public boolean isNull(){
+		return (this.column==0 || this.row==0);
 	}
 }

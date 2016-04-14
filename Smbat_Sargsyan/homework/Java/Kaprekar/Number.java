@@ -7,6 +7,7 @@ public class Number {
 		this.number = number;
 		this.toDigits();
 	}
+// public -> private
 	public void toDigits() {
 		int temp = number;
                 while(temp > 0 ) {
@@ -16,6 +17,7 @@ public class Number {
                 Collections.sort(array);
 
 	}
+// public -> private  There is no requirement to print the min value
 	public int minNum() {
 		int min=0;
 		for(int j=0;j<array.size();++j) {

@@ -26,7 +26,7 @@ class Number {
                 Collections.sort(array);
 
 	}
-
+// public -> private ... There is no requirement to print the min / max value
 	public int minNum() {
 		int min=0;
 		for(int j=0;j<array.size();++j) {

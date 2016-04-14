@@ -10,32 +10,32 @@ public class Knights extends Figure  implements FigureMethods
 	
 	public 	boolean Step(Position start, Position end)
 	{
-		if(Math.abs(start.getNumber1()-end.getNumber1()) == Math.abs(end.getNumber2()-start.getNumber2()))
+		int startRow=start.getNumber1();
+		int startColumn=start.getNumber2();
+		int  endRow=end.getNumber1();
+		int  endColumn=end.getNumber2();
+		if(Math.abs(startRow-endRow) == Math.abs(endColumn-startColumn))
+		{
+			int diffPosNum1= startRow  <  endRow ? 1:-1;
+			int diffPosNum2= startColumn  <  endColumn ? 1:-1;
 
-
-			if(start.getNumber1()>end.getNumber1())
-			{
-				int max = start.getNumber2() > end.getNumber2() ? start.getNumber2() :end.getNumber2();
-				for(int i=max, j=start.getNumber1(); i>=end.getNumber2(); --i, --j)
+				for(int i=startRow+1,   j=startColumn+1; i<endRow; i+=diffPosNum1, j+=diffPosNum2)
 				{
-					if(ChessBoard.getFigure(i,j)==1)
+					if(ChessBoard.getFigure(i,j)!=null)
 					{
 						return false;
 					}	
-				}  	
-			}
-			else if(  start.getNumber1()  <  end.getNumber1())
-			{
-				int max = start.getNumber2() > end.getNumber2() ? start.getNumber1() :end.getNumber1();
-				for(int i=max, j=start.getNumber2(); i>=end.getNumber1(); --i, --j)
+				} 
+				 
+				if(ChessBoard.getFigure(endRow,endColumn)!=null && ChessBoard.getFigure(endRow,endColumn).getColor()==this.getColor() )	
 				{
-					if(ChessBoard.getFigure(i,j)==1)
-					{
-						return false;
-					}	
+					return false; 	
 				}
-			}
-		return true;	
+				return true;
+		}
+			
+		
+		return false;	
 
 	}
 }

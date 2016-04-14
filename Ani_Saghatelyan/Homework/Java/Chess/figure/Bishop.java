@@ -1,5 +1,5 @@
-
 package figure;
+import Chess.*;
 public class Bishop extends Figure  implements FigureMethods
 {
 
@@ -11,10 +11,18 @@ public class Bishop extends Figure  implements FigureMethods
 	
 	public boolean Step(Position start, Position end)
 	{
-		if((Math.abs(start.getNumber2()-end.getNumber2())==1  && Math.abs(start.getNumber1()-end.getNumber1())==2) || ((Math.abs(start.getNumber1()-end.getNumber1())==1  && Math.abs(start.getNumber2()-end.getNumber2())==2)))
+		int startRow=start.getNumber1();
+		int startColumn=start.getNumber2();
+		int  endRow=end.getNumber1();
+		int  endColumn=end.getNumber2();
+		if((Math.abs(startColumn-endColumn)==1  && Math.abs(startRow-endRow)==2) || (Math.abs(startRow-endRow)==1  && Math.abs(startColumn-endColumn)==2))
 		{	
+			 if(ChessBoard.getFigure(endRow,endColumn)!=null && ChessBoard.getFigure(endRow,endColumn).getColor()==this.getColor() )	
+		         {	 
+				return false; 	
+			}
 			return true;
-	 	}
+		}
 		return false;
 	}
 }

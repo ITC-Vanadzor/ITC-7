@@ -2,20 +2,20 @@ package Chess;
 import  figure.*;
 public class  ChessBoard
 {
-	private static  int[][]  board=new int[8][8];
+	public  static  Figure[][]  board=new Figure[8][8];
 	
-	public static  void setFigure(int row, int column)
+	public static  void setFigure( String color,int row, int column )
 	{
-		if(board[row][column]==0)
+		if(board[row][column]==null )
 		{
-			board[row][column]=1;
+			board[row][column]= new Figure(color,row,column);
 		}
 		else
 		{
 			System.out.println("There is a figure in this position");
 		}
 	}
-	public static int getFigure(int pos1, int pos2)
+	public static Figure getFigure(int pos1, int pos2)
 	{
 		return board[pos1][pos2];
 	}
@@ -25,8 +25,16 @@ public class  ChessBoard
 		{	
 			for(int i=0; i<8; ++i)
 			{
-				System.out.print(board[i][j]);
-			}
+				if(board[i][j]==null)
+				{
+					System.out.print(0);
+
+				}
+				else
+				{
+					System.out.print(1);
+				}
+			}	
 			System.out.println("");
 		}
 		

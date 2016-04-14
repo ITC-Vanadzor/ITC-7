@@ -8,35 +8,52 @@ public class Rook extends Figure implements FigureMethods
 		super(color, row, column);
 
 	}
-	
-	public boolean Step(Position start, Position end)
-	{	
-		if(start.getNumber1()==end.getNumber1())
-		{
-			int max = start.getNumber2() > end.getNumber2() ? start.getNumber2() :end.getNumber2();
-			int min = start.getNumber2() < end.getNumber2() ? start.getNumber2() :end.getNumber2();
-			for(int i=min; i<max; ++i)
-			{
-				if(ChessBoard.getFigure(start.getNumber1(),i)==1)
-				{
-					return false;
-				}	
-			}  	
-		}
-		else if(  start.getNumber2()  == end.getNumber2())
-		{
-			int max = start.getNumber1() > end.getNumber1() ? start.getNumber1() :end.getNumber1();
-			int min = start.getNumber1() < end.getNumber1() ? start.getNumber1() :end.getNumber1();
-			for(int i=min; i<max; ++i)
-			{
-				if(ChessBoard.getFigure(start.getNumber2(),i)==1)
-				{
-					return false;
-				}	
-			}
-		}
-		return true;	
+	public Position getPosition()
+	{
+		return super.getPosition();
 	}
 	
+	public boolean Step(Position start, Position end)
+	{
+		
+		int startRow=start.getNumber1();
+		int startColumn=start.getNumber2();
+		int  endRow=end.getNumber1();
+		int  endColumn=end.getNumber2();
+		if(startRow==endRow || startColumn==endColumn)
+		{
+			int diffPos=0;
+			if(startRow==endRow)
+			{
+				diffPos= startColumn  <  endColumn ? 1:-1;
+				for(int i=startColumn+1; i<endColumn; i+=diffPos)
+				{
+					if(ChessBoard.getFigure(startRow,i)!=null)
+					{
+						return false;
+					}	
+				}
+			}
+			else if(startColumn==endColumn)
+			{ 
+				diffPos= startRow  <  endRow ? 1:-1;
+				for(int i=startRow+1; i<endRow; i+=diffPos)
+				{
+					if(ChessBoard.getFigure(i,startColumn)!=null)
+					{
+						return false;
+					}	
+				}
+			}
+
+			if(ChessBoard.getFigure(endRow,endColumn)!=null && ChessBoard.getFigure(endRow,endColumn).getColor()==this.getColor() )			       {
+				return false; 	
+			}
+			return true;
+
+		}
+		
+		return false;
+	}
 	
 }

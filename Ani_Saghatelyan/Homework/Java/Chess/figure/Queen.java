@@ -1,4 +1,5 @@
 package figure;
+import Chess.*;
 public class Queen extends Figure implements FigureMethods
  
 {
@@ -9,11 +10,60 @@ public class Queen extends Figure implements FigureMethods
 	}
 	public 	boolean Step(Position start, Position end)
 	{
-		if(  (Math.abs(start.getNumber1()-end.getNumber1()) == Math.abs(end.getNumber2()-start.getNumber2()))
-			 || (start.getNumber1()==end.getNumber1() || start.getNumber2()  == end.getNumber2()))
+	    int startRow=start.getNumber1();
+	    int startColumn=start.getNumber2();
+            int  endRow=end.getNumber1();
+	    int  endColumn=end.getNumber2();
+	    if((startRow==endRow || startColumn==endColumn) || (Math.abs(startRow-endRow) == Math.abs(endColumn-startColumn)))
+	    {
+		if(startRow==endRow || startColumn==endColumn)
 		{
-			return true;
+			int diffPos=0;
+			if(startRow==endRow)
+			{
+				diffPos= startColumn  <  endColumn ? 1:-1;
+				for(int i=startColumn+1; i<endColumn; i+=diffPos)
+				{
+					if(ChessBoard.getFigure(startRow,i)!=null)
+					{
+						return false;
+					}	
+				}
+			}
+			else if(startColumn==endColumn)
+			{ 
+				diffPos= startRow  <  endRow ? 1:-1;
+				for(int i=startRow+1; i<endRow; i+=diffPos)
+				{
+					if(ChessBoard.getFigure(i,startColumn)!=null)
+					{
+						return false;
+					}	
+				}
+			}
+		 }	
+		 else if(Math.abs(startRow-endRow) == Math.abs(endColumn-startColumn))
+		 {
+			int diffPosNum1= startRow  <  endRow ? 1:-1;
+			int diffPosNum2= startColumn  <  endColumn ? 1:-1;
+
+				for(int i=startRow+1,   j=startColumn+1; i<endRow; i+=diffPosNum1, j+=diffPosNum2)
+				{
+					if(ChessBoard.getFigure(i,j)!=null)
+					{
+						return false;
+					}	
+				}
+		} 
+					 
+		if(ChessBoard.getFigure(endRow,endColumn)!=null && ChessBoard.getFigure(endRow,endColumn).getColor()==this.getColor() )	
+		{
+			return false; 	
 		}
-		return false;
+		return true;
+	}
+		
+	return false;
+	
 	}
 }

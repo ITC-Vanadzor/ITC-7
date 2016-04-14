@@ -6,7 +6,7 @@ public class Elephant extends Board
 				{
 					board[x2][y2] = board[x1][y1];
 					board[x1][y1] = null;
-					System.out.print("the elephant succesfuly moved");
+					System.out.println("the elephant succesfuly moved");
 				} 
 				else 
 				{

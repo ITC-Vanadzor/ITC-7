@@ -7,7 +7,7 @@ public class Chess extends Board
 		Scanner cin = new Scanner(System.in);
 		String figure_name = new String("");
 		int counter = 0;
-		while(counter < 1)
+		while(counter < 3)
 		{
 			boolean name = false;
 			do
@@ -35,10 +35,13 @@ public class Chess extends Board
 			System.out.print("please input the column cordinate of figure  col (1 - 8): ");
 			int column = cin.nextInt();
 			Figure chess_figure = new Figure(figure_name, figure_color);
-			chess_figure.cordinates(row, column);
+			first_cordinates(row, column, chess_figure);
 			++counter;
-			if(counter == 1)
+			if(counter == 3)
 			{
+				int count = 0;
+				while(count < 3)
+				{
 				System.out.print("please input cordinates from (row): ");
 				int from_row = cin.nextInt();
 				System.out.print("please input cordinates from (column): ");
@@ -47,8 +50,9 @@ public class Chess extends Board
 				int to_row = cin.nextInt();
 				System.out.print("please input cordinates to (column): ");
 				int to_column = cin.nextInt();
-				Board steps = new Board();
-				step(from_row, from_column, to_row, to_column);
+				Board_step(from_row, from_column, to_row, to_column);
+				//++count;
+			}
 			}
 		}
 	}

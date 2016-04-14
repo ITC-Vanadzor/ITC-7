@@ -6,11 +6,11 @@ public class Rook extends Board
 				{
 					board[x2][y2] = board[x1][y1];
 					board[x1][y1] = null;
-					System.out.print("the rook succesfuly moved");
+					System.out.println("the rook succesfuly moved");
 				} 
 				else 
 				{
-						System.out.print("the rook can't do that step");
+						System.out.println("the rook can't do that step");
 				}
 		}
 }

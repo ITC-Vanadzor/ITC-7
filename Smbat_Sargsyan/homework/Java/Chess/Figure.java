@@ -1,4 +1,4 @@
-public class Figure {
+public class Figure implements ChessInterface {
     public String color;
     public Position start;
     public Position finish;

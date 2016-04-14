@@ -1,5 +1,5 @@
 import java.lang.Math;
-class Queen extends Figure implements ChessInterface {
+public class Queen extends Figure {
 	public Position start;
         public Position finish;
 	public String color;

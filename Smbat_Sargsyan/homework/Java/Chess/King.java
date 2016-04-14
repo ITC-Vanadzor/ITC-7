@@ -1,4 +1,4 @@
-class King extends Figure implements ChessInterface {
+public class King extends Figure {
         public Position start;
         public Position finish;
 	public String color;

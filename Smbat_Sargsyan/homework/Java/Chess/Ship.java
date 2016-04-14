@@ -1,4 +1,4 @@
-public class Ship extends Figure implements ChessInterface {
+public class Ship extends Figure {
 	public Position start;
 	public String color;
 	public Position finish;

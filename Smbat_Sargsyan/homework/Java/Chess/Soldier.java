@@ -1,4 +1,4 @@
-class Soldier extends Figure implements ChessInterface {
+public class Soldier extends Figure {
         public Position start;
         public Position finish;
 	public String color;

@@ -1,5 +1,6 @@
 class ChessGame {
 	public static void main(String [] args) {
+		System.out.println("OK");
 		Border chessBorder = new Border();
 		Position finish  = new Position(4,7);
 		initializacionWhiteFigures(chessBorder);
@@ -7,7 +8,7 @@ class ChessGame {
 		System.out.println(chessBorder.border[0][0].step(chessBorder.border[0][0].start,finish,chessBorder));
 	}
 	public static void initializacionWhiteFigures(Border chessBorder) {
-		        Figure ship1 = new Ship("white",new Position(0,0));
+		Figure ship1 = new Ship("white",new Position(0,0));
                 chessBorder.border[0][0] = ship1;
                 Figure ship2 = new Ship("white",new Position(0,7));
                 chessBorder.border[0][7] = ship2;

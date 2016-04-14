@@ -5,7 +5,6 @@ public class Border{
     }
     public void setPosition(int i,int j) {
 	this.border[i][j] = border[i][j];	
-	//return this.border[i][j];
     }
     
 }

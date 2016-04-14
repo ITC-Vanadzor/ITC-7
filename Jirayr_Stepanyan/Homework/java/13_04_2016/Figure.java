@@ -1,4 +1,4 @@
-public class Figure extends Board 
+public class Figure
 {
 		public String name;
 		public String color;
@@ -6,5 +6,5 @@ public class Figure extends Board
 		{
 			name = g_name;
 			color = g_color;
-		};
+		}
 }

@@ -7,7 +7,7 @@ public class Chess extends Board
 		Scanner cin = new Scanner(System.in);
 		String figure_name = new String("");
 		int counter = 0;
-		while(counter < 3)
+		while(counter < 2)
 		{
 			boolean name = false;
 			do
@@ -37,23 +37,34 @@ public class Chess extends Board
 			Figure chess_figure = new Figure(figure_name, figure_color);
 			first_cordinates(row, column, chess_figure);
 			++counter;
-			if(counter == 3)
+			if(counter == 2)
 			{
-				int count = 0;
-				while(count < 3)
+				counter = 0;
+				do
 				{
-				System.out.print("please input cordinates from (row): ");
-				int from_row = cin.nextInt();
-				System.out.print("please input cordinates from (column): ");
-				int from_column = cin.nextInt();
-				System.out.print("please input cordinates to (row): ");
-				int to_row = cin.nextInt();
-				System.out.print("please input cordinates to (column): ");
-				int to_column = cin.nextInt();
-				Board_step(from_row, from_column, to_row, to_column);
-				//++count;
-			}
-			}
+					System.out.print("please input cordinates from (row): ");
+					int from_row = cin.nextInt();
+					System.out.print("please input cordinates from (column): ");
+					int from_column = cin.nextInt();
+					System.out.print("please input cordinates to (row): ");
+					int to_row = cin.nextInt();
+					System.out.print("please input cordinates to (column): ");
+					int to_column = cin.nextInt();
+					Board_step(from_row, from_column, to_row, to_column);
+					for(int i = 1; i < 9; ++i)
+					{
+						for(int j = 1; j < 9; ++j)
+						{
+							if(board[i][j] != null)
+							{
+								++counter;
+							}
+						}
+					}
+				}while(counter > 1);
+				System.out.println("the gave is over, there is only one figure on board");	
+				counter = 3;
+			}	
 		}
 	}
 }

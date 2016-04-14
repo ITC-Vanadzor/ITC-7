@@ -5,5 +5,5 @@ public class Figure {
     public boolean step(Position start,Position finish,Border chessBorder) {
 	return true;
     }
-	
+    
 }

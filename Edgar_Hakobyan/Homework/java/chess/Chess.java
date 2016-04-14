@@ -27,16 +27,28 @@ public class Chess {
 		Pawn pawnBlack = new Pawn("black");
         board.setFigure(pawnBlack,new Position(1,2));
 		
+//        Bishop bishopWhite = new Bishop("white");
+  //      board.setFigure(bishopBlack,new Position(4,1));    
+    
 //		board.setFigure(e_b,new Position(3,3));
 //		System.out.println(board.board[3][3]);
 //		System.out.println(board.board[0][3]);
 //		System.out.println(board.board[3][3]);
 		//Elephant e = new Elephant();
-		System.out.println(bishopBlack.step(new Position(3,5), new Position(5,5), board));
-		System.out.println(rookBlack.step(new Position(1,1), new Position(5,5), board));
-		System.out.println(kingBlack.step(new Position(5,2), new Position(6,3), board));
-		System.out.println(queenBlack.step(new Position(6,6), new Position(8,8), board));
-		System.out.println(knightBlack.step(new Position(5,3), new Position(7,4), board));
-		System.out.println(pawnBlack.step(new Position(1,2), new Position(1,3), board));
+        board.getFigure(new Position(3,5));
+
+		System.out.println(bishopBlack.step(new Position(3,5), new Position(5,7), board));
+        if(bishopBlack.step(new Position(3,5), new Position(5,7), board)) {
+            board.moveFigure(bishopBlack,new Position(3,5), new Position(5,7));
+        }
+//		System.out.println(rookBlack.step(new Position(1,1), new Position(5,5), board));
+//		System.out.println(kingBlack.step(new Position(5,2), new Position(6,3), board));
+//		System.out.println(queenBlack.step(new Position(6,6), new Position(8,8), board));
+//		System.out.println(knightBlack.step(new Position(5,3), new Position(7,4), board));
+//		System.out.println(pawnBlack.step(new Position(1,2), new Position(1,3), board));
+        board.getFigure(new Position(5,7));
+        board.getFigure(new Position(3,5));
+//        board.getFigure(new Position(6,6));
+//        board.getFigure(new Position(4,1));
 	}
 }

@@ -3,37 +3,37 @@ public class SeaFight {
 	boolean [][] cell;
 	public SeaFight(int N) {
 	    this.N = N;
-	    this.initialization();
+	    initialization();
 	}
 	public void initialization() {
-	    this.cell = new boolean[this.N][this.N];
-	    for (int i = 0; i < this.N; ++i) {
-		for (int j = 0; j < this.N; ++j) {
-		    this.cell[i][j] = false;
-		}
+	    cell = new boolean[N][N];
+	    for (int i = 0; i < N; ++i) {
+		    for (int j = 0; j < N; ++j) {
+		        cell[i][j] = false;
+		    }
 	    }
 	}
 	public int countBattle () {
 	    int count = 0;
-	    if (this.cell[0][0]) {
+	    if (cell[0][0]) {
 		++count;
-	    }
+	}
 	    int i=0;
 	    int j=1;
-	    while (i < this.N) {
-		while (j < this.N) {
-		    if (this.cell[i][j]) {
-			boolean leftOk = true;
-			boolean upOk = true;
-			if ((j != 0) &&  (this.cell[i][j-1])) {
-			    leftOk = false;
-			}
-			if ((i != 0) && (this.cell[i-1][j])) {
-			    upOk=false;
-			}
-			if (leftOk && upOk) {
-			    ++count; 
-			}
+	    while (i < N) {
+		while (j < N) {
+		    if (cell[i][j]) {
+			    boolean leftOk = true;
+			    boolean upOk = true;
+			    if ((j != 0) &&  (cell[i][j-1])) {
+			        leftOk = false;
+			    }
+			    if ((i != 0) && (cell[i-1][j])) {
+			        upOk=false;
+			    }
+			    if (leftOk && upOk) {
+			        ++count; 
+			    }
 
 		    }
 		    ++j;

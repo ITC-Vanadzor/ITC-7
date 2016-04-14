@@ -1,10 +1,11 @@
 public class Border{
-    public Figure [][] border;        
+    public static Figure [][] border;        
     public Border() {
-	this.border = new Figure[8][8];    
+	border = new Figure[8][8];    
     }
-    public void setPosition(int i,int j) {
-	this.border[i][j] = border[i][j];	
+    public static void setPosition(Position start,Figure figure) {
+	border[start.i][start.j] = figure;	
     }
+    
     
 }

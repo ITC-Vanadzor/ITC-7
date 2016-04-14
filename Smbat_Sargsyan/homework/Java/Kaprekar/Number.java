@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
-class Number {
+public class Number {
 	private int number;
 	private ArrayList<Integer> array = new ArrayList<Integer>();
 	public Number(int number) {

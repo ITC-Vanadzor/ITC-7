@@ -2,10 +2,10 @@ class Battle {
 	public static void main(String [] args){
 		int vandak = 10;
 		Field field = new Field(vandak);
-		makeShips(field);	
+		makeShips();	
 		Ships ship = new Ships();
-		System.out.println("count of boats is  " + ship.countShips(field));
-		ship.print(field);
+		System.out.println("count of boats is  " + ship.countShips());
+		ship.print();
 		
 	}
 // public - > private. It is more preferable to move this function under Field class.

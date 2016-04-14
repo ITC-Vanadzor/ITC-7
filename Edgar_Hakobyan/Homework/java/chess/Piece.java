@@ -2,6 +2,6 @@ package chess;
 
 public interface Piece {
 //	boolean location(Position start);
-	String color = "white";
+	String getColor();
     boolean step(Position start, Position finish,Board board);
 }

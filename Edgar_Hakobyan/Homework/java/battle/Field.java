@@ -1,26 +1,30 @@
 import java.util.Scanner;
 
 public class Field {
-	public int n;
-	public int[][] array;
-	public Field(int n) {
-		this.n = n;
-		this.initialization();
+    private int n;
+    public int[][] array;
+    public Field(int size) {
+	n = size;
+	initialization();
+    }
+    public void initialization() {
+	Scanner in = new Scanner(System.in);
+	array = new int[n][n];
+	for(int i=0; i < n; ++i) {
+	    for(int j=0; j < n; ++j) {
+		System.out.print("array["+i+"]["+j+"]=");
+		array[i][j] = in.nextInt();
+	    }
 	}
-	public void initialization() {
-		Scanner in = new Scanner(System.in);
-		this.array = new int[this.n][this.n];
-		for(int i=0; i<this.n; ++i) {
-            for(int j=0; j<this.n; ++j) {
-                System.out.print("array["+i+"]["+j+"]=");
-                this.array[i][j] = in.nextInt();
-            }
-        }
-		for(int i=0; i<n; ++i) {
-            for(int j=0; j<n; ++j) {
-                System.out.print(array[i][j]);
-            }
-            System.out.println();
-        }
+	for(int i=0; i<n; ++i) {
+	    for(int j=0; j<n; ++j) {
+		System.out.print(array[i][j]);
+	    }
+	    System.out.println();
 	}
+    }
+
+    public int getSize() {
+	return n;
+    }
 }

@@ -7,7 +7,7 @@ class Battle {
 		System.out.println("enter size of field");
 		n = in.nextInt();
 		Field field = new Field(n);
-		Ships ships = new Ships();
-		System.out.println(ships.countShips(field));
+		Ships ships = new Ships(field);
+		System.out.println(ships.countShips());
 	}
 }

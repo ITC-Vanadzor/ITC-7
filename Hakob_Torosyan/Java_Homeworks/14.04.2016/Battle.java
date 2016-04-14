@@ -52,6 +52,4 @@ class Battle {
 		}
 		return shipCount;
 	}
-
-
 }

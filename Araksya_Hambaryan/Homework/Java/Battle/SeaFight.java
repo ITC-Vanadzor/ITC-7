@@ -5,6 +5,8 @@ public class SeaFight {
 	    this.N = N;
 	    initialization();
 	}
+
+//public -> private
 	public void initialization() {
 	    cell = new boolean[N][N];
 	    for (int i = 0; i < N; ++i) {

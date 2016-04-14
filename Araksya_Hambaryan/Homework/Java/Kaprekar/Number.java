@@ -8,6 +8,7 @@ public class Number {
 	    this.number = number;
 	    toDigits();
     }
+// public ->private ...
     public void toDigits() {
 	    int temp = number;
 	    while(temp > 0 ) {
@@ -17,6 +18,7 @@ public class Number {
 	    Collections.sort(array);
 
     }
+// private
     public int minNum() {
 	    int min=0;
 	    for(int j=0;j<array.size();++j) {
@@ -24,6 +26,7 @@ public class Number {
 	    }
 	    return min;
     }
+// private
     public int maxNum() {
 	    int max = 0;
 	    for(int j=array.size()-1;j>=0;--j) {

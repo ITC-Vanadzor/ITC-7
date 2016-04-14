@@ -7,6 +7,7 @@ class Field {
 		this.N = N;
 		initializacion();
 	}
+// public -> private
 	public static void initializacion(){
                	a = new int[N][N];
                	for(int k = 0;k < N; k++) {

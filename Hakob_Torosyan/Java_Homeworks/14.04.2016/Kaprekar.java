@@ -32,6 +32,9 @@ class Kaprekar {
 			temp/=10;
 			count++;
 		}
+// This is wrong approach to declare std String the reasons have been discussed during the lesson.
+// Please read about String, String Buffer, String Builder
+// The solution to print formatted number (regarding adding of 0) has been discussed during the lesson as well.
 		String str = "";
 		for(int i = 1; i <= (array.length - count); i++){
 			str += "0";

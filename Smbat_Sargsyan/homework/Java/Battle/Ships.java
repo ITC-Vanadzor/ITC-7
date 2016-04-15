@@ -9,8 +9,8 @@ class Ships {
                	}
                	int i = 0;
                 int j = 1;
-                while(i < Field.N){
-                        while(j < Field.N){
+                while(i < Field.n){
+                        while(j < Field.n){
                                	if(Field.a[i][j]==1) {
                                  	boolean LeftOk = true;
                                        	boolean UpOk = true;
@@ -31,11 +31,10 @@ class Ships {
                 }
 		return count;
 }
-// The name of the function does not describe its functionality
-		public void print(Field field) {
-			for(int g = 0;g < field.N;g++) {
+		public void printSeaBattleFields(Field field) {
+			for(int g = 0;g < field.n;g++) {
                         	System.out.println();
-                        	for(int l = 0;l < Field.N;l++) {
+                        	for(int l = 0;l < field.n;l++) {
                                 	System.out.print(Field.a[g][l]+ " ");
                        		}
                		}

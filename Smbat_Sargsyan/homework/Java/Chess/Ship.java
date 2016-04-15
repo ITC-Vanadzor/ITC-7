@@ -1,12 +1,12 @@
-public class Ship extends Figure {
-	public boolean step(Position finish) {
+public class Ship extends Figure implements ChessInterface {
+	public boolean isStepValid(Position finish) {
 		int maxI = Math.max(this.start.i,finish.i);
 		int minI = Math.min(this.start.i,finish.i);
 		int maxJ = Math.max(this.start.j,finish.j);
 		int minJ = Math.min(this.start.j,finish.j);
 
 	
-		if(Border.border[finish.i][finish.j] != null && this.color == Border.border[finish.i][finish.j].color) {
+		if(Border.getFigure(finish.i,finish.j) != null && this.color == Border.getFigure(finish.i,finish.j).color) {
 			return false;
 		}
 		
@@ -16,7 +16,7 @@ public class Ship extends Figure {
 		}
 		if(this.start.i == finish.i ) {
 			for(int k=minJ;k<maxJ;k++) {
-				if(Border.border[this.start.i][k] != null && this.color == Border.border[this.start.i][k].color) {
+				if(Border.getFigure(this.start.i,k) != null) {
 					return false;
 				}
 				
@@ -24,7 +24,7 @@ public class Ship extends Figure {
 		}
 	    if(this.start.j == finish.j) {
 			for(int k=minI;k<maxI;k++) {
-				if(Border.border[k][this.start.j] != null && this.color == Border.border[k][this.start.j].color) {
+				if(Border.getFigure(k,this.start.j) != null) {
 					return false;
 				}
 				

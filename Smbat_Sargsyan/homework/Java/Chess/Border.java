@@ -1,10 +1,13 @@
 public class Border{
-	public static Figure [][] border;        
+	private static Figure [][] border;        
 	public Border() {
 		border = new Figure[8][8];    
 	}
 	public static void setPosition(Position start,Figure figure) {
 		border[start.i][start.j] = figure;	
+	}
+	public static Figure getFigure(int x,int y) {
+		return border[x][y];
 	}
 	public static char getColor(Position x) {
 		if(Border.border[x.i][x.j] != null) {

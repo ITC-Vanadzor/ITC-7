@@ -1,7 +1,8 @@
-public class Figure implements ChessInterface {
-    public char color;
-    public Position start;
-    public boolean step(Position finish) {
+public class Figure {
+    protected char color;
+    protected Position start;
+    protected boolean isStepValid(Position finish) {
 	return true;
     }
+   
 }

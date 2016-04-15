@@ -2,14 +2,14 @@ class ChessGame {
 	public static void main(String [] args) {
 		Border board = new Border();
 		Position finish  = new Position(7,0);
-		initializacionWhiteFigures();
-		initializacionBlackFigures();
-		System.out.println(Border.border[1][5].step(finish));
-		System.out.println(Border.border[0][1].step(finish));
-		System.out.println(Border.border[0][0].step(finish));
+		initializationWhiteFigures();
+		initializationBlackFigures();
+		System.out.println(Border.getFigure(1,5).isStepValid(finish));
+		System.out.println(Border.getFigure(0,1).isStepValid(finish));
+		System.out.println(Border.getFigure(0,0).isStepValid(finish));
 		board.printBoard();
 	}
-	public static void initializacionWhiteFigures() {
+	public static void initializationWhiteFigures() {
 		Position pos1 = new Position(0,0);
 		Figure ship1 = new Ship('W',pos1);
 		Border.setPosition(pos1,ship1);
@@ -61,7 +61,7 @@ class ChessGame {
 
 	}
 	
-	public static void initializacionBlackFigures() {
+	public static void initializationBlackFigures() {
 		Position pos17 = new Position(5,3);
                 Figure ship1B = new Ship('B',pos17);
                 Border.setPosition(pos17,ship1B);

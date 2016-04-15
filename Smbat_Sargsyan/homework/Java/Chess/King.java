@@ -1,6 +1,6 @@
-public class King extends Figure {
-        public boolean step(Position finish) {
-		if(Border.border[finish.i][finish.j] != null && this.color == Border.border[finish.i][finish.j].color) {
+public class King extends Figure implements ChessInterface{
+        public boolean isStepValid(Position finish) {
+		if(Border.getFigure(finish.i,finish.j) != null && this.color == Border.getFigure(finish.i,finish.j).color) {
 			return false;
 		}
                         if(((this.start.i == finish.i) && (Math.abs(this.start.j - finish.j) == 1)) || ((this.start.j == finish.j) && (Math.abs(this.start.i - finish.i) == 1)) ||((Math.abs(this.start.i - finish.i) == Math.abs(this.start.j - finish.j) && (Math.abs(this.start.i - finish.i) == 1)))) {

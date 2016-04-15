@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 import java.util.Collections;
-class Number {
+public class Number {
 	private int number;
 	private ArrayList<Integer> array = new ArrayList<Integer>();
 	public Number(int number) {
 		this.number = number;
 		this.toDigits();
 	}
+// public -> private
 	public void toDigits() {
 		int temp = number;
                 while(temp > 0 ) {
@@ -16,6 +17,7 @@ class Number {
                 Collections.sort(array);
 
 	}
+// public -> private  There is no requirement to print the min value
 	public int minNum() {
 		int min=0;
 		for(int j=0;j<array.size();++j) {

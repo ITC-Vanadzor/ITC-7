@@ -5,8 +5,10 @@ public class Number {
 	private ArrayList<Integer> array = new ArrayList<Integer>();
 	public Number(int number) {
 		this.number = number;
+// The usage of this is not preferable either. You can see details in "Joshua_Bloch_-_Effective_Java_2nd_Edition" book.
 		this.toDigits();
 	}
+//public ->private
 	public void toDigits() {
 		int temp = number;
                 while(temp > 0 ) {
@@ -16,6 +18,7 @@ public class Number {
                 Collections.sort(array);
 
 	}
+//public ->private There is no requirement to print the min / max value
 	public int minNum() {
 		int min=0;
 		for(int j=0;j<array.size();++j) {
@@ -23,6 +26,7 @@ public class Number {
 		}
 		return min;
 	}
+//public ->private
 	public int maxNum() {
 		int max = 0;
 		for(int j=array.size()-1;j>=0;--j) {
@@ -31,6 +35,7 @@ public class Number {
 		return max;
 	}
 	
+//public ->private
 	public int count() {
 			  return array.size();
 	}

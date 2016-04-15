@@ -16,11 +16,13 @@ class Battle {
 	}
 	private static int getCount(int[][] desk, int size) {
 		int shipCount = 0;
+		boolean isShip = true;
 		for(int i = 0; i < size; i++) {
 			for(int j = 0; j < size; j++) {
 				if(desk[i][j] == 1) {
 					int x = i; 
 					int y = j;
+					isShip = true;
 					while(y < size && desk[i][y] == 1) {
 						y++;
 					}
@@ -29,10 +31,20 @@ class Battle {
 					}
 					for(int k = i; k <= x-1; k++) {
 						for(int c = j; c <= y-1; c++) {
-							desk[k][c] = 2;
+							if(desk[k][c] == 1) {
+								desk[k][c] = 2;
+							}else{
+							 	isShip = false;
+								break;		
+							}
 						}
+						if(!isShip) {
+							break;
+						}	
 					}
-					shipCount++;
+					if(isShip) {
+						shipCount++;
+					}
 				}
 			}
 		}

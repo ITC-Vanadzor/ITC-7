@@ -19,9 +19,7 @@ public class Board {
     }
 
     public void moveFigure(Piece figure, Position start, Position finish) {
-//        if(board[finish.x][finish.y] == null) {
-            board[finish.x][finish.y] = figure;
-            board[start.x][start.y] = null;
-//        } else {
+        board[finish.x][finish.y] = figure;
+        board[start.x][start.y] = null;
     }       
 }

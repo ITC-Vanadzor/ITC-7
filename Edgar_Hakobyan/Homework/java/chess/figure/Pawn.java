@@ -5,27 +5,43 @@ import chess.Piece;
 import chess.Position;
 
 public class Pawn implements Piece {
-		public String color;
-		public Pawn(String color) {
-				this.color = color;
-		}
+    private String color;
+    public Pawn(String c) {
+        color = c;
+    }
 
-		public boolean step(Position start, Position finish, Board board) {
-				if( start.x == finish.x && start.y > 1 && start.y < 8 ) {
-						switch (Math.abs(finish.y-start.y)) {
-								case 1: 
-										return true;
-								case 2:
-										if( start.y == 2 || start.y == 7) {
-												return true;
-										} else {
-												return false;
-										}
-								default:
-										return false;
-						}
-				} else {
-						return false;
-				}
-		}
+    public boolean step(Position start, Position finish, Board board) {
+        if( start.y != 0 && start.y != 7 && (start.x == finish.x || finish.y-start.y == 1) ) {
+            if( start.x == finish.x ) {
+                if( finish.y-start.y == 2 || finish.y-start.y == 1 ) {
+                    if( finish.y-start.y == 2 ) {
+                        if( start.y != 1 || start.y != 6 ) {
+                            return false;
+                        }
+                    }
+                } else {
+                    return false;
+                }
+            } else {
+                if(board.board[finish.x][finish.y] == null) {
+                    return false;
+                }
+            }
+            if(board.board[finish.x][finish.y] != null) {
+                if(board.board[finish.x][finish.y].getColor() == color) {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return true;
+            } 
+        } else {
+            return false;
+        }
+    }
+
+    public String getColor() {
+        return color;
+    }
 }

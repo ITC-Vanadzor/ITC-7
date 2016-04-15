@@ -1,11 +1,13 @@
 /* File name : Queen.java */
 package Chess.figure;
+import Chess.board.*;
 
 public class Queen extends figure implements Piece{
 
-    public Queen(Piece[][] board1, String initPos) {
-        super(initPos);
-        board = board1;
+    public Queen(Board board1, String initPos, String color1) {
+        super(initPos, board1);
+        color = color1;
+        mark = 'Q';
     }
 
     public boolean step (String pos2) {
@@ -37,8 +39,11 @@ public class Queen extends figure implements Piece{
             for (int i = posCol+deltaCol, j = posRow+deltaRow; i != i2 && j != j2; i+=deltaCol, j+=deltaRow) {
                 if (board[i][j] != null) return false;
             }
-            changePos(i2, j2);
-            return true;				
+            if (board[i2][j2].color != color) {
+                changePos(i2, j2);
+                return true;
+            }
+            else return false;            
         }
         else return false;		 
     }

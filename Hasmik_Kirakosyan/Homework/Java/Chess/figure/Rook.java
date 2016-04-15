@@ -1,12 +1,13 @@
 /* File name : Rook.java */
 
 package Chess.figure;
-
+import  Chess.board.*;
 public class Rook extends figure implements Piece {
 
-    public Rook(Piece[][] board1, String initPos) {
-        super(initPos);
-        board = board1;
+    public Rook(Board board1, String initPos, String color1) {
+        super(initPos, board1);
+        color = color1;
+        mark = 'R';
     }
 
     public boolean step (String pos2) {
@@ -25,8 +26,11 @@ public class Rook extends figure implements Piece {
             for (int j = posRow+delta, i = posCol; j < j2+1; j+=delta) {
                 if (board[i][j]!=null) return false;
             }
-            changePos(i2, j2);
-            return true;
+            if (board[i2][j2].color != color) {
+                changePos(i2, j2);
+                return true;
+            }
+            else return false;
            }
         else return false;		
     }

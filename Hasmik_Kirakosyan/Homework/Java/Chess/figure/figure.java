@@ -1,27 +1,42 @@
 /* File name : SetCoordinates */
 
 package Chess.figure;
+import Chess.board.*;
 
 public class figure {
     protected int posRow;
     protected int posCol;
     protected int i2;
     protected int j2;
-    protected Piece[][] board;
+    protected char mark;
+    protected figure[][] board;
+    protected String color;
 
-    public figure (String curPos) {
+    public figure (String curPos, Board board1) {
         posRow = Character.getNumericValue(curPos.charAt(0)) - 10;
-        posCol = Character.getNumericValue(curPos.charAt(1)) - 1;				
+        posCol = Character.getNumericValue(curPos.charAt(1)) - 1;
+        board = board1.getBoard();        
     }
     public void changeToInts(String pos2) {
         i2 = Character.getNumericValue(pos2.charAt(1))-1;	
         j2 = Character.getNumericValue(pos2.charAt(0))-10;					  			  
     };
-
+    
     protected void changePos (int newCol, int newRow) {
         board[newCol][newRow] = board[posCol][posRow];
         board[posCol][posRow]=null;
         posCol = newCol;
         posRow = newRow;
+    }
+
+    public int getRow() {
+        return posRow;
+    }
+
+    public int getCol() {
+        return posCol;
+    }
+    public char getMark() {
+        return mark;
     }
 }

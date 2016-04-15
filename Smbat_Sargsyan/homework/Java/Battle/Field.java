@@ -1,6 +1,4 @@
 class Field {
-//The rules of the incapsulation are not kept
-// n->n :)
 	private int n;
 	private static int [][] a;
 	public  Field(int n,Ship ship){
@@ -25,5 +23,11 @@ class Field {
                 field.a[5][4] = 1;
                 field.a[5][5] = 1;
         }
+	public static int getFieldsCount() {
+		return this.n;
+	}
+	public static int[][] getBoard(int i,int j) {
+		return this.a[i][j];
+	}
 
 }

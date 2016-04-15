@@ -8,8 +8,7 @@ public class Field {
         n = size;
         initialization();
     }
-// public -> private
-    public void initialization() {
+    private void initialization() {
         Scanner in = new Scanner(System.in);
         array = new int[n][n];
         for(int i=0; i < n; ++i) {
@@ -25,7 +24,6 @@ public class Field {
             System.out.println();
         }
     }
-//public -> private
     public int getSize() {
         return n;
     }

@@ -1,25 +1,17 @@
 import java.util.Scanner;
 public class Determination
 { 
-		private  int imax;
- 		private  int imin;
- 		private  int jmax;
- 		private int jmin;
- 		private  int Area;
- 		final private  int n=4;
- 		private int[][] Array = new int[n][n];
+		private  int imax=0;	
+ 		private  int imin=0;
+ 		private  int jmax=0;
+ 		private  int jmin=0;
+ 		private  int area=0;
+ 	    protected int n;
+	    protected int[][] array;
 		
-		public Determination()
+		public void setArea(int newArea)
 		{
-			imax=0;
-			imin=0;
-			jmin=0;
-			jmax=0;
-			Area=0;
-		}
-		public void setArea(int area)
-		{
-			Area=area;
+			area=newArea;
 		}
 		public  void setImax(int newImax)
 		{
@@ -39,15 +31,12 @@ public class Determination
 		}
 		public int getArray(int a,int b)
 		{
-			return Array[a][b];
+			return array[a][b];
 		}
-		public int  getN()
-		{
-			return n;
-		}
+		
 		public int getArea()
 		{
-			return Area;
+			return area;
 		}
 		public int getImin()
 		{
@@ -65,49 +54,69 @@ public class Determination
 		{
 			return jmax;
 		}
-		public void Determine( int i, int j)
-		 {
+
+		public void Determine()
+		{
+			int quantity=0; 
+			for(int q=0; q<n; ++q)
+			{
+	        	 for( int t=0; t<n; ++t)
+	        	{
+	                    if(getArray(q,t)!=0)
+	                    {
+	                        setImax(q);
+		       		        setImin(t);
+	                        setArea(0);
+	                        setJmax(t);
+				            setJmin(t);
+	                        
+	                        CheckShip(q,t);
+	                        int areaIJ=(getImax()-getImin()+1)*(getJmax()-getJmin()+1);
+	         				System.out.println("AREAIJ  " + areaIJ);
+	                        System.out.println("Area  " + getArea());
+	                        if( getArea()==areaIJ  )
+	                        {
+	                            quantity++;
+	                        }
+	                    }
+	                  
+	            }         
+	        }
+   		}
+		private void CheckShip( int i, int j)
+		{
        
-	         	 Array[i][j]=2;
-       	          	 Area++;
+
+	        array[i][j]=2;
+       	    area++;
           
           
-		    if(j<n && Array[i][j+1]==1)
-        	    {
+		    if(j<n-1 && array[i][j+1]==1)
+        	       {
                 	   jmax++;
-      		 	   Determine(i, j+1);
+      		 	       CheckShip(i, j+1);
               	    }     
-              	    if(j>0 && Array[i][j-1]==1)
+              	    if(j>0 && array[i][j-1]==1)
               	    {
                   	   jmin--;
-                  	   Determine(i, j-1); 
+                  	   CheckShip(i, j-1); 
                	    } 
              
-                    if(i<n && Array[i+1][j]==1)
+                    if(i<n-1 && array[i+1][j]==1)
                     {
-                  	imax++;
-                  	Determine(i+1, j);
+                  	    imax++;
+                  	    CheckShip(i+1, j);
                     } 
            
-                   if(i>0 && Array[i-1][j]==1)
+                   if(i>0 && array[i-1][j]==1)
                    {
                         imin--;
-                        Determine(i-1,j);
+                        CheckShip(i-1,j);
                    }
 				
-                } 
-	 	public void enterValue()
-	        {
-			int i, j;
- 			for (i = 0; i < n; ++i)  
- 			{
- 				Scanner reader = new Scanner(System.in);
-     				for (j = 0; j < n; ++j) 
-     				{
-                 			System.out.print("Array["+i+"],["+j+"] = ");
-        				Array[i][j]= reader.nextInt();
-     				}
-     			}
- 		}	
+        }
+
+     
+	
 
 }

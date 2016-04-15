@@ -11,13 +11,13 @@ public class Pawn extends King{
 			return false;
 		}
 
-		int tmpRow=super.position.getRow()-to.getRow();
-		int tmpColumn=super.position.getColumn()-to.getColumn();		
+		int tmpRow=this.position.getRow()-to.getRow();
+		int tmpColumn=this.position.getColumn()-to.getColumn();		
 		int delta=Math.abs(tmpRow)-Math.abs(tmpColumn);
 
 		boolean flag=((tmpColumn==0 && Board.isEmpty(to)) || (delta==0 && tmpColumn==1 && 
 									 !Board.isEmpty(to) && 
-									  Board.getColour(to)!=super.getColour() ));
+									  Board.getColour(to)!=this.getColour() ));
 
 		return flag;
 	}

@@ -11,13 +11,13 @@ public class Rook extends King{
 			return false;
 		}
 
-		int tmpRow=super.position.getRow()-to.getRow();
-		int tmpColumn=super.position.getColumn()-to.getColumn();		
+		int tmpRow=this.position.getRow()-to.getRow();
+		int tmpColumn=this.position.getColumn()-to.getColumn();		
 
 		boolean flag=(tmpRow==0 || tmpColumn==0);
 
 		if(!Board.isEmpty(to)){
-			return flag && (Board.getColour(to)!=super.getColour());
+			return flag && (Board.getColour(to)!=this.getColour());
 		}
 		return flag;
 	}

@@ -1,11 +1,12 @@
 class ChessGame {
 	public static void main(String [] args) {
 		Border board = new Border();
-		Position finish  = new Position(0,1);
+		Position finish  = new Position(7,0);
 		initializacionWhiteFigures();
 		initializacionBlackFigures();
-		System.out.println(Border.border[0][0].step(Border.border[0][0].start,finish));
-		System.out.println(Border.border[0][1].step(Border.border[0][1].start,finish));
+		System.out.println(Border.border[1][5].step(finish));
+		System.out.println(Border.border[0][1].step(finish));
+		System.out.println(Border.border[0][0].step(finish));
 		board.printBoard();
 	}
 	public static void initializacionWhiteFigures() {
@@ -30,8 +31,8 @@ class ChessGame {
 		Position pos7 = new Position(1,1);
                 Figure king = new King('W',pos7);
                 Border.setPosition(pos7,king);
-		Position pos8 = new Position(5,5);
-                Figure queen = new Queen('W',pos8);
+		Position pos8 = new Position(2,5);
+                Figure queen = new Queen('B',pos8);
                 Border.setPosition(pos8,queen);
 		Position pos9 = new Position(3,7);
                 Figure soldier1 = new Soldier('W',pos9);
@@ -45,11 +46,11 @@ class ChessGame {
 		Position pos12 = new Position(3,3);
                 Figure soldier4 = new Soldier('W',pos12);
                 Border.setPosition(pos12,soldier4);
-		Position pos13 = new Position(2,5);
+		Position pos13 = new Position(1,5);
                 Figure soldier5 = new Soldier('W',pos13);
                 Border.setPosition(pos13,soldier5);
 		Position pos14 = new Position(1,3);
-                Figure soldier6 = new Soldier('W',pos14);
+                Figure soldier6 = new Soldier('B',pos14);
                 Border.setPosition(pos14,soldier6);
 		Position pos15 = new Position(6,2);
 		Figure soldier7 = new Soldier('W',pos15);
@@ -64,7 +65,7 @@ class ChessGame {
 		Position pos17 = new Position(5,3);
                 Figure ship1B = new Ship('B',pos17);
                 Border.setPosition(pos17,ship1B);
-		Position pos18 = new Position(4,6);
+		Position pos18 = new Position(3,5);
                 Figure ship2B = new Ship('B',pos18);
                 Border.setPosition(pos18,ship2B);
 		Position pos19 = new Position(2,2);

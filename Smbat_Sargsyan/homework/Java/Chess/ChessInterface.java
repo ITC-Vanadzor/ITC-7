@@ -1,3 +1,3 @@
 public interface ChessInterface {
-	public boolean step(Position start,Position finish);
+	public boolean step(Position finish);
 }

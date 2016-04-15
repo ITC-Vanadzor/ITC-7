@@ -1,5 +1,13 @@
 public class King extends Figure implements ChessInterface{
         public boolean isStepValid(Position finish) {
+		if(isEmpty(finish.i,finish.j) && !this.isTheSameColor(finish.i,finish.j)) {
+                        return false;
+                }
+                
+                if(this.isTheSamePosition(finish)) {
+                        return false;   
+                }
+
 		if(Border.getFigure(finish.i,finish.j) != null && this.color == Border.getFigure(finish.i,finish.j).color) {
 			return false;
 		}

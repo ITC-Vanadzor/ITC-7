@@ -1,4 +1,4 @@
-class Ships {
+public class Ships {
 	private int count;
 	public Ships() {
 		this.count = 0;	

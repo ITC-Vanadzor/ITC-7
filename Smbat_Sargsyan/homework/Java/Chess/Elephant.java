@@ -1,18 +1,11 @@
 public class Elephant extends Figure {
-        public Position start;
-        public Position finish;
-	public String color;
         public boolean step(Position start,Position finish) {
-                        if((Math.abs(this.start.i - this.finish.i) == Math.abs(this.start.j - this.finish.j))) {
+                        if((Math.abs(this.start.i - finish.i) == Math.abs(this.start.j - finish.j))) {
                                 return true;
                 }
                 else return false;
         }
-        public Elephant(Position start,Position finish) {
-                this.start = start;
-                this.finish =finish;
-        }
-	public Elephant(String color,Position start) {
+	public Elephant(char color,Position start) {
                 this.start = start;
 		this.color = color;
         }

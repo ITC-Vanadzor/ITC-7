@@ -1,23 +1,30 @@
 public class Ship extends Figure {
-	public Position start;
-	public String color;
-	public Position finish;
 	public boolean step(Position start,Position finish) {
+		int maxI = Math.max(this.start.i,finish.i);
+		int minI = Math.min(this.start.i,finish.i);
+		int maxJ = Math.max(this.start.j,finish.j);
+		int minJ = Math.min(this.start.j,finish.j);
+
+	
+		if(this.color == Border.border[finish.i][finish.j].color) {
+			return false;
+		}
+		
 		
 		if((this.start.i != finish.i) && (this.start.j != finish.j)) {
 			return false;
 		}
-		if(this.start.i == finish.i) {
-			for(int k=this.start.j;k<=finish.j;k++) {
-				if(Border.border[this.start.i][k] != null && this.color == Border.border[this.start.i][k].color ) {
+		if(this.start.i == finish.i ) {
+			for(int k=minJ;k<maxJ;k++) {
+				if(Border.border[this.start.i][k+1] != null && this.color == Border.getColor(finish)) {
 					return false;
 				}
 				
 			}		
 		}
-	    if(this.start.j == finish.j) {
-			for(int k=this.start.i;k<=finish.i;k++) {
-				if((Border.border[k][this.start.j] != null) && (this.color == Border.border[k][this.start.j].color )) {
+	    if(this.start.j == finish.j && this.color == Border.getColor(finish)) {
+			for(int k=minI;k<maxI;k++) {
+				if(Border.border[k][this.start.j] != null) {
 					return false;
 				}
 				
@@ -25,14 +32,9 @@ public class Ship extends Figure {
 		}
 	return true;
 	}
-	public Ship(Position start,Position finish) {
-		this.start = start;
-		this.finish =finish;
-	}
-	
-	public Ship(String color,Position start) {
-		this.start = start;
+	public Ship(char color,Position start) {
 		this.color = color;
+		this.start = start;
 	}
 	
 }

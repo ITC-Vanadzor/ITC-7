@@ -1,20 +1,14 @@
 import java.lang.Math;
 public class Queen extends Figure {
-	public Position start;
-        public Position finish;
-	public String color;
         public boolean step(Position start,Position finish) {
-                        if((this.start.i == this.finish.i) || (this.start.j == this.finish.j) || (Math.abs(this.start.i - this.finish.i) == Math.abs(this.start.j - this.finish.j))) {
+                        if((this.start.i == finish.i) || (this.start.j == finish.j) || (Math.abs(this.start.i - finish.i) == Math.abs(this.start.j - finish.j))) {
 				return true;
                 }
                 else return false;
         }
-        public Queen(Position start,Position finish) {
+	public Queen(char color,Position start) {
                 this.start = start;
-                this.finish =finish;
-        }
-	public Queen(String color,Position start) {
-                this.start = start;
+		this.color = color;
         }
 
 	

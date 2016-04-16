@@ -13,14 +13,10 @@ public class King extends Figure implements Piece {
         int j2 = finishPosition.col;
         int i2 = finishPosition.row;
         
-        if (Cell.equalsCells(this.startPosition, finishPosition)) {
+        if (!checkPosition(finishPosition)) {
             return false;
         } 
-        if (Board.getFigure(finishPosition) != null && Board.getFigure(finishPosition).color == this.color) {
-	        return false;
-	    } else {
-	        return ((Math.abs(i1-i2)==1 && j2==j1) || (Math.abs(j1-j2)==1 && i2==i1) || (Math.abs(i1-i2)==1 && Math.abs(i1-i2)==1) ); 
-	    }
+	    return ((Math.abs(i1-i2)==1 && j2==j1) || (Math.abs(j1-j2)==1 && i2==i1) || (Math.abs(i1-i2)==1 && Math.abs(j1-j2)==1) ); 
     }
 
 }

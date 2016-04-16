@@ -16,6 +16,8 @@ public class Chess {
 	String positionForBlackRook = reader.next().toUpperCase();
 	System.out.print("Enter White Bishop position ");
 	String positionForWhiteBishop = reader.next().toUpperCase();
+	System.out.print("Enter White Knight position ");
+	String positionForWhiteKnight = reader.next().toUpperCase();
 	System.out.print("Enter Black Pawn position ");
 	String positionForBlackPawn = reader.next().toUpperCase();
 	System.out.print("Enter White Queen position ");
@@ -24,6 +26,7 @@ public class Chess {
 	Cell startWhiteKing = new Cell(positionForWhiteKing);
 	Cell startBlackRook = new Cell(positionForBlackRook);
 	Cell startWhiteBishop = new Cell(positionForWhiteBishop);
+	Cell startWhiteKnight = new Cell(positionForWhiteKnight);
 	Cell startBlackPawn = new Cell(positionForBlackPawn);
 	Cell startWhiteQueen = new Cell(positionForWhiteQueen);
 
@@ -32,6 +35,7 @@ public class Chess {
 	King whiteKing = new King(startWhiteKing, 'W');
 	Rook blackRook = new Rook(startBlackRook, 'B');
 	Bishop whiteBishop = new Bishop(startWhiteBishop, 'W');
+	Knight whiteKnight = new Knight(startWhiteKnight, 'W');
 	Pawn blackPawn = new Pawn(startBlackPawn, 'B');
 	Queen whiteQueen = new Queen(startWhiteQueen, 'W');
 	
@@ -47,6 +51,7 @@ public class Chess {
 	System.out.println("The figure White King --" + whiteKing.step(finish));
 	System.out.println("The figure Black Rook --" + blackRook.step(finish));
 	System.out.println("The figure White Bishop --" + whiteBishop.step(finish));
+	System.out.println("The figure White Knight --" + whiteKnight.step(finish));
 	System.out.println("The figure Black Pawn --" + blackPawn.step(finish));
 	System.out.println("The figure White Queen --" + whiteQueen.step(finish));
     }

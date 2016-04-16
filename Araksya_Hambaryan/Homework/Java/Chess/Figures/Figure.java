@@ -27,7 +27,17 @@ public class Figure {
         return startPosition.col;
     }
 
-    // Stugum e Figure stexcelu vandak@ datark e te che
+    protected boolean checkPosition (Cell finishPosition) {
+        if (Cell.equalsCells(startPosition, finishPosition)) {
+            return false;
+        }  
+        
+        if (Board.getFigure(finishPosition) != null && Board.getFigure(finishPosition).color == color) {
+            return false;
+        }
+        return true;
+    }
+    
     private void cellIsEmpaty(Cell startPosition) {
         if (Board.getFigure(startPosition) != null) {
             System.out.println("Duplicate position!! Please try again");

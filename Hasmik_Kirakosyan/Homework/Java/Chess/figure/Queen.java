@@ -10,7 +10,7 @@ public class Queen extends figure implements Piece{
         mark = 'Q';
     }
 
-    public boolean step (String pos2) {
+    public void step (String pos2) {
         changeToInts(pos2);		
 
         // queen as rook 
@@ -22,33 +22,34 @@ public class Queen extends figure implements Piece{
                 delta = 1;			
             }
             else delta = -1;
-            for (int i = posCol+delta, j = posRow; i < i2+1; i+=delta) {
-                if (board[i][j]!=null) return false;
+            for (int i = posRow+delta, j = posCol; i < i2+1; i+=delta) {
+                if (board[i][j] != null) return;
             }
-            for (int j = posRow+delta, i = posCol; j < j2+1; j+=delta) {
-                if (board[i][j]!=null) return false;
+            for (int j = posCol+delta, i = posRow; j < j2+1; j+=delta) {
+                if (board[i][j] != null) return;
             }
-            changePos(i2, j2);
-            return true;
-           }
-
+            if (board[j2][i2]== null) { 
+                changePos(i2, j2);
+            }
+            else if (board[j2][i2].color != color) {
+                changePos(i2, j2);
+            }
+        }
         // queen as elephant
+
         if (Math.abs(posCol-i2) == Math.abs(posRow-j2) ) {
             int deltaRow = (posRow > j2)? -1: 1;
             int deltaCol = (posCol > i2)? -1: 1;
-            for (int i = posCol+deltaCol, j = posRow+deltaRow; i != i2 && j != j2; i+=deltaCol, j+=deltaRow) {
-                if (board[i][j] != null) return false;
+            for (int i = posCol+deltaRow, j = posRow+deltaRow; i != i2 && j != j2; i+=deltaCol, j+=deltaRow) {
+                if (board[i][j] != null) return;
             }
-            if (board[i2][j2].color != color) {
-                changePos(i2, j2);
-                return true;
+            if (board[j2][i2] == null){
+               changePos(i2, j2);
             }
-            else return false;            
+            else if(board[j2][i2].color!=color) {
+            changePos(i2, j2);
+            }
         }
-        else return false;		 
+        return;		 
     }
-    public void getPositions() {
-        System.out.println("Queen position : " + posRow+", "+ posCol);
-    }
-
 }

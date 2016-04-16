@@ -23,10 +23,10 @@ public class figure {
     };
     
     protected void changePos (int newCol, int newRow) {
-        board[newCol][newRow] = board[posCol][posRow];
-        board[posCol][posRow]=null;
-        posCol = newCol;
-        posRow = newRow;
+        board[j2][i2] = this;
+        board[posRow][posCol] = null;
+        posCol = i2;
+        posRow = j2;
     }
 
     public int getRow() {

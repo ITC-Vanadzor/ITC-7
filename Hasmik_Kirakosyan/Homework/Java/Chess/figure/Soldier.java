@@ -12,22 +12,16 @@ public class Soldier extends figure implements Piece {
         mark = 'S';
     }
 
-    public boolean step (String pos2) {
+    public void step (String pos2) {
         changeToInts(pos2);		
-        if  (((i2-posCol) == 1 || (i2-posCol) == 2) && (posRow-j2) == 0 /*&& board[i2][j2].color!=color*/) { 
-            System.out.println(i2);
-            System.out.println(j2);
-            //changePos(i2, j2);
-            board[i2][j2] = board[posCol][posRow];
-            board[posCol][posRow]=null;
-            posCol = i2;
-            posRow = j2;
-            return true;
+        if  (((i2-posCol) == 1 || (i2-posCol) == 2) && (posRow-j2) == 0) {
+            if (board[j2][i2] == null) {
+                changePos(i2, j2);
+            }
+            else if (board[j2][i2].color != color) {
+                changePos(i2, j2);
+            }
         }
-        else return false;  
-    }
-
-    public void getPositions() {
-        System.out.println("Soldier position : " +posRow+", "+posCol);
+        return;  
     }
 }

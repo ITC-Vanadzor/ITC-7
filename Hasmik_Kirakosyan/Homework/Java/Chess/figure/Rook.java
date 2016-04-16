@@ -10,7 +10,7 @@ public class Rook extends figure implements Piece {
         mark = 'R';
     }
 
-    public boolean step (String pos2) {
+    public void step (String pos2) {
         changeToInts(pos2);
         if ( ((posCol-i2) != 0 && (posRow-j2) == 0)  ||
                 ((posRow-j2) != 0 && (posCol-i2) == 0) 
@@ -20,22 +20,20 @@ public class Rook extends figure implements Piece {
                 delta = 1;			
             }
             else delta = -1;
-            for (int i = posCol+delta, j = posRow; i < i2+1; i+=delta) {
-                if (board[i][j]!=null) return false;
+            for (int i = posRow+delta, j = posCol; i < i2+1; i+=delta) {
+                if (board[i][j] != null) return;
             }
-            for (int j = posRow+delta, i = posCol; j < j2+1; j+=delta) {
-                if (board[i][j]!=null) return false;
+            for (int j = posCol+delta, i = posRow; j < j2+1; j+=delta) {
+                if (board[i][j] != null) return;
             }
-            if (board[i2][j2].color != color) {
+            if (board[j2][i2]== null) { 
                 changePos(i2, j2);
-                return true;
             }
-            else return false;
-           }
-        else return false;		
-    }
-    public void getPositions() {
-        System.out.println("Rook position : " +posRow+", "+posCol);
+            else if (board[j2][i2].color != color) {
+                changePos(i2, j2);
+            }
+        }
+        return;		
     }
 
 }

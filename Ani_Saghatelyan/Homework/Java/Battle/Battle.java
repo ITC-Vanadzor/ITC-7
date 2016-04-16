@@ -6,12 +6,22 @@ public class Battle
         
         int sizeOfBoard=0;
 
-        Scanner in = new Scanner(System.in);
-        System.out.println("enter size of field");
-        sizeOfBoard = in.nextInt();
+        do
+        {
+        	Scanner in = new Scanner(System.in);
+        	System.out.println("enter size of field");
+        	sizeOfBoard = in.nextInt();
+        	if(sizeOfBoard<0)
+                          {
+
+                            System.out.println("Enter size of board more than 0");
+                          }
+
+        }while(sizeOfBoard<=0);
 
         Board myBoard=new Board(sizeOfBoard);
-	    myBoard.Determine();     
+        Determination determineShips=new Determination(myBoard, sizeOfBoard);
+        System.out.println("There is " + determineShips.Determine()+"ships");     
       
     }
 }

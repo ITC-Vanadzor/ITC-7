@@ -2,7 +2,7 @@ package Chess;
 import  figure.*;
 public class  ChessBoard
 {
-	public  static  Figure[][]  board=new Figure[8][8];
+	private  static  Figure[][]  board=new Figure[8][8];
 	
 	public static  void setFigure( String color,int row, int column )
 	{

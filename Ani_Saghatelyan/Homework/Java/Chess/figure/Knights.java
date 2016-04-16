@@ -2,10 +2,16 @@ package figure;
 import Chess.*;
 public class Knights extends Figure  implements FigureMethods 
 {	
+	String color;
+	int row;
+	int column;
 	public Knights(String color, int row, int column)
+	
 	{
 	    	super(color, row, column);
-
+		this.row=row;
+		this.column=column;
+		this.color=color;
 	}
 	
 	public 	boolean Step(Position start, Position end)
@@ -31,6 +37,11 @@ public class Knights extends Figure  implements FigureMethods
 				{
 					return false; 	
 				}
+				
+				
+				ChessBoard.setFigure(color,endRow,endColumn);
+				System.out.println("figure changed his position from ["+row+","+column+"] to ["+endRow+","+endColumn+"]");
+				ChessBoard.resetFigure(row,column);
 				return true;
 		}
 			

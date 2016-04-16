@@ -3,9 +3,16 @@ import Chess.*;
 public class Rook extends Figure implements FigureMethods
 
 {
+	private String color;
+	private int row;
+	private int column;
+
 	public Rook(String color, int row, int column)
 	{
 		super(color, row, column);
+		this.color=color;
+		this.column=column;
+		this.row=row;
 
 	}
 	public Position getPosition()
@@ -49,6 +56,9 @@ public class Rook extends Figure implements FigureMethods
 			if(ChessBoard.getFigure(endRow,endColumn)!=null && ChessBoard.getFigure(endRow,endColumn).getColor()==this.getColor() )			       {
 				return false; 	
 			}
+			ChessBoard.setFigure(color,row,column);
+			System.out.println("figure changed his position from ["+row+","+column+"] to ["+endRow+","+endColumn+"]");
+			ChessBoard.resetFigure(row,column);
 			return true;
 
 		}

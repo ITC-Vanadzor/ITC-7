@@ -3,10 +3,17 @@ import Chess.*;
 public class Bishop extends Figure  implements FigureMethods
 {
 
+	private	String color;
+	private	int row;
+	private	int column;
+	
 	public Bishop(String color, int row, int column)
 	{
 		super(color, row, column);
-
+		this.color=color;
+		this.row=row;
+		this.column=column;
+	
 	}
 	
 	public boolean Step(Position start, Position end)
@@ -21,6 +28,10 @@ public class Bishop extends Figure  implements FigureMethods
 		         {	 
 				return false; 	
 			}
+			
+			ChessBoard.setFigure(color,endRow,endColumn);
+			System.out.println("figure changed his position from ["+row+","+column+"] to ["+endRow+","+ endColumn+"]");
+			ChessBoard.resetFigure(row,column);
 			return true;
 		}
 		return false;

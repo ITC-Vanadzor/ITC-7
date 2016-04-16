@@ -15,6 +15,11 @@ public class  ChessBoard
 			System.out.println("There is a figure in this position");
 		}
 	}
+	public static void resetFigure(int pos1, int pos2)
+	{
+	
+		board[pos1][pos2]=null;
+	}
 	public static Figure getFigure(int pos1, int pos2)
 	{
 		return board[pos1][pos2];
@@ -27,12 +32,12 @@ public class  ChessBoard
 			{
 				if(board[i][j]==null)
 				{
-					System.out.print(0);
+					System.out.print(" _ ");
 
 				}
 				else
 				{
-					System.out.print(1);
+					System.out.print("  "+1);
 				}
 			}	
 			System.out.println("");

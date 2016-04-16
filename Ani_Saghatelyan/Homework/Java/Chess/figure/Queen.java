@@ -3,9 +3,17 @@ import Chess.*;
 public class Queen extends Figure implements FigureMethods
  
 {
+	
+       private String color;
+       private	int row;
+       private 	int column;
+	
 	public Queen(String color, int row, int column)
 	{
-		super(color, row, column);
+	    	super(color, row, column);
+		this.color=color;
+		this.row=row;
+		this.column=column;
 
 	}
 	public 	boolean Step(Position start, Position end)
@@ -60,6 +68,9 @@ public class Queen extends Figure implements FigureMethods
 		{
 			return false; 	
 		}
+		ChessBoard.resetFigure(endRow,endColumn);
+		System.out.println("figure changed his position from ["+row+","+column+"] to ["+endRow+","+endColumn+"]");
+		ChessBoard.setFigure(color,row,column);
 		return true;
 	}
 		

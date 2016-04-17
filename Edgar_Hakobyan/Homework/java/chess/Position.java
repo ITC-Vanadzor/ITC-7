@@ -1,10 +1,19 @@
 package chess;
 
 public class Position {
-    public int x;
-    public int y;
-    Position(int x, int y) {
-        this.x = x;
-        this.y = y;
+    private char x;
+    private int y;
+    
+    public Position(char x1, int y1) {
+        x = x1;
+        y = y1;
+    }
+    
+    public char posX() {
+        return x;
+    }
+
+    public int posY() {
+        return y;
     }
 }

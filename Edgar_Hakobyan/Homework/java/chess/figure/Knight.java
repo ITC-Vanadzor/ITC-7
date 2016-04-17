@@ -4,23 +4,17 @@ import chess.Board;
 import chess.Piece;
 import chess.Position;
 
-public class Knight implements Piece {
-    private String color;
+public class Knight extends Figure implements Piece {
 
-    public Knight(String c) {
+    public Knight(Board board1,String c) {
+        super(board1);
         color = c;
     }
 
-    public boolean step(Position start, Position finish, Board board) {
-        if( ( Math.abs(start.x-finish.x) + Math.abs(start.y-finish.y) ) == 3 ) {
-            if( board.board[finish.x][finish.y] != null ) {
-                System.out.println(board.board[finish.x][finish.y].getColor());
-                System.out.println(color);
-                if(board.board[finish.x][finish.y].getColor() == color) {
+    public boolean step(Position start, Position finish) {
+        if( ( Math.abs(posStartX-posFinishX) + Math.abs(posStartY-posFinishY) ) == 3 ) {
+            if( board[posFinishX][posFinishY] != null && isSameColor(posFinishX,posFinishY) ) {
                     return false;
-                } else {
-                    return true;
-                }
             } else {
                 return true;
             }
@@ -29,7 +23,4 @@ public class Knight implements Piece {
         }
     }
 
-    public String getColor() {
-        return color;
-    }
 }

@@ -1,7 +1,13 @@
 public class Border{
-	private static Figure [][] border;        
-	public Border() {
-		border = new Figure[ConstantMembers.CHESS_BORDER][ConstantMembers.CHESS_BORDER];    
+	private static Figure [][] border;      
+	private static Border chessBorder;  
+	private Border() {}
+	public static Border getBorder() {
+		if(Border.chessBorder == null) {
+			Border.chessBorder = new Border();
+			border = new Figure[ConstantMembers.CHESS_BORDER][ConstantMembers.CHESS_BORDER];
+		}
+		return Border.chessBorder;
 	}
 	public static void setPosition(Position start,Figure figure) {
 		border[start.i][start.j] = figure;	
@@ -15,7 +21,7 @@ public class Border{
 		}
 		return 'X';
 	}
-	public void printBoard() {
+	public static void printBoard() {
 		System.out.println(" A B C D E F G H");
 		StringBuffer output = new StringBuffer("");
 		for (int i = 0; i < ConstantMembers.CHESS_BORDER; ++i) {

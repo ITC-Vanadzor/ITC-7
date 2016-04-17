@@ -4,10 +4,6 @@ public class King extends Figure implements ChessInterface{
                         return false;
                 }
                 
-                if(this.isTheSamePosition(finish)) {
-                        return false;   
-                }
-
 		if(Border.getFigure(finish.i,finish.j) != null && this.color == Border.getFigure(finish.i,finish.j).color) {
 			return false;
 		}

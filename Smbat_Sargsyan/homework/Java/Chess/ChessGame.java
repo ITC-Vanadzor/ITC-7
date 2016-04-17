@@ -1,13 +1,13 @@
 public class ChessGame {
 	public static void main(String [] args) {
-		Border board = new Border();
+		Border.getBorder();
 		Position finish  = new Position(2,2);
 		initializationWhiteFigures();
 		initializationBlackFigures();
 		System.out.println(Border.getFigure(1,5).isStepValid(finish));
 		System.out.println(Border.getFigure(0,1).isStepValid(finish));
 		System.out.println(Border.getFigure(0,0).isStepValid(finish));
-		board.printBoard();
+		Border.printBoard();
 	}
 	private static void initializationWhiteFigures() {
 		Position pos1 = new Position(0,0);

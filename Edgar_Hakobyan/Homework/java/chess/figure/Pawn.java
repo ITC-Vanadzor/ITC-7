@@ -4,44 +4,43 @@ import chess.Board;
 import chess.Piece;
 import chess.Position;
 
-public class Pawn implements Piece {
-    private String color;
-    public Pawn(String c) {
+public class Pawn extends Figure implements Piece {
+
+    public Pawn(Board board1,String c) {
+        super(board1);
         color = c;
     }
 
-    public boolean step(Position start, Position finish, Board board) {
-        if( start.y != 0 && start.y != 7 && (start.x == finish.x || finish.y-start.y == 1) ) {
-            if( start.x == finish.x ) {
-                if( finish.y-start.y == 2 || finish.y-start.y == 1 ) {
-                    if( finish.y-start.y == 2 ) {
-                        if( start.y != 1 || start.y != 6 ) {
+    public boolean step(Position start, Position finish) {
+        if( posStartY != 0 && posStartY != 7 && (posStartX == posFinishX || posFinishY-posStartY == 1) ) {
+            if( posStartX == posFinishX ) {
+                if( posFinishY-posStartY == 2 || posFinishY-posStartY == 1 ) {
+                    if( posFinishY-posStartY == 2 ) {
+                        if( posStartY != 1 || posStartY != 6 ) {
                             return false;
                         }
                     }
                 } else {
                     return false;
                 }
-            } else {
-                if(board.board[finish.x][finish.y] == null) {
+                if(board[posFinishX][posFinishY] == null) {
+                    return true;
+                } else {
                     return false;
                 }
-            }
-            if(board.board[finish.x][finish.y] != null) {
-                if(board.board[finish.x][finish.y].getColor() == color) {
+            } else {
+                if(board[posFinishX][posFinishY] == null) {
+                    return false;
+                }
+                if( board[posFinishX][posFinishY] != null && isSameColor(posFinishX,posFinishY) ) {
                     return false;
                 } else {
                     return true;
                 }
-            } else {
-                return true;
-            } 
+            }
         } else {
             return false;
         }
     }
 
-    public String getColor() {
-        return color;
-    }
 }

@@ -7,8 +7,7 @@ public class  Xword
 		System.out.println("Enter a  word: ");
 		String  word = reader.nextLine(); 
 		Board board=new Board(word.toUpperCase());
-	
-		board.fillBoard();
+		board.fillBoard();	
 		board.printBoard();
 	}
 }

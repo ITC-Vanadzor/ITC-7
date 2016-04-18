@@ -8,25 +8,21 @@ public class  Board
 		this.word=word;
 		size=word.length();
 		board=new char[size][size];
-		fill();
-	}
-	private  void fill()
-	{
-		for(int i=0; i<size; ++i)
-		{
-			for(int j=0; j<size; ++j)
-			{
-				board[i][j]=' ';
-			}
-		}
 	}
 	
 	public void  fillBoard()
 	{
-		for(int  i=0, j=size-1;  i<=j; ++i,  --j)
+		for(int  i=0;  i<size; ++i)
 		{
-			board[i][i]= board[j][i]=word.charAt(i);
-			board[j][j]=board[i][j]=word.charAt(size-1-i);
+			for(int j=0; j<size; ++j )
+				if(i==j || j==size-(i+1))
+				{
+					board[i][j]=word.charAt(i);
+				}
+				else	
+				{
+					board[i][j]=' ';
+				}
 		}
 	}
 	

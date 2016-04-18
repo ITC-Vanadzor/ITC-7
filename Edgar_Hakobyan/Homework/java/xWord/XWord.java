@@ -9,11 +9,7 @@ class XWord {
     private void create() {
         for(int i=0; i<word.length(); ++i) {
             for(int j=0; j<word.length(); ++j) {
-                if(i == j) {
-                    xWord[i][j] = word.charAt(j);
-                    continue;
-                }
-                if(i+j == word.length()-1) {
+                if(i == j || i+j == word.length()-1) {
                     xWord[i][j] = word.charAt(j);
                 } else {
                     xWord[i][j] = ' ';

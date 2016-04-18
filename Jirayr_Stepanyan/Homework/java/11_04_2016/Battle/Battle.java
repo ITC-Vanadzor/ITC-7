@@ -14,31 +14,9 @@ public class Battle
         int boardSize = cin.nextInt();
         Board board = new Board(boardSize);
         board.inputBoard();
-        //ValidBattle battle = new ValidBattle()
-       /* int meker;
-        int j_max;
-        int i_max;
-        int j_min;
-        BattleStugum battleStugum = new BattleStugum();
-    	int naver = 0;*/
-// Please provide an opportunity to input the qartez and also avoid the usage of har coded values such as 4 ...
-    	for(int i = 0; i < 4; ++i)
-    	{
-    		for(int j = 0; j < 4; ++j)
-    		{
-    			if(qartez[i][j] == 1)
-    			{
-    				j_max = j;
-    				j_min = j;
-    				i_max = i;
-    				battleStugum.stugum(Qartez.qartez, i, j, j_max, j_min, i_max);
-    				if(meker == ((j_max - j_min) + 1) * (i_max + 1))
-    				{
-    					++naver;
-    				}
-    			}
-    		}
-    	}
+        ValidBattle battle = new ValidBattle(0, 0, 0, 0, 0);
+        battle.board = board.getBoard();
+        int naver = battle.beforeSheep(boardSize);
     	System.out.print("naveri qanak@ = " + naver);
     }
-}:
+}

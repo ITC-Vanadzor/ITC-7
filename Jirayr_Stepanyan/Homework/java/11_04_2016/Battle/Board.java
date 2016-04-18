@@ -2,11 +2,12 @@ import java.util.Scanner;
 
 public class Board
 {
-	private boardSize;
-	private int[boardSize][boardSize] board;
-	Board(int n)
+	private int boardSize;
+	private Integer[][] board;
+	Board(int c_boardSize)
 	{
-		boardSize = n;
+		this.boardSize = boardSize;
+		board = new Integer[c_boardSize][c_boardSize];
 	}
 
 	public void inputBoard()
@@ -22,7 +23,7 @@ public class Board
     	}
 	}
 
-	public int[][] getBoard() {
+	public Integer[][] getBoard() {
 		return board;
 	}
 }

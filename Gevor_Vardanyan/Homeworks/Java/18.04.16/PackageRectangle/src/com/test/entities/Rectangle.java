@@ -13,7 +13,7 @@ public class Rectangle{
 	       return w;	
         }
     
-        public int heigth() {
+        public int height() {
 	       return h;	
         }
 }

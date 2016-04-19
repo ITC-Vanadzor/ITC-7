@@ -2,14 +2,9 @@ package com.itc7.binaryGeneric;
 
 public class BinarySearch
 {
-	private int index;
-	public BinarySearch(int cIndex)
+	public static <T extends Comparable<T>> int binarySearch(T[] t, int first, int last, T number)
 	{
-		this.index = cIndex;
-	}
-	
-	public <T extends Comparable> int binarySearch(T[] t, int first, int last, T number)
-	{
+		int index = 0;
 		if(last < first)
 		{
 			index = -1;
@@ -21,7 +16,7 @@ public class BinarySearch
 			{
 				index = avarage;
 			}
-			else if(t[avarage].compareTo(number) < 0)
+			else if(t[avarage].compareTo(number) > 0)
 			{
 				index = binarySearch(t, first, avarage - 1, number);
 			}

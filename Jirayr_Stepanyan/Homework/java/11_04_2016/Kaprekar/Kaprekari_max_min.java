@@ -1,7 +1,17 @@
-import java.util.Collections
-public class Number 
+import java.util.Collections;
+import java.lang.Math;
+import java.util.Vector;
+
+public class Kaprekari_max_min 
     {
-		public void max_min(Vector<Integer> a)
+    	private int max;
+		private int min;
+		Kaprekari_max_min(int cMax, int cMin)
+		{
+			this.max = cMax;
+			this.min = cMin;
+		}
+		public int max_min(Vector<Integer> a)
 		{
 		    Collections.sort(a);
 		    for(int t = 0; t < a.size(); ++t)
@@ -12,10 +22,8 @@ public class Number
 		    {
 				min += a.get(c) * Math.pow(10, (c));
 		    }
+		    return max - min;
 		}
-
-// This is an redundant function. The function declared above can return min and max numbers and solve the task.
-// In case if this function cover the case related to the adding '0'. The solution of that case has been discussed during the lesson.
 
 		public void validation(Vector<Integer> n, int m)
 		{

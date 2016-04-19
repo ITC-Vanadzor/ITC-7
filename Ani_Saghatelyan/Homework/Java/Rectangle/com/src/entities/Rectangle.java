@@ -1,11 +1,7 @@
 package entities;
 import java.lang.annotation.*;
 import java.lang.reflect.*;
-@interface setWidthAnno
-{
-	String name();
-	int countParams();
-}
+import annotation.*;
 public class Rectangle
 {
 	private  int width;
@@ -31,16 +27,7 @@ public class Rectangle
 	{
 		Rectangle myRect=new Rectangle(1,0);
 
-		try 
-		{
-			Class<?> c=myRect.getClass();
-			Method m=c.getMethod("setWidth", int.class);
-			Annotation anno=m.getAnnotation(setWidthAnno.class);
-			System.out.println("Annotation for setWidth function "+ anno.name());	
-		}catch (NoSuchMethodException exc)
-		{
-			System.out.println("No such a method");
-		}
+	
 		this.width=width;
 	}
 	public void setLength(int length)

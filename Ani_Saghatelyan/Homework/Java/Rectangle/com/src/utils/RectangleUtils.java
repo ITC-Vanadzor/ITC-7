@@ -2,19 +2,8 @@ package utils;
 import entities.Rectangle;
 import java.lang.annotation.*;
 import  java.lang.reflect.*;
+import annotation.*;
 
-@Retention(RetentionPolicy.RUNTIME)
-@interface commentAnno
-{
-	String str() default "myComment";
-}
-
-@Retention(RetentionPolicy.RUNTIME)
-@interface Author
-{
-	String name();
-	String date();
-}
 public class RectangleUtils
 {
         private Rectangle rect;
@@ -27,21 +16,7 @@ public class RectangleUtils
 	public float perimeter()
 	{
 		RectangleUtils util=new RectangleUtils(rect);
-		try 
-		{
-		  Method method =util.getClass().getMethod("perimeter");
-		  Annotation annos[]=method.getAnnotations();
-		  System.out.println("All annotations for this class: ");
-		  for(Annotation a:annos)
-		  {
-			System.out.println(a);
-		  }
-			
-		}catch(NoSuchMethodException exc)
-			{
-				System.out.println("The method doesn't exists.");			}
-
-		return 2*(rect.getLength()+rect.getWidth());
+			return 2*(rect.getLength()+rect.getWidth());
 	}
 	
 	public float area()

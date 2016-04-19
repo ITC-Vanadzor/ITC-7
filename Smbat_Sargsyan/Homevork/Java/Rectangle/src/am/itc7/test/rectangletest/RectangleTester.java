@@ -8,7 +8,7 @@ import java.lang.annotation.*;
  */
 public class RectangleTester {
     public static void main(String[] args) {
-        Rectangle rectangle = new Rectangle();
+        Rectangle rectangle = new Rectangle(5,10);
         rectangle.setLength(10);
         rectangle.setWidth(15);
         System.out.println("area is " + area(rectangle));

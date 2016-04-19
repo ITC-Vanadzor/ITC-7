@@ -16,7 +16,10 @@ public class Rectangle {
             @FieldType(name = "len",value = 1),
             @FieldType(name = "wid",value = 2)
     })
-    public Rectangle() {}
+    public Rectangle(int length,int width) {
+            this.length = length;
+	    this.width = width;
+    }
 
     @MethodType(name = "getLength")
     public int getLength(){

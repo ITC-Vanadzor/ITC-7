@@ -1,7 +1,7 @@
 package com.itc7.binaryGeneric;
 public class BinarySearch
 {
-	public static <T extends Comparable> int binarySearch(T[] tArray, int first, int last, T element)
+	public static <T extends Comparable<T>> int binarySearch(T[] tArray, int first, int last, T element)
 	{
 		int index;
 		if(last < first)

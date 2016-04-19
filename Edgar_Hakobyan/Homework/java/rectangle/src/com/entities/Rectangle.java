@@ -1,19 +1,22 @@
 package com.entities;
 
 public class Rectangle {
-    protected int sideA;
-    protected int sideB;
+    private int sideA;
+    private int sideB;
     
-    protected void setSides(int a, int b) {
+    public void setSideA(int a) {
         sideA = a;
-        sideB = b;
     }
 
-    protected int getSideA() {
+    public void setSideB(int b) {
+        sideB = b;
+    }
+    
+    public int getSideA() {
         return sideA;
     }
 
-    protected int getSideB() {
+    public int getSideB() {
         return sideB;
     }
 }

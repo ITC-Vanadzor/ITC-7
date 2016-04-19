@@ -6,11 +6,12 @@ import com.utils.RectangleUtil;
 public class RectangleTester {
    
      public static void main(String[] args) {
-        RectangleUtil rect = new RectangleUtil();
-        rect.setSides(4,6);
-        rect.printSides();
-        System.out.println("perimeter of rectangle: " + rect.perimeter());
-        System.out.println("area of rectangle: " + rect.area());
+        Rectangle rect = new Rectangle();
+        RectangleUtil util = new RectangleUtil();
+        rect.setSideA(4);
+        rect.setSideB(6);
+        System.out.println("perimeter of rectangle: " + util.perimeter(rect));
+        System.out.println("area of rectangle: " + util.area(rect));
     }
 
 } 

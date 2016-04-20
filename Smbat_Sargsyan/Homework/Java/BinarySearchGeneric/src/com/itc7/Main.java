@@ -1,13 +1,18 @@
 package com.itc7;
 import com.itc7.binaryGeneric.*;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Main
 {
 	public static void main(String[] args)
 	{
-		Integer[] intArray = {1,5,8,9,17,36};
-		String[] strArray = {"aaadffg","bgfrt","fffghy","hhhjkl", "mmmhng", "opfnfnf"};
-		System.out.println(BinarySearch.binarySearch(intArray,0,intArray.length,17));
-		System.out.println(BinarySearch.binarySearch(strArray,0,strArray.length,"fffghy"));
+		ArrayList<Integer> list = new ArrayList<Integer>(); 
+		Integer[] intArray = {1,5,89,9,36,17};
+		for(Integer i: intArray) {
+			list.add(i);
+		}
+		Collections.sort(list);
+		System.out.println(BinarySearch.binarySearch(list,0,list.size(),17));
 	}
 }

@@ -6,7 +6,7 @@ import java.util.Collections;
 public class BinarySearch {
     public static <T extends Number & Comparable<T>> int binarySearch(T[] array, int first, int last, T value){
         if (first <= last) {
-            int mid = (first/2) + (last / 2);
+            int mid = (first + last) / 2;
             int cmp = array[mid].compareTo(value);
             if(cmp < 0) {
                 return binarySearch(array, mid + 1, last, value);

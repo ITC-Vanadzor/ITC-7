@@ -11,6 +11,6 @@ public class SearchTest {
         arrayList.add(1);
         arrayList.add(3);
         arrayList.add(5);
-        System.out.println("Comparation : " + test.compareMethodReturns(arraySimple, arrayList, 5));
+        System.out.println("Comparation : " + test.compareMethodReturns(arraySimple, arrayList, 9));
     }
 }

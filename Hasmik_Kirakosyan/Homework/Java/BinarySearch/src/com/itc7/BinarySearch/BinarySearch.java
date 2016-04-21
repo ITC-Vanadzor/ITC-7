@@ -14,8 +14,8 @@ public class BinarySearch {
             return  -1;
         if (E[mid].compareTo(K)==0 )
             index = mid;
-        else if (E[mid].compareTo(K) < 0)
-            index = binarySearch(E, first, mid-1, K);
+        else if (E[mid].compareTo(K) > 0)
+            index = binarySearch(E, first, mid - 1, K);
         else
             index = binarySearch(E, mid+1, last, K);
         return index;
@@ -27,6 +27,9 @@ public class BinarySearch {
    }
 
    public <T extends Number & Comparable<T>> boolean compareMethodReturns (T[] arrSimple, ArrayList<T> arrList,T K) {
+       System.out.println(binarySearch(arrSimple, 0, arrSimple.length, K));
+       System.out.println("array.length " + arrSimple.length);
+       System.out.println(searchByCollection(arrList, K));
        return ( binarySearch(arrSimple, 0, arrSimple.length, K) == searchByCollection(arrList, K) );
    }
 

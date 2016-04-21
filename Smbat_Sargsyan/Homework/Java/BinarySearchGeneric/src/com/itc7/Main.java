@@ -13,6 +13,9 @@ public class Main
 			list.add(i);
 		}
 		Collections.sort(list);
+		//my custom binary search
 		System.out.println(BinarySearch.binarySearch(list,0,list.size(),17));
+		//Collcections binary search
+		System.out.println(Collections.binarySearch(list,89));
 	}
 }

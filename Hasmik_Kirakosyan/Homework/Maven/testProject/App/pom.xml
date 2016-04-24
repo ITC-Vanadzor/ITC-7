@@ -5,7 +5,12 @@
   <artifactId>App</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>App</name>
+   <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+      <fileName>jsonFileName</fileName>
+  </properties>
+ <name>App</name>
   <url>http://maven.apache.org</url>
   <parent>
       <groupId>com.itc7</groupId>
@@ -30,10 +35,6 @@
       <version>1.0.4</version> 
   </dependency>
   </dependencies>
-  <properties>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-  </properties>
   <build>
       <plugins>
           <plugin>

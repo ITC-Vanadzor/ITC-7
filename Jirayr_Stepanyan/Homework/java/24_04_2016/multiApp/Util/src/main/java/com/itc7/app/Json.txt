@@ -1,0 +1,5 @@
+{
+    "Name": "Xalat",
+    "Surname": "Borshoyan",
+    "Adress": "Mars/huktyuku/23"
+}

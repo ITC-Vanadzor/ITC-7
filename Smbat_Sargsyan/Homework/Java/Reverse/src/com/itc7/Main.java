@@ -13,10 +13,10 @@ public class Main
 	{
 		try {
 			CollectionSample col = new CollectionSample();
-			Method method = col.getClass().getMethod("printRverse");
+			Method method = col.getClass().getMethod("printReverse");
 			ReverseAnnotation m = method.getAnnotation(ReverseAnnotation.class);
 			boolean b = m.reverseValue();
-			if(b) {
+			if(!b) {
 				List<Integer> intList = new ArrayList<Integer>();
 				Integer [] intArray = {1,8,2,14,5,7};
 				for(Integer i : intArray) {

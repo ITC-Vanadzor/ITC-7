@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [TestNgMavenExampleSuite]">
+  <test name="TestNgMavenTest(failed)">
+    <groups>
+      <run>
+        <include name="maxFunc"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.itc7.AppTest">
+        <methods>
+          <include name="maxNumStrTest"/>
+          <include name="setUp"/>
+          <include name="maxNumFailTest"/>
+        </methods>
+      </class> <!-- com.itc7.AppTest -->
+    </classes>
+  </test> <!-- TestNgMavenTest(failed) -->
+</suite> <!-- Failed suite [TestNgMavenExampleSuite] -->

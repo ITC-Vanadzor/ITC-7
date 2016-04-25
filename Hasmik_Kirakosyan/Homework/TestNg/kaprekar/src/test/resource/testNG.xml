@@ -1,0 +1,24 @@
+<suite name="AppTest" verbose="1">
+    <test name="positive">
+        <groups>
+            <run>
+                <include name="positive"/>
+                <exclude name="negative"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.itc7.kaprekar.AppTest"/>
+        </classes>
+    </test>
+    <test name="negative">
+        <groups>
+            <run>
+                <include name="negative"/>
+                <exclude name="positive"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.itc7.kaprekar.AppTest"/>
+        </classes>
+    </test>
+</suite>

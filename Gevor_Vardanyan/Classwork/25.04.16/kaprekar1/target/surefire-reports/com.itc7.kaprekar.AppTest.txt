@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: com.itc7.kaprekar.AppTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.358 sec <<< FAILURE!
+fastTest(com.itc7.kaprekar.AppTest)  Time elapsed: 0.022 sec  <<< FAILURE!
+java.lang.AssertionError: Incorrect return value! expected [1208] but found [1204]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertEquals(Assert.java:123)
+	at org.testng.Assert.assertEquals(Assert.java:370)
+	at com.itc7.kaprekar.AppTest.fastTest(AppTest.java:31)

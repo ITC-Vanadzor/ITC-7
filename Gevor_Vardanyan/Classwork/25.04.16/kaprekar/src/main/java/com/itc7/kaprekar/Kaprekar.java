@@ -11,6 +11,7 @@ public class Kaprekar
 		int ten=1;
 		int res=0;
 		for(int i=len-1;i>=0;--i){
+			if(x.get(i) < 0 ) return -1;
 			res+=ten*x.get(i);
 			ten*=10;
 		}

@@ -17,24 +17,24 @@ public class AppTest
 
     }
 
-    
-    @Test(groups={"fast"})
-    public void fastTest()
+    // this test for ......
+    @Test(groups={"negative"})
+    public void negativeTest()
     {
-        System.out.println("Fast test....start!");
+        System.out.println("Negative test....start!");
         ArrayList<Integer> tempList =new ArrayList<Integer>();
-        tempList.add(1);
-        tempList.add(2);
-        tempList.add(0);
-        tempList.add(4);
-
-        Assert.assertEquals(Kaprekar.toInt(tempList),1208,"Incorrect return value!");
+       tempList.add(1);
+       tempList.add(2);
+       tempList.add(0);
+       tempList.add(4);
+       // String expectedErrorMessage = "One of input value is invalid";
+        Assert.assertEquals(Kaprekar.toInt(tempList),1204,"Incorrect input value!");
     }
 
-    @Test(groups={"slow"})
-    public void slowTest()
+    @Test(groups={"positive"})
+    public void positiveTest()
     {
-        System.out.println("Slow test....start!");
+        System.out.println("Positive test....start!");
     }
 
     

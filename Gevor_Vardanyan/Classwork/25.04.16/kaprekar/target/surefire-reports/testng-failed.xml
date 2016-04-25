@@ -2,15 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite verbose="0" name="Failed suite [com.itc7.kaprekar.AppTest]">
   <test name="Command line test(failed)">
-    <groups>
-      <run>
-        <include name="fast"/>
-      </run>
-    </groups>
     <classes>
       <class name="com.itc7.kaprekar.AppTest">
         <methods>
           <include name="fastTest"/>
+          <include name="setUp"/>
         </methods>
       </class> <!-- com.itc7.kaprekar.AppTest -->
     </classes>

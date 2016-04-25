@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="6" passed="6">
+  <reporter-output>
+  </reporter-output>
+  <suite name="OurTest" duration-ms="72" started-at="2016-04-25T18:07:55Z" finished-at="2016-04-25T18:07:55Z">
+    <groups>
+      <group name="negative">
+        <method signature="AppTest.largeNumberTest()[pri:0, instance:com.itc7.kaprekar.AppTest@4cdc5b6a]" name="largeNumberTest" class="com.itc7.kaprekar.AppTest"/>
+        <method signature="AppTest.minusNumbersTest()[pri:0, instance:com.itc7.kaprekar.AppTest@4cdc5b6a]" name="minusNumbersTest" class="com.itc7.kaprekar.AppTest"/>
+      </group> <!-- negative -->
+      <group name="positive">
+        <method signature="AppTest.allZeroTest()[pri:0, instance:com.itc7.kaprekar.AppTest@4cdc5b6a]" name="allZeroTest" class="com.itc7.kaprekar.AppTest"/>
+        <method signature="AppTest.emptyTest()[pri:0, instance:com.itc7.kaprekar.AppTest@4cdc5b6a]" name="emptyTest" class="com.itc7.kaprekar.AppTest"/>
+        <method signature="AppTest.firstZeroTest()[pri:0, instance:com.itc7.kaprekar.AppTest@4cdc5b6a]" name="firstZeroTest" class="com.itc7.kaprekar.AppTest"/>
+        <method signature="AppTest.goodNumbersTest()[pri:0, instance:com.itc7.kaprekar.AppTest@4cdc5b6a]" name="goodNumbersTest" class="com.itc7.kaprekar.AppTest"/>
+      </group> <!-- positive -->
+    </groups>
+    <test name="Positive" duration-ms="72" started-at="2016-04-25T18:07:55Z" finished-at="2016-04-25T18:07:55Z">
+      <class name="com.itc7.kaprekar.AppTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.itc7.kaprekar.AppTest@4cdc5b6a]" name="setUp" is-config="true" duration-ms="21" started-at="2016-04-25T22:07:55Z" finished-at="2016-04-25T22:07:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="allZeroTest()[pri:0, instance:com.itc7.kaprekar.AppTest@4cdc5b6a]" name="allZeroTest" duration-ms="8" started-at="2016-04-25T22:07:55Z" finished-at="2016-04-25T22:07:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- allZeroTest -->
+        <test-method status="PASS" signature="emptyTest()[pri:0, instance:com.itc7.kaprekar.AppTest@4cdc5b6a]" name="emptyTest" duration-ms="2" started-at="2016-04-25T22:07:55Z" finished-at="2016-04-25T22:07:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- emptyTest -->
+        <test-method status="PASS" signature="firstZeroTest()[pri:0, instance:com.itc7.kaprekar.AppTest@4cdc5b6a]" name="firstZeroTest" duration-ms="1" started-at="2016-04-25T22:07:55Z" finished-at="2016-04-25T22:07:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- firstZeroTest -->
+        <test-method status="PASS" signature="goodNumbersTest()[pri:0, instance:com.itc7.kaprekar.AppTest@4cdc5b6a]" name="goodNumbersTest" duration-ms="1" started-at="2016-04-25T22:07:55Z" finished-at="2016-04-25T22:07:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goodNumbersTest -->
+        <test-method status="PASS" signature="largeNumberTest()[pri:0, instance:com.itc7.kaprekar.AppTest@4cdc5b6a]" name="largeNumberTest" duration-ms="1" started-at="2016-04-25T22:07:55Z" finished-at="2016-04-25T22:07:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- largeNumberTest -->
+        <test-method status="PASS" signature="minusNumbersTest()[pri:0, instance:com.itc7.kaprekar.AppTest@4cdc5b6a]" name="minusNumbersTest" duration-ms="2" started-at="2016-04-25T22:07:55Z" finished-at="2016-04-25T22:07:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- minusNumbersTest -->
+      </class> <!-- com.itc7.kaprekar.AppTest -->
+    </test> <!-- Positive -->
+  </suite> <!-- OurTest -->
+</testng-results>

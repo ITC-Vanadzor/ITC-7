@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [OurTest]">
+  <test name="Positive(failed)">
+    <groups>
+      <run>
+        <include name="include-group"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.itc7.kaprekar.AppTest">
+        <methods>
+          <include name="negativeTest"/>
+        </methods>
+      </class> <!-- com.itc7.kaprekar.AppTest -->
+    </classes>
+  </test> <!-- Positive(failed) -->
+</suite> <!-- Failed suite [OurTest] -->

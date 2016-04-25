@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [com.itc7.kaprekar.AppTest]">
+  <test name="Command line test(failed)">
+    <classes>
+      <class name="com.itc7.kaprekar.AppTest">
+        <methods>
+          <include name="beforeSuite"/>
+          <include name="beforeTest"/>
+          <include name="afterSuite"/>
+          <include name="alwaysRun"/>
+          <include name="beforeClass"/>
+          <include name="negativeDiffValues"/>
+          <include name="afterTest"/>
+          <include name="negativeSub"/>
+          <include name="afterClass"/>
+        </methods>
+      </class> <!-- com.itc7.kaprekar.AppTest -->
+    </classes>
+  </test> <!-- Command line test(failed) -->
+</suite> <!-- Failed suite [com.itc7.kaprekar.AppTest] -->

@@ -1,0 +1,25 @@
+-------------------------------------------------------------------------------
+Test set: com.itc7.kaprekar.AppTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 1.141 sec <<< FAILURE!
+alwaysRun(com.itc7.kaprekar.AppTest)  Time elapsed: 0.024 sec  <<< FAILURE!
+java.lang.AssertionError: -------Incorrect Value!------ expected [9] but found [8]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertEquals(Assert.java:123)
+	at org.testng.Assert.assertEquals(Assert.java:370)
+	at com.itc7.kaprekar.AppTest.alwaysRun(AppTest.java:58)
+negativeDiffValues(com.itc7.kaprekar.AppTest)  Time elapsed: 0.009 sec  <<< FAILURE!
+java.lang.AssertionError: -------Incorrect Value!------ expected [8] but found [9]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertEquals(Assert.java:123)
+	at org.testng.Assert.assertEquals(Assert.java:370)
+	at com.itc7.kaprekar.AppTest.negativeDiffValues(AppTest.java:31)
+negativeSub(com.itc7.kaprekar.AppTest)  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.AssertionError: -------Incorrect Value!------ expected [3] but found [2]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertEquals(Assert.java:123)
+	at org.testng.Assert.assertEquals(Assert.java:370)
+	at com.itc7.kaprekar.AppTest.negativeSub(AppTest.java:38)

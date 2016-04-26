@@ -6,14 +6,8 @@ public class AppTest
 {    
     private Number numObj =  new Number(495);
 
-    @BeforeSuite(alwaysRun = true)
-        public void print() {
-            System.out.println("TEST");
-            Assert.assertTrue(1 == 1, "ERROR");
-        }
-
-    @Test (dependsOnMethods={"testToDigits"}, groups={"positive"})
-        public  void testMinNum() {
+    @Test (groups={"positive"})
+    public  void testMinNum() {
             int result = numObj.minNum();
             Assert.assertEquals(result, 459, "*******minNum() FUNCTION IS INVALID*****");
         }
@@ -27,38 +21,37 @@ public class AppTest
         Assert.assertTrue(result.equals(numObj.toDigits()), "******toDigits() FUNCTION IS INVALID*****");
     }
     @Test (dependsOnMethods={"testToDigits"}, groups={"positive"})
-        public  void testMaxNum() {
+    public  void testMaxNum() {
             int result = numObj.maxNum();
             Assert.assertEquals(result, 954, "*****maxNum() FUNCTION IS INVALID*****");
         }
 
-    @Test (enabled=false, dependsOnMethods={"testToDigits"}, groups={"positive"})
-        public void testGetCount() {
+    @Test (groups={"positive"})
+    public void testGetCount() {
             Assert.assertTrue(numObj.count() == 3, "*****count() FUNCTION IS INVALID****");
         }
 
-    @Test (dependsOnMethods={"testToDigits", "testMinNum", "testMaxNum"}, groups={"positive"})
-        public void testDiffCorrectCase() {
+    @Test (groups={"positive"})
+    public void testDiffCorrectCase() {
             int diff = numObj.diff();
             Assert.assertTrue(numObj.diff() == 495, "****diff() FUNCTION IS INVALID*****");
         }
 
-    @Test (dependsOnMethods={"testToDigits", "testMinNum", "testMaxNum"}, groups={"negative"})
-        public void testDiffMinusCase() {
+    @Test (groups={"negative"})
+    public void testDiffMinusCase() {
             int diff = numObj.diff();
             Assert.assertNotEquals(numObj.diff() == -5 , "****diff() FUNCTION IS INVALID*****");
         }
 
 
-    @Test (dependsOnMethods={"testToDigits"}, groups={"negative"})
-        public void testGetCountMinusCase() {
+    @Test (groups={"negative"})
+    public void testGetCountMinusCase() {
             Assert.assertFalse(numObj.count() == -1, "*****count() FUNCTION IS INVALID****");
         }
 
-    @Test (dependsOnMethods={"testToDigits"}, groups={"negative"})
-        public  void testMaxNumNotIntegerCase()
-        {
+    @Test (groups={"negative"})
+    public  void testMaxNumNotIntegerCase()  {
             int result = numObj.maxNum();
-            Assert.assertNotEquals(result, "hi", "*****maxNum() FUNCTION IS INVALID*****");
+         // TODO  Assert.assertNotEquals(result, "hi", "*****maxNum() FUNCTION IS INVALID*****");
         }  
 }

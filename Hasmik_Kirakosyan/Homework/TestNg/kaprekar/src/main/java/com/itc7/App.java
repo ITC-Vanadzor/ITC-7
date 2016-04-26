@@ -6,8 +6,8 @@ class Kaprekar {
 		Scanner reader = new Scanner(System.in);
 		System.out.print("Enter the number ");
 		int n = reader.nextInt();
-		Number numObj = new Number(n);
-		String format = "%0"+numObj.count()+"d\n";
-		System.out.format("\n Result "+format, numObj.diff());
+		Number numObj = new Number();
+		String format = "%0"+numObj.count(n)+"d\n";
+		System.out.format("\n Result "+format, numObj.diff(n));
 	}
 }

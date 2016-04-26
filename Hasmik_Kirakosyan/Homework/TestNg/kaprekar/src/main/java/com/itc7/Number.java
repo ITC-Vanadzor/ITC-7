@@ -8,8 +8,8 @@ public class Number {
     public ArrayList<Integer>  toDigits(int n) {
         ArrayList<Integer> array = new ArrayList<Integer>();
                 while(n > 0 ) {
-                        array.add((Integer)temp%10);
-                        temp = temp/10;
+                        array.add(n%10);
+                        n = n/10;
                 }
         Collections.sort(array);
 		return array;
@@ -17,7 +17,7 @@ public class Number {
 
     public int minNum(ArrayList<Integer> array) {
 		int min=0;
-		for(int j=0;j<array.size(); ++j) {
+		for(int j = 0; j < array.size(); ++j) {
 			min = min*10 + array.get(j);
 		}
 		return min;
@@ -25,7 +25,7 @@ public class Number {
 
     public int maxNum(ArrayList<Integer> array) {
 		int max = 0;
-		for(int j = array.size()-1; j >= 0;--j) {
+		for(int j = array.size()-1; j >= 0; --j) {
 			max = max*10 + array.get(j);
 		}
 		return max;
@@ -41,7 +41,7 @@ public class Number {
     }    
 
 	public int diff(int number) {
-        ArrayList<Integer> array = toDigits(n);
+        ArrayList<Integer> array = toDigits(number);
         int min = minNum(array);
         int max = maxNum(array);
 		int diff = max - min;	

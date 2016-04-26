@@ -6,8 +6,8 @@
   <test name="myKaprekar">
     <groups>
         <run>
-          <include  name="possitive"/>
-          <include name="negative"/>
+          <include  name="positive"/>
+          <exclude name="negative"/>
          </run>
      </groups>
 

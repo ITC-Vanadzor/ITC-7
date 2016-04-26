@@ -1,75 +1,73 @@
 package com.itc7.kaprekar;
 import org.testng.annotations.*;
 import org.testng.Assert;
-import java.util.ArrayList;
+import java.util.*;
+import  com.itc7.constants.Constants;
 public class AppTest 
 {    
-   Number numObj =  new Number(495);
+     public  Number obj; 
+     public ArrayList<Integer> intArray;
     
-    @BeforeClass (groups = {"negative"})
-    public void testConstructorNeg()
+    @BeforeClass (groups = {"positive"})
+    public void setUp()
     {
-        Number obj=new Number((-5));
-        Assert.assertFalse(obj.number>0,"THE ARGUMENT OF CONSTRUCTOR IS LESS OR EQUAL THEN 0!!!");
+       intArray = new ArrayList<Integer>(Arrays.asList(1,0,0));
+       obj =new Number();
     }
 
-    @BeforeClass  (groups = {"positive"})
-    public void testConstructorPos()
-    {
-        Number obj=new Number((10));
-        Assert.assertTrue(obj.number>0,"THE ARGUMENT OF CONSTRUCTOR IS LESS OR EQUAL THEN 0!!!");
-    }
-    @Test (dependsOnMethods={"testToDigits"}, groups = {"positive"})
+    @Test (groups = {Constants.pos})
     public  void testMinNum()
     {
-	    int result = numObj.minNum();
-        Assert.assertEquals(result, 459, "minNum() FUNCTION IS INVALID");
+	    int result = obj.minNum(intArray);
+        Assert.assertEquals(result, 1, Constants.minNumMessage);
     }
-
-    @Test (dependsOnMethods={"testToDigits"}  , groups = {"positive"})
+    @Test (groups = {Constants.pos})
+    public  void testMinNumString()
+    {
+	    int result = obj.minNum(intArray);
+        Assert.assertEquals(result, 1, Constants.minNumMessage);
+    }
+    @Test ( groups = {Constants.pos})
     public void testMaxNum()
     {
-        int result=numObj.maxNum();
-        Assert.assertEquals(result, 954, "maxNum() FUNCTION IS INVALID");
-    }
-    
-    @Test (groups = {"negative"})
+        int result=obj.maxNum(intArray);
+        Assert.assertEquals(result, 100, Constants.maxNumMessage);
+    }   
+ 
+    @Test (groups = {Constants.neg})
     public void testMaxNumNeg()
     {
-        int result=numObj.maxNum();
-        Assert.assertNotEquals(result, 459, "maxNum() FUNCTION IS INVALID negative");
+        int result=obj.maxNum(intArray);
+        Assert.assertNotEquals(result, 1, Constants.maxNumMessage);
     }
 
-    @BeforeMethod
+    @Test (groups = {Constants.neg})
     public void testToDigits()
     {
-	    ArrayList <Integer> result =new ArrayList<Integer>();
-    	result.add(4);
-    	result.add(5);
-    	result.add(9);
-   	    Assert.assertTrue(result.equals(numObj.toDigits()), "toDigits() FUNCTION IS INVALID");
+	    
+   	    Assert.assertTrue(intArray.equals(obj.toDigits(100)),Constants.toDigitsMessage);
     }
 
-    @Test (dependsOnMethods={"testMinNum"}, groups = {"positive"})
+    @Test (groups = {Constants.pos})
     public void testDiff()
     {
-         int result=numObj.Diff();
-        Assert.assertTrue(result==495, "DIFF() FUNCTION IS CORRECT");
+        int result=obj.Diff(100,1);
+        Assert.assertTrue(result==99, Constants.diffMessage);
     }
 
-    @Test (dependsOnMethods={"testToDigits"}, groups = {"positive"})
+    @Test (groups = {Constants.pos})
     public void testCount() 
     {
-        int result=numObj.count();
-    	Assert.assertEquals(result,3, "count() FUNCTION IS INVALID");
+        int result=obj.count(intArray);
+    	Assert.assertEquals(result,3, Constants.countMessage);
     }
     
     @Parameters("count")
-    @Test (dependsOnMethods={"testToDigits"}, groups = {"negative"})
+    @Test (groups = {Constants.neg})
     public void testCountNeg(int param)
     {
-        int result=numObj.count();
-    	Assert.assertNotEquals(result,param, "count() FUNCTION IS INVALID");
+        int result=obj.count(intArray);
+    	Assert.assertNotEquals(result,param, Constants.countMessage);
     }
 
 

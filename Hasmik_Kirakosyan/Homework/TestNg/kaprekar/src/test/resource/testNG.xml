@@ -7,7 +7,7 @@
             </run>
         </groups>
         <classes>
-            <class name="com.itc7.kaprekar.AppTest"/>
+            <class name="com.itc7.AppTest"/>
         </classes>
     </test>
     <test name="negative">
@@ -18,7 +18,7 @@
             </run>
         </groups>
         <classes>
-            <class name="com.itc7.kaprekar.AppTest"/>
+            <class name="com.itc7.AppTest"/>
         </classes>
     </test>
 </suite>

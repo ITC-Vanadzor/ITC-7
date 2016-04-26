@@ -62,10 +62,16 @@ public class AppTest
             Assert.assertFalse(numObj.toDigits(564).size() <= 0, Consts.ERROR_MESSAGE_RESULT);
     }
 
+
+
     @Test(groups={Consts.GROUP_NEGATIVE})
         public void testToDigitsRetNull() {
             Assert.assertFalse(numObj.toDigits(564) == null, Consts.ERROR_MESSAGE_RESULT);
     }
 
-       
+    @Test (groups={Consts.GROUP_NEGATIVE})
+        public void testGetCountMinusReturn() {
+            Assert.assertFalse(numObj.count(0) == 0, Consts.ERROR_MESSAGE);
+        }
+   
 }

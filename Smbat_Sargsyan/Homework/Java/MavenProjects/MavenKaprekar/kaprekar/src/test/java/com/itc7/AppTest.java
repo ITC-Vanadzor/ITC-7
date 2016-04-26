@@ -11,7 +11,7 @@ public class AppTest
     private  Number numberObj;
     @BeforeClass(alwaysRun= true)
     public void setUp(){
-	numberObj = new Number(587);	
+	numberObj = new Number();	
     }
     //positive resaults
     @Test(groups = {"minFunc","positive"})

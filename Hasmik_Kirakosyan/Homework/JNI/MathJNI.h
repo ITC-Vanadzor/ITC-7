@@ -42,9 +42,9 @@ JNIEXPORT jintArray JNICALL Java_MathJNI_sortIncrease
 /*
  * Class:     MathJNI
  * Method:    sortDecrease
- * Signature: ([I)[I
+ * Signature: ([I)V
  */
-JNIEXPORT jintArray JNICALL Java_MathJNI_sortDecrease
+JNIEXPORT void JNICALL Java_MathJNI_sortDecrease
   (JNIEnv *, jobject, jintArray);
 
 #ifdef __cplusplus

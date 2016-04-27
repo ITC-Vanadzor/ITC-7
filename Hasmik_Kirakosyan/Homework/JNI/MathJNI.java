@@ -7,5 +7,5 @@ public class MathJNI {
 	public native int min(int[] array);
 	public native int max(int[] array);
 	public native int[] sortIncrease(int[] array); // returns new array
-	public native int[] sortDecrease(int[] array); // return original array
+	public native void  sortDecrease(int[] array);  // changes original array
 }

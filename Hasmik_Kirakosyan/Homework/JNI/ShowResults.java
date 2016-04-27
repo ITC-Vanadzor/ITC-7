@@ -10,23 +10,23 @@ public class ShowResults {
 
         int []array = {6, 777, -6};
         
-        //============= Ascending array / returns new sorted array =========================
+        //============= Ascending array / returns new sorted array =============
         System.out.println("\n ******Unsorted array *******");
         print(array);
 
         System.out.println("\n\nMinimum number is : "+m.min(array));
         System.out.println("\nMaximum number is : "+m.max(array));
 
-        //============= Ascending array / returns new sorted array =========================
+        //============= Ascending array / returns new sorted array =============
         int []sortedArr; // new sorted array
         sortedArr = m.sortIncrease(array);
 
         System.out.println("\n*********Sorted array in ascending order / Method returns the new sorted array *******");           print(sortedArr);
         
-        //============= Descending array / returns the original array =========================
-        array = m.sortDecrease(array);
+        //============= Descending array / changes the original array ==========
+        m.sortDecrease(array);
 
-        System.out.println("\n********* Sorted array in descending order / Method returns the original array *******");
+        System.out.println("\n********* Sorted array in descending order / Method changes the original array *******");
         print(array);
     }
 }

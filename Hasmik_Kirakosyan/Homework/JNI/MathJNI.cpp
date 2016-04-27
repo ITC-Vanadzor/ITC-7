@@ -1,6 +1,5 @@
 #include <jni.h>
 #include <iostream>
-#include "/usr/lib/jvm/java-7-oracle/include/linux/jni_md.h"
 #include "MathJNI.h"
 
 // Factorial
@@ -66,7 +65,7 @@ JNIEXPORT jintArray JNICALL Java_MathJNI_sortIncrease
     return sortedArr;
   }
 
-JNIEXPORT jintArray JNICALL Java_MathJNI_sortDecrease
+JNIEXPORT void JNICALL Java_MathJNI_sortDecrease
 (JNIEnv *env, jobject obj, jintArray array) {
     jsize arrLength = env->GetArrayLength(array);
 
@@ -86,6 +85,5 @@ JNIEXPORT jintArray JNICALL Java_MathJNI_sortDecrease
     env->SetIntArrayRegion(array, 0, arrLength, arrOut);
     env->ReleaseIntArrayElements(array, arrOut, 0);
 
-    return array;
   }
 

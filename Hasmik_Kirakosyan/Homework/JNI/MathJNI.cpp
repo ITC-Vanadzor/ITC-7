@@ -38,8 +38,54 @@ JNIEXPORT jint JNICALL Java_MathJNI_max
                   max = ( arr[i] > max )? arr[i]:max;
               }
 
-             env->ReleaseIntArrayElements(array, arr, 0);
-          return max;
+              env->ReleaseIntArrayElements(array, arr, 0);
+              return max;
           }
 
+JNIEXPORT jintArray JNICALL Java_MathJNI_sortIncrease
+(JNIEnv *env, jobject obj, jintArray array) {
+    jsize arrLength = env->GetArrayLength(array);
+    jintArray sortedArr = env->NewIntArray(arrLength); 
+
+    jint *arrOut = NULL;
+    arrOut = env->GetIntArrayElements(array, 0);
+
+    for(jsize i = 0; i < arrLength; i++){
+        for(jsize j = 0; j < arrLength - 1; j++){
+            if(arrOut[j] > arrOut[j+1]){
+                jsize temp = arrOut[j+1];
+                arrOut[j+1] = arrOut[j];
+                arrOut[j] = temp;
+            }
+        }
+    }
+
+    env->SetIntArrayRegion(sortedArr, 0, arrLength, arrOut);
+    env->ReleaseIntArrayElements(array, arrOut, 0);
+
+    return sortedArr;
+  }
+
+JNIEXPORT jintArray JNICALL Java_MathJNI_sortDecrease
+(JNIEnv *env, jobject obj, jintArray array) {
+    jsize arrLength = env->GetArrayLength(array);
+
+    jint *arrOut = NULL;
+    arrOut = env->GetIntArrayElements(array, 0);
+
+    for(jsize i = 0; i < arrLength; i++){
+        for(jsize j = 0; j < arrLength - 1; j++){
+            if(arrOut[j] < arrOut[j+1]){
+                jsize temp = arrOut[j+1];
+                arrOut[j+1] = arrOut[j];
+                arrOut[j] = temp;
+            }
+        }
+    }
+
+    env->SetIntArrayRegion(array, 0, arrLength, arrOut);
+    env->ReleaseIntArrayElements(array, arrOut, 0);
+
+    return array;
+  }
 

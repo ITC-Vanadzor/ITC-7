@@ -22,6 +22,7 @@ public class AppTest
             Assert.assertTrue(result.equals(numObj.toDigits(564)), Consts.ERROR_MESSAGE_RESULT);
     }
 
+
     @Test (groups={Consts.GROUP_POSITIVE})
         public  void testMaxNum() {
             Integer []array = {4, 5, 9};
@@ -40,14 +41,22 @@ public class AppTest
             Assert.assertTrue(diff == 99, Consts.ERROR_MESSAGE);
         }
 
+    @DataProvider(name = "numbers")
+        public Object[][] createData1() {
+            return new Object[][] {
+                {new Integer(0) },
+                {new Integer(-5)  },
+                {new Integer(654) },
+            };
+        }
     @Test (groups={Consts.GROUP_NEGATIVE})
         public void testDiffMinusCase() {
             Assert.assertFalse(numObj.diff(1) < 0, Consts.ERROR_MESSAGE_NEGATIVE);
         }
 
-    @Test (groups={Consts.GROUP_NEGATIVE})
-        public void testGetCountMinusCase() {
-            Assert.assertFalse(numObj.count(659) < 0 , Consts.ERROR_MESSAGE_NEGATIVE);
+    @Test (groups={Consts.GROUP_NEGATIVE}, dataProvider = "numbers")
+        public void testGetCountMinusCase(Integer num) {
+            Assert.assertFalse(numObj.count(num) < 0 , Consts.ERROR_MESSAGE_NEGATIVE);
         }
 
     @Test (groups={Consts.GROUP_NEGATIVE})
@@ -69,9 +78,9 @@ public class AppTest
             Assert.assertFalse(numObj.toDigits(564) == null, Consts.ERROR_MESSAGE_RESULT);
     }
 
-    @Test (groups={Consts.GROUP_NEGATIVE})
-        public void testGetCountMinusReturn() {
-            Assert.assertFalse(numObj.count(0) == 0, Consts.ERROR_MESSAGE);
+    @Test (groups={Consts.GROUP_NEGATIVE}, dataProvider = "numbers")
+        public void testGetCountMinusReturn(int number) {
+            Assert.assertFalse(numObj.count(number) < 0, Consts.ERROR_MESSAGE_NEGATIVE);
         }
    
 }

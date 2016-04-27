@@ -6,6 +6,9 @@ import java.util.Collections;
 public class Kaprekar {
 
     public ArrayList<Integer>  toDigits(int n) {
+        if ( n < 0 ) { 
+            return null;
+        }
         ArrayList<Integer> array = new ArrayList<Integer>();
         while(n > 0 ) {
             array.add(n%10);
@@ -32,6 +35,9 @@ public class Kaprekar {
     }
 
     public int count(int n) {
+        if ( n < 0 ) { 
+            return -1; 
+        }
         int count = 0;
         while (n > 0) {
             n /=10;
@@ -41,6 +47,9 @@ public class Kaprekar {
     }    
 
     public int diff(int number) {
+        if ( number < 0 ) {
+            return -1;
+        }
         ArrayList<Integer> array = toDigits(number);
         int min = minNum(array);
         int max = maxNum(array);

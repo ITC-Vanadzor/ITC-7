@@ -31,6 +31,22 @@ JNIEXPORT jint JNICALL Java_MyMath_getMax
 JNIEXPORT jint JNICALL Java_MyMath_getMin
   (JNIEnv *, jobject, jintArray);
 
+/*
+ * Class:     MyMath
+ * Method:    sortArrToMax
+ * Signature: ([I)[I
+ */
+JNIEXPORT jintArray JNICALL Java_MyMath_sortArrToMax
+  (JNIEnv *, jobject, jintArray);
+
+/*
+ * Class:     MyMath
+ * Method:    sortArrToMin
+ * Signature: ([I)[I
+ */
+JNIEXPORT jintArray JNICALL Java_MyMath_sortArrToMin
+  (JNIEnv *, jobject, jintArray);
+
 #ifdef __cplusplus
 }
 #endif

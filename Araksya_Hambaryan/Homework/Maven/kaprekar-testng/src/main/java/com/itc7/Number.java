@@ -14,14 +14,14 @@ public class Number {
 	this.number=number;	
     }
 
-    public ArrayList <Integer> toDigits(Number numberObj) {
-	    int temp = numberObj.number;
+    public ArrayList <Integer> toDigits() {
+	    int temp = this.number;
 	    while(temp > 0 ) {
-	        numberObj.digitsArray.add((Integer)temp%10);
+	        this.digitsArray.add((Integer)temp%10);
 	        temp = temp/10;
 	    }
-	    Collections.sort(numberObj.digitsArray);
-	    return numberObj.digitsArray;
+	    Collections.sort(this.digitsArray);
+	    return this.digitsArray;
 
     }
 

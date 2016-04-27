@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="TestNgKaprekarSuite" parallel="false">
     <parameter name="inputData" value="100"></parameter>
+    <parameter name="sizeInputData" value="3"></parameter>
+    <parameter name="minNumber" value="1"></parameter>
+    <parameter name="maxNumber" value="100"></parameter>
+    <parameter name="resultData" value="099"></parameter>
     <test name="KaprekarTest">
       <classes>
 	<class

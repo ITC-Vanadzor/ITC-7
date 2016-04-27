@@ -3,25 +3,29 @@ package com.itc7;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Locale;
+import java.util.Scanner;
+
 public class Number {
     public int number;
-    public ArrayList<Integer> array = new ArrayList<Integer>();
-    public Number(int number) {
-	    this.number = number;
-	    toDigits();
+    public ArrayList<Integer> digitsArray = new ArrayList<Integer>();
+   
+
+    public void setNumber(int number){
+	this.number=number;	
     }
 
-    public void toDigits() {
-	    int temp = number;
+    public ArrayList <Integer> toDigits(Number numberObj) {
+	    int temp = numberObj.number;
 	    while(temp > 0 ) {
-	        array.add((Integer)temp%10);
+	        numberObj.digitsArray.add((Integer)temp%10);
 	        temp = temp/10;
 	    }
-	    Collections.sort(array);
+	    Collections.sort(numberObj.digitsArray);
+	    return numberObj.digitsArray;
 
     }
 
-    public int minNum() {
+    public int minNum(ArrayList <Integer> array) {
 	    int min=0;
 	    for(int j=0;j<array.size();++j) {
 	        min = min*10 + array.get(j);
@@ -29,7 +33,7 @@ public class Number {
 	    return min;
     }
 
-    public int maxNum() {
+    public int maxNum(ArrayList <Integer> array) {
 	    int max = 0;
 	    for(int j=array.size()-1;j>=0;--j) {
 	        max = max*10 + array.get(j);
@@ -37,11 +41,11 @@ public class Number {
 	    return max;
     }
     
-    public void Diff() {
-	    int diff = maxNum() - minNum();
-	    String printFormat = "%0" + array.size() + "d\n";
-	    System.out.printf(printFormat, diff);
-	    return diff;
+    public String Diff(int max, int min, int arraySize) {
+	    int diff = max - min;
+	    String result=String.format("%0" + arraySize + "d\n", diff);
+	    return result;
+	    
     }
 }
 

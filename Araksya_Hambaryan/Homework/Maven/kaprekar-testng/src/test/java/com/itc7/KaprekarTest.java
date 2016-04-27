@@ -4,12 +4,35 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 import java.util.ArrayList;
 import java.util.Collections;
-
 public class KaprekarTest {
-    public Number testNumber;
+    public Number testNumberObj = new Number();
+    
+    /*Parameters({"inputData"})
+    Test(expectedExceptions=ParseFormatException.class)
+    public void testForInputData() throws ParseFormatException {
+	testNumber.SetNumber("aaaaa")
+    }*/
+    
+   @Parameters({"inputData"}) 
+    @BeforeClass(alwaysRun=true)
+    @Test
+    public void setUp(int Data) {
+	testNumberObj.setNumber(Data);
+	Assert.assertEquals(testNumberObj.number, Data, "Set Number -- true");
+    }
+    
+   @Test
+   public void 
+    
+    
+    
+    
+    
+    
+    
     //public ArrayList<Integer> testArray;
     
-    @BeforeClass(alwaysRun = true)
+    /*@BeforeClass(alwaysRun = true)
     public void setUp() {
         testNumber = new Number(816); 
         testNumber.toDigits();
@@ -57,7 +80,7 @@ public class KaprekarTest {
         Assert.assertEquals(testNumber.Diff(), tmpDiff, "Diff  -- true");
         
     }
-    /*@Test(groups = {"negativ"}, expected=ArrayStoreException.class)
+    @Test(groups = {"negativ"}, expected=ArrayStoreException.class)
     public void testForToDigitt() {
         array.add('d');
         

@@ -9,11 +9,59 @@ extern "C" {
 #endif
 /*
  * Class:     NativeClass
- * Method:    WorkToFile
+ * Method:    FileClass
+ * Signature: (Ljava/lang/String;)V
+ */
+JNIEXPORT void JNICALL Java_NativeClass_FileClass
+  (JNIEnv *, jobject, jstring);
+
+/*
+ * Class:     NativeClass
+ * Method:    Create
+ * Signature: (Ljava/lang/String;)V
+ */
+JNIEXPORT void JNICALL Java_NativeClass_Create
+  (JNIEnv *, jobject, jstring);
+
+/*
+ * Class:     NativeClass
+ * Method:    Write
+ * Signature: (Ljava/lang/String;)V
+ */
+JNIEXPORT void JNICALL Java_NativeClass_Write
+  (JNIEnv *, jobject, jstring);
+
+/*
+ * Class:     NativeClass
+ * Method:    Read
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_NativeClass_WorkToFile
+JNIEXPORT void JNICALL Java_NativeClass_Read
   (JNIEnv *, jobject);
+
+/*
+ * Class:     NativeClass
+ * Method:    Delete
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_NativeClass_Delete
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     NativeClass
+ * Method:    CreateStatic
+ * Signature: (Ljava/lang/String;)V
+ */
+JNIEXPORT void JNICALL Java_NativeClass_CreateStatic
+  (JNIEnv *, jclass, jstring);
+
+/*
+ * Class:     NativeClass
+ * Method:    DeleteStatic
+ * Signature: (Ljava/lang/String;)V
+ */
+JNIEXPORT void JNICALL Java_NativeClass_DeleteStatic
+  (JNIEnv *, jclass, jstring);
 
 #ifdef __cplusplus
 }

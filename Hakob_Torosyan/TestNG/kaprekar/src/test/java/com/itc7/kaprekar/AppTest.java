@@ -1,17 +1,12 @@
 package com.itc7.kaprekar;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-
 import org.testng.annotations.*;
-import org.testng.AssertJUnit;
+import org.testng.Assert;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
+public class AppTest
 {
     
 	@BeforeMethod
@@ -33,7 +28,7 @@ public class AppTest
 	public void difValuesTest1(int[] arr) {
 		System.out.println("Test difValuesTest1 has started...");
 		int result = App.diffValues(arr); 
-		Assert.assertTrue("Function does not correct", result == 9);
+		Assert.assertTrue(result == 9, "Function does not correct");
 		System.out.println("Test difValuesTest1 has ended...");
 	} 
 
@@ -42,16 +37,16 @@ public class AppTest
 		System.out.println("Test difValuesTest2 has started...");
 		int[] arr = {1,2};
 		int result = App.diffValues(arr);
-		assertFalse("Function is correct", result == 9);
+		Assert.assertFalse(result == 9, "Function is correct") ;
 		System.out.println("Test difValuesTest2 has ended...");
 	}
 	
 	@Test(enabled = false)
-	public void difValuesTest3(enabled = false) {
+	public void difValuesTest3() {
 		System.out.println("Test difValuesTest3 has started...");
 		int[] arr = {1,2};
 		int result = App.diffValues(arr);
-		assertEquals(result, 9, "Function is incorrect");
+		Assert.assertEquals(result, 9, "Function is incorrect");
         	System.out.println("Test difValuesTest3 has ended...");
 	}
       
@@ -60,7 +55,7 @@ public class AppTest
 	        System.out.println("Test difValuesTest4 has started...");
 		int[] arr = {1,2};
                 int result = App.diffValues(arr);
-                assertNotEquals(result, 9, "Function is correct");
+                Assert.assertNotEquals(result, 9, "Function is correct");
                 System.out.println("Test difValuesTest4 has ended...");
 	}
 	

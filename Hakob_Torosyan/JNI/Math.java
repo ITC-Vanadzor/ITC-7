@@ -7,5 +7,5 @@ public class Math
 	public native int getMax(int[] arr, int size);
         public native int getMin(int[] arr, int size);
 	public native int[] sortArrToMax(int[] arr, int size);
-	public native int[] sortArrToMin(int[] arr, int size);
+	public native void sortArrToMin(int[] arr, int size);
 }

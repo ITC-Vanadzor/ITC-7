@@ -22,8 +22,9 @@ JNIEXPORT jlong JNICALL Java_Math_getFactorial
  * Signature: ([II)I
  */
 JNIEXPORT jint JNICALL Java_Math_getMax
-  (JNIEnv * jenv, jobject jobj, jintArray arr, jint size)
+  (JNIEnv * jenv, jobject jobj, jintArray array, jint size)
 {
+	jint *arr = jenv->GetIntArrayElements(array, 0);
 	int max = arr[0];
 	for(int i = 1; i < size; i++)
 	{
@@ -32,6 +33,7 @@ JNIEXPORT jint JNICALL Java_Math_getMax
 			max = arr[i];
 		}
 	}
+	jenv->ReleaseIntArrayElements(array, arr, 0);
 	return max;
 }
 
@@ -41,8 +43,9 @@ JNIEXPORT jint JNICALL Java_Math_getMax
  * Signature: ([II)I
  */
 JNIEXPORT jint JNICALL Java_Math_getMin
-  (JNIEnv * jenv, jobject jobj, jintArray arr, jint size)
+  (JNIEnv * jenv, jobject jobj, jintArray array, jint size)
 {
+	jint *arr = jenv->GetIntArrayElements(array, 0);
 	int min = arr[0];
 	for(int i = 1; i < size; i++)
 	{
@@ -51,6 +54,7 @@ JNIEXPORT jint JNICALL Java_Math_getMin
 			min = arr[i];
 		}
 	}
+	jenv->ReleaseIntArrayElements(array, arr, 0);
 	return min;
 }
 
@@ -60,8 +64,10 @@ JNIEXPORT jint JNICALL Java_Math_getMin
  * Signature: ([II)[I
  */
 JNIEXPORT jintArray JNICALL Java_Math_sortArrToMax
-  (JNIEnv * jenv, jobject jobj, jintArray arr, jint size)
+  (JNIEnv * jenv, jobject jobj, jintArray array, jint size)
 {
+	jint *arr = jenv->GetIntArrayElements(array, 0);
+	jintArray assortedArray = jenv->NewIntArray(size);
 	int tmp;
 	for(int i = 1; i < size; i++)
 	{
@@ -75,7 +81,9 @@ JNIEXPORT jintArray JNICALL Java_Math_sortArrToMax
 			}
 		}
 	}
-	return arr;
+	jenv->SetIntArrayRegion(assortedArray, 0, size, arr);
+	jenv->ReleaseIntArrayElements(array, arr, 0);
+	return assortedArray;
 }
 
 /*
@@ -83,9 +91,10 @@ JNIEXPORT jintArray JNICALL Java_Math_sortArrToMax
  * Method:    sortArrToMin
  * Signature: ([II)[I
  */
-JNIEXPORT jintArray JNICALL Java_Math_sortArrToMin
-  (JNIEnv * jenv, jobject jobj, jintArray arr, jint size);
+JNIEXPORT void JNICALL Java_Math_sortArrToMin
+  (JNIEnv * jenv, jobject jobj, jintArray array, jint size)
 {
+	jint *arr = jenv->GetIntArrayElements(array, 0);
 	int tmp;
         for(int i = 1; i < size; i++)
         {
@@ -99,5 +108,7 @@ JNIEXPORT jintArray JNICALL Java_Math_sortArrToMin
                         }
                 }
         }
-        return arr;
+	jenv->ReleaseIntArrayElements(array, arr, 0);
+
+       
 }

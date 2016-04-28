@@ -5,7 +5,7 @@ public class ShowMath
 		Math math = new Math();
 		int size = 5;
 		int[] arr = new int[size];
-		math.getFactorial(3);
+		System.out.println("Factorial --- " +math.getFactorial(3));
 		math.getMax(arr,size);
 		math.getMin(arr,size);
 		math.sortArrToMax(arr,size);

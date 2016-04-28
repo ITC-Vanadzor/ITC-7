@@ -7,8 +7,17 @@ public class MathTest {
 	System.out.println("Min Element --- " + mathObj.minElement(array));
 	System.out.println("Assorted array --- " );
 	int[] arrayTmp = mathObj.sortArray(array);
+	printArray(array);
 	System.out.println("Assorted array / void --- ");
-	 mathObj.sortArrayVoid(array);
+	mathObj.sortArrayVoid(array);
 
-    }    
+    }
+
+    public static void printArray(int[] array) {
+	System.out.println(" Java Array before sorting  ---  ");
+	for (int i=0; i < array.length; ++i) {
+	    System.out.print(array[i] + "  ");    
+	}	
+	System.out.println();
+    }
 }

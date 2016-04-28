@@ -45,10 +45,13 @@ JNIEXPORT jint JNICALL Java_JNIMath_minElement (JNIEnv * env, jobject jobj, jint
 JNIEXPORT jintArray JNICALL Java_JNIMath_sortArray (JNIEnv *env, jobject jobj, jintArray array) {
     jsize len = env->GetArrayLength(array);
     jint *arr = env->GetIntArrayElements(array, 0);
+    
     jintArray assortedArray = env->NewIntArray(len);
-    std::sort(arr, arr+len);
     env->SetIntArrayRegion(assortedArray, 0, len, arr);
     jint *arrAssorted = env->GetIntArrayElements(assortedArray, 0);
+    
+    std::sort(arrAssorted, arrAssorted+len);
+
     // Print assorted array
     for (int i=0; i<len; ++i) {
 	std::cout << arrAssorted[i] << "  ";
@@ -62,7 +65,6 @@ JNIEXPORT jintArray JNICALL Java_JNIMath_sortArray (JNIEnv *env, jobject jobj, j
 JNIEXPORT void JNICALL Java_JNIMath_sortArrayVoid (JNIEnv *env, jobject jobj, jintArray array) {
     jsize len = env->GetArrayLength(array);
     jint *arr = env->GetIntArrayElements(array, 0);
-    int lenTmp=len;
     std::sort(arr, arr+len);
     // Print assorted array
     for (int i=0; i<len; ++i) {

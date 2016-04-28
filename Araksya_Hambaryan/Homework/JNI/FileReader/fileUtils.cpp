@@ -19,7 +19,7 @@ class fileUtils{
 		std::cout << "File could not be created" << std::endl;
 	    }
 	}
-	void writeInFile(char* text) {
+	void writeInFile(std::string text) {
 	    myFile << text <<std::endl;
 	}
 	void readFile() {

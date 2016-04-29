@@ -9,11 +9,51 @@ extern "C" {
 #endif
 /*
  * Class:     JNIFile
- * Method:    fileActions
+ * Method:    createFile
+ * Signature: (Ljava/lang/String;)V
+ */
+JNIEXPORT void JNICALL Java_JNIFile_createFile
+  (JNIEnv *, jobject, jstring);
+
+/*
+ * Class:     JNIFile
+ * Method:    writeFile
+ * Signature: (Ljava/lang/String;)V
+ */
+JNIEXPORT void JNICALL Java_JNIFile_writeFile
+  (JNIEnv *, jobject, jstring);
+
+/*
+ * Class:     JNIFile
+ * Method:    readFile
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_JNIFile_fileActions
+JNIEXPORT void JNICALL Java_JNIFile_readFile
   (JNIEnv *, jobject);
+
+/*
+ * Class:     JNIFile
+ * Method:    deleteFile
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_JNIFile_deleteFile
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     JNIFile
+ * Method:    createFileStatic
+ * Signature: (Ljava/lang/String;)V
+ */
+JNIEXPORT void JNICALL Java_JNIFile_createFileStatic
+  (JNIEnv *, jclass, jstring);
+
+/*
+ * Class:     JNIFile
+ * Method:    deleteFileStatic
+ * Signature: (Ljava/lang/String;)V
+ */
+JNIEXPORT void JNICALL Java_JNIFile_deleteFileStatic
+  (JNIEnv *, jclass, jstring);
 
 #ifdef __cplusplus
 }

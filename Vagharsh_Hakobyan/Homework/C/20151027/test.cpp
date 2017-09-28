@@ -1,3 +1,5 @@
+//Գրաֆիկական գրադարանի ինստալյացիան և օգրագործումը նայել այստեղ
+// https://askubuntu.com/questions/525051/how-do-i-use-graphics-h-in-ubuntu
 /*  demo.c*/
 #include<graphics.h>
 //#include <iostream>

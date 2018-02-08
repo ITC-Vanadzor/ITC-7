@@ -1,6 +1,8 @@
 //Գրաֆիկական գրադարանի ինստալյացիան և օգրագործումը նայել այստեղ
 // https://askubuntu.com/questions/525051/how-do-i-use-graphics-h-in-ubuntu
 //Եռանկյունների հատում տարածության մեջ (էպյուրների մեթոդով)
+//Կոմպիլյացիա անել այս ձևով՝ gcc demo.c -o demo -lgraph, որտեղ demo.c-ն մեր
+//ֆայլի անունն է, demo-ն՝ մեր աշխատանքային ֆայլը
 #include <cmath>
 #include <graphics.h>
 #include <iostream>

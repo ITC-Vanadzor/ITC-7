@@ -1,0 +1,2 @@
+UPDATE `qartaran` SET `guyqahamar`=CONCAT('Ռ',`guyqahamar`) WHERE `qartaran_id`=125325
+
